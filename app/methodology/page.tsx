@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import Figure from "@/components/figures/Figure";
-import { content, meta } from "@/lib/data";
+import { content, meta, figureById } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Methodology",
@@ -33,7 +33,7 @@ export default function MethodologyPage() {
         ))}
       </div>
 
-      <Figure id="prisma" maxWidth={620} />
+      <Figure figure={figureById("prisma")} maxWidth={620} />
 
       {sr.blocks.map((b, i) => (
         <section key={i} className="mt-8">

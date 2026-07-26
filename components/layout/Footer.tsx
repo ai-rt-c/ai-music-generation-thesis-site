@@ -1,6 +1,6 @@
-import { meta } from "@/lib/data";
+import type { Meta } from "@/lib/types";
 
-export default function Footer() {
+export default function Footer({ meta }: { meta: Meta }) {
   return (
     <footer className="mt-16 border-t border-line bg-white">
       <div className="mx-auto max-w-content px-5 py-10 text-sm text-muted">

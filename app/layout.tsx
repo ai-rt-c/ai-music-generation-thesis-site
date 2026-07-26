@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
         </div>
-        <Footer />
+        <Footer meta={meta} />
       </body>
     </html>
   );

@@ -36,6 +36,6 @@ export const topSystems = () =>
     .filter((x) => (x.evaluation?.scores.overall ?? 0) >= 4)
     .sort((a, b) => (b.evaluation.scores.overall ?? 0) - (a.evaluation.scores.overall ?? 0));
 
-// Base path helper for public assets under GitHub Pages.
-export const asset = (path: string) =>
-  `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/${path.replace(/^\//, "")}`;
+export { asset } from "@/lib/util";
+
+export const figureById = (id: string) => meta.figures.find((f) => f.id === id);
