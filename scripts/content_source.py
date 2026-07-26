@@ -4,7 +4,7 @@
 # it all originates here and is emitted to /data by build_data.py.
 
 LAST_UPDATED = "2026-07-26"
-REPO_URL = "https://github.com/ztahawori/ai-music-review"  # update to your repo
+REPO_URL = "https://github.com/ai-rt-c/ai-music-generation-thesis-site"
 
 META = {
     "title": "Artificial Intelligence for Music Generation, Arrangement and Orchestration",
