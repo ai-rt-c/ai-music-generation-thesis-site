@@ -1,0 +1,175 @@
+[
+  {
+    "id": "t1",
+    "number": 1,
+    "name": "Tokenization and structure-aware representation engineering",
+    "periodLabel": "2020–2022 (dominant); persists thereafter",
+    "span": {
+      "start": 2020,
+      "end": 2022,
+      "seedStart": 2020
+    },
+    "coreIdea": "Injecting musical structure into the token vocabulary — metre, polyphony, track identity — proved cheaper and more effective than redesigning the network.",
+    "whyItMatters": "Representation choice was a substantive scientific question whose answers became the field's shared infrastructure.",
+    "representativeIds": [
+      "89",
+      "309",
+      "326",
+      "313",
+      "312",
+      "83",
+      "317"
+    ]
+  },
+  {
+    "id": "t2",
+    "number": 2,
+    "name": "Controllability as a persistent research axis",
+    "periodLabel": "2020 seeds; dominant 2022–2025",
+    "span": {
+      "start": 2022,
+      "end": 2025,
+      "seedStart": 2020
+    },
+    "coreIdea": "Control migrates from the latent space, to the training objective, and finally to the sampling process of a frozen model.",
+    "whyItMatters": "Controllability turns generation systems into usable creative tools and is the property most consistently evaluated.",
+    "representativeIds": [
+      "375",
+      "314",
+      "315",
+      "354",
+      "378",
+      "48",
+      "49"
+    ]
+  },
+  {
+    "id": "t3",
+    "number": 3,
+    "name": "Paradigm evolution: from autoregressive tokens to iterative refinement",
+    "periodLabel": "2020–2025, in three stages",
+    "span": {
+      "start": 2020,
+      "end": 2025
+    },
+    "coreIdea": "Autoregression discretises and streams; diffusion offers whole-context, non-causal generation with control; flow matching and state-space backbones emerge as successors. The result is a division of labour, not replacement.",
+    "whyItMatters": "This evolution supplies the generative machinery of the entire second half of the corpus.",
+    "representativeIds": [
+      "92",
+      "328",
+      "329",
+      "62",
+      "332",
+      "57",
+      "334",
+      "379"
+    ]
+  },
+  {
+    "id": "t4",
+    "number": 4,
+    "name": "Language as the interface: text-to-music and LLM-based composition",
+    "periodLabel": "2023–2025",
+    "span": {
+      "start": 2023,
+      "end": 2025
+    },
+    "coreIdea": "Language enters first as the conditioning signal, then as the model itself — importing dialogue, reasoning and tool use into composition.",
+    "whyItMatters": "Language collapsed the entry barrier to music generation and imported interactive workflows into composition.",
+    "representativeIds": [
+      "76",
+      "58",
+      "324",
+      "378",
+      "360",
+      "316",
+      "280",
+      "364"
+    ]
+  },
+  {
+    "id": "t5",
+    "number": 5,
+    "name": "Large-scale pretraining and music foundation models",
+    "periodLabel": "understanding-first from 2021; generation 2024–2025",
+    "span": {
+      "start": 2024,
+      "end": 2025,
+      "seedStart": 2021
+    },
+    "coreIdea": "The unit of progress shifts from the task-specific architecture to the reusable pretrained checkpoint — understanding first, generation second.",
+    "whyItMatters": "It changes what counts as a contribution and sets the field's working assumptions at the review's endpoint.",
+    "representativeIds": [
+      "311",
+      "321",
+      "365",
+      "74",
+      "65",
+      "30",
+      "322"
+    ]
+  },
+  {
+    "id": "t6",
+    "number": 6,
+    "name": "Arrangement matures: from accompaniment to stem-aware co-creation",
+    "periodLabel": "2020–2025, shift around 2023",
+    "span": {
+      "start": 2020,
+      "end": 2025,
+      "seedStart": 2020
+    },
+    "coreIdea": "Arrangement moves from autonomous accompaniment to responding to material a human actually provides — audio, vocals, existing stems.",
+    "whyItMatters": "Arrangement is where the corpus moves most decisively toward assistive, context-aware musicianship.",
+    "representativeIds": [
+      "345",
+      "346",
+      "351",
+      "349",
+      "352",
+      "19",
+      "20"
+    ]
+  },
+  {
+    "id": "t7",
+    "number": 7,
+    "name": "Orchestration: from optimization to neural modeling",
+    "periodLabel": "2021–2025; the smallest, most thesis-specific trend",
+    "span": {
+      "start": 2021,
+      "end": 2025
+    },
+    "coreIdea": "Orchestration recapitulates the field's evolution — optimisation, representation engineering, controllable deep models — but compressed, delayed and under-populated.",
+    "whyItMatters": "It establishes the clearest research gap in the corpus, directly motivating this thesis's orchestration focus.",
+    "representativeIds": [
+      "357",
+      "359",
+      "313",
+      "259"
+    ]
+  },
+  {
+    "id": "t8",
+    "number": 8,
+    "name": "Efficiency, alignment, and evaluation maturity",
+    "periodLabel": "2024–2025, with a 2020 precursor",
+    "span": {
+      "start": 2024,
+      "end": 2025,
+      "seedStart": 2020
+    },
+    "coreIdea": "Once capability was established, research turned inward — making generation fast (non-autoregressive, distillation), aligned (RLHF) and measurable (benchmarking, bias analysis).",
+    "whyItMatters": "Deployment, alignment and measurement validity jointly determine whether reported progress is real and usable.",
+    "representativeIds": [
+      "78",
+      "337",
+      "340",
+      "338",
+      "383",
+      "374",
+      "373",
+      "376"
+    ]
+  }
+]

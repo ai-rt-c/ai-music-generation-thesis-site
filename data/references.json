@@ -1,0 +1,602 @@
+[
+  {
+    "key": "agostinelli",
+    "text": "Agostinelli, A., Denk, T. I., Borsos, Z., Engel, J., Verzetti, M., Caillon, A., Huang, Q., Jansen, A., Roberts, A., Tagliasacchi, M., Sharifi, M., Zeghidour, N., & Frank, C. (2023). MusicLM: Generating Music From Text. arXiv 2023. https://doi.org/10.48550/arXiv.2301.11325",
+    "included": true
+  },
+  {
+    "key": "bai",
+    "text": "Bai, Y., Chen, H., Chen, J., Chen, Z., Deng, Y., Dong, X., Hantrakul, L., Hao, W., Huang, Q., Huang, Z., Jia, D., La, F., Le, D., Li, B., Li, C., Li, H., Li, X., Liu, S., Lu, W., Lu, Y., Shaw, A., Spijkervet, J., Sun, Y., Wang, B., Wang, J., Wang, Y., Wang, Y., Xu, L., Yang, Y., Yao, C., Zhang, S., Zhang, Y., Zhang, Y., Zhao, H., Zhao, Z., Zhong, D., Zhou, S., & Zou, P. (2024). Seed-Music: A Unified Framework for High Quality and Controlled Music Generation. arXiv 2024 (ByteDance technical report). https://doi.org/10.48550/arXiv.2409.09214",
+    "included": true
+  },
+  {
+    "key": "baoueb",
+    "text": "Baoueb, T., Bie, X., Janati, H., & Richard, G. (2024). WaveTransfer: A Flexible End-to-end Multi-instrument Timbre Transfer with Diffusion. IEEE MLSP 2024. https://doi.org/10.1109/MLSP58920.2024.10734764",
+    "included": true
+  },
+  {
+    "key": "barnabò",
+    "text": "Barnabò, G., Trappolini, G., Lastilla, L., Campagnano, C., Fan, A., Petroni, F., & Silvestri, F. (2023). CycleDRUMS: automatic drum arrangement for bass lines using CycleGAN. Discover Artificial Intelligence. https://doi.org/10.1007/s44163-024-00107-6",
+    "included": true
+  },
+  {
+    "key": "borsos",
+    "text": "Borsos, Z., Marinier, R., Vincent, D., Kharitonov, E., Pietquin, O., et al. (2022). AudioLM: A Language Modeling Approach to Audio Generation. IEEE/ACM TASLP 2023. https://doi.org/10.1109/TASLP.2023.3288409",
+    "included": true
+  },
+  {
+    "key": "briot",
+    "text": "Briot, J. P., Hadjeres, G., & Pachet, F. D. (2020). Deep learning techniques for music generation. Springer.",
+    "included": false
+  },
+  {
+    "key": "cella",
+    "text": "Cella, C. E. (2022). Orchidea: A Comprehensive Framework for Target-Based Computer-Assisted Dynamic Orchestration. Journal of New Music Research. https://doi.org/10.1080/09298215.2022.2150650",
+    "included": true
+  },
+  {
+    "key": "cella",
+    "text": "Cella, C. E., Dzwonczyk, L. J., Saldarriaga-Fuertes, A., Liu, H., & Crayencour, H. (2022). Neural Models for Target-Based Computer-Assisted Musical Orchestration. Journal of Creative Music Systems. https://doi.org/10.5281/zenodo.4285355",
+    "included": true
+  },
+  {
+    "key": "cella",
+    "text": "Cella, C. E., Ghisi, D., Maresz, Y., Petrolati, A., Teiller, A., & Esling, P. (2021). Dynamic Computer-Aided Orchestration in Practice with Orchidea. Computer Music Journal 2021. https://doi.org/10.1162/comj_a_00629",
+    "included": true
+  },
+  {
+    "key": "chen",
+    "text": "Chen, J., Xue, W., Tan, X., Ye, Z., Liu, Q., & Guo, Y. (2024). FastSAG: Towards Fast Non-Autoregressive Singing Accompaniment Generation. IJCAI 2024. https://doi.org/10.24963/ijcai.2024/850",
+    "included": true
+  },
+  {
+    "key": "chen",
+    "text": "Chen, K., Wu, Y., Liu, H., Nezhurina, M., Berg-Kirkpatrick, T., & Dubnov, S. (2024). MusicLDM: Enhancing Novelty in Text-to-Music Generation Using Beat-Synchronous Mixup. ICASSP 2024. https://doi.org/10.1109/ICASSP48485.2024.10447265",
+    "included": true
+  },
+  {
+    "key": "choi",
+    "text": "Choi, C., Kim, J., Park, J., & Lee, S. (2023). Pop2Piano: Pop Audio-Based Piano Cover Generation. ICASSP 2023. https://doi.org/10.1109/ICASSP49357.2023.10095844",
+    "included": true
+  },
+  {
+    "key": "chou",
+    "text": "Chou, J. Y., Chi, T. H., Shih, Y. J., & Yang, Y. H. (2024). MidiBERT-Piano: Large-scale Pre-training for Symbolic Music Understanding. arXiv. https://doi.org/10.48550/arXiv.2107.05223",
+    "included": true
+  },
+  {
+    "key": "cideron",
+    "text": "Cideron, G., Girgin, S., Verzetti, M., Vincent, D., Kastelic, M., Borsos, Z., et al. (2024). MusicRL: Aligning Music Generation to Human Preferences. arXiv (Google DeepMind). https://doi.org/10.48550/arXiv.2402.04229",
+    "included": true
+  },
+  {
+    "key": "copet",
+    "text": "Copet, J., Kreuk, F., Gat, I., Remez, T., Kant, D., Synnaeve, G., Adi, Y., & Défossez, A. (2024). Simple and Controllable Music Generation (MusicGen). NeurIPS 2023. https://doi.org/10.48550/arXiv.2306.05284",
+    "included": true
+  },
+  {
+    "key": "cui",
+    "text": "Cui, X. H., Hu, P., & Huang, Z. (2025). Music sequence generation and arrangement based on transformer model. Journal of Computational Methods in Sciences and Engineering. https://doi.org/10.1177/14727978251337904",
+    "included": true
+  },
+  {
+    "key": "cífka",
+    "text": "Cífka, O., Şimşekli, U., & Richard, G. (2020). Groove2Groove: One-Shot Music Style Transfer with Supervision from Synthetic Data. IEEE/ACM TASLP 2020. https://doi.org/10.1109/TASLP.2020.3019642",
+    "included": true
+  },
+  {
+    "key": "dash",
+    "text": "Dash, A., & Agres, K. (2024). AI-based affective music generation systems: A review of methods and challenges. ACM Computing Surveys, 56(11), 1–34.",
+    "included": false
+  },
+  {
+    "key": "deng",
+    "text": "Deng, Q., Yang, Q., Yuan, R., Huang, Y., Wang, Y., Liu, X., Tian, Z., Pan, J., Zhang, G., Lin, H., Li, Y., Ma, Y., Fu, J., Lin, C., Benetos, E., Wang, W., Xia, G., Xue, W., & Guo, Y. (2024). ComposerX: Multi-Agent Symbolic Music Composition with LLMs. ISMIR 2024. https://doi.org/10.5281/zenodo.14877424",
+    "included": true
+  },
+  {
+    "key": "dhariwal",
+    "text": "Dhariwal, P., Jun, H., Payne, C., Kim, J. W., Radford, A., & Sutskever, I. (2020). Jukebox: A Generative Model for Music. arXiv 2020. https://doi.org/10.48550/arXiv.2005.00341",
+    "included": true
+  },
+  {
+    "key": "ding",
+    "text": "Ding, F., & Cui, Y. (2023). MuseFlow: music accompaniment generation based on flow. Applied Intelligence. https://doi.org/10.1007/s10489-023-04664-8",
+    "included": true
+  },
+  {
+    "key": "ding",
+    "text": "Ding, Q., Cai, Z., Wu, J., Pan, W., Li, D., Kong, L., & Liu, B. (2025). SongComposer: A Large Language Model for Lyric and Melody Composition in Song Generation. arXiv. https://doi.org/10.48550/arXiv.2402.17645",
+    "included": true
+  },
+  {
+    "key": "donahue",
+    "text": "Donahue, C., Simon, I., & Dieleman, S. (2023). SingSong: Generating Musical Accompaniments from Singing. arXiv (Google DeepMind). https://doi.org/10.48550/arXiv.2301.12662",
+    "included": true
+  },
+  {
+    "key": "dong",
+    "text": "Dong, H. W., Chen, K., Dubnov, S., McAuley, J., & Berg-Kirkpatrick, T. (2023). Multitrack Music Transformer. ICASSP 2023. https://doi.org/10.1109/ICASSP49357.2023.10095769",
+    "included": true
+  },
+  {
+    "key": "ens",
+    "text": "Ens, J., & Pasquier, P. (2020). MMM: Exploring Conditional Multi-Track Music Generation with the Transformer. arXiv. https://doi.org/10.48550/arXiv.2008.06048",
+    "included": true
+  },
+  {
+    "key": "evans",
+    "text": "Evans, Z., Carr, C. J., Taylor, J., Hawley, S. H., & Pons, J. (2024). Fast Timing-Conditioned Latent Audio Diffusion. ICML 2024. https://doi.org/10.48550/arXiv.2402.04825",
+    "included": true
+  },
+  {
+    "key": "evans",
+    "text": "Evans, Z., Parker, J. D., Carr, C. J., Zukowski, Z., Taylor, J., & Pons, J. (2024). Long-form music generation with latent diffusion. ISMIR 2024. https://doi.org/10.48550/arXiv.2404.10301",
+    "included": true
+  },
+  {
+    "key": "evans",
+    "text": "Evans, Z., Parker, J. D., Carr, C. J., Zukowski, Z., Taylor, J., & Pons, J. (2024). Stable Audio Open. ICASSP 2025. https://doi.org/10.48550/arXiv.2407.14358",
+    "included": true
+  },
+  {
+    "key": "gao",
+    "text": "Gao, T. (2020). An Automatic Music Arrangement System Using Machine Learning. MSc thesis, Waseda University 2020. https://waseda.repo.nii.ac.jp/record/58137/files/t5118FG19.pdf",
+    "included": true
+  },
+  {
+    "key": "garcia",
+    "text": "Garcia, H. F., Seetharaman, P., Kumar, R., & Pardo, B. (2023). VampNet: Music Generation via Masked Acoustic Token Modeling. ISMIR 2023. https://doi.org/10.5281/zenodo.10265298",
+    "included": true
+  },
+  {
+    "key": "gong",
+    "text": "Gong, J., Zhao, S., Wang, S., Xu, S., & Guo, J. (2025). ACE-Step: A Step Towards Music Generation Foundation Model. arXiv 2025. https://doi.org/10.48550/arXiv.2506.00045",
+    "included": true
+  },
+  {
+    "key": "grötschla",
+    "text": "Grötschla, F., Solak, A., Lanzendörfer, L., & Wattenhofer, R. (2024). Benchmarking Music Generation Models and Metrics via Human Preference Studies. NeurIPS 2024 Workshop / ICASSP 2025. https://doi.org/10.48550/arXiv.2506.19085",
+    "included": true
+  },
+  {
+    "key": "guo",
+    "text": "Guo, R. (2022). An interactive music infilling interface for pop music composition. Applied Sciences. https://doi.org/10.48550/arXiv.2203.12736",
+    "included": true
+  },
+  {
+    "key": "guo",
+    "text": "Guo, R., Simpson, I., Kiefer, C., Magnusson, T., & Herremans, D. (2022). MusIAC: An Extensible Generative Framework for Music Infilling Applications with Multi-level Control. Artificial Intelligence in Music, Sound, Art and Design. https://doi.org/10.1007/978-3-031-03789-4_22",
+    "included": true
+  },
+  {
+    "key": "guo",
+    "text": "Guo, Y., Liu, Y., Zhou, T., Xu, L., & Zhang, Q. (2023). An Automatic Music Generation and Evaluation Method Based on Transfer Learning. PLoS ONE. https://doi.org/10.1371/journal.pone.0283103",
+    "included": true
+  },
+  {
+    "key": "guo",
+    "text": "Guo, Z., & Dixon, S. (2025). Moonbeam: A MIDI Foundation Model Using Both Absolute and Relative Music Attributes. arXiv 2025. https://doi.org/10.48550/arXiv.2505.15559",
+    "included": true
+  },
+  {
+    "key": "hawthorne",
+    "text": "Hawthorne, C., Simon, I., Roberts, A., Zeghidour, N., Gardner, J., Manilow, E., & Engel, J. (2022). Multi-Instrument Music Synthesis with Spectrogram Diffusion. ISMIR 2022. https://doi.org/10.5281/zenodo.7316733",
+    "included": true
+  },
+  {
+    "key": "herremans",
+    "text": "Herremans, D., Chuan, C. H., & Chew, E. (2017). A functional taxonomy of music generation systems. ACM Computing Surveys, 50(5), 1–41.",
+    "included": false
+  },
+  {
+    "key": "hsiao",
+    "text": "Hsiao, W. Y., Liu, J. Y., Yeh, Y. C., & Yang, Y. H. (2021). Compound Word Transformer: Learning to Compose Full-Song Music\nover Dynamic Directed Hypergraphs. AAAI 2021. https://doi.org/10.1609/aaai.v35i1.16091",
+    "included": true
+  },
+  {
+    "key": "huang",
+    "text": "Huang, Q., Park, D. S., Wang, T., Denk, T. I., Ly, A., Chen, N., Zhang, Z., Zhang, Z., Yu, J., Frank, C., Engel, J., Le, Q. V., Chan, W., Chen, Z., & Han, W. (2023). Noise2Music: Text-conditioned Music Generation with Diffusion Models. arXiv 2023. https://doi.org/10.48550/arXiv.2302.03917",
+    "included": true
+  },
+  {
+    "key": "huang",
+    "text": "Huang, W., Xue, Y., Xu, Z., Peng, G., & Wu, Y. (2022). Polyphonic music generation generative adversarial network with Markov decision process. Multimedia Tools and Applications. https://doi.org/10.1007/s11042-022-12925-w",
+    "included": true
+  },
+  {
+    "key": "huang",
+    "text": "Huang, Y., & Yang, Y. (2020). Pop Music Transformer: Beat-based Modeling and Generation of Expressive Pop Piano Compositions. ACM Multimedia 2020. https://doi.org/10.1145/3394171.3413671",
+    "included": true
+  },
+  {
+    "key": "huang",
+    "text": "Huang, Y., Ghatare, A., Liu, Y., Hu, Z., Zhang, Q., Sastry, C. S., Gururani, S., Oore, S., & Yue, Y. (2024). Symbolic Music Generation with Non-Differentiable Rule Guided Diffusion. ICML 2024. https://doi.org/10.48550/arXiv.2402.14285",
+    "included": true
+  },
+  {
+    "key": "hussain",
+    "text": "Hussain, A. S., Liu, S., Sun, C., & Shan, Y. (2023). M2UGen: Multi-Modal Music Understanding and Generation. arXiv. https://doi.org/10.48550/arXiv.2311.11255",
+    "included": true
+  },
+  {
+    "key": "ji",
+    "text": "Ji, S., Yang, X., & Luo, J. (2023). A survey on deep learning for symbolic music generation: Representations, algorithms, evaluations, and challenges. ACM Computing Surveys, 56(1), 1–39.",
+    "included": false
+  },
+  {
+    "key": "jiang",
+    "text": "Jiang, J., Xia, G., Carlton, D. B., Anderson, C. N., & Miyakawa, R. H. (2020). Transformer VAE: A Hierarchical Model for Structure-Aware Music Representation. IEEE. https://doi.org/10.1109/ICASSP40776.2020.9054554",
+    "included": true
+  },
+  {
+    "key": "karchkhadze",
+    "text": "Karchkhadze, T., Izadi, M. R., Chen, K., Assayag, G., & Dubnov, S. (2024). Multi-Track MusicLDM: Towards Versatile Music Generation with Latent Diffusion Model. ICASSP 2025. https://doi.org/10.48550/arXiv.2409.02845",
+    "included": true
+  },
+  {
+    "key": "li",
+    "text": "Li, S., & Martin, C. P. (2020). Comparing Three Data Representations for Music with a Sequence-to-Sequence Model. AI 2020: Advances in Artificial Intelligence. https://doi.org/10.1007/978-3-030-64984-5_2",
+    "included": true
+  },
+  {
+    "key": "li",
+    "text": "Li, Y., Yuan, R., Zhang, G., Ma, Y., Chen, X., Yin, H., et al. (2024). MERT: Acoustic Music Understanding Model with Large-Scale Self-Supervised Training. ICLR 2024. https://doi.org/10.48550/arXiv.2306.00107",
+    "included": true
+  },
+  {
+    "key": "lin",
+    "text": "Lin, L., Xia, G., Jiang, J., & Zhang, Y. (2023). Content-based Controls for Music Large Language Modeling. ISMIR 2024. https://doi.org/10.5281/zenodo.14877447",
+    "included": true
+  },
+  {
+    "key": "liu",
+    "text": "Liu, H., Chen, Z., Yuan, Y., Mei, X., Liu, X., Mandic, D., Wang, W., & Plumbley, M. D. (2023). AudioLDM: Text-to-Audio Generation with Latent Diffusion Models. ICML 2023. https://doi.org/10.48550/arXiv.2301.12503",
+    "included": true
+  },
+  {
+    "key": "liu",
+    "text": "Liu, H., Tian, Q., Yuan, Y., Liu, X., Mei, X., Kong, Q., et al. (2024). AudioLDM 2: Learning Holistic Audio Generation with Self-Supervised Pretraining. IEEE/ACM TASLP 2024. https://doi.org/10.1109/TASLP.2024.3399607",
+    "included": true
+  },
+  {
+    "key": "liu",
+    "text": "Liu, J., Dong, Y., Cheng, Z., Zhang, X., Li, X., Yu, F., & Sun, M. (2022). Symphony Generation with Permutation Invariant Language Model (SymphonyNet). ISMIR 2022. https://doi.org/10.5281/zenodo.7316721",
+    "included": true
+  },
+  {
+    "key": "liu",
+    "text": "Liu, S., Hussain, A. S., Sun, C., & Shan, Y. (2024). Music Understanding LLaMA: Advancing Text-to-Music Generation. ICASSP 2024. https://doi.org/10.48550/arXiv.2308.11276",
+    "included": true
+  },
+  {
+    "key": "lu",
+    "text": "Lu, P., Xu, X., Kang, C., Yu, B., Xing, C., Tan, X., & Bian, J. (2023). MuseCoco: Generating Symbolic Music from Text. arXiv (Microsoft Research). https://doi.org/10.48550/arXiv.2306.00110",
+    "included": true
+  },
+  {
+    "key": "lucht",
+    "text": "Lucht, D. A., Leins, D. P., von Rütte, D., & Moringen, A. (2024). Three-modal guidance for symbolic music generation: melody, structure, texture. Audio Imagination: NeurIPS 2024 Workshop AI-Driven Speech, Music, and Sound Generation. https://openreview.net/forum?id=TvmdURcO5z",
+    "included": true
+  },
+  {
+    "key": "luo",
+    "text": "Luo, J., Yang, X., & Herremans, D. (2025). BandControlNet: Parallel Transformers-Based Steerable Popular Music Generation. arXiv. https://doi.org/10.48550/arXiv.2407.10462",
+    "included": true
+  },
+  {
+    "key": "lv",
+    "text": "Lv, A., Tan, X., Lu, P., Ye, W., Zhang, S., Bian, J., & Yan, R. (2023). GETMusic: Generating Any Music Tracks with a Unified Representation and Diffusion Framework. NeurIPS 2023. https://doi.org/10.48550/arXiv.2305.10841",
+    "included": true
+  },
+  {
+    "key": "mariani",
+    "text": "Mariani, G., Tallini, I., Postolache, E., Mancusi, M., Cosmo, L., & Rodolà, E. (2024). Multi-Source Diffusion Models for Simultaneous Music Generation and Separation. ICLR 2024. https://doi.org/10.48550/arXiv.2302.02257",
+    "included": true
+  },
+  {
+    "key": "mehta",
+    "text": "Mehta, A., Chauhan, S., Djanibekov, M., Kulkarni, A., Xia, G., & Choudhury, M. (2025). Music for All: Representational Bias and Cross-Cultural Adaptability of Music Generation Models. arXiv. https://doi.org/10.48550/arXiv.2502.07328",
+    "included": true
+  },
+  {
+    "key": "melechovsky",
+    "text": "Melechovsky, J., Guo, Z., Ghosal, D., Majumder, N., Herremans, D., & Poria, S. (2023). Mustango: Toward Controllable Text-to-Music Generation. NAACL 2024. https://doi.org/10.18653/v1/2024.naacl-long.459",
+    "included": true
+  },
+  {
+    "key": "min",
+    "text": "Min, L., Jiang, J., Xia, G., & Zhao, J. (2023). Polyffusion: A Diffusion Model for Polyphonic Score Generation with Internal and External Controls. ISMIR 2023. https://doi.org/10.5281/zenodo.10265264",
+    "included": true
+  },
+  {
+    "key": "mittal",
+    "text": "Mittal, G., Engel, J., Hawthorne, C., & Simon, I. (2021). Symbolic Music Generation with Diffusion Models. ISMIR 2021. https://doi.org/10.5281/zenodo.5624362",
+    "included": true
+  },
+  {
+    "key": "multiple",
+    "text": "Multiple, A. (2023). Deep Learning's Shallow Gains: A Comparative Evaluation for Automatic Music Generation. Machine Learning (Springer). https://doi.org/10.1007/s10994-023-06309-w",
+    "included": true
+  },
+  {
+    "key": "nistal",
+    "text": "Nistal, J., et al. (2024). Diff-A-Riff: Musical Accompaniment Co-creation via Latent Diffusion Models. ISMIR 2024. https://doi.org/10.48550/arXiv.2406.08384",
+    "included": true
+  },
+  {
+    "key": "nistal",
+    "text": "Nistal, J., Pasini, M., & Lattner, S. (2024). Improving Musical Accompaniment Co-creation via Diffusion Transformers. arXiv 2024. https://doi.org/10.48550/arXiv.2410.23005",
+    "included": true
+  },
+  {
+    "key": "novack",
+    "text": "Novack, Z., McAuley, J., Berg-Kirkpatrick, T., & Bryan, N. J. (2024). DITTO: Diffusion Inference-Time T-Optimization for Music Generation. ICML 2024. https://doi.org/10.48550/arXiv.2401.12179",
+    "included": true
+  },
+  {
+    "key": "novack",
+    "text": "Novack, Z., Zhu, G., Casebeer, J., McAuley, J., Berg-Kirkpatrick, T., & Bryan, N. J. (2025). Presto! Distilling Steps and Layers for Accelerating Music Generation. ICLR 2025. https://doi.org/10.48550/arXiv.2410.05167",
+    "included": true
+  },
+  {
+    "key": "ou",
+    "text": "Ou, L., & Wang, Y. (2025). PhraseVAE and PhraseLDM: Latent Diffusion for Full-Song Multitrack Symbolic Music Generation. arXiv 2025. https://doi.org/10.48550/arXiv.2512.11348",
+    "included": true
+  },
+  {
+    "key": "ou",
+    "text": "Ou, L., Zhao, J., Wang, Z., Xia, G., Liang, Q., & Wang, T. H. Y. (2025). Unifying Symbolic Music Arrangement: Track-Aware Reconstruction and Structured Tokenization. ISMIR 2024. https://doi.org/10.48550/arXiv.2408.15176",
+    "included": true
+  },
+  {
+    "key": "page",
+    "text": "Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, T. C., Mulrow, C. D., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. BMJ, 372.",
+    "included": false
+  },
+  {
+    "key": "parker",
+    "text": "Parker, J., Spijkervet, J., Kosta, K., Yesiler, F., Kuznetsov, B., Wang, J. C., et al. (2024). StemGen: A Music Generation Model That Listens. ICASSP 2024. https://doi.org/10.48550/arXiv.2312.08723",
+    "included": true
+  },
+  {
+    "key": "pasini",
+    "text": "Pasini, M., & Schlüter, J. (2022). MUSIKA: Fast Infinite Waveform Music Generation. ISMIR 2022. https://doi.org/10.5281/zenodo.7316719",
+    "included": true
+  },
+  {
+    "key": "pasquier",
+    "text": "Pasquier, P., Ens, J., Fradet, N., Triana, P., Rizzotti, D., Rolland, J., & Safi, M. (2025). MIDI-GPT: A Controllable Generative Model for Computer-Assisted Multitrack Music Composition. AAAI 2025. https://doi.org/10.48550/arXiv.2501.17011",
+    "included": true
+  },
+  {
+    "key": "plasser",
+    "text": "Plasser, M., Peter, S., & Widmer, G. (2023). Discrete Diffusion Probabilistic Models for Symbolic Music Generation. ISMIR 2023. https://doi.org/10.48550/arXiv.2305.09489",
+    "included": true
+  },
+  {
+    "key": "prajwal",
+    "text": "Prajwal, K. R., Shi, B., Lee, M., Vyas, A., Tjandra, A., Luthra, M., et al. (2024). MusicFlow: Cascaded Flow Matching for Text Guided Music Generation. ICML 2024. https://doi.org/10.48550/arXiv.2410.20478",
+    "included": true
+  },
+  {
+    "key": "qin",
+    "text": "Qin, Y., Xie, H., Ding, S., Tan, B., Li, Y., Zhao, B., & Ye, M. (2022). Bar Transformer: A Hierarchical Model for Learning Long-Term Structure in Pop Music. Applied Intelligence (Springer). https://doi.org/10.1007/s10489-022-04049-3",
+    "included": true
+  },
+  {
+    "key": "qu",
+    "text": "Qu, X., Bai, Y., Ma, Y., Zhou, Z., Lo, K. M., Liu, J., Yuan, R., Min, L., Liu, X., Zhang, T., Du, X., Guo, S., Liang, Y., Li, Y., Wu, S., Zhou, J., Zheng, T., Ma, Z., Han, F., Xue, W., Xia, G., Benetos, E., Yue, X., Lin, C., Tan, X., Huang, S. W., Fu, J., & Zhang, G. (2024). MuPT: A Generative Symbolic Music Pretrained Transformer. arXiv 2024. https://doi.org/10.48550/arXiv.2404.06393",
+    "included": true
+  },
+  {
+    "key": "ren",
+    "text": "Ren, Y., He, J., Tan, X., Qin, T., Zhao, Z., & Liu, T. Y. (2020). PopMAG: Pop Music Accompaniment Generation. ACM Multimedia 2020. https://doi.org/10.1145/3394171.3413721",
+    "included": true
+  },
+  {
+    "key": "rhyu",
+    "text": "Rhyu, S., Yang, K., Cho, S., Kim, J., Lee, K., & Lee, M. (2024). Practical and Reproducible Symbolic Music Generation by LLMs with Structural Embeddings. arXiv. https://doi.org/10.48550/arXiv.2407.19900",
+    "included": true
+  },
+  {
+    "key": "rütte",
+    "text": "Rütte, T., & Pasquier, P. (2024). FIGARO: Generating Symbolic Music with Fine-Grained Artistic Control. ICLR 2023. https://doi.org/10.48550/arXiv.2201.10936",
+    "included": true
+  },
+  {
+    "key": "shih",
+    "text": "Shih, Y., Wu, S., Zalkow, F., Müller, M., & Yang, Y. (2023). Theme Transformer: Symbolic Music Generation With Theme-Conditioned Transformer. IEEE Transactions on Multimedia. https://doi.org/10.1109/TMM.2022.3161851",
+    "included": true
+  },
+  {
+    "key": "tal",
+    "text": "Tal, O., Ziv, A., Gat, I., Kreuk, F., & Adi, Y. (2024). Joint Audio and Symbolic Conditioning for Temporally Controlled Text-to-Music Generation. ISMIR 2024. https://doi.org/10.48550/arXiv.2406.10970",
+    "included": true
+  },
+  {
+    "key": "tan",
+    "text": "Tan, H. H., & Herremans, D. (2020). Music FaderNets: Controllable Music Generation Based on High-Level Features. ISMIR 2020. https://doi.org/10.5281/zenodo.4245375",
+    "included": true
+  },
+  {
+    "key": "tanaka",
+    "text": "Tanaka, T. (2024). Integrating Machine Learning and Rule-Based Approaches in Symbolic Music Generation. 2024 IEEE International Conference on Big Data (BigData). https://doi.org/10.1109/BigData62323.2024.10826038",
+    "included": true
+  },
+  {
+    "key": "terao",
+    "text": "Terao, M., Hiramatsu, Y., Ishizuka, R., Wu, Y., & Yoshii, K. (2022). Difficulty-Aware Neural Band-to-Piano Score Arrangement based on Note- and Statistic-Level Criteria. ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). https://doi.org/10.1109/ICASSP43922.2022.9747615",
+    "included": true
+  },
+  {
+    "key": "terao",
+    "text": "Terao, M., Nakamura, E., & Yoshii, K. (2023). Neural Band-to-Piano Score Arrangement with Stepless Difficulty Control. ICASSP 2023 - 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). https://doi.org/10.1109/ICASSP49357.2023.10095695",
+    "included": true
+  },
+  {
+    "key": "thickstun",
+    "text": "Thickstun, J., Hall, D., Donahue, C., & Liang, P. (2024). Anticipatory Music Transformer. arXiv. https://doi.org/10.48550/arXiv.2306.08620",
+    "included": true
+  },
+  {
+    "key": "villa-renteria",
+    "text": "Villa-Renteria, I., Wang, M. L., Shah, Z., Li, Z., Kim, S., Ramachandran, N., & Pilanci, M. (2025). Subtractive Training for Music Stem Insertion using Latent Diffusion Models. arXiv 2024. https://doi.org/10.48550/arXiv.2406.19328",
+    "included": true
+  },
+  {
+    "key": "wang",
+    "text": "Wang, J., Sun, W., Wu, R., Fang, Y., Liu, R., Li, S., Li, Z., & Steven, X. (2022). A Novel Machine Learning Algorithm: Music Arrangement and Timbre Transfer System. 2022 5th International Conference on Information Communication and Signal Processing (ICICSP). https://doi.org/10.1109/ICICSP55539.2022.10050687",
+    "included": true
+  },
+  {
+    "key": "wang",
+    "text": "Wang, L., Zhao, Z., Liu, H., Pang, J., Qin, Y., & Wu, Q. (2024). A review of intelligent music generation systems. Neural Computing and Applications, 36(12), 6381–6401.",
+    "included": false
+  },
+  {
+    "key": "wang",
+    "text": "Wang, S. (2024). Real-time Symbolic Music Generation using Deep Learning Methods—An Interactive AI-based Improvisation System for Musicians. MSc thesis, Aalto University 2024. https://aaltodoc.aalto.fi/items/3b1cfe5f-b299-46b5-855a-d7e0b75d6791",
+    "included": true
+  },
+  {
+    "key": "wang",
+    "text": "Wang, Y., Wu, S., Hu, J., Du, X., et al. (2025). NotaGen: Advancing Musicality in Symbolic Music Generation with Large Language Model Training Paradigms. arXiv. https://doi.org/10.48550/arXiv.2502.18008",
+    "included": true
+  },
+  {
+    "key": "wang",
+    "text": "Wang, Z., Min, L., & Xia, G. (2024). Whole-Song Hierarchical Generation of Symbolic Music Using Cascaded Diffusion Models. ICLR 2024. https://doi.org/10.48550/arXiv.2405.09901",
+    "included": true
+  },
+  {
+    "key": "wang",
+    "text": "Wang, Z., Zhang, Y., Zhang, Y., Jiang, J., Yang, R., Xia, G., & Zhao, J. (2020). PianoTree VAE: Structured Representation Learning for Polyphonic Music. ISMIR 2020. https://doi.org/10.5281/zenodo.4245445",
+    "included": true
+  },
+  {
+    "key": "wu",
+    "text": "Wu, J., Ji, Z., & Li, P. (2024). C2-MAGIC: Chord-Controllable Multi-track Accompaniment Generation with Interpretability and Creativity. Music Intelligence. https://doi.org/10.1007/978-981-97-0576-4_8",
+    "included": true
+  },
+  {
+    "key": "wu",
+    "text": "Wu, S. L., & Yang, Y. H. (2020). The Jazz Transformer on the Front Line: Exploring the Shortcomings of AI-Composed Music. ISMIR 2020. https://doi.org/10.5281/zenodo.4245389",
+    "included": true
+  },
+  {
+    "key": "wu",
+    "text": "Wu, S. L., & Yang, Y. H. (2021). MuseMorphose: Full-Song and Fine-Grained Piano Music Style Transfer with One Transformer VAE. IEEE/ACM TASLP 2023. https://doi.org/10.1109/TASLP.2023.3270726",
+    "included": true
+  },
+  {
+    "key": "wu",
+    "text": "Wu, S. L., & Yang, Y. H. (2023). Compose & Embellish: Well-Structured Piano Performance Generation via Two-Stage Approach. ICASSP 2023. https://doi.org/10.1109/ICASSP49357.2023.10096525",
+    "included": true
+  },
+  {
+    "key": "wu",
+    "text": "Wu, S. L., Donahue, C., Watanabe, S., & Bryan, N. J. (2023). Music ControlNet: Multiple Time-Varying Controls for Music Generation. IEEE/ACM TASLP 2024. https://doi.org/10.1109/TASLP.2024.3399604",
+    "included": true
+  },
+  {
+    "key": "wu",
+    "text": "Wu, S., Wang, Y., Li, X., Yu, F., & Sun, M. (2024). MelodyT5: A Unified Score-to-Score Transformer for Symbolic Music Processing. ISMIR 2024. https://doi.org/10.5281/zenodo.14877418",
+    "included": true
+  },
+  {
+    "key": "wu",
+    "text": "Wu, S., Yu, D., Tan, X., & Sun, M. (2023). CLaMP: Contrastive Language-Music Pre-Training for Symbolic Music. ISMIR 2023. https://doi.org/10.5281/zenodo.10265246",
+    "included": true
+  },
+  {
+    "key": "xu",
+    "text": "Xu, Z., Dutta, D., Wei, Y., & Choudhury, R. R. (2025). Multi-Source Music Generation with Latent Diffusion. arXiv 2024. https://doi.org/10.48550/arXiv.2409.06190",
+    "included": true
+  },
+  {
+    "key": "yan",
+    "text": "Yan, X., Ma, C., & Hao, Y. (2023). Harmonizing ai-generated music: Integrating symbolic and audio models for text-to-music generation. 2023 2nd International Conference on Artificial Intelligence and Intelligent Information Processing (AIIIP). https://doi.org/10.1109/AIIIP61647.2023.00030",
+    "included": true
+  },
+  {
+    "key": "yang",
+    "text": "Yang, L. C., & Lerch, A. (2020). On the evaluation of generative models in music. Neural Computing and Applications, 32(9), 4773–4784.",
+    "included": false
+  },
+  {
+    "key": "yang",
+    "text": "Yang, Y. (2025). METEOR: Melody-aware Texture-controllable Symbolic Orchestral Music Generation via Transformer VAE. Thirty-Fourth International Joint Conference on Artificial Intelligence AI, Arts & Creativity. https://doi.org/10.48550/arXiv.2409.11753",
+    "included": true
+  },
+  {
+    "key": "yao",
+    "text": "Yao, Y., Li, P., Chen, B., & Wang, A. (2024). JEN-1 Composer: A Unified Framework for High-Fidelity Multi-Track Music Generation. arXiv 2023. https://doi.org/10.48550/arXiv.2310.19180",
+    "included": true
+  },
+  {
+    "key": "yi",
+    "text": "Yi, L., Hu, H., Zhao, J., & Xia, G. (2022). AccoMontage2: A Complete Harmonization and Accompaniment Arrangement System. ISMIR 2022. https://doi.org/10.5281/zenodo.7316641",
+    "included": true
+  },
+  {
+    "key": "yu",
+    "text": "Yu, B., Lu, P., Wang, R., Hu, W., Tan, X., Ye, W., Zhang, S., Qin, T., & Liu, T. Y. (2022). Museformer: Transformer with Fine- and Coarse-Grained Attention for Music Generation. NeurIPS 2022. https://doi.org/10.48550/arXiv.2210.10349",
+    "included": true
+  },
+  {
+    "key": "yu",
+    "text": "Yu, D., Song, K., Lu, P., He, T., Tan, X., Ye, W., Zhang, S., & Bian, J. (2023). MusicAgent: An AI Agent for Music Understanding and Generation with LLMs. EMNLP 2023 System Demos. https://doi.org/10.18653/v1/2023.emnlp-demo.21",
+    "included": true
+  },
+  {
+    "key": "yuan",
+    "text": "Yuan, R., Lin, H., Wang, Y., Tian, Z., Wu, S., et al. (2024). ChatMusician: Understanding and Generating Music Intrinsically with LLM. ACL Findings 2024. https://doi.org/10.18653/v1/2024.findings-acl.373",
+    "included": true
+  },
+  {
+    "key": "yuan",
+    "text": "Yuan, S., et al. (2025). Diffusion-based Symbolic Music Generation with Structured State Space Models. arXiv. https://doi.org/10.48550/arXiv.2603.00576",
+    "included": true
+  },
+  {
+    "key": "zeng",
+    "text": "Zeng, M., Tan, X., Wang, R., Ju, Z., Qin, T., & Liu, T. Y. (2021). MusicBERT: Symbolic Music Understanding with Large-Scale Pre-Training. ACL Findings 2021. https://doi.org/10.18653/v1/2021.findings-acl.70",
+    "included": true
+  },
+  {
+    "key": "zhang",
+    "text": "Zhang, N. (2023). Learning Adversarial Transformer for Symbolic Music Generation. IEEE Transactions on Neural Networks and Learning Systems. https://doi.org/10.1109/TNNLS.2022.3157242",
+    "included": true
+  },
+  {
+    "key": "zhao",
+    "text": "Zhao, J., & Xia, G. (2021). AccoMontage: Accompaniment Arrangement via Phrase Selection and Style Transfer. ISMIR 2021. https://doi.org/10.5281/zenodo.5625705",
+    "included": true
+  },
+  {
+    "key": "zhao",
+    "text": "Zhao, J., Xia, G., Wang, Z., & Wang, Y. (2024). Structured Multi-Track Accompaniment Arrangement via Style Prior Modelling. NeurIPS 2024. https://doi.org/10.48550/arXiv.2310.16334",
+    "included": true
+  },
+  {
+    "key": "zhu",
+    "text": "Zhu, Y., Baca, J., Rekabdar, B., & Rawassizadeh, R. (2023). A survey of AI music generation tools and models. arXiv preprint arXiv:2308.12982.",
+    "included": false
+  },
+  {
+    "key": "ziv",
+    "text": "Ziv, A., Gat, I., Lan, G. L., Remez, T., Kreuk, F., Défossez, A., et al. (2024). Masked Audio Generation Using a Single Non-Autoregressive Transformer. ICLR 2024. https://doi.org/10.48550/arXiv.2401.04577",
+    "included": true
+  },
+  {
+    "key": "zou",
+    "text": "Zou, Y., Cheng, H., Ye, L., & Zhang, Q. (2025). Pop-Diffuseq: Controllable Symbolic Music Multi-Instrument Infilling and Accompaniment Generation with Long-Axis Attention. 2025 IEEE International Conference on Multimedia and Expo (ICME). https://doi.org/10.1109/ICME59968.2025.11208972",
+    "included": true
+  },
+  {
+    "key": "zou",
+    "text": "Zou, Y., Zou, P., Zhao, Y., Zhang, K., Zhang, R., & Wang, X. (2021). MELONS: generating melody with long-term structure using transformers and structure graph. ICASSP 2022. https://doi.org/10.1109/ICASSP43922.2022.9747802",
+    "included": true
+  }
+]

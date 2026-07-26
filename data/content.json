@@ -1,0 +1,235 @@
+{
+  "home": {
+    "tagline": "A systematic review of how AI learned to generate, arrange and orchestrate music, 2020–2025.",
+    "summary": "This companion site presents a PRISMA 2020 systematic review of 112 studies on AI music generation, arrangement and orchestration. It extends an existing taxonomy, synthesises eight research trends, and reports a structured listening evaluation of 29 representative systems — nine of which stand out. Everything here is drawn from the dissertation and is browsable independently of the PDF.",
+    "readingPath": [
+      {
+        "label": "About the thesis",
+        "href": "/about-thesis"
+      },
+      {
+        "label": "Systematic review",
+        "href": "/systematic-review"
+      },
+      {
+        "label": "Taxonomy",
+        "href": "/taxonomy"
+      },
+      {
+        "label": "Research trends",
+        "href": "/trends"
+      },
+      {
+        "label": "Listening evaluation",
+        "href": "/listening-evaluation"
+      },
+      {
+        "label": "29 selected systems",
+        "href": "/systems"
+      },
+      {
+        "label": "Discussion",
+        "href": "/discussion"
+      }
+    ]
+  },
+  "aboutThesis": {
+    "abstract": "The rapid growth of AI-based music generation, arrangement and orchestration has produced a large and fragmented literature, making it difficult to navigate recent developments and identify the most promising approaches. This thesis addresses that gap through a systematic literature review following the PRISMA 2020 guidelines, covering AI methods published between 2020 and 2025. From 4,521 records identified across six academic databases, 112 studies met all eligibility criteria and were included. For each study, information on methodology, datasets, musical representations, evaluation procedures, metrics and code availability was extracted into a comprehensive comparison table. The review extends the taxonomy proposed by Zhu et al. (2023), synthesises eight major research trends, and identifies and justifies 29 representative and promising methods whose publicly available MIDI and audio examples are analysed through structured listening.",
+    "aim": "To conduct a PRISMA-guided systematic review of AI methods for music generation, arrangement and orchestration, with a focus on developments from 2020 to 2025.",
+    "researchQuestions": [
+      "How have AI-based methods for music generation, arrangement and orchestration evolved since 2020, particularly with the emergence of transformer and diffusion models?",
+      "What are the current dominant trends, most commonly used techniques, datasets and evaluation approaches in this field?",
+      "Which approaches demonstrate the most promising results, and what factors contribute to their effectiveness?"
+    ],
+    "contributions": [
+      "An extended taxonomy of AI music systems across four dimensions.",
+      "A structured comparison of all 112 included studies.",
+      "A synthesis of eight research trends spanning 2020–2025.",
+      "A structured listening evaluation of 29 methods, with an accompanying reproducible demonstration website."
+    ],
+    "objectives": [
+      "Perform a systematic literature review following PRISMA 2020.",
+      "Extend the taxonomy of Zhu et al. (2023) with recent models.",
+      "Develop a comparison table of key studies (2020–2025).",
+      "Analyse major research trends.",
+      "Identify and justify the most promising approaches.",
+      "Present and analyse selected MIDI/audio examples via an interactive page.",
+      "Discuss limitations, challenges and future directions."
+    ]
+  },
+  "systematicReview": {
+    "title": "Systematic review",
+    "intro": "The review followed the PRISMA 2020 Statement: identification, screening, eligibility assessment, data extraction and qualitative synthesis.",
+    "blocks": [
+      {
+        "heading": "Data collection",
+        "body": "Publications were identified through six databases and digital libraries: Google Scholar, IEEE Xplore, ACM Digital Library, SpringerLink, ScienceDirect and arXiv, using a predefined keyword set. The search yielded 4,521 records; owing to platform export restrictions, 1,083 could be exported to Zotero, and after removing 300 duplicates, 783 unique records remained."
+      },
+      {
+        "heading": "Study selection",
+        "body": "Title screening excluded 400 off-topic records (retaining 383). Abstract screening excluded a further 238 (duplicates, cross-modal input, MIR-only scope, derivative variants, proceedings, therapy, singing-voice synthesis), retaining 145 for full-text review. Full-text eligibility applied four criteria (primary study; in scope; AI/machine-learning method; sufficient methodological detail) and excluded 33 records, leaving 112 included studies."
+      },
+      {
+        "heading": "In-depth subset",
+        "body": "For the listening analysis, a subset of 29 methods was selected using five criteria: task coverage (S1), methodological influence (S2), architectural diversity (S3), accessible MIDI/MP3 demonstrations (S4) and temporal spread across 2020–2025 (S5). This selection is separate from PRISMA eligibility; all 112 included studies appear in the master comparison table."
+      },
+      {
+        "heading": "Data analysis",
+        "body": "For each study, authors, year, task, architecture, dataset, representation, evaluation method, metrics, music length, training requirements and code availability were extracted into the master comparison table and analysed qualitatively to identify trends, dominant methodologies, challenges and future directions."
+      }
+    ]
+  },
+  "listeningEvaluation": {
+    "intro": "The 29 selected systems were assessed through manual critical listening on eight dimensions rated on a five-point scale. Each system was judged on at least one representative example — a hosted demo where available, or, where none existed, a locally generated output or the results reported in the paper. As the assessment reflects a single listener, ratings are descriptive summaries rather than objective benchmarks, and where authors publish curated examples they bound the best case rather than the average case.",
+    "rubric": [
+      {
+        "key": "quality",
+        "label": "Audio / rendering quality",
+        "meaning": "Cleanliness and fidelity of the produced sound (absence of noise or artefacts)."
+      },
+      {
+        "key": "melody",
+        "label": "Melodic coherence",
+        "meaning": "Sensibility and sense of direction of the melodic line."
+      },
+      {
+        "key": "harmony",
+        "label": "Harmonic coherence",
+        "meaning": "Consistency and plausibility of the underlying harmony."
+      },
+      {
+        "key": "rhythm",
+        "label": "Rhythmic stability",
+        "meaning": "Steadiness and regularity of the rhythmic pulse."
+      },
+      {
+        "key": "structure",
+        "label": "Long-term structure",
+        "meaning": "Presence of large-scale musical form (e.g. verse–chorus, development)."
+      },
+      {
+        "key": "control",
+        "label": "Control adherence",
+        "meaning": "Fidelity of the output to the given conditioning (text, chords, melody or target)."
+      },
+      {
+        "key": "naturalness",
+        "label": "Naturalness / musicality",
+        "meaning": "Overall musical plausibility and expressive quality."
+      },
+      {
+        "key": "overall",
+        "label": "Overall",
+        "meaning": "Overall judgement integrating the preceding dimensions."
+      }
+    ],
+    "caveat": "Scores are descriptive summaries of a structured listening exercise, not objective performance benchmarks, and are interpreted as such throughout."
+  },
+  "discussion": {
+    "intro": "The review is interpreted in relation to the three research questions, followed by the limitations of the review and of the field.",
+    "rq": [
+      {
+        "q": "RQ1 — How have methods evolved since 2020?",
+        "a": "The corpus describes a three-stage evolution: representation engineering (2020–2022), paradigm competition and the language interface (2023), and consolidation around controllable diffusion, foundation models and evaluation (2024–2025). Transformers supplied the representational substrate and the autoregressive token-LM baseline (Jukebox → AudioLM → MusicGen); diffusion arrived as the complementary paradigm, decisive where autoregression was weakest — global structure and fine-grained control. The two now coexist by a division of labour. The structured listening analysis is consistent with this trajectory: mean overall quality rose from about 2.8 for the 2020 systems to about 3.8 for the 2024 systems."
+      },
+      {
+        "q": "RQ2 — What are the dominant trends, techniques, datasets and evaluation?",
+        "a": "Eight higher-level trends were synthesised from the 112 studies. Autoregressive Transformer language models remain the most common approach (41 of 112 studies), followed by diffusion and, more recently, foundation-model pretraining, with VAEs persisting mainly in arrangement and re-orchestration. Text emerged as the dominant conditioning interface, later augmented with music-theoretic controls. Evaluation combines objective distributional metrics (notably FAD) with subjective preference and controllability measures, alongside an emerging concern with evaluation validity itself."
+      },
+      {
+        "q": "RQ3 — Which approaches are most promising, and why?",
+        "a": "Nine of the 29 evaluated methods scored 4.0 or above: GETMusic and ChatMusician (both 4.5), with MusicLM, MusicGen, StemGen, AccoMontage, Whole-Song Generation, Structured Arrangement and SymphonyNet (all 4.0). Two factors separated them: verifiable controllability — the ability to hear that the output follows its conditioning — and explicit long-term structural planning. Audio fidelity was generally high across the subset and did not differentiate the leaders. The most effective systems treated control and structure as first-class design goals rather than by-products of scale."
+      }
+    ],
+    "limitationsReview": "Screening was carried out by a single reviewer, introducing a risk of selection bias. Export restrictions on three databases meant only 1,083 of 4,521 records could be exported, so the screened set is broad but not exhaustive. The auditory analysis reflects a single listener and is indicative rather than statistically generalisable; where authors publish curated examples, the ratings bound the best case, and for systems without a public demonstration the assessment relied on reported results.",
+    "limitationsField": "Evaluation validity emerged as one of the most pressing challenges: distributional metrics correlate imperfectly with human judgement, and some reported gains do not survive fair comparison. Cultural bias is a second concern, as models trained predominantly on Western music generalise poorly beyond those idioms. Efficiency and latency remain obstacles to interactive use. Two capability gaps recur: convincing sung vocals were absent from every system evaluated, and genuine long-term structure remained difficult except where explicitly planned."
+  },
+  "futureDirections": {
+    "title": "Future directions",
+    "intro": "The results point to several concrete directions, grounded in the review rather than in generic future-work statements.",
+    "blocks": [
+      {
+        "heading": "The orchestration gap",
+        "body": "Orchestration is the least-served task in the corpus, plausibly because it lacks the large paired datasets that fuelled generation research and because instrument interdependence and timbre resist simple tokenisation. Building such datasets and adapting foundation models to orchestration and arrangement is a promising, under-explored direction."
+      },
+      {
+        "heading": "Controllable long-form structure",
+        "body": "The hierarchical and two-stage planning that proved most effective here should be extended toward reliably controllable long-form structure."
+      },
+      {
+        "heading": "Preference-aligned objectives",
+        "body": "Carrying the reinforcement-learning-from-human-feedback turn further into music generation could align outputs with listener preference rather than likelihood."
+      },
+      {
+        "heading": "Standardised evaluation",
+        "body": "Improved, standardised evaluation that better reflects human musical judgement and addresses cultural coverage would strengthen the field's claims."
+      },
+      {
+        "heading": "Sung vocals",
+        "body": "Progress on convincing, intelligible singing — the field's most visible remaining frontier — would broaden applicability beyond instrumental music."
+      }
+    ]
+  },
+  "glossary": [
+    {
+      "term": "PRISMA 2020",
+      "definition": "A standard set of guidelines for transparent reporting of systematic reviews, covering identification, screening, eligibility and synthesis."
+    },
+    {
+      "term": "Symbolic music",
+      "definition": "Music represented as notes or scores (e.g. MIDI, ABC notation) rather than raw sound."
+    },
+    {
+      "term": "Audio-domain music",
+      "definition": "Music represented as raw waveform or spectrogram/codec tokens rather than symbolic notes."
+    },
+    {
+      "term": "Transformer AR-LM",
+      "definition": "An autoregressive Transformer language model over music tokens — the dominant neural paradigm across the corpus."
+    },
+    {
+      "term": "Diffusion model",
+      "definition": "A generative model that synthesises output by iteratively denoising, offering whole-context generation and step-by-step conditioning."
+    },
+    {
+      "term": "VAE",
+      "definition": "A variational autoencoder — a latent-variable model used for structured, controllable representations."
+    },
+    {
+      "term": "LLM-based",
+      "definition": "A system built on a general-purpose pretrained large language model adapted to read and write music."
+    },
+    {
+      "term": "Foundation model",
+      "definition": "A large model pretrained at scale and reused across tasks, rather than a task-specific architecture."
+    },
+    {
+      "term": "Flow matching",
+      "definition": "A generative training objective, positioned as a successor to diffusion, often at lower parameter cost."
+    },
+    {
+      "term": "State-space (Mamba)",
+      "definition": "A linear-time sequence backbone offered as an alternative to the Transformer for long sequences."
+    },
+    {
+      "term": "Arrangement",
+      "definition": "Generating a backing or accompaniment for a given lead, rather than a whole piece from scratch."
+    },
+    {
+      "term": "Orchestration",
+      "definition": "Deciding which instruments play what — from timbre matching to controllable re-orchestration."
+    },
+    {
+      "term": "Control adherence",
+      "definition": "How faithfully a system's output follows its conditioning (text, chords, melody or target)."
+    },
+    {
+      "term": "Long-term structure",
+      "definition": "Large-scale musical form such as verse–chorus organisation or thematic development."
+    },
+    {
+      "term": "FAD",
+      "definition": "Fréchet Audio Distance — a common objective metric comparing generated audio to a reference distribution."
+    }
+  ]
+}

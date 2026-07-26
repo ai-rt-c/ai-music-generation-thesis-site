@@ -1,0 +1,194 @@
+{
+  "title": "Artificial Intelligence for Music Generation, Arrangement and Orchestration",
+  "subtitle": "A Systematic Review (2020–2025)",
+  "author": "ZahraSadat Tahawori",
+  "supervisor": "Prof. Dr. Gissel Velarde",
+  "university": "IU International University of Applied Sciences",
+  "program": "M.Sc. Artificial Intelligence",
+  "year": 2026,
+  "lastUpdated": "2026-07-26",
+  "repoUrl": "https://github.com/ztahawori/ai-music-review",
+  "prisma": {
+    "identified": 4521,
+    "afterDedup": 783,
+    "titleScreened": 383,
+    "fullText": 145,
+    "included": 112,
+    "inDepth": 29
+  },
+  "counts": {
+    "included": 112,
+    "inDepth": 29,
+    "topSystems": 9,
+    "trends": 8,
+    "taxonomyDimensions": 4
+  },
+  "batchAverages": [
+    {
+      "batch": "B1 — Symbolic pop/piano",
+      "quality": 4.3,
+      "overall": 3.3,
+      "leading": "structure / melody"
+    },
+    {
+      "batch": "B2 — Symbolic diffusion & control",
+      "quality": 3.9,
+      "overall": 3.4,
+      "leading": "control adherence"
+    },
+    {
+      "batch": "B3 — Symbolic language models",
+      "quality": 4.4,
+      "overall": 3.8,
+      "leading": "control / melody"
+    },
+    {
+      "batch": "B4 — Foundational audio",
+      "quality": 3.6,
+      "overall": 3.2,
+      "leading": "control adherence"
+    },
+    {
+      "batch": "B5 — Recent text-to-music",
+      "quality": 4.0,
+      "overall": 3.6,
+      "leading": "quality / control"
+    },
+    {
+      "batch": "B6 — Accompaniment arrangement",
+      "quality": 4.1,
+      "overall": 3.5,
+      "leading": "quality / structure"
+    },
+    {
+      "batch": "B7 — Orchestration",
+      "quality": 4.2,
+      "overall": 3.8,
+      "leading": "control adherence"
+    }
+  ],
+  "citations": {
+    "apa": "Tahawori, Z. (2026). Artificial intelligence for music generation, arrangement and orchestration: A systematic review (2020–2025) [Master's thesis, IU International University of Applied Sciences].",
+    "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, ZahraSadat},\n  title   = {Artificial Intelligence for Music Generation, Arrangement and Orchestration: A Systematic Review (2020--2025)},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis}\n}"
+  },
+  "downloads": [
+    {
+      "label": "Thesis PDF",
+      "file": "downloads/Thesis.pdf",
+      "kind": "pdf"
+    },
+    {
+      "label": "Master comparison table (112 studies)",
+      "file": "downloads/Master_Table_112.xlsx",
+      "kind": "xlsx"
+    },
+    {
+      "label": "Listening evaluation dataset (29 systems)",
+      "file": "downloads/Listening_Evaluation_29.xlsx",
+      "kind": "xlsx"
+    },
+    {
+      "label": "Full JSON dataset",
+      "file": "downloads/data.zip",
+      "kind": "zip"
+    }
+  ],
+  "figures": [
+    {
+      "id": "graphical-abstract",
+      "number": 1,
+      "title": "Graphical abstract",
+      "png": "figures/fig_graphical_abstract.png",
+      "caption": "Graphical abstract summarising the scope, method, analysis and key findings of the review.",
+      "alt": "Overview diagram: scope, PRISMA screening funnel, analysis, key findings and the nine most promising methods."
+    },
+    {
+      "id": "prisma",
+      "number": 2,
+      "title": "PRISMA 2020 flow diagram",
+      "png": "figures/fig_prisma.png",
+      "caption": "PRISMA 2020 flow diagram of the review. The synthesis-stage selection of 29 methods is separate from PRISMA eligibility.",
+      "alt": "PRISMA flow: 4,521 records identified, 783 screened, 145 full-text, 112 included, 29 in-depth."
+    },
+    {
+      "id": "taxonomy",
+      "number": 3,
+      "title": "Extended taxonomy",
+      "png": "figures/Taxonomy.png",
+      "caption": "Extended taxonomy of AI music generation, arrangement and orchestration (2020–2025), extending Zhu et al. (2023).",
+      "alt": "Four-dimension taxonomy: task, generative paradigm, conditioning modality, data representation."
+    },
+    {
+      "id": "year-112",
+      "number": 4,
+      "title": "Included studies per year",
+      "png": "figures/fig_year112.png",
+      "caption": "Included studies per year (n = 112).",
+      "alt": "Bar chart of included studies per year, peaking in 2024."
+    },
+    {
+      "id": "task-112",
+      "number": 5,
+      "title": "Included studies by task",
+      "png": "figures/fig_task112.png",
+      "caption": "Included studies by task (n = 112).",
+      "alt": "Bar chart of studies by task; orchestration is the sparsest."
+    },
+    {
+      "id": "paradigm-112",
+      "number": 6,
+      "title": "Paradigm across the corpus",
+      "png": "figures/fig_paradigm112.png",
+      "caption": "Generative modelling paradigm across the corpus (n = 112).",
+      "alt": "Bar chart of paradigms across the corpus; Transformer/LLM and diffusion dominate."
+    },
+    {
+      "id": "trends-timeline",
+      "number": 7,
+      "title": "Trends timeline",
+      "png": "figures/fig_trends_timeline.png",
+      "caption": "Chronological span of the eight research trends (2020–2025); darker = dominant period.",
+      "alt": "Gantt-style timeline of eight research trends across 2020 to 2025."
+    },
+    {
+      "id": "paradigm-29",
+      "number": 8,
+      "title": "Paradigm of the 29 systems",
+      "png": "figures/fig_arch.png",
+      "caption": "Generative modelling paradigm of the 29 evaluated systems (Dimension 2 of the taxonomy).",
+      "alt": "Horizontal bar chart of paradigms among the 29 evaluated systems."
+    },
+    {
+      "id": "year-trend-29",
+      "number": 9,
+      "title": "Mean overall score by year",
+      "png": "figures/fig_year.png",
+      "caption": "Mean overall score by year across the evaluated subset (n per year shown).",
+      "alt": "Line chart: mean overall score rising from about 2.8 to 3.8."
+    },
+    {
+      "id": "domain",
+      "number": 10,
+      "title": "Symbolic vs audio by dimension",
+      "png": "figures/fig_domain.png",
+      "caption": "Symbolic versus audio systems, average score by dimension.",
+      "alt": "Grouped bar chart comparing symbolic and audio systems across dimensions."
+    },
+    {
+      "id": "heatmap",
+      "number": 11,
+      "title": "Batch-average heatmap",
+      "png": "figures/fig_heatmap.png",
+      "caption": "Batch-average scores across the eight evaluation dimensions (darker = higher).",
+      "alt": "Heatmap of batch-average scores across eight dimensions."
+    },
+    {
+      "id": "rank",
+      "number": 12,
+      "title": "Overall score by system",
+      "png": "figures/fig_rank.png",
+      "caption": "Overall score by system, coloured by domain; the dashed line marks the 4.0 threshold.",
+      "alt": "Ranked horizontal bar chart of overall scores for the 29 systems."
+    }
+  ]
+}

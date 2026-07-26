@@ -1,0 +1,205 @@
+[
+  {
+    "id": "89",
+    "label": "love-sample-3",
+    "url": "https://ailabs.tw/wp-content/uploads/2020/02/sample-9.mp3",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "309",
+    "label": "linear-cp-example-2",
+    "url": "https://ailabs.tw/wp-content/uploads/2021/01/linear-cp-example-2-1.mp3",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "312",
+    "label": "Demo 1",
+    "url": "https://ai-muzic.github.io/audio/museformer/audio/mf/mf_demo1.mp3",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "171",
+    "label": "Example 899 (Theme + output)",
+    "url": "https://atosystem.github.io/ThemeTransformer/theme-transformer-audio/899_ThemeTransformer.mp3",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "327",
+    "label": "40-bar whole-song example (interactive player, top of https://wholesonggen.githu",
+    "url": "https://wholesonggen.github.io/",
+    "type": "interactive",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "62",
+    "label": "Diffusion (unconditional)",
+    "url": "https://storage.googleapis.com/magentadata/papers/symbolic-music-diffusion/unconditional/audio/diff/1.mp3",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "382",
+    "label": "Demo 1 (clean, unconditional)",
+    "url": "https://3328702107.github.io/smdim-music/",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "315",
+    "label": "SoundCloud set",
+    "url": "https://soundcloud.com/user-751999449/sets/figaro-generating-symbolic-music-with-fine-grained-artistic-control",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "57",
+    "label": "Lead Melody to full accompaniment (input+output)",
+    "url": "https://ai-muzic.github.io/audio/getmusic/video/1-l2bdgps.mp3",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "324",
+    "label": "Group 2 (text-conditioned, piano+bass+drums)",
+    "url": "https://ai-muzic.github.io/audio/musecoco/Baseline/MuseCoco/505_15.mp3",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "316",
+    "label": "Chord-conditioned example (Am-F-C-G) rendered from paper ABC",
+    "url": "https://shanghaicannon.github.io/ChatMusician/",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "74",
+    "label": "Example 1 (free generation)",
+    "url": "https://map-mupt.github.io/music/mupt_20_test_105.mp3",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "67",
+    "label": "Locally generated single-track sample (real MIDI-GPT output, rendered using the same MIDI synthesizer employed throughout this evaluation)",
+    "url": "https://github.com/Metacreation-Lab/MIDI-GPT",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "92",
+    "label": "Sinatra-style \"Hot Tub Time\" (raw audio with singing)",
+    "url": "https://www.youtube.com/watch?v=_F_QJta6f9U",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "328",
+    "label": "Piano continuation (AudioLM vs acoustic-only)",
+    "url": "https://google-research.github.io/seanet/audiolm/examples/",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "76",
+    "label": "Rich-caption example (e.g. arcade-game soundtrack)",
+    "url": "https://google-research.github.io/seanet/musiclm/examples/",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "58",
+    "label": "Text-prompt example",
+    "url": "https://google-research.github.io/noise2music/",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "329",
+    "label": "Interactive HF Space",
+    "url": "https://huggingface.co/spaces/facebook/MusicGen",
+    "type": "interactive",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "334",
+    "label": "Long-form stereo music comparison (Stable Audio vs MusicGen/AudioLDM2)",
+    "url": "https://stability-ai.github.io/stable-audio-demo/",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "378",
+    "label": "Expert listening-study comparison (Mustango vs Tango/MusicGen/AudioLDM2)",
+    "url": "https://amaai-lab.github.io/mustango/",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "379",
+    "label": "No public audio demo available",
+    "url": null,
+    "type": "paper-only",
+    "note": "Scores are paper-reported (no public demo)."
+  },
+  {
+    "id": "345",
+    "label": "Sample 1",
+    "url": "https://music-popmag.github.io/popmag/index.html",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "346",
+    "label": "AccoMontage full-song piano accompaniment demo (authors' Colab notebook)",
+    "url": "https://github.com/zhaojw1998/AccoMontage",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "19",
+    "label": "Demo-01 Can You Feel the Love Tonight",
+    "url": "https://zhaojw1998.github.io/structured-arrangement",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "349",
+    "label": "Listener Study",
+    "url": "https://g.co/magenta/singsong",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "352",
+    "label": "Test-set example (context vs generated stem vs mixed) + iterative layering from drums",
+    "url": "https://julian-parker.github.io/stemgen",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "357",
+    "label": "Beethoven's chord",
+    "url": "https://www.orch-idea.org/examples/",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "313",
+    "label": "Prime continuation (Input vs SymphonyNet vs Human) + a from-scratch generation",
+    "url": "https://symphonynet.github.io",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  },
+  {
+    "id": "259",
+    "label": "Re-orchestration Example 1 (Reference vs METEOR piano/quintet/orchestra) + user-study comparison",
+    "url": "https://dinhviettoanle.github.io/meteor/",
+    "type": "link",
+    "note": "Hosted by the authors; opens in a new tab."
+  }
+]

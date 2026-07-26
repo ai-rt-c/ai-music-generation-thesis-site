@@ -1,0 +1,258 @@
+[
+  {
+    "id": "task",
+    "number": 1,
+    "name": "Task",
+    "summary": "The output domain and problem being solved.",
+    "categories": [
+      {
+        "id": "gen-symbolic",
+        "name": "Music generation (symbolic)",
+        "status": "base",
+        "description": "Generating symbolic music (MIDI / score).",
+        "exampleIds": [
+          "89",
+          "312",
+          "324",
+          "327"
+        ]
+      },
+      {
+        "id": "gen-audio",
+        "name": "Music generation (audio)",
+        "status": "base",
+        "description": "Generating audio (waveform / tokens).",
+        "exampleIds": [
+          "92",
+          "76",
+          "329",
+          "334"
+        ]
+      },
+      {
+        "id": "arrangement",
+        "name": "Arrangement",
+        "status": "base",
+        "description": "Accompaniment, multi-track and covers.",
+        "exampleIds": [
+          "345",
+          "346",
+          "57",
+          "352"
+        ]
+      },
+      {
+        "id": "orchestration",
+        "name": "Orchestration",
+        "status": "base",
+        "description": "Instrumentation and re-orchestration.",
+        "exampleIds": [
+          "357",
+          "313",
+          "259"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "paradigm",
+    "number": 2,
+    "name": "Generative modelling paradigm",
+    "summary": "The core generative mechanism, extending Zhu et al. (2023).",
+    "categories": [
+      {
+        "id": "non-neural",
+        "name": "Non-neural",
+        "status": "base",
+        "description": "Rules, search, evolutionary methods.",
+        "exampleIds": [
+          "357"
+        ]
+      },
+      {
+        "id": "rnn",
+        "name": "Autoregressive RNN",
+        "status": "base",
+        "description": "LSTM/GRU recurrence (legacy).",
+        "exampleIds": []
+      },
+      {
+        "id": "vae",
+        "name": "VAE",
+        "status": "base",
+        "description": "Latent-variable encoding.",
+        "exampleIds": [
+          "346",
+          "259"
+        ]
+      },
+      {
+        "id": "gan",
+        "name": "GAN",
+        "status": "base",
+        "description": "Adversarial training.",
+        "exampleIds": []
+      },
+      {
+        "id": "transformer",
+        "name": "Transformer AR-LM",
+        "status": "base",
+        "description": "Autoregressive music tokens.",
+        "exampleIds": [
+          "89",
+          "309",
+          "312",
+          "313",
+          "76",
+          "329"
+        ]
+      },
+      {
+        "id": "diffusion",
+        "name": "Diffusion",
+        "status": "expanded",
+        "description": "Latent, discrete and cascaded diffusion.",
+        "exampleIds": [
+          "62",
+          "57",
+          "58",
+          "327",
+          "334",
+          "378"
+        ]
+      },
+      {
+        "id": "masked",
+        "name": "Masked-token LM",
+        "status": "new",
+        "description": "Non-autoregressive infilling.",
+        "exampleIds": [
+          "352"
+        ]
+      },
+      {
+        "id": "flow",
+        "name": "Flow matching",
+        "status": "new",
+        "description": "Continuous flow objectives.",
+        "exampleIds": [
+          "379"
+        ]
+      },
+      {
+        "id": "llm",
+        "name": "LLM-based",
+        "status": "new",
+        "description": "General-purpose pretrained LLMs.",
+        "exampleIds": [
+          "316"
+        ]
+      },
+      {
+        "id": "foundation",
+        "name": "Foundation models",
+        "status": "new",
+        "description": "Large-scale pretraining, cross-cutting.",
+        "exampleIds": [
+          "74"
+        ]
+      },
+      {
+        "id": "ssm",
+        "name": "State-space (Mamba)",
+        "status": "new",
+        "description": "Linear-time sequence models.",
+        "exampleIds": [
+          "382"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conditioning",
+    "number": 3,
+    "name": "Conditioning input modality",
+    "summary": "How the user steers generation.",
+    "categories": [
+      {
+        "id": "attribute",
+        "name": "Attribute / parameter",
+        "status": "base",
+        "description": "Structured metadata and control signals.",
+        "exampleIds": [
+          "315"
+        ]
+      },
+      {
+        "id": "text",
+        "name": "Text",
+        "status": "base",
+        "description": "Natural-language prompts.",
+        "exampleIds": [
+          "76",
+          "329",
+          "324",
+          "378"
+        ]
+      },
+      {
+        "id": "visual",
+        "name": "Visual",
+        "status": "base",
+        "description": "Image / video input (outside review scope).",
+        "exampleIds": []
+      },
+      {
+        "id": "audio-cond",
+        "name": "Audio",
+        "status": "new",
+        "description": "Vocals, stems, reference audio.",
+        "exampleIds": [
+          "349",
+          "352"
+        ]
+      },
+      {
+        "id": "symbolic-cond",
+        "name": "Symbolic",
+        "status": "new",
+        "description": "Melody, lead sheet, score.",
+        "exampleIds": [
+          "346",
+          "259",
+          "57"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "representation",
+    "number": 4,
+    "name": "Data representation",
+    "summary": "How music is encoded.",
+    "categories": [
+      {
+        "id": "symbolic-rep",
+        "name": "Symbolic",
+        "status": "base",
+        "description": "MIDI, event tokens (REMI, compound), ABC, matrix forms.",
+        "exampleIds": [
+          "89",
+          "309",
+          "57"
+        ]
+      },
+      {
+        "id": "audio-rep",
+        "name": "Audio",
+        "status": "base",
+        "description": "Raw waveform, mel-spectrogram, discrete codec tokens.",
+        "exampleIds": [
+          "92",
+          "328",
+          "76"
+        ]
+      }
+    ]
+  }
+]

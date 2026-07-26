@@ -1,0 +1,794 @@
+[
+  {
+    "id": "89",
+    "scores": {
+      "quality": 4.5,
+      "melody": 2.5,
+      "harmony": 3.5,
+      "rhythm": 3.0,
+      "structure": 2.0,
+      "control": null,
+      "naturalness": 3.0,
+      "overall": 3.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Clear, noise-free rendering. Musical content beginner-like: sample 1 (pop) has little rhythm and sounds random (\"child at a tuned piano\"); some samples better — love-sample-3 has a more interesting rhythm, though not excellent. Melody/structure simple and uneven overall. Unconditional (no input/reference).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Weak long-term structure",
+      "plain melodic writing"
+    ],
+    "bestUseCase": "Symbolic music generation and prototyping.",
+    "reportedMetrics": "Beat STD; Downbeat STD; Downbeat salience; pairwise preference (Wilcoxon signed-rank p-values)",
+    "reportedResult": "REMI improves rhythmic structure over Music Transformer; 76-listener test"
+  },
+  {
+    "id": "309",
+    "scores": {
+      "quality": 3.5,
+      "melody": 3.0,
+      "harmony": 3.0,
+      "rhythm": 3.5,
+      "structure": 2.5,
+      "control": null,
+      "naturalness": 3.0,
+      "overall": 3.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Slightly better than Pop Music Transformer overall — livelier/faster (less sluggish) and better rhythm. Main flaw: notes bleed into each other (over-sustained / overlapping), making the sound muddy and a bit annoying. Generated from scratch (unconditional).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Relatively strong audio quality",
+      "Relatively strong rhythm"
+    ],
+    "weaknesses": [
+      "Weak long-term structure",
+      "plain melodic writing"
+    ],
+    "bestUseCase": "Symbolic music generation and prototyping.",
+    "reportedMetrics": "Melody matchness (LCS-based); chord matchness (chroma cosine); training/inference time & GPU memory; subjective Fidelity/Richness/Humanness/Correctness/Structureness/Overall",
+    "reportedResult": "5-10x faster training (~0.6 day, 1 GPU) with comparable quality; 18 subjects"
+  },
+  {
+    "id": "312",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.5,
+      "control": null,
+      "naturalness": 3.5,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Multi-instrument, unconditional (video shows notes scrolling with visible background repetition — structure/repetition clearly present, its main claimed strength). Pleasant, \"cute\" music but the style resembles Atari / 8-bit game music (one instrument is a square synth). Has discernible rhythm and harmony. Slightly better than the two piano-only models before it.",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Symbolic music generation and prototyping.",
+    "reportedMetrics": "PPL (at 1,024/5,120/10,240 tokens); Similarity Error (SE); subjective musicality, short-/long-term structure, overall, preference score",
+    "reportedResult": "Best perplexity & structure; models ~3x longer sequences; 10 raters"
+  },
+  {
+    "id": "171",
+    "scores": {
+      "quality": 4.5,
+      "melody": 2.5,
+      "harmony": 3.0,
+      "rhythm": 3.0,
+      "structure": 3.0,
+      "control": 4.0,
+      "naturalness": 3.5,
+      "overall": 3.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Theme clearly returns/repeats — its main claim (theme conditioning) works, hence good control adherence. But the connecting material between repetitions sounds aimless/random and stays in the same register without developing. Clarity good. Note: even the real/ground-truth sample (899) sounded a bit odd to the listener, so some strangeness comes from the plain MIDI rendering/dataset, not only the model.",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "verifiable, faithful control"
+    ],
+    "weaknesses": [
+      "Plain melodic writing",
+      "loose harmony"
+    ],
+    "bestUseCase": "Controllable, prompt- or condition-driven generation.",
+    "reportedMetrics": "Pitch-class consistency (OA); melody inconsistency (embedding distance); grooving consistency; theme inconsistency; theme coverage/gap; subjective MOS",
+    "reportedResult": "Best MOS on theme-related metrics; ~50 subjects"
+  },
+  {
+    "id": "327",
+    "scores": {
+      "quality": 4.5,
+      "melody": 4.0,
+      "harmony": 4.0,
+      "rhythm": 4.0,
+      "structure": 4.5,
+      "control": null,
+      "naturalness": 4.0,
+      "overall": 4.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Best long-term structure of the batch — clear verse-chorus form with visible & audible phrase divisions (melody + piano accompaniment), genuinely song-like. Generated from scratch (unconditional).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "convincing long-term structure",
+      "coherent, tuneful melodies"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Generating accompaniment or arrangements from a given lead.",
+    "reportedMetrics": "Inter-Phrase Latent Similarity (ILS: pitch/rhythm/chord/texture); Degree of Copying (DoC); subjective Creativity, Naturalness, Musicality, well-structuredness",
+    "reportedResult": "Best inter-phrase structure (ILS); 57-subject survey"
+  },
+  {
+    "id": "62",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": null,
+      "rhythm": 3.0,
+      "structure": 3.0,
+      "control": null,
+      "naturalness": 3.5,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Monophonic melody generation (single line, no harmony). On the comparison grid the Diffusion row sounds clearer and more \"correct\" than the Autoregression baseline — consistent with the paper's claim that diffusion yields more locally coherent melodies. Tempo drifts relative to the real Test set (sometimes faster/slower) and some note over-sustain/stretching appears; the autoregressive baseline wanders more and only occasionally returns to the line. Unconditional.",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Unsteady rhythm",
+      "weak long-term structure"
+    ],
+    "bestUseCase": "Symbolic music generation and prototyping.",
+    "reportedMetrics": "Framewise self-similarity OA (pitch/duration Consistency & Variance); Frechet Distance; MMD",
+    "reportedResult": "Outperforms autoregressive baseline on framewise self-similarity"
+  },
+  {
+    "id": "382",
+    "scores": {
+      "quality": 2.5,
+      "melody": 3.0,
+      "harmony": 3.5,
+      "rhythm": 2.5,
+      "structure": 3.5,
+      "control": null,
+      "naturalness": 2.5,
+      "overall": 2.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Multi-instrument, unconditional, three demos on different datasets (classical/pop/folk). Demo 1 is clean; Demos 2 and 3 are noticeably degraded — noisy and cutting in and out, as if recorded off a radio (likely a rendering/audio artifact rather than a compositional flaw). Harmony is present and some segment/instrument repetition is audible, supporting the long-sequence structure claim, but frequent pauses/gaps break the flow.",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Relatively strong harmony",
+      "Relatively strong long-term structure"
+    ],
+    "weaknesses": [
+      "Limited audio quality",
+      "unsteady rhythm"
+    ],
+    "bestUseCase": "Symbolic music generation and prototyping.",
+    "reportedMetrics": "Overlapping Area (OA) over 7 musical attributes + average OA; per-step latency & GPU memory; subjective: Emotional Consistency, Melodic Fluency, Rhythmic Stability, Structural Clarity (1-10)",
+    "reportedResult": "Highest average Overlapping Area on 3 datasets; 15-subject test"
+  },
+  {
+    "id": "315",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.0,
+      "harmony": 3.0,
+      "rhythm": 3.0,
+      "structure": 2.5,
+      "control": null,
+      "naturalness": 3.0,
+      "overall": 3.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Multi-track. The main melodic line is reasonable, but background instruments often feel purposeless and cluttered. Transitions are abrupt: in the samples based on \"I Will Survive\" and \"Autumn Leaves\" the material suddenly shifts phase/theme mid-piece before partially returning, weakening structural coherence. Control adherence not verifiable by ear from the SoundCloud set (the paper reports strong control via a 691-participant study).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Weak long-term structure",
+      "plain melodic writing"
+    ],
+    "bestUseCase": "Symbolic music generation and prototyping.",
+    "reportedMetrics": "PPL; controllability/similarity: time-signature & chord accuracy, note-density NRMSE, MOA of pitch/velocity/duration; pairwise preference",
+    "reportedResult": "Strong control adherence; large listening study (691 participants)"
+  },
+  {
+    "id": "57",
+    "scores": {
+      "quality": 4.0,
+      "melody": 4.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.5,
+      "control": 4.5,
+      "naturalness": 4.0,
+      "overall": 4.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "The most enjoyable of the batch. Given a source track, it builds a fitting, catchy theme for the other instruments — control adherence is clearly good and, unlike FIGARO, audibly verifiable here (you hear the output match the input). Output audio quality is slightly lower than the source, and there is a small rhythmic dip toward the end, but the piece starts strongly and stays coherent. Multi-track, controllable (any source-to-target combination).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Coherent, tuneful melodies",
+      "verifiable, faithful control",
+      "clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Generating accompaniment or arrangements from a given lead.",
+    "reportedMetrics": "Chord Accuracy; KL-divergence of Pitch/Duration/IOI distributions; Human Rating (1-5); inference time",
+    "reportedResult": "Outperforms PopMAG & Museformer; blind test, kappa>0.6 (10 evaluators)"
+  },
+  {
+    "id": "324",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.5,
+      "control": 4.0,
+      "naturalness": 3.5,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Text-to-symbolic. On Group 2 (text: moderate tempo, piano + bass + drums, ~40s) the output matches the description well — piano carries the melody from the start, with bass and drums entering around 0:20 as described, at a moderate tempo. Control adherence is clearly good and audibly verifiable, and MuseCoco is noticeably richer and better-controlled than the BART and GPT-4 baselines shown alongside it. Multi-track; MuseScore/MIDI rendering (no timbre).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "verifiable, faithful control"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Controllable, prompt- or condition-driven generation.",
+    "reportedMetrics": "Average Sample-wise Accuracy (ASA) of attribute control; subjective Musicality, Controllability, Overall",
+    "reportedResult": "~+20% objective control accuracy; +1.27/1.08/1.32 subjective vs baselines"
+  },
+  {
+    "id": "316",
+    "scores": {
+      "quality": 4.0,
+      "melody": 4.0,
+      "harmony": 4.5,
+      "rhythm": 4.0,
+      "structure": 4.5,
+      "control": 4.5,
+      "naturalness": 4.0,
+      "overall": 4.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "LLM (LLaMA2) that writes music as ABC notation, conditioned on text / chords / motifs. Judged on a real model output — the chord-progression example (Am-F-C-G) from the paper, rendered from its ABC to audio via a basic synthesizer (timbre neutral, so judgment is on note content). The melody is coherent and tuneful, the harmony is logical and stays faithful to the given Am-F-C-G progression (control adherence verifiable), the rhythm is stable, and a recognizable theme with repetition gives it clear structure. Structurally the strongest symbolic model so far. Output is symbolic (no timbre).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Solid harmonic writing",
+      "convincing long-term structure",
+      "verifiable, faithful control"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Controllable, prompt- or condition-driven generation.",
+    "reportedMetrics": "MusicTheoryBench accuracy (knowledge/reasoning); MMLU; phrase-level repetition; parsing success rate; edit-distance similarity; listener preference %",
+    "reportedResult": "Beats GPT-4 on MusicTheoryBench; preferred in A/B listening (N=80)"
+  },
+  {
+    "id": "74",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.0,
+      "control": null,
+      "naturalness": 3.5,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Symbolic foundation/pre-trained Transformer (LLaMA2 architecture) on SMT-ABC notation; multi-track. Two free-generation examples were listened to. Coherence, harmonic sense and rhythmic stability are good, and the texture is multi-instrument but not cluttered. Two limitations: the examples share a similar overall theme (limited diversity), and each clip is under a minute, so the claimed long-context / full-piece capability is not strongly demonstrated in the available samples. The examples are unconditioned generation with no explicit control input, so control adherence is not assessable here (N/A). Rendered audio (MIDI-style).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Weak long-term structure"
+    ],
+    "bestUseCase": "Symbolic music generation and prototyping.",
+    "reportedMetrics": "Repetition rate; intra-texture similarity; pairwise musicality preference (79% vs GPT-4); scaling-law fit",
+    "reportedResult": "Preferred 79% of the time vs GPT-4 (webMUSHRA)"
+  },
+  {
+    "id": "67",
+    "scores": {
+      "quality": 4.5,
+      "melody": 4.0,
+      "harmony": null,
+      "rhythm": 4.0,
+      "structure": 3.5,
+      "control": null,
+      "naturalness": 3.5,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "GPT-2 Transformer for controllable multitrack symbolic music (infilling, continuation, attribute control). No hosted audio sample exists, so a real output was generated locally by the user with the released \"yellow\" checkpoint (single melodic track, unconditioned autoregressive, 8 bars) and rendered from MIDI via the same basic synthesizer used across the batch. The melody is coherent and tuneful, the rhythm is stable, and a discernible structure is present over the short clip. Harmony is not applicable (single track) and control adherence is not assessable (unconditioned generation). Note that the models headline strengths — multi-track infilling and attribute control (note density, polyphony, duration) — are not exercised by this simple sample; per the paper, note-density and note-duration controls are effective while polyphony control is weaker.",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "coherent, tuneful melodies",
+      "a stable rhythmic pulse"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Symbolic music generation and prototyping.",
+    "reportedMetrics": "Duplication rate (intra-dataset & infilling originality); stylistic similarity (feature-based); attribute-control accuracy (density, polyphony, duration)",
+    "reportedResult": "Rarely duplicates training data; strong attribute control (objective only)"
+  },
+  {
+    "id": "92",
+    "scores": {
+      "quality": 2.0,
+      "melody": 2.5,
+      "harmony": 2.5,
+      "rhythm": 2.5,
+      "structure": 2.0,
+      "control": 2.5,
+      "naturalness": 2.0,
+      "overall": 2.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Audio-domain raw-audio model with rudimentary singing (VQ-VAE codes + Transformer priors), conditioned on artist / genre / lyrics. The output is heavily noisy, but this is a genuine compression artifact of the model’s downsampling/upsampling (explicitly acknowledged in the paper) rather than a deliberate vintage effect (quality 2). Singing is present but only around 30% of the lyrics are intelligible, and the demonstration overlays the text so listeners can follow (naturalness 2). Melodic and harmonic content exists but is muddy and only loosely coherent (melody 2.5, harmony 2.5, rhythm 2.5). It holds together locally at first but deteriorates toward the end into something grating, consistent with the paper’s own stated limitation that no repeating chorus or large-scale structure emerges (structure 2). Artist-level style (Sinatra) could not be confirmed by ear by a non-specialist listener, so control is rated low with that caveat (control 2.5); the vocal is broadly an old-style male crooner, which is at least consistent with the target genre. As the foundational raw-audio-with-vocals system it is historically important but sonically and structurally rough (overall 2.5).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Relatively strong melodic coherence",
+      "Relatively strong harmony"
+    ],
+    "weaknesses": [
+      "Limited audio quality",
+      "weak long-term structure"
+    ],
+    "bestUseCase": "Text-to-music audio generation and prototyping.",
+    "reportedMetrics": "Manual assessment of coherence, musicality, diversity, novelty (no quantitative metrics)",
+    "reportedResult": "Manual coherence/musicality/novelty eval (no MOS)"
+  },
+  {
+    "id": "328",
+    "scores": {
+      "quality": 4.0,
+      "melody": 3.0,
+      "harmony": 3.0,
+      "rhythm": 3.0,
+      "structure": 2.5,
+      "control": 3.0,
+      "naturalness": 3.0,
+      "overall": 3.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Audio-domain language-modelling approach: audio is tokenised (semantic + acoustic tokens) and continued autoregressively. The music example auditioned is piano continuation (instrumental, no vocals). Compared side by side with the acoustic-only baseline, AudioLM maintains the prompt’s character and coherence noticeably longer — the acoustic-only continuation starts well but falls apart within a few seconds, whereas AudioLM holds together longer before it too deteriorates toward the end. This audibly confirms the paper’s central claim that the added semantic-token level improves long-term consistency (control/continuation 3), even though large-scale structure still breaks down (structure 2.5). Audio is clean, without the compression noise heard in Jukebox (quality 3.5); melody, harmony and rhythm are coherent while they last (all 3). The LibriSpeech speech-continuation example was also coherent, supporting the approach, but speech is outside the music-scoring scope. Overall clearly ahead of Jukebox on cleanliness and short-term consistency (overall 3).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Weak long-term structure",
+      "plain melodic writing"
+    ],
+    "bestUseCase": "Text-to-music audio generation and prototyping.",
+    "reportedMetrics": "Piano: rater preference (83.3%); Speech: sWUGGY, sBLIMP, WER/CER, ViSQOL, ABX, speaker-classifier accuracy",
+    "reportedResult": "Piano: AudioLM preferred 83.3%; speech nearly indistinguishable from real"
+  },
+  {
+    "id": "76",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.0,
+      "control": 4.5,
+      "naturalness": 3.5,
+      "overall": 4.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Text-to-music in the audio domain, built on the AudioLM token hierarchy. On the \"Audio Generation from Rich Captions\" examples the output matched its caption strikingly well — the requested instruments, genre and mood were all clearly audible — making the text control both strong and directly verifiable by ear (control 4.5, the standout dimension of the whole audio batch and the model’s headline capability). Audio quality is a clear step up from AudioLM and well above Jukebox (quality 3.5), with coherent melody, harmony and rhythm (all 3.5). Any sung vocals are only marginally improved and remain the weakest element, but the instrumental material is convincing (naturalness 3.5). Structure over the roughly 30-second clips is reasonable though not extensively tested (structure 3). The best audio-domain result of the batch (overall 4).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "verifiable, faithful control"
+    ],
+    "weaknesses": [
+      "Weak long-term structure"
+    ],
+    "bestUseCase": "Controllable, prompt- or condition-driven generation.",
+    "reportedMetrics": "FAD (Trill, VGGish); KLD; MuLan Cycle Consistency (MCC); pairwise wins",
+    "reportedResult": "Lower FAD & better caption adherence than Mubert/Riffusion"
+  },
+  {
+    "id": "58",
+    "scores": {
+      "quality": 4.0,
+      "melody": 3.0,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.5,
+      "control": 3.5,
+      "naturalness": 3.0,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Text-to-music in the audio domain using a diffusion cascade (generates audio from noise rather than from discrete tokens). It sits in the same range as MusicLM rather than clearly below it. The typical strengths of diffusion are audible: a full, coherent harmonic texture (harmony 3.5), a steady rhythmic pulse (rhythm 3.5), and clean, well-sustained audio with only faint background noise (quality 3.5); structure over the clip holds up well (structure 3.5). The weaker points are that any sung vocals remain unclear and the melodic material itself is fairly plain (melody 3, naturalness 3). Text adherence is present and reasonable, though it was not confirmed by ear as decisively as MusicLM (control 3.5). Overall a strong diffusion-based text-to-music result, roughly on par with the token-based MusicLM (overall 3.5).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Plain melodic writing",
+      "weak naturalness or vocals"
+    ],
+    "bestUseCase": "Text-to-music audio generation and prototyping.",
+    "reportedMetrics": "FAD (VGG); MuLan similarity score (audio-text, audio-audio); pairwise wins",
+    "reportedResult": "Higher MuLan similarity; wins pairwise vs MusicLM & Mubert"
+  },
+  {
+    "id": "329",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.0,
+      "control": 3.5,
+      "naturalness": 3.5,
+      "overall": 4.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Text-to-music via a single-stage language transformer over compressed audio (EnCodec) tokens, using a codebook-interleaving pattern that avoids MusicLM's cascade; also supports melody conditioning. On the interactive demo the overall audio quality was good (quality 4), though the generated clips were short (under ~10 seconds — a setting of the demo rather than a limit of the model, which supports longer generations), leaving little room for long-term structure (structure 3). Melody, harmony and rhythm were coherent (3.5 each) and the result sounded natural (naturalness 3.5). Text adherence was mostly present, but on the prompt \"a cheerful country song with acoustic guitars\" the requested acoustic guitars were not clearly identifiable on manual listening. As this evaluation relied on non-expert listening rather than formal instrument-recognition analysis, this observation is recorded with that caveat (control 3.5). Overall a strong, clean text-to-music result (overall 4).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Weak long-term structure"
+    ],
+    "bestUseCase": "Text-to-music audio generation and prototyping.",
+    "reportedMetrics": "FAD (VGGish); KL divergence (PaSST); CLAP score; subjective OVL, REL",
+    "reportedResult": "Better FAD & human ratings than MusicLM/Noise2Music baselines"
+  },
+  {
+    "id": "334",
+    "scores": {
+      "quality": 4.0,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 4.0,
+      "control": 3.5,
+      "naturalness": 3.5,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Long-form, variable-length stereo text-to-audio (44.1 kHz) via latent diffusion, whose defining feature is timing conditioning — the output duration is specified so the model produces a complete beginning/middle/end rather than a cut loop. On the long-form stereo comparison and the sound-effect examples, rhythm and overall shape were solid and the full start-to-end structure was clearly audible, which is consistent with the model's headline timing-conditioning claim (structure 4, the standout dimension). The audio carried some faint background noise, holding overall quality slightly back (quality 3.5); melody, harmony, rhythm and naturalness were coherent (3.5 each). Text adherence was mixed on the sound-effect prompts: the requested bird sounds were clearly rendered, while a car/engine sound was somewhat off (control 3.5). Overall a clean, structurally strong result in the batch's upper tier (overall 3.5).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "convincing long-term structure"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Longer-form, structurally coherent composition.",
+    "reportedMetrics": "FD-openl3 (long-form stereo); KL-passt (up to 32 kHz); CLAP score; qualitative: audio quality, text alignment, musicality, stereo correctness, musical structure",
+    "reportedResult": "SOTA long-form FD-openl3; renders 95s in ~8s on one A100"
+  },
+  {
+    "id": "378",
+    "scores": {
+      "quality": 4.0,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.5,
+      "control": 4.0,
+      "naturalness": 3.5,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Diffusion text-to-music focused on fine-grained musical control. Its core is MuNet, a music-domain-knowledge UNet guidance module that extracts chord, beat, tempo and key from the prompt and injects them into the reverse-diffusion process, trained with the purpose-built MusicBench dataset (~52K theory-annotated captions). On the expert-listening comparison, Mustango sounded solid — cleaner and more coherent than Tango (which was disorganised) though marginally less polished overall than MusicGen (quality/melody/harmony/rhythm/structure/naturalness 3.5 each). The model's distinctive contribution is control: the paper reports state-of-the-art chord/tempo/key match, better than MusicGen and AudioLDM2. This fine-grained controllability was not independently verified chord-by-chord in the present informal listening, but nothing heard contradicted it, so control is rated on the strength of the paper-validated result (control 4). Overall a strong, control-oriented text-to-music system (overall 3.5).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "verifiable, faithful control"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Controllable, prompt- or condition-driven generation.",
+    "reportedMetrics": "FD, FAD, KL; controllability: Tempo Bin (TB/TBT), Chord Match (PCM/EKM), Beat Match; subjective AQ, REL, OMQ, RC, HC, MCM, MTM",
+    "reportedResult": "Best chord/tempo control match; 48 general + 4 expert raters"
+  },
+  {
+    "id": "379",
+    "scores": {
+      "quality": 3.5,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.5,
+      "control": 3.5,
+      "naturalness": 3.5,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Text-to-music via flow matching in a cascaded architecture (text to audio-semantic representation, then to audio), supporting infilling and continuation. Its reported strengths are efficiency and quality parity: 2-5x fewer parameters than comparable diffusion/autoregressive models while achieving competitive FAD, and preference over larger baselines in a pairwise study. NO PUBLIC AUDIO DEMO WAS AVAILABLE, so no perceptual evaluation was carried out; the scores below are provisional and based solely on the paper's reported results, not on independent listening. On that basis it is placed conservatively on par with the batch's other competent 2024 text-to-music systems (all dimensions 3.5, overall 3.5, paper-reported).",
+    "takeaway": "",
+    "paperBased": true,
+    "strengths": [
+      "Relatively strong audio quality",
+      "Relatively strong melodic coherence"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Text-to-music audio generation and prototyping.",
+    "reportedMetrics": "FAD; FD; KLD; CLAP similarity; pairwise preference",
+    "reportedResult": "2-5x fewer params; competitive FAD; preferred in pairwise study"
+  },
+  {
+    "id": "345",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.0,
+      "harmony": 3.0,
+      "rhythm": 3.5,
+      "structure": 3.0,
+      "control": 2.5,
+      "naturalness": 3.0,
+      "overall": 3.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Multi-track pop accompaniment generation from an input melody, using a Transformer over the MuMIDI representation, which interleaves all instruments into one sequence to better model cross-track (harmonic) dependencies and makes note position/duration explicit. On the demo samples (melody input -> PopMAG output -> ground truth), the MIDI rendering itself was clean, clear and free of noise (quality 4.5). The generated accompaniment functioned more as a stylistically plausible backing template than as a part responsive to the specific input melody: it was harmonically consistent and rhythmically steady (harmony 3, rhythm 3.5), but melody-accompaniment interaction was limited and the arrangement leaned on a repeating pop pattern rather than a whole-song arc (melody-following/control 2.5, structure 3, naturalness 3). The input melody is provided rather than generated, so the melody dimension reflects the given lead (melody 3). Overall a clean but somewhat template-like accompaniment, reminiscent of preset auto-accompaniment on consumer keyboards (overall 3).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Control not clearly verifiable",
+      "plain melodic writing"
+    ],
+    "bestUseCase": "Generating accompaniment or arrangements from a given lead.",
+    "reportedMetrics": "Chord Accuracy (CA); PPL; distribution overlap (Pitch, Velocity, Duration, IOI); subjective preference scores",
+    "reportedResult": "Won 42/38/40% of votes vs ground-truth (3 datasets); beats MuseGAN"
+  },
+  {
+    "id": "346",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": 4.0,
+      "rhythm": 4.0,
+      "structure": 4.0,
+      "control": 4.0,
+      "naturalness": 4.0,
+      "overall": 4.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Whole-song piano accompaniment from a lead sheet, using a distinctive retrieval-plus-adaptation approach rather than note-by-note generation: it selects the most suitable real human piano phrases from a database (texture-based phrase selection) and harmonises them to the input lead sheet via style transfer. Because the texture comes from genuine human phrases, the piano accompaniment sounded natural and musical (naturalness 4), the audio render was clean and clear (quality 4.5), and harmony and rhythm were solid (both 4). Its headline strength — whole-song structural coherence from phrase-level assembly — was clearly audible, with the overall arc holding together across the piece (structure 4), and the accompaniment followed the lead sheet responsively rather than as a fixed template (control/lead-sheet adherence 4), a marked improvement over PopMAG. The lead melody is provided by the input lead sheet (melody 3.5). Overall a strong, natural-sounding and well-structured accompaniment arrangement (overall 4).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "solid harmonic writing",
+      "a stable rhythmic pulse"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Generating accompaniment or arrangements from a given lead.",
+    "reportedMetrics": "Subjective: coherence, structure, musicality (5-pt); Objective: contrastive loss, RD/VN difference, Rank@50, phrase/song ranking accuracy",
+    "reportedResult": "Significantly better than learning- and template-based baselines (p<0.05); 72 subjects"
+  },
+  {
+    "id": "19",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": 4.0,
+      "rhythm": 4.0,
+      "structure": 4.5,
+      "control": 4.0,
+      "naturalness": 4.0,
+      "overall": 4.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "The most advanced system of the batch (NeurIPS 2024): whole-song multi-track arrangement from a lead sheet in two stages — first a piano accompaniment is retrieved from the lead sheet (piano texture styles), then that piano is orchestrated into a full multi-track arrangement by infusing orchestral-function styles, using vector quantization and a multistream Transformer to model the long-term flow of orchestration style (giving controllable instrumentation). On the demo examples (lead sheet -> piano -> multi-track), the first-stage piano base retained some template character, but the final multi-track output was coherent, stable, harmonic and clean (harmony 4, rhythm 4, quality 4.5). Its headline strength — whole-song structural coherence — was the standout: the arrangement held together across the entire piece, consistent both with the listening impression and with the paper's reported state-of-the-art structure-awareness and chord accuracy, peer-validated at NeurIPS 2024 (structure 4.5). Instrumentation followed the lead sheet responsively and is user-selectable (control 4); the orchestration sounded natural (naturalness 4); the lead melody is provided by the input (melody 3.5). Overall the strongest, most capable arrangement system evaluated, held just short of the top by the somewhat template-like first-stage base (overall 4).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "convincing long-term structure",
+      "solid harmonic writing"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Generating accompaniment or arrangements from a given lead.",
+    "reportedMetrics": "Chord accuracy; degree of arrangement (DOA); structure awareness; inference latency (s/bar); subjective ratings (5 dimensions)",
+    "reportedResult": "Best chord accuracy, structure-awareness & diversity vs baselines; 23 subjects"
+  },
+  {
+    "id": "349",
+    "scores": {
+      "quality": 3.0,
+      "melody": 3.0,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.0,
+      "control": 3.5,
+      "naturalness": 2.5,
+      "overall": 3.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "Audio-to-audio accompaniment generation: unlike the symbolic systems in this batch, SingSong takes raw recorded singing and generates a full instrumental backing in the audio domain. It builds aligned (vocal, instrumental) pairs by applying source separation to a large music corpus, then adapts AudioLM for conditional audio-to-audio generation. On the listener-study rows (vocal input -> SingSong-XL output), the generated backing was musically compatible with the input voice — key, tempo and feel matched, consistent with the reported 66% preference over the retrieval baseline (control/compatibility 3.5, harmony and rhythm 3.5) — but the audio carried noticeable noise (quality 3, though less severe than Jukebox) and the vocal sounded stretched and artefact-laden. This vocal warping is inherent to the source-separation approach, which introduces artefacts into the training vocals, a limitation the paper itself acknowledges; it is therefore recorded as a method artefact rather than a subjective judgement (naturalness 2.5). Melody and structure of the backing were plain but adequate (both 3). Overall a functional, vocal-aware accompaniment whose audio fidelity remains its main weakness (overall 3).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Relatively strong harmony",
+      "Relatively strong rhythm"
+    ],
+    "weaknesses": [
+      "Weak naturalness or vocals",
+      "limited audio quality"
+    ],
+    "bestUseCase": "Generating accompaniment or arrangements from a given lead.",
+    "reportedMetrics": "FAD (FADi on isolated / FADs on source-separated vocals); pairwise listener preference (66% vs retrieval baseline)",
+    "reportedResult": "Preferred over retrieval baseline 66% of the time; FAD reported"
+  },
+  {
+    "id": "352",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 4.0,
+      "structure": 3.5,
+      "control": 4.0,
+      "naturalness": 4.0,
+      "overall": 4.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "An audio-domain stem-generation model (ICASSP 2024) with a distinctive premise: rather than generating from a score or a text prompt, it listens to existing musical context and generates a new stem (e.g. guitar, bass, drums) that fits. It uses a non-autoregressive, masked token-modelling architecture (similar to SoundStorm/VampNet) over Encodec tokens, and supports interactive iterative layering — generate a stem, mix it in, feed it back as context, and build up a track step by step. On the test-set examples (context -> generated stem -> mixed) and the iterative layering examples, the generated stems were musically coherent with the context and, unlike the audio-domain models of Batch 4, the audio was clean and free of noise (quality 4). The context-awareness — its headline capability — was the clear strength: new stems locked to the rhythm and harmony of the existing material (control/context-fit 4, rhythm 4), and the result sounded natural and acceptable overall (naturalness 4, melody 3.5, harmony 3.5, structure 3.5). This is consistent with the paper's reported result of reaching the audio quality of state-of-the-art text-conditioned models while exhibiting strong musical coherence with its context, peer-validated at ICASSP 2024. Overall a clean, genuinely context-aware accompaniment/stem generator (overall 4).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "a stable rhythmic pulse",
+      "verifiable, faithful control"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Generating accompaniment or arrangements from a given lead.",
+    "reportedMetrics": "FAD (VGGish); MIRDD (MIR Descriptor Distance, KL over pitch/rhythm/structure descriptors); MOS",
+    "reportedResult": "FAD competitive with SOTA; MOS listening test (10 raters)"
+  },
+  {
+    "id": "357",
+    "scores": {
+      "quality": 4.5,
+      "melody": null,
+      "harmony": null,
+      "rhythm": null,
+      "structure": null,
+      "control": 3.5,
+      "naturalness": null,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "Not a generative music model but a target-based computer-aided orchestration tool (IRCAM/Berkeley): given a target sound — a chord, a bell, a scream, a car horn — it searches for combinations of real orchestral instruments that, played together, approximate the target's timbre. It is therefore the outlier of the batch, and most musical dimensions (melody, harmony, rhythm, long-term structure, musicality) do not meaningfully apply and are marked N/A. On the Examples page the underlined title is the target audio and the numbered 'solution' links are Orchidea's orchestral approximations. Comparing target to solution (e.g. Beethoven's chord), the orchestral rendering was recognisably similar in colour to the target but sat in a slightly higher/thinner register — a partial rather than exact timbral match (control/timbre-match 3.5, supported by the paper's reported >20% improvement in cosine similarity over prior methods). The renderings use real instrument samples and are clean (quality 4). Overall a capable, peer-reviewed specialist tool that performs its narrow timbre-matching task reasonably well (overall 3.5).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Orchestration and instrumentation of existing material.",
+    "reportedMetrics": "Cosine-similarity-based feature-space distance (Caetano et al. 2019, Eq. 15)",
+    "reportedResult": "Outperforms CAMO-GA/Orchids/CAMO-AIS by >20% (cosine similarity)"
+  },
+  {
+    "id": "313",
+    "scores": {
+      "quality": 4.5,
+      "melody": 3.5,
+      "harmony": 4.0,
+      "rhythm": 3.5,
+      "structure": 4.0,
+      "control": 3.5,
+      "naturalness": 3.5,
+      "overall": 4.0
+    },
+    "technicalContribution": "",
+    "criticalListening": "A pioneering system (ISMIR 2022) for full multi-track, multi-instrument symbolic symphony generation. Its central idea is a permutation-invariant language model: because notes sounded at the same time are order-independent, a standard sequential LM is ill-suited, so SymphonyNet uses a dedicated Multi-track Multi-instrument Repeatable (MMR) tokenisation, 3-D positional embeddings and a Music-BPE scheme to model polyphonic, multi-instrument texture; it also supports joint auto-orchestration. On the prime-continuation examples, its continuations were clearly stronger than the short input prime — coherent multi-track texture with good structure and harmony (structure 4, harmony 4, quality 4) — though still below the human ground-truth continuation of the same prime (naturalness 3.5). On the from-scratch / chord-conditioned generations the results were acceptable but more uneven: audio quality was moderate and rhythm was somewhat unsteady, varying across examples (rhythm 3.5, melody 3.5, control 3.5). This is consistent with the paper's reported result of coherent, complex and harmonious symphonies that beat the MMM baseline across dimensions, peer-validated at ISMIR 2022. Overall a strong, pioneering multi-track symphony generator, clearly ahead of its inputs and baselines while remaining short of human quality (overall 4).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Clean, high-fidelity rendering",
+      "solid harmonic writing",
+      "convincing long-term structure"
+    ],
+    "weaknesses": [
+      "Few notable weaknesses within the evaluated dimensions"
+    ],
+    "bestUseCase": "Orchestration and instrumentation of existing material.",
+    "reportedMetrics": "MOS: Coherence, Diversity, Harmoniousness, Structureness, Orchestration, Overall Preference (95% CI); training/validation loss",
+    "reportedResult": "Beats MMM on all dimensions; surpasses human compositions in diversity"
+  },
+  {
+    "id": "259",
+    "scores": {
+      "quality": 3.5,
+      "melody": 3.5,
+      "harmony": 3.5,
+      "rhythm": 3.5,
+      "structure": 3.0,
+      "control": 4.0,
+      "naturalness": 3.0,
+      "overall": 3.5
+    },
+    "technicalContribution": "",
+    "criticalListening": "A controllable re-orchestration model (IJCAI 2025) built on a Transformer VAE: rather than composing an accompaniment from scratch, it takes an existing piece and re-orchestrates it for a different instrumentation while preserving the original melodic line (melody-aware) and offering bar- and track-level control of textural attributes such as polyphonicity and rhythmicity, keeping a homophonic texture. It also performs lead-sheet orchestration zero-shot. On the demo examples the core idea worked — the same melody returned in different instrumental 'clothing' — and its distinctive strength, fine-grained texture and instrumentation control with melodic fidelity, is the headline the paper validates against style-transfer baselines in a user study, peer-reviewed at IJCAI 2025 (control 4). However, the rendering showed audible weaknesses: the endings tended to drift or cut off abruptly (structure 3), the woodwind-quintet instrumentation sounded out of tune from the start, and the full-orchestra version carried some background noise (quality 3.5, naturalness 3, rhythm 3.5). Melody and harmony were otherwise coherent (melody 3.5, harmony 3.5). Overall a peer-validated, genuinely controllable re-orchestration system whose control and melody-preservation are strong, held back by uneven rendering quality across instrumentations (overall 3.5).",
+    "takeaway": "",
+    "paperBased": false,
+    "strengths": [
+      "Verifiable, faithful control"
+    ],
+    "weaknesses": [
+      "Weak long-term structure",
+      "weak naturalness or vocals"
+    ],
+    "bestUseCase": "Orchestration and instrumentation of existing material.",
+    "reportedMetrics": "Bar-/track-level controllability accuracy; melodic fidelity; melodic-instrument playability; distribution-based similarity to reference; subjective quality/recognizability ratings",
+    "reportedResult": "Better controllability & melodic fidelity; 24 + 13 participants"
+  }
+]
