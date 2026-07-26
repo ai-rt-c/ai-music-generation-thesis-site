@@ -18,10 +18,7 @@ export const navGroups: NavGroup[] = [
   },
   {
     title: "Method",
-    items: [
-      { label: "Systematic review", href: "/systematic-review" },
-      { label: "Listening evaluation", href: "/listening-evaluation" },
-    ],
+    items: [{ label: "Methodology", href: "/methodology" }],
   },
   {
     title: "The field",
@@ -41,6 +38,7 @@ export const navGroups: NavGroup[] = [
   {
     title: "Findings",
     items: [
+      { label: "Listening evaluation", href: "/listening-evaluation" },
       { label: "Discussion", href: "/discussion" },
       { label: "Future directions", href: "/future-directions" },
     ],

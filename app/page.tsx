@@ -37,6 +37,13 @@ export default function HomePage() {
           </li>
         ))}
       </ol>
+
+      <h2 className="mt-10 text-lg">Contributions</h2>
+      <ul className="mt-3 list-disc space-y-1.5 pl-5 leading-relaxed marker:text-forest">
+        {content.aboutThesis.contributions.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
