@@ -105,6 +105,17 @@ def norm_paradigm(fam, method):
 
 
 URL_RE = re.compile(r"https?://[^\s)]+")
+REPO_RE = re.compile(r"(?:https?://)?((?:github\.com|gitlab\.com|huggingface\.co)/[^\s),;]+)")
+
+
+def code_url(code):
+    m = URL_RE.search(code or "")
+    if m:
+        return m.group(0).rstrip(".,);")
+    m = REPO_RE.search(code or "")
+    if m:
+        return "https://" + m.group(1).rstrip(".,);")
+    return None
 
 
 def first_url(*vals):
@@ -148,11 +159,13 @@ for r in master:
         "musicLength": s(r.get("Music Length")),
         "code": code,
         "hasCode": code.lower().startswith("yes"),
+        "codeUrl": code_url(code),
         "hasDemo": demo.lower().startswith("yes"),
         "doi": s(r.get("DOI")) or None,
         "paperUrl": s(r.get("Paper URL")) or None,
         "inDepth": s(r.get("In-Depth Subset")).lower().startswith("yes"),
         "notes": s(r.get("Notes")),
+        "citation": "",
     })
 
 # ---------------- systems / evaluation / audio-demos (29) ----------------
@@ -314,6 +327,7 @@ def sortkey(a):
 
 
 refs = []
+paper_cite = {}
 for r in master:
     au = fmt_authors(r.get("Authors"))
     yr = r.get("Year") or "n.d."
@@ -328,6 +342,11 @@ for r in master:
     if tail:
         text += f" {tail}"
     refs.append({"key": sortkey(r.get("Authors")), "text": text, "included": True})
+    paper_cite[str(r.get("ID"))] = text
+
+# attach the APA citation to each paper (single source: same generator as references)
+for p in papers:
+    p["citation"] = paper_cite.get(p["id"], "")
 
 BG = [
     "Briot, J. P., Hadjeres, G., & Pachet, F. D. (2020). Deep learning techniques for music generation. Springer.",

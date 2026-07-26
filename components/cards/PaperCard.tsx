@@ -2,13 +2,22 @@ import Link from "next/link";
 import type { Paper } from "@/lib/types";
 import Tag from "@/components/ui/Tag";
 import ScoreBadge from "@/components/ui/ScoreBadge";
+import PaperActions from "@/components/explorer/PaperActions";
+
+interface Tips {
+  domain: Record<string, string>;
+  task: Record<string, string>;
+  paradigm: Record<string, string>;
+}
 
 export default function PaperCard({
   paper,
   overall,
+  tips,
 }: {
   paper: Paper;
   overall?: number | null;
+  tips?: Tips;
 }) {
   const cls = "font-medium text-ink no-underline hover:underline";
   const title = paper.inDepth ? (
@@ -31,10 +40,11 @@ export default function PaperCard({
         {paper.source ? ` · ${paper.source}` : ""}
       </p>
       <div className="mt-3 flex flex-wrap gap-1.5">
-        <Tag label={paper.taskCategory} />
-        {paper.domain && <Tag label={paper.domain} muted />}
-        {paper.paradigm && <Tag label={paper.paradigm} muted />}
+        <Tag label={paper.taskCategory} tip={tips?.task[paper.taskCategory]} />
+        {paper.domain && <Tag label={paper.domain} muted tip={tips?.domain[paper.domain]} />}
+        {paper.paradigm && <Tag label={paper.paradigm} muted tip={tips?.paradigm[paper.paradigm]} />}
       </div>
+      <PaperActions paper={paper} />
     </article>
   );
 }

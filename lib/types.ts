@@ -79,11 +79,13 @@ export interface Paper {
   musicLength: string;
   code: string;
   hasCode: boolean;
+  codeUrl: string | null;
   hasDemo: boolean;
   doi: string | null;
   paperUrl: string | null;
   inDepth: boolean; // is it one of the 29 evaluated systems?
   notes: string;
+  citation: string; // APA (same generator as references.json)
 }
 
 // ---- systems.json : the 29 in-depth systems ----
@@ -194,6 +196,11 @@ export interface Content {
   };
   futureDirections: RichSection;
   glossary: { term: string; definition: string }[];
+  tips: {
+    domain: Record<string, string>;
+    task: Record<string, string>;
+    paradigm: Record<string, string>;
+  };
 }
 
 // ---- meta.json : study-level facts, figures, citations ----

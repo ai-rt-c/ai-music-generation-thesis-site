@@ -231,5 +231,32 @@
       "term": "FAD",
       "definition": "Fréchet Audio Distance — a common objective metric comparing generated audio to a reference distribution."
     }
-  ]
+  ],
+  "tips": {
+    "domain": {
+      "Symbolic": "Music as notes or score (MIDI, ABC notation).",
+      "Audio": "Music as raw waveform or audio/codec tokens."
+    },
+    "task": {
+      "Generation": "Generating music from scratch or a prompt.",
+      "Arrangement": "Backing or accompaniment for a given lead.",
+      "Orchestration": "Choosing instruments; timbre matching or re-orchestration.",
+      "Evaluation": "Benchmarking models or evaluation-metric methodology.",
+      "Representation": "Learning reusable music representations.",
+      "Other": "Other or infrastructure work."
+    },
+    "paradigm": {
+      "Transformer": "Autoregressive Transformer language model over music tokens.",
+      "LLM": "A repurposed general-purpose large language model.",
+      "Foundation model": "Large model pretrained at scale and reused across tasks.",
+      "Diffusion": "Iterative denoising generation with step-by-step conditioning.",
+      "VAE": "Variational autoencoder — a latent-variable model.",
+      "GAN": "Adversarially trained generator.",
+      "Flow matching": "A flow-based generative objective, successor to diffusion.",
+      "State-space": "Linear-time sequence backbone (Mamba) alternative to the Transformer.",
+      "RNN": "Recurrent network (LSTM/GRU).",
+      "Hybrid": "Hybrid or other architecture.",
+      "Non-neural": "Rules, search or optimisation rather than a neural generator."
+    }
+  }
 }

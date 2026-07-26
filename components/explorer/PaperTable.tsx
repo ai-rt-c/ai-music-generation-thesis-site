@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Paper } from "@/lib/types";
 import type { SortKey, ScoreMap } from "@/lib/filters";
 import ScoreBadge from "@/components/ui/ScoreBadge";
+import PaperActions from "@/components/explorer/PaperActions";
 
 function SortHeader({
   label, active, dir, onClick, align,
@@ -47,6 +48,7 @@ export default function PaperTable({
             <th scope="col" className="px-3 py-2 text-left font-medium text-forest-ink">Domain</th>
             <th scope="col" className="px-3 py-2 text-left font-medium text-forest-ink">Paradigm</th>
             <SortHeader label="Overall" active={sort === "overall-desc"} dir="desc" onClick={() => onSort("overall-desc")} align="right" />
+            <th scope="col" className="px-3 py-2 text-left font-medium text-forest-ink">Links</th>
           </tr>
         </thead>
         <tbody>
@@ -71,6 +73,9 @@ export default function PaperTable({
               <td className="px-3 py-2 align-top text-muted">{p.paradigm ?? "—"}</td>
               <td className="px-3 py-2 text-right align-top">
                 {p.inDepth ? <ScoreBadge value={scores[p.id]?.overall ?? null} /> : <span className="text-muted">—</span>}
+              </td>
+              <td className="px-3 py-2 align-top">
+                <PaperActions paper={p} compact />
               </td>
             </tr>
           ))}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import Explorer from "@/components/explorer/Explorer";
-import { papers, evaluations, meta } from "@/lib/data";
+import { papers, evaluations, meta, content } from "@/lib/data";
 import { buildFacets, type ScoreMap } from "@/lib/filters";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function ExplorerPage() {
         title="Interactive explorer"
         intro={`Browse all ${meta.counts.included} reviewed studies. Filter, search and sort; the ${meta.counts.inDepth} evaluated systems additionally carry listening scores.`}
       />
-      <Explorer papers={papers} scores={scores} facets={facets} />
+      <Explorer papers={papers} scores={scores} facets={facets} tips={content.tips} />
     </div>
   );
 }

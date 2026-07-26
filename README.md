@@ -50,7 +50,8 @@ GitHub Pages. The site is served under `/ai-music-generation-thesis-site/`
 - **M0** — data pipeline & JSON generation ✅
 - **M1** — Next.js scaffold & deployment setup ✅
 - **M2** — static content pages (Home, About the thesis, Methodology, Discussion, Future directions, About) ✅
-- **M3** — interactive Explorer (112 papers: filters, presets, search, sort, URL bookmarking, responsive) ✅
+- **M3** — interactive Explorer (112 papers: filters, presets, search, sort, URL bookmarking, responsive;
+  CSV export, per-paper cite/DOI/repo actions, facet tooltips, active-filter count, table/card/timeline views) ✅
 - M4 — system detail, 29 selected, Top 9
 - M5 — Compare page
 - M6 — figures (figure viewer, taxonomy, trends, listening-evaluation charts)

@@ -7,18 +7,26 @@ import {
   PRESETS, defaultState, filterPapers, sortPapers,
 } from "@/lib/filters";
 import { queryToState, stateToQuery } from "@/lib/url-state";
+import { papersToCsv, downloadCsv } from "@/lib/csv";
 import SearchBox from "@/components/ui/SearchBox";
 import PresetChips from "@/components/explorer/PresetChips";
 import FilterPanel from "@/components/explorer/FilterPanel";
 import SortControl from "@/components/explorer/SortControl";
 import ActiveFilters from "@/components/explorer/ActiveFilters";
 import PaperTable from "@/components/explorer/PaperTable";
+import TimelineView from "@/components/explorer/TimelineView";
 import PaperCard from "@/components/cards/PaperCard";
 
+type Tips = {
+  domain: Record<string, string>;
+  task: Record<string, string>;
+  paradigm: Record<string, string>;
+};
+
 export default function Explorer({
-  papers, scores, facets,
+  papers, scores, facets, tips,
 }: {
-  papers: Paper[]; scores: ScoreMap; facets: Facets;
+  papers: Paper[]; scores: ScoreMap; facets: Facets; tips: Tips;
 }) {
   // Local state so the default list renders on the server (SEO / no-JS),
   // while the URL still carries bookmarkable filters via history.replaceState.
@@ -43,7 +51,15 @@ export default function Explorer({
     [papers, scores, state],
   );
 
-  const filters = <FilterPanel facets={facets} state={state} onChange={update} />;
+  const activeCount =
+    (state.q ? 1 : 0) +
+    (state.yearMin !== facets.yearRange[0] || state.yearMax !== facets.yearRange[1] ? 1 : 0) +
+    state.tasks.length + state.domains.length + state.paradigms.length +
+    (state.minOverall ? 1 : 0) + (state.minControl ? 1 : 0) + (state.minStructure ? 1 : 0);
+
+  const exportCsv = () => downloadCsv("ai-music-review-filtered.csv", papersToCsv(results, scores));
+
+  const filters = <FilterPanel facets={facets} state={state} onChange={update} tips={tips} />;
 
   return (
     <div>
@@ -70,11 +86,27 @@ export default function Explorer({
 
         <div className="min-w-0">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-            <ActiveFilters state={state} facets={facets} count={results.length} onChange={update} onReset={reset} />
+            <div className="flex flex-wrap items-center gap-2">
+              <ActiveFilters state={state} facets={facets} count={results.length} onChange={update} onReset={reset} />
+              {activeCount > 0 && (
+                <span className="tnum rounded-full border border-line px-2 py-0.5 text-xs text-muted">
+                  {activeCount} {activeCount === 1 ? "filter" : "filters"} active
+                </span>
+              )}
+            </div>
             <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={exportCsv}
+                disabled={results.length === 0}
+                className="rounded-md border border-line px-2.5 py-1 text-sm text-forest hover:bg-forest-light disabled:opacity-50"
+                title="Export the current filtered list as CSV"
+              >
+                Export CSV
+              </button>
               <SortControl value={state.sort} onChange={(sort) => update({ sort })} />
               <div className="flex rounded-md border border-line" role="group" aria-label="View">
-                {(["table", "grid"] as const).map((v) => (
+                {(["table", "grid", "timeline"] as const).map((v) => (
                   <button
                     key={v}
                     type="button"
@@ -97,10 +129,12 @@ export default function Explorer({
             </p>
           ) : state.view === "table" ? (
             <PaperTable papers={results} scores={scores} sort={state.sort} onSort={(sort) => update({ sort })} />
+          ) : state.view === "timeline" ? (
+            <TimelineView papers={results} scores={scores} yearRange={facets.yearRange} />
           ) : (
             <div className="grid gap-3 sm:grid-cols-2">
               {results.map((p) => (
-                <PaperCard key={p.id} paper={p} overall={scores[p.id]?.overall ?? null} />
+                <PaperCard key={p.id} paper={p} overall={scores[p.id]?.overall ?? null} tips={tips} />
               ))}
             </div>
           )}

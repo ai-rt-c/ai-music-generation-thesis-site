@@ -8,7 +8,7 @@ export type SortKey =
   | "title-asc"
   | "overall-desc";
 
-export type View = "table" | "grid";
+export type View = "table" | "grid" | "timeline";
 
 export interface FilterState {
   q: string;

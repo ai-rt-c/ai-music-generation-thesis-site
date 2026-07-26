@@ -1,6 +1,7 @@
 import type { FilterState, Facets } from "@/lib/filters";
 import { scoreFilterActive } from "@/lib/filters";
 import type { TaskCategory, Domain, Paradigm } from "@/lib/types";
+import Tooltip from "@/components/ui/Tooltip";
 
 function toggle<T>(arr: T[], v: T): T[] {
   return arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v];
@@ -11,11 +12,13 @@ function CheckGroup<T extends string>({
   options,
   selected,
   onToggle,
+  tips,
 }: {
   legend: string;
   options: T[];
   selected: T[];
   onToggle: (v: T) => void;
+  tips?: Record<string, string>;
 }) {
   return (
     <fieldset className="mb-5">
@@ -31,7 +34,9 @@ function CheckGroup<T extends string>({
               onChange={() => onToggle(o)}
               className="accent-forest"
             />
-            <span className="text-ink">{o}</span>
+            <span className="text-ink">
+              {tips?.[o] ? <Tooltip label={o} tip={tips[o]} /> : o}
+            </span>
           </label>
         ))}
       </div>
@@ -71,10 +76,12 @@ export default function FilterPanel({
   facets,
   state,
   onChange,
+  tips,
 }: {
   facets: Facets;
   state: FilterState;
   onChange: (patch: Partial<FilterState>) => void;
+  tips: { domain: Record<string, string>; task: Record<string, string>; paradigm: Record<string, string> };
 }) {
   return (
     <div className="text-sm">
@@ -100,15 +107,15 @@ export default function FilterPanel({
       </fieldset>
 
       <CheckGroup<TaskCategory>
-        legend="Task" options={facets.tasks} selected={state.tasks}
+        legend="Task" options={facets.tasks} selected={state.tasks} tips={tips.task}
         onToggle={(v) => onChange({ tasks: toggle(state.tasks, v) })}
       />
       <CheckGroup<Domain>
-        legend="Domain" options={facets.domains} selected={state.domains}
+        legend="Domain" options={facets.domains} selected={state.domains} tips={tips.domain}
         onToggle={(v) => onChange({ domains: toggle(state.domains, v) })}
       />
       <CheckGroup<Paradigm>
-        legend="Paradigm" options={facets.paradigms} selected={state.paradigms}
+        legend="Paradigm" options={facets.paradigms} selected={state.paradigms} tips={tips.paradigm}
         onToggle={(v) => onChange({ paradigms: toggle(state.paradigms, v) })}
       />
 

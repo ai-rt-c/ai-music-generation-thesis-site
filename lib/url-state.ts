@@ -51,6 +51,6 @@ export function queryToState(params: URLSearchParams, facets: Facets): FilterSta
     minControl: num(params.get("control"), 0),
     minStructure: num(params.get("structure"), 0),
     sort: (sort && SORTS.includes(sort as SortKey) ? sort : "year-desc") as SortKey,
-    view: (view === "grid" ? "grid" : "table") as View,
+    view: (view === "grid" || view === "timeline" ? view : "table") as View,
   };
 }
