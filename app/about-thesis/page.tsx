@@ -20,7 +20,7 @@ export default function AboutThesisPage() {
       <p className="mt-2 leading-relaxed">{a.aim}</p>
 
       <h2 className="mt-8 text-xl">Research questions</h2>
-      <ol className="mt-2 list-decimal space-y-2 pl-5 leading-relaxed marker:text-forest">
+      <ol className="prose-copy mt-2 list-decimal space-y-2 pl-5 leading-relaxed marker:text-forest">
         {a.researchQuestions.map((q, i) => (
           <li key={i}>{q}</li>
         ))}

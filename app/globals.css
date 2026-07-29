@@ -49,6 +49,17 @@
   }
 }
 
+@layer components {
+  /* Long-form narrative only; UI, cards, tables, captions and metadata stay left-aligned. */
+  .prose-copy,
+  main :where(.max-w-prose) > p:not(.text-xs):not(.text-sm),
+  main :where(.max-w-prose) > section > p:not(.text-xs):not(.text-sm),
+  main p.max-w-prose {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;
