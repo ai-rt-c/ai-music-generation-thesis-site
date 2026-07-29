@@ -7,7 +7,6 @@ import {
   PRESETS, defaultState, filterPapers, sortPapers,
 } from "@/lib/filters";
 import { queryToState, stateToQuery } from "@/lib/url-state";
-import { papersToCsv, downloadCsv } from "@/lib/csv";
 import SearchBox from "@/components/ui/SearchBox";
 import PresetChips from "@/components/explorer/PresetChips";
 import FilterPanel from "@/components/explorer/FilterPanel";
@@ -57,8 +56,6 @@ export default function Explorer({
     state.tasks.length + state.domains.length + state.paradigms.length +
     (state.minOverall ? 1 : 0) + (state.minControl ? 1 : 0) + (state.minStructure ? 1 : 0);
 
-  const exportCsv = () => downloadCsv("ai-music-review-filtered.csv", papersToCsv(results, scores));
-
   const filters = <FilterPanel facets={facets} state={state} onChange={update} tips={tips} />;
 
   return (
@@ -95,15 +92,6 @@ export default function Explorer({
               )}
             </div>
             <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={exportCsv}
-                disabled={results.length === 0}
-                className="rounded-md border border-line px-2.5 py-1 text-sm text-forest hover:bg-forest-light disabled:opacity-50"
-                title="Export the current filtered list as CSV"
-              >
-                Export CSV
-              </button>
               <SortControl value={state.sort} onChange={(sort) => update({ sort })} />
               <div className="flex rounded-md border border-line" role="group" aria-label="View">
                 {(["table", "grid", "timeline"] as const).map((v) => (

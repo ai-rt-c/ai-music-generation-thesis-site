@@ -5,3 +5,13 @@ out/
 *.log
 .env*
 scripts/__pycache__/
+
+# Private thesis and research sources must never enter the public export.
+/public/downloads/Thesis.pdf
+/public/downloads/*.xlsx
+/public/downloads/*.xls
+/public/downloads/*.docx
+/public/downloads/data.zip
+/public/downloads/*[Tt]hesis*.pdf
+/public/downloads/*[Dd]raft*.pdf
+/public/downloads/*[Dd]issertation*.pdf

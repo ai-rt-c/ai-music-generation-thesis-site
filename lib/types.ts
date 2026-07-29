@@ -2,14 +2,12 @@
 // Every JSON file in /data conforms to one of these types.
 // Components consume these types only — no research content is hard-coded.
 
-export type Domain = "Symbolic" | "Audio";
+export type Domain = "Symbolic" | "Audio" | "Mixed";
 export type TaskCategory =
-  | "Generation"
+  | "Symbolic generation"
+  | "Audio generation"
   | "Arrangement"
-  | "Orchestration"
-  | "Evaluation"
-  | "Representation"
-  | "Other";
+  | "Orchestration";
 
 export type Paradigm =
   | "Transformer"
@@ -58,7 +56,7 @@ export const DIMENSION_LABELS: Record<keyof Scores, string> = {
   overall: "Overall",
 };
 
-// ---- papers.json : the 112 reviewed studies (the corpus) ----
+// ---- papers.json : the 107 reviewed studies (the corpus) ----
 export interface Paper {
   id: string;
   title: string;
@@ -160,7 +158,7 @@ export interface Trend {
 export interface Reference {
   key: string; // sort key (first author surname, lowercased)
   text: string; // full APA entry
-  included: boolean; // true = one of the 112 included studies
+  included: boolean; // true = one of the 107 included studies
 }
 
 // ---- content.json : narrative page copy, extracted from the dissertation ----
@@ -225,9 +223,12 @@ export interface Meta {
   repoUrl: string;
   prisma: {
     identified: number;
+    transferred: number;
     afterDedup: number;
     titleScreened: number;
-    fullText: number;
+    afterAbstract: number;
+    initiallyIncluded: number;
+    afterConsolidation: number;
     included: number;
     inDepth: number;
   };
@@ -240,6 +241,6 @@ export interface Meta {
   };
   batchAverages: { batch: string; quality: number; overall: number; leading: string }[];
   citations: { apa: string; bibtex: string };
-  downloads: { label: string; file: string; kind: string }[];
+  downloads: { label: string; file: string; kind: string; available?: boolean; note?: string }[];
   figures: FigureItem[];
 }

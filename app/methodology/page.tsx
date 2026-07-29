@@ -14,11 +14,13 @@ export default function MethodologyPage() {
   const p = meta.prisma;
   const funnel = [
     { n: p.identified, label: "records identified (6 databases)" },
-    { n: p.afterDedup, label: "after de-duplication / export" },
+    { n: p.transferred, label: "transferred to Zotero" },
+    { n: p.afterDedup, label: "unique after de-duplication" },
     { n: p.titleScreened, label: "after title screening" },
-    { n: p.fullText, label: "full-text assessed" },
-    { n: p.included, label: "included in the review" },
-    { n: p.inDepth, label: "selected for in-depth listening" },
+    { n: p.afterAbstract, label: "after abstract screening" },
+    { n: p.initiallyIncluded, label: "initially included after full text" },
+    { n: p.afterConsolidation, label: "after publication-version consolidation" },
+    { n: p.included, label: "verified eligible primary studies" },
   ];
   return (
     <article className="max-w-prose">
@@ -31,6 +33,13 @@ export default function MethodologyPage() {
             <div className="text-xs leading-snug text-muted">{f.label}</div>
           </div>
         ))}
+      </div>
+
+      <div className="not-prose mb-6 rounded-lg border border-line bg-white px-4 py-3">
+        <div className="tnum text-lg font-semibold text-forest-ink">{p.inDepth}</div>
+        <div className="text-xs leading-snug text-muted">
+          systems selected after inclusion for in-depth synthesis and listening evaluation
+        </div>
       </div>
 
       <Figure figure={figureById("prisma")} maxWidth={620} />

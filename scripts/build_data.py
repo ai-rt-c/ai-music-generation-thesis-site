@@ -14,11 +14,31 @@ import openpyxl
 from content_source import META, CONTENT, TAXONOMY, TRENDS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = "/sessions/friendly-vibrant-fermi/mnt/New folder"
-MASTER = os.path.join(SRC, "Master_Table_112.xlsx")
-LISTEN = os.path.join(SRC, "Listening_Analysis_29_batched.xlsx")
-OUT = os.path.abspath(os.path.join(HERE, "..", "data"))
+ROOT = os.path.abspath(os.path.join(HERE, ".."))
+OUT = os.path.join(ROOT, "data")
 os.makedirs(OUT, exist_ok=True)
+
+
+def private_source_path(env_name):
+    value = os.environ.get(env_name)
+    if not value:
+        raise RuntimeError(
+            f"{env_name} must point to a private local workbook outside the repository"
+        )
+    path = os.path.abspath(os.path.expanduser(value))
+    try:
+        inside_repository = os.path.commonpath([ROOT, path]) == ROOT
+    except ValueError:
+        inside_repository = False
+    if inside_repository:
+        raise RuntimeError(f"{env_name} must not point inside the public Git repository")
+    if not os.path.isfile(path):
+        raise FileNotFoundError(path)
+    return path
+
+
+MASTER = private_source_path("THESIS_MASTER_XLSX")
+LISTEN = private_source_path("THESIS_LISTENING_XLSX")
 
 
 def rows(path):
@@ -59,13 +79,27 @@ def norm_task(task):
     return "Other"
 
 
-def norm_domain(task, rep):
-    blob = (task + " " + rep).lower()
-    if any(k in blob for k in ["audio", "waveform", "spectrogram", "codec", "vocal", "24 khz", "44.1"]):
-        return "Audio"
-    if any(k in blob for k in ["symbolic", "midi", "score", "abc", "piano-roll", "lead sheet", "note"]):
+def norm_domain(rep):
+    """Use the workbook's leading normalized representation label."""
+    label = rep.strip().lower()
+    if label.startswith("symbolic"):
         return "Symbolic"
-    return None
+    if label.startswith("audio"):
+        return "Audio"
+    if label.startswith("mixed"):
+        return "Mixed"
+    raise ValueError(f"unmapped data representation: {rep!r}")
+
+
+def norm_primary_category(raw_category, domain):
+    """Collapse the final corpus to the four approved analytical categories."""
+    if raw_category in ("Arrangement", "Orchestration"):
+        return raw_category
+    if domain == "Symbolic":
+        return "Symbolic generation"
+    if domain == "Audio":
+        return "Audio generation"
+    raise ValueError(f"mixed-domain generative record needs manual classification")
 
 
 def norm_paradigm(fam, method):
@@ -132,22 +166,28 @@ def first_url(*vals):
 master = rows(MASTER)
 papers = []
 for r in master:
+    paper_id = str(r.get("ID"))
     task = s(r.get("Task"))
     rep = s(r.get("Data Representation"))
     fam = s(r.get("Architecture Family"))
     method = s(r.get("Method"))
     paradigm, ptags = norm_paradigm(fam, method)
+    # MusicAgent is an LLM-powered planning/tool-selection agent, not flow matching.
+    if paper_id == "360":
+        paradigm, ptags = "Transformer", ["Transformer", "LLM"]
+    domain = norm_domain(rep)
+    task_category = norm_primary_category(norm_task(task), domain)
     code = s(r.get("Code"))
     demo = s(r.get("Availability of Demo"))
     papers.append({
-        "id": str(r.get("ID")),
+        "id": paper_id,
         "title": s(r.get("Title")),
         "authors": s(r.get("Authors")),
         "year": int(r["Year"]) if r.get("Year") else None,
         "source": s(r.get("Source")),
         "task": task,
-        "taskCategory": norm_task(task),
-        "domain": norm_domain(task, rep),
+        "taskCategory": task_category,
+        "domain": domain,
         "method": method,
         "architectureFamily": fam,
         "paradigm": paradigm,
@@ -284,7 +324,7 @@ for r in listen:
         "note": "Scores are paper-reported (no public demo)." if paper_based else "Hosted by the authors; opens in a new tab.",
     })
 
-# ---------------- references.json (112 + 8 background) ----------------
+# ---------------- references.json (107 + 8 background) ----------------
 def initials(g):
     return " ".join(t[0].upper() + "." for t in re.split(r"[\s\.]+", g.strip()) if t)
 
@@ -379,7 +419,7 @@ write("content.json", CONTENT)
 write("meta.json", META)
 
 # ---------------- validate ----------------
-assert len(papers) == 112, f"expected 112 papers, got {len(papers)}"
+assert len(papers) == 107, f"expected 107 papers, got {len(papers)}"
 assert len(systems) == 29 and len(evaluation) == 29 and len(demos) == 29, "expected 29 systems"
 assert len([p for p in papers if p["inDepth"]]) >= 29, "in-depth flag mismatch"
 top = [e for e in evaluation if (e["scores"]["overall"] or 0) >= 4]

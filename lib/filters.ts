@@ -34,7 +34,7 @@ export interface Facets {
 export type ScoreMap = Record<string, Scores>;
 
 const TASK_ORDER: TaskCategory[] = [
-  "Generation", "Arrangement", "Orchestration", "Evaluation", "Representation", "Other",
+  "Symbolic generation", "Audio generation", "Arrangement", "Orchestration",
 ];
 const PARADIGM_ORDER: Paradigm[] = [
   "Transformer", "Diffusion", "VAE", "LLM", "Foundation model",
@@ -54,7 +54,7 @@ export function buildFacets(papers: Paper[]): Facets {
   return {
     yearRange: [Math.min(...years), Math.max(...years)],
     tasks: TASK_ORDER.filter((t) => tasks.has(t)),
-    domains: (["Symbolic", "Audio"] as Domain[]).filter((d) => domains.has(d)),
+    domains: (["Symbolic", "Audio", "Mixed"] as Domain[]).filter((d) => domains.has(d)),
     paradigms: PARADIGM_ORDER.filter((p) => paradigms.has(p)),
   };
 }

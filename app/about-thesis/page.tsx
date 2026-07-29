@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
-import { content, meta, asset } from "@/lib/data";
+import { content, meta } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About the thesis",
@@ -47,12 +47,13 @@ export default function AboutThesisPage() {
           <br />
           Supervisor: {meta.supervisor}
         </p>
-        <a
-          href={asset("downloads/Thesis.pdf")}
-          className="mt-3 inline-block rounded-md border border-forest px-3 py-1.5 text-forest hover:bg-forest-light"
+        <span
+          className="mt-3 inline-block rounded-md border border-line px-3 py-1.5 text-muted"
+          aria-disabled="true"
+          title="The full dissertation will be released after final submission"
         >
-          Download the dissertation (PDF)
-        </a>
+          Thesis available after final submission
+        </span>
       </div>
     </article>
   );

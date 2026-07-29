@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import CopyField from "@/components/ui/CopyField";
-import { meta, asset } from "@/lib/data";
+import { meta } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Author, citation and downloads for the companion website.",
+  description: "Author and citation information for the companion website.",
 };
 
 export default function AboutPage() {
@@ -33,20 +33,9 @@ export default function AboutPage() {
       <CopyField label="APA" value={meta.citations.apa} />
       <CopyField label="BibTeX" value={meta.citations.bibtex} />
 
-      <h2 className="mt-8 text-xl">Downloads</h2>
-      <ul className="mt-2 space-y-1.5">
-        {meta.downloads.map((d) => (
-          <li key={d.file}>
-            <a href={asset(d.file)} className="inline-flex items-center gap-2">
-              {d.label} <span className="text-xs uppercase text-muted">{d.kind}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-
       <h2 className="mt-8 text-xl">Repository</h2>
       <p className="mt-2 leading-relaxed">
-        Source and data: <a href={meta.repoUrl}>{meta.repoUrl}</a>
+        Website source code: <a href={meta.repoUrl}>{meta.repoUrl}</a>
       </p>
       <p className="mt-4 text-sm text-muted">Last updated {meta.lastUpdated}.</p>
     </article>

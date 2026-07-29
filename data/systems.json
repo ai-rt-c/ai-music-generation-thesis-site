@@ -7,7 +7,7 @@
     "year": 2020,
     "batch": "B1 — Symbolic: pop/piano generation",
     "batchIndex": 1,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Transformer"
   },
@@ -19,7 +19,7 @@
     "year": 2021,
     "batch": "B1 — Symbolic: pop/piano generation",
     "batchIndex": 1,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Transformer"
   },
@@ -31,7 +31,7 @@
     "year": 2022,
     "batch": "B1 — Symbolic: pop/piano generation",
     "batchIndex": 1,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Transformer"
   },
@@ -43,7 +43,7 @@
     "year": 2023,
     "batch": "B1 — Symbolic: pop/piano generation",
     "batchIndex": 1,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Transformer"
   },
@@ -67,7 +67,7 @@
     "year": 2021,
     "batch": "B2 — Symbolic: diffusion & controllable",
     "batchIndex": 2,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Diffusion"
   },
@@ -79,7 +79,7 @@
     "year": 2025,
     "batch": "B2 — Symbolic: diffusion & controllable",
     "batchIndex": 2,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Diffusion"
   },
@@ -88,10 +88,10 @@
     "paperId": "315",
     "name": "FIGARO",
     "title": "FIGARO: Generating Symbolic Music with Fine-Grained Artistic Control",
-    "year": 2024,
+    "year": 2023,
     "batch": "B2 — Symbolic: diffusion & controllable",
     "batchIndex": 2,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "VAE"
   },
@@ -115,7 +115,7 @@
     "year": 2023,
     "batch": "B3 — Symbolic: LLM / text / foundation",
     "batchIndex": 3,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Transformer"
   },
@@ -127,7 +127,7 @@
     "year": 2024,
     "batch": "B3 — Symbolic: LLM / text / foundation",
     "batchIndex": 3,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Transformer"
   },
@@ -139,7 +139,7 @@
     "year": 2024,
     "batch": "B3 — Symbolic: LLM / text / foundation",
     "batchIndex": 3,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Transformer"
   },
@@ -151,7 +151,7 @@
     "year": 2025,
     "batch": "B3 — Symbolic: LLM / text / foundation",
     "batchIndex": 3,
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "paradigm": "Transformer"
   },
@@ -163,7 +163,7 @@
     "year": 2020,
     "batch": "B4 — Audio: foundational & token-based",
     "batchIndex": 4,
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "paradigm": "VAE"
   },
@@ -175,7 +175,7 @@
     "year": 2022,
     "batch": "B4 — Audio: foundational & token-based",
     "batchIndex": 4,
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "paradigm": "Transformer"
   },
@@ -187,7 +187,7 @@
     "year": 2023,
     "batch": "B4 — Audio: foundational & token-based",
     "batchIndex": 4,
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "paradigm": "Transformer"
   },
@@ -199,7 +199,7 @@
     "year": 2023,
     "batch": "B4 — Audio: foundational & token-based",
     "batchIndex": 4,
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "paradigm": "Diffusion"
   },
@@ -208,10 +208,10 @@
     "paperId": "329",
     "name": "Simple and Controllable Music Generation (MusicGen)",
     "title": "Simple and Controllable Music Generation (MusicGen)",
-    "year": 2024,
+    "year": 2023,
     "batch": "B5 — Audio: recent text-to-music",
     "batchIndex": 5,
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "paradigm": "Transformer"
   },
@@ -223,7 +223,7 @@
     "year": 2024,
     "batch": "B5 — Audio: recent text-to-music",
     "batchIndex": 5,
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "paradigm": "Diffusion"
   },
@@ -235,7 +235,7 @@
     "year": 2023,
     "batch": "B5 — Audio: recent text-to-music",
     "batchIndex": 5,
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "paradigm": "Diffusion"
   },
@@ -247,7 +247,7 @@
     "year": 2024,
     "batch": "B5 — Audio: recent text-to-music",
     "batchIndex": 5,
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "paradigm": "Flow matching"
   },

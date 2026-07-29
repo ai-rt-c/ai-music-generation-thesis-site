@@ -21,7 +21,6 @@ export default function Footer({ meta }: { meta: Meta }) {
             <p className="mt-1">{meta.citations.apa}</p>
             <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
               <a href={meta.repoUrl}>GitHub repository</a>
-              <a href="/downloads">Downloads</a>
               <a href="/references">References</a>
             </p>
             <p className="mt-3 text-xs text-muted">Last updated {meta.lastUpdated}</p>

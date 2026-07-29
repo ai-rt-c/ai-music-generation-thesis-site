@@ -14,17 +14,20 @@ static export → GitHub Pages. No runtime data dependencies.
 
 ## Data pipeline (M0)
 
-All research content lives in `/data/*.json`, generated from the dissertation
-sources by `scripts/build_data.py` (dev-time only, Python):
+The site uses generated `/data/*.json`. Private draft workbooks remain outside
+this public repository and are supplied to `scripts/build_data.py` through local
+environment variables:
 
 ```
+THESIS_MASTER_XLSX=/private/path/to/master.xlsx
+THESIS_LISTENING_XLSX=/private/path/to/listening.xlsx
 python scripts/build_data.py
 ```
 
-Sources: `Master_Table_112.xlsx` (112 studies), `Listening_Analysis_29_batched.xlsx`
-(29 systems), and `scripts/content_source.py` (narrative extracted from the thesis).
+The generator rejects workbook paths inside the repository. Narrative content
+is maintained in `scripts/content_source.py`.
 
-Generated files: `papers.json` (112), `systems.json` (29), `evaluation.json`
+Generated files: `papers.json` (107), `systems.json` (29), `evaluation.json`
 (scores + derived strengths/weaknesses/best-use-case), `audio-demos.json`,
 `taxonomy.json`, `trends.json`, `references.json` (120), `content.json`, `meta.json`.
 Schemas are in `lib/types.ts`.
@@ -50,8 +53,8 @@ GitHub Pages. The site is served under `/ai-music-generation-thesis-site/`
 - **M0** — data pipeline & JSON generation ✅
 - **M1** — Next.js scaffold & deployment setup ✅
 - **M2** — static content pages (Home, About the thesis, Methodology, Discussion, Future directions, About) ✅
-- **M3** — interactive Explorer (112 papers: filters, presets, search, sort, URL bookmarking, responsive;
-  CSV export, per-paper cite/DOI/repo actions, facet tooltips, active-filter count, table/card/timeline views) ✅
+- **M3** — interactive Explorer (107 papers: filters, presets, search, sort, URL bookmarking, responsive;
+  per-paper cite/DOI/repo actions, facet tooltips, active-filter count, table/card/timeline views) ✅
 - M4 — system detail, 29 selected, Top 9
 - M5 — Compare page
 - M6 — figures (figure viewer, taxonomy, trends, listening-evaluation charts)

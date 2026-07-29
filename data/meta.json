@@ -6,18 +6,21 @@
   "university": "IU International University of Applied Sciences",
   "program": "M.Sc. Artificial Intelligence",
   "year": 2026,
-  "lastUpdated": "2026-07-26",
+  "lastUpdated": "2026-07-29",
   "repoUrl": "https://github.com/ai-rt-c/ai-music-generation-thesis-site",
   "prisma": {
     "identified": 4521,
+    "transferred": 1083,
     "afterDedup": 783,
     "titleScreened": 383,
-    "fullText": 145,
-    "included": 112,
+    "afterAbstract": 146,
+    "initiallyIncluded": 113,
+    "afterConsolidation": 112,
+    "included": 107,
     "inDepth": 29
   },
   "counts": {
-    "included": 112,
+    "included": 107,
     "inDepth": 29,
     "topSystems": 9,
     "trends": 8,
@@ -71,28 +74,7 @@
     "apa": "Tahawori, Z. (2026). Artificial intelligence for music generation, arrangement and orchestration: A systematic review (2020–2025) [Master's thesis, IU International University of Applied Sciences].",
     "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, ZahraSadat},\n  title   = {Artificial Intelligence for Music Generation, Arrangement and Orchestration: A Systematic Review (2020--2025)},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis}\n}"
   },
-  "downloads": [
-    {
-      "label": "Thesis PDF",
-      "file": "downloads/Thesis.pdf",
-      "kind": "pdf"
-    },
-    {
-      "label": "Master comparison table (112 studies)",
-      "file": "downloads/Master_Table_112.xlsx",
-      "kind": "xlsx"
-    },
-    {
-      "label": "Listening evaluation dataset (29 systems)",
-      "file": "downloads/Listening_Evaluation_29.xlsx",
-      "kind": "xlsx"
-    },
-    {
-      "label": "Full JSON dataset",
-      "file": "downloads/data.zip",
-      "kind": "zip"
-    }
-  ],
+  "downloads": [],
   "figures": [
     {
       "id": "graphical-abstract",
