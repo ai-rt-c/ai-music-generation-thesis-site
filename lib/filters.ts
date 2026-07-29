@@ -37,8 +37,7 @@ const TASK_ORDER: TaskCategory[] = [
   "Symbolic generation", "Audio generation", "Arrangement", "Orchestration",
 ];
 const PARADIGM_ORDER: Paradigm[] = [
-  "Transformer", "Diffusion", "VAE", "LLM", "Foundation model",
-  "Flow matching", "State-space", "GAN", "RNN", "Hybrid", "Non-neural",
+  "Transformer", "Diffusion", "VAE", "Hybrid", "GAN", "RNN", "Flow matching",
 ];
 
 export function buildFacets(papers: Paper[]): Facets {
@@ -49,7 +48,7 @@ export function buildFacets(papers: Paper[]): Facets {
   for (const p of papers) {
     tasks.add(p.taskCategory);
     if (p.domain) domains.add(p.domain);
-    p.paradigmTags.forEach((t) => paradigms.add(t));
+    if (p.paradigm) paradigms.add(p.paradigm);
   }
   return {
     yearRange: [Math.min(...years), Math.max(...years)],
@@ -94,12 +93,7 @@ export function filterPapers(papers: Paper[], scores: ScoreMap, s: FilterState):
     if (p.year != null && (p.year < s.yearMin || p.year > s.yearMax)) return false;
     if (s.tasks.length && !s.tasks.includes(p.taskCategory)) return false;
     if (s.domains.length && !(p.domain && s.domains.includes(p.domain))) return false;
-    if (
-      s.paradigms.length &&
-      !p.paradigmTags.some((t) => s.paradigms.includes(t)) &&
-      !(p.paradigm && s.paradigms.includes(p.paradigm))
-    )
-      return false;
+    if (s.paradigms.length && !(p.paradigm && s.paradigms.includes(p.paradigm))) return false;
     if (scoped) {
       const sc = scores[p.id];
       if (!sc) return false;
