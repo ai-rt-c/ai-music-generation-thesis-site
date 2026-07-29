@@ -7,7 +7,7 @@ import { DIMENSION_KEYS, DIMENSION_LABELS } from "@/lib/types";
 import type { AudioDemo, Evaluation, Paper, System } from "@/lib/types";
 import { fmtScore } from "@/lib/util";
 
-interface SystemRecord {
+export interface SystemRecord {
   system: System;
   paper: Paper;
   evaluation: Evaluation;
@@ -105,7 +105,13 @@ function ListeningDetails({ evaluation }: { evaluation: Evaluation }) {
   );
 }
 
-function SystemCard({ record }: { record: SystemRecord }) {
+export function SystemCard({
+  record,
+  displayName,
+}: {
+  record: SystemRecord;
+  displayName?: string;
+}) {
   const { system, paper, evaluation, demo } = record;
   const overall = evaluation.scores.overall;
   const isTopSystem = overall != null && overall >= 4;
@@ -119,7 +125,7 @@ function SystemCard({ record }: { record: SystemRecord }) {
           <p className="text-xs font-medium uppercase tracking-wide text-muted">
             {system.year ?? "Year unavailable"}
           </p>
-          <h3 className="mt-1 text-xl">{system.name}</h3>
+          <h3 className="mt-1 text-xl">{displayName ?? system.name}</h3>
         </div>
         <ScoreBadge value={overall} label="Overall" />
       </div>
@@ -189,9 +195,16 @@ function SystemCard({ record }: { record: SystemRecord }) {
             Open code
           </a>
         )}
+        {!paper.codeUrl && (
+          <span className="text-sm text-muted" aria-label={`Code not available for ${system.name}`}>
+            Code not available
+          </span>
+        )}
       </div>
 
-      {demo.note && <p className="mt-2 text-xs text-muted">{demo.note}</p>}
+      {demo.note && demo.note !== "Hosted by the authors; opens in a new tab." && (
+        <p className="mt-2 text-xs text-muted">{demo.note}</p>
+      )}
 
       <ListeningDetails evaluation={evaluation} />
     </article>
