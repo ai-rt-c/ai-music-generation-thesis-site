@@ -603,7 +603,7 @@
   {
     "id": "328",
     "title": "AudioLM: A Language Modeling Approach to Audio Generation",
-    "authors": "Borsos Z.; Marinier R.; Vincent D.; Kharitonov E.; Pietquin O. et al.",
+    "authors": "Borsos, Zalán; Marinier, Raphaël; Vincent, Damien; Kharitonov, Eugene; Pietquin, Olivier; Sharifi, Matt; Roblek, Dominik; Teboul, Olivier; Grangier, David; Tagliasacchi, Marco; Zeghidour, Neil",
     "year": 2022,
     "source": "IEEE/ACM TASLP 2023",
     "task": "Audio Generation via language modeling (speech continuation + piano music continuation)",
@@ -628,7 +628,7 @@
     "paperUrl": "https://arxiv.org/abs/2209.03143",
     "inDepth": true,
     "notes": "",
-    "citation": "Borsos, Z., Marinier, R., Vincent, D., Kharitonov, E., Pietquin, O., et al. (2022). AudioLM: A Language Modeling Approach to Audio Generation. IEEE/ACM TASLP 2023. https://doi.org/10.1109/TASLP.2023.3288409"
+    "citation": "Borsos, Z., Marinier, R., Vincent, D., Kharitonov, E., Pietquin, O., Sharifi, M., Roblek, D., Teboul, O., Grangier, D., Tagliasacchi, M., & Zeghidour, N. (2022). AudioLM: A Language Modeling Approach to Audio Generation. IEEE/ACM TASLP 2023. https://doi.org/10.1109/TASLP.2023.3288409"
   },
   {
     "id": "339",
@@ -1205,7 +1205,7 @@
   {
     "id": "374",
     "title": "Deep Learning's Shallow Gains: A Comparative Evaluation for Automatic Music Generation",
-    "authors": "Multiple authors",
+    "authors": "Yin, Zongyu; Reuben, Federico; Stepney, Susan; Collins, Tom",
     "year": 2023,
     "source": "Machine Learning (Springer)",
     "task": "Comparative Evaluation of music generation algorithms (piano improvisation)",
@@ -1230,7 +1230,7 @@
     "paperUrl": "https://link.springer.com/article/10.1007/s10994-023-06309-w",
     "inDepth": false,
     "notes": "",
-    "citation": "Multiple, A. (2023). Deep Learning's Shallow Gains: A Comparative Evaluation for Automatic Music Generation. Machine Learning (Springer). https://doi.org/10.1007/s10994-023-06309-w"
+    "citation": "Yin, Z., Reuben, F., Stepney, S., & Collins, T. (2023). Deep Learning's Shallow Gains: A Comparative Evaluation for Automatic Music Generation. Machine Learning (Springer). https://doi.org/10.1007/s10994-023-06309-w"
   },
   {
     "id": "377",
@@ -1716,7 +1716,7 @@
   {
     "id": "316",
     "title": "ChatMusician: Understanding and Generating Music Intrinsically with LLM",
-    "authors": "Yuan R.; Lin H.; Wang Y.; Tian Z.; Wu S. et al.",
+    "authors": "Yuan, Ruibin; Lin, Hanfeng; Wang, Yi; Tian, Zeyue; Wu, Shangda; Shen, Tianhao; Zhang, Ge; Wu, Yuhang; Liu, Cong; Zhou, Ziya; Xue, Liumeng; Ma, Ziyang; Liu, Qin; Zheng, Tianyu; Li, Yizhi; Ma, Yinghao; Liang, Yiming; Chi, Xiaowei; Liu, Ruibo; Wang, Zili; Lin, Chenghua; Liu, Qifeng; Jiang, Tao; Huang, Wenhao; Chen, Wenhu; Fu, Jie; Benetos, Emmanouil; Xia, Gus; Dannenberg, Roger; Xue, Wei; Kang, Shiyin; Guo, Yike",
     "year": 2024,
     "source": "ACL Findings 2024",
     "task": "Text-to-Music Generation + Music Understanding (LLM over symbolic ABC notation)",
@@ -1742,7 +1742,7 @@
     "paperUrl": "https://arxiv.org/abs/2402.16153",
     "inDepth": true,
     "notes": "",
-    "citation": "Yuan, R., Lin, H., Wang, Y., Tian, Z., Wu, S., et al. (2024). ChatMusician: Understanding and Generating Music Intrinsically with LLM. ACL Findings 2024. https://doi.org/10.18653/v1/2024.findings-acl.373"
+    "citation": "Yuan, R., Lin, H., Wang, Y., Tian, Z., Wu, S., Shen, T., Zhang, G., Wu, Y., Liu, C., Zhou, Z., Xue, L., Ma, Z., Liu, Q., Zheng, T., Li, Y., Ma, Y., Liang, Y., Chi, X., Liu, R., Wang, Z., Lin, C., Liu, Q., Jiang, T., Huang, W., Chen, W., Fu, J., Benetos, E., Xia, G., Dannenberg, R., Xue, W., Kang, S., & Guo, Y. (2024). ChatMusician: Understanding and Generating Music Intrinsically with LLM. ACL Findings 2024. https://doi.org/10.18653/v1/2024.findings-acl.373"
   },
   {
     "id": "322",
@@ -1837,7 +1837,7 @@
   {
     "id": "333",
     "title": "AudioLDM 2: Learning Holistic Audio Generation with Self-Supervised Pretraining",
-    "authors": "Liu H.; Tian Q.; Yuan Y.; Liu X.; Mei X.; Kong Q. et al.",
+    "authors": "Liu, Haohe; Yuan, Yi; Liu, Xubo; Mei, Xinhao; Kong, Qiuqiang; Tian, Qiao; Wang, Yuping; Wang, Wenwu; Wang, Yuxuan; Plumbley, Mark D.",
     "year": 2024,
     "source": "IEEE/ACM TASLP 2024",
     "task": "Text-to-Audio Generation (holistic: text-to-audio/music/speech)",
@@ -1863,7 +1863,7 @@
     "paperUrl": "https://arxiv.org/abs/2308.05734",
     "inDepth": false,
     "notes": "",
-    "citation": "Liu, H., Tian, Q., Yuan, Y., Liu, X., Mei, X., Kong, Q., et al. (2024). AudioLDM 2: Learning Holistic Audio Generation with Self-Supervised Pretraining. IEEE/ACM TASLP 2024. https://doi.org/10.1109/TASLP.2024.3399607"
+    "citation": "Liu, H., Yuan, Y., Liu, X., Mei, X., Kong, Q., Tian, Q., Wang, Y., Wang, W., Wang, Y., & Plumbley, M. D. (2024). AudioLDM 2: Learning Holistic Audio Generation with Self-Supervised Pretraining. IEEE/ACM TASLP 2024. https://doi.org/10.1109/TASLP.2024.3399607"
   },
   {
     "id": "334",
@@ -1958,7 +1958,7 @@
   {
     "id": "337",
     "title": "Masked Audio Generation Using a Single Non-Autoregressive Transformer",
-    "authors": "Ziv A.; Gat I.; Lan G.L.; Remez T.; Kreuk F.; Défossez A. et al.",
+    "authors": "Ziv, Alon; Gat, Itai; Le Lan, Gael; Remez, Tal; Kreuk, Felix; Copet, Jade; Défossez, Alexandre; Synnaeve, Gabriel; Adi, Yossi",
     "year": 2024,
     "source": "ICLR 2024",
     "task": "Text-to-Music/Audio Generation (single-stage non-autoregressive)",
@@ -1983,12 +1983,12 @@
     "paperUrl": "https://arxiv.org/abs/2401.04577",
     "inDepth": false,
     "notes": "",
-    "citation": "Ziv, A., Gat, I., Lan, G. L., Remez, T., Kreuk, F., Défossez, A., et al. (2024). Masked Audio Generation Using a Single Non-Autoregressive Transformer. ICLR 2024. https://doi.org/10.48550/arXiv.2401.04577"
+    "citation": "Ziv, A., Gat, I., Le Lan, G., Remez, T., Kreuk, F., Copet, J., Défossez, A., Synnaeve, G., & Adi, Y. (2024). Masked Audio Generation Using a Single Non-Autoregressive Transformer. ICLR 2024. https://doi.org/10.48550/arXiv.2401.04577"
   },
   {
     "id": "338",
     "title": "MusicRL: Aligning Music Generation to Human Preferences",
-    "authors": "Cideron G.; Girgin S.; Verzetti M.; Vincent D.; Kastelic M.; Borsos Z. et al.",
+    "authors": "Cideron, Geoffrey; Girgin, Sertan; Verzetti, Mauro; Vincent, Damien; Kastelic, Matej; Borsos, Zalán; Mcwilliams, Brian; Ungureanu, Victor; Bachem, Olivier; Pietquin, Olivier; Geist, Matthieu; Hussenot, Leonard; Zeghidour, Neil; Agostinelli, Andrea",
     "year": 2024,
     "source": "arXiv (Google DeepMind)",
     "task": "Text-to-Music Generation (audio) aligned to human preferences via RLHF",
@@ -2013,7 +2013,7 @@
     "paperUrl": "https://arxiv.org/abs/2402.04229",
     "inDepth": false,
     "notes": "",
-    "citation": "Cideron, G., Girgin, S., Verzetti, M., Vincent, D., Kastelic, M., Borsos, Z., et al. (2024). MusicRL: Aligning Music Generation to Human Preferences. arXiv (Google DeepMind). https://doi.org/10.48550/arXiv.2402.04229"
+    "citation": "Cideron, G., Girgin, S., Verzetti, M., Vincent, D., Kastelic, M., Borsos, Z., Mcwilliams, B., Ungureanu, V., Bachem, O., Pietquin, O., Geist, M., Hussenot, L., Zeghidour, N., & Agostinelli, A. (2024). MusicRL: Aligning Music Generation to Human Preferences. arXiv (Google DeepMind). https://doi.org/10.48550/arXiv.2402.04229"
   },
   {
     "id": "341",
@@ -2048,7 +2048,7 @@
   {
     "id": "352",
     "title": "StemGen: A Music Generation Model That Listens",
-    "authors": "Parker J.; Spijkervet J.; Kosta K.; Yesiler F.; Kuznetsov B.; Wang J.C. et al.",
+    "authors": "Parker, Julian D.; Spijkervet, Janne; Kosta, Katerina; Yesiler, Furkan; Kuznetsov, Boris; Wang, Ju-Chiang; Avent, Matt; Chen, Jitong; Le, Duc",
     "year": 2024,
     "source": "ICASSP 2024",
     "task": "Music Stem Generation (context-aware accompaniment stem, listens to musical context)",
@@ -2073,7 +2073,7 @@
     "paperUrl": "https://arxiv.org/abs/2312.08723",
     "inDepth": true,
     "notes": "",
-    "citation": "Parker, J., Spijkervet, J., Kosta, K., Yesiler, F., Kuznetsov, B., Wang, J. C., et al. (2024). StemGen: A Music Generation Model That Listens. ICASSP 2024. https://doi.org/10.48550/arXiv.2312.08723"
+    "citation": "Parker, J. D., Spijkervet, J., Kosta, K., Yesiler, F., Kuznetsov, B., Wang, J., Avent, M., Chen, J., & Le, D. (2024). StemGen: A Music Generation Model That Listens. ICASSP 2024. https://doi.org/10.48550/arXiv.2312.08723"
   },
   {
     "id": "353",
@@ -2108,7 +2108,7 @@
   {
     "id": "356",
     "title": "Diff-A-Riff: Musical Accompaniment Co-creation via Latent Diffusion Models",
-    "authors": "Nistal J. et al.",
+    "authors": "Nistal, Javier; Pasini, Marco; Aouameur, Cyran; Grachten, Maarten; Lattner, Stefan",
     "year": 2024,
     "source": "ISMIR 2024",
     "task": "Music Accompaniment Co-creation (instrumental accompaniment from audio/CLAP context)",
@@ -2133,7 +2133,7 @@
     "paperUrl": "https://arxiv.org/abs/2406.08384",
     "inDepth": false,
     "notes": "",
-    "citation": "Nistal, J., et al. (2024). Diff-A-Riff: Musical Accompaniment Co-creation via Latent Diffusion Models. ISMIR 2024. https://doi.org/10.48550/arXiv.2406.08384"
+    "citation": "Nistal, J., Pasini, M., Aouameur, C., Grachten, M., & Lattner, S. (2024). Diff-A-Riff: Musical Accompaniment Co-creation via Latent Diffusion Models. ISMIR 2024. https://doi.org/10.48550/arXiv.2406.08384"
   },
   {
     "id": "366",
@@ -2169,7 +2169,7 @@
   {
     "id": "379",
     "title": "MusicFlow: Cascaded Flow Matching for Text Guided Music Generation",
-    "authors": "Prajwal K.R.; Shi B.; Lee M.; Vyas A.; Tjandra A.; Luthra M. et al.",
+    "authors": "Prajwal, K R; Shi, Bowen; Le, Matthew; Vyas, Apoorv; Tjandra, Andros; Luthra, Mahi; Guo, Baishan; Wang, Huiyu; Afouras, Triantafyllos; Kant, David; Hsu, Wei-Ning",
     "year": 2024,
     "source": "ICML 2024",
     "task": "Text-to-Music Generation (audio; + infilling/continuation tasks)",
@@ -2194,7 +2194,7 @@
     "paperUrl": "https://arxiv.org/abs/2410.20478",
     "inDepth": true,
     "notes": "",
-    "citation": "Prajwal, K. R., Shi, B., Lee, M., Vyas, A., Tjandra, A., Luthra, M., et al. (2024). MusicFlow: Cascaded Flow Matching for Text Guided Music Generation. ICML 2024. https://doi.org/10.48550/arXiv.2410.20478"
+    "citation": "Prajwal, K. R., Shi, B., Le, M., Vyas, A., Tjandra, A., Luthra, M., Guo, B., Wang, H., Afouras, T., Kant, D., & Hsu, W. (2024). MusicFlow: Cascaded Flow Matching for Text Guided Music Generation. ICML 2024. https://doi.org/10.48550/arXiv.2410.20478"
   },
   {
     "id": "383",
@@ -2711,7 +2711,7 @@
   {
     "id": "323",
     "title": "NotaGen: Advancing Musicality in Symbolic Music Generation with Large Language Model Training Paradigms",
-    "authors": "Wang Y.; Wu S.; Hu J.; Du X. et al.",
+    "authors": "Wang, Yashan; Wu, Shangda; Hu, Jianhuai; Du, Xingjian; Peng, Yueqi; Huang, Yongxin; Fan, Shuai; Li, Xiaobing; Yu, Feng; Sun, Maosong",
     "year": 2025,
     "source": "arXiv",
     "task": "Symbolic Music Generation (high-quality classical sheet music; controllable)",
@@ -2737,7 +2737,7 @@
     "paperUrl": "https://arxiv.org/abs/2502.18008",
     "inDepth": false,
     "notes": "",
-    "citation": "Wang, Y., Wu, S., Hu, J., Du, X., et al. (2025). NotaGen: Advancing Musicality in Symbolic Music Generation with Large Language Model Training Paradigms. arXiv. https://doi.org/10.48550/arXiv.2502.18008"
+    "citation": "Wang, Y., Wu, S., Hu, J., Du, X., Peng, Y., Huang, Y., Fan, S., Li, X., Yu, F., & Sun, M. (2025). NotaGen: Advancing Musicality in Symbolic Music Generation with Large Language Model Training Paradigms. arXiv. https://doi.org/10.48550/arXiv.2502.18008"
   },
   {
     "id": "340",
