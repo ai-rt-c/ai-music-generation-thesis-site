@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === "production" && !process.env.VERCEL;
 // GitHub Pages project site is served under /<repo>/
 const repo = "ai-music-generation-thesis-site";
 
