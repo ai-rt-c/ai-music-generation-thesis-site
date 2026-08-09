@@ -2,12 +2,14 @@
 // Every JSON file in /data conforms to one of these types.
 // Components consume these types only — no research content is hard-coded.
 
-export type Domain = "Symbolic" | "Audio" | "Mixed";
+export type Domain = "Symbolic" | "Audio";
 export type TaskCategory =
-  | "Symbolic generation"
-  | "Audio generation"
+  | "Generation"
   | "Arrangement"
-  | "Orchestration";
+  | "Orchestration"
+  | "Evaluation"
+  | "Representation"
+  | "Other";
 
 export type Paradigm =
   | "Transformer"
@@ -22,7 +24,7 @@ export type Paradigm =
   | "Hybrid"
   | "Non-neural";
 
-// The eight listening-evaluation dimensions.
+// Seven listening criteria plus a separate holistic Overall score.
 export interface Scores {
   quality: number | null;
   melody: number | null;
@@ -34,7 +36,7 @@ export interface Scores {
   overall: number | null;
 }
 
-export const DIMENSION_KEYS: (keyof Scores)[] = [
+export const CRITERION_KEYS: (keyof Scores)[] = [
   "quality",
   "melody",
   "harmony",
@@ -42,6 +44,10 @@ export const DIMENSION_KEYS: (keyof Scores)[] = [
   "structure",
   "control",
   "naturalness",
+];
+
+export const RATING_KEYS: (keyof Scores)[] = [
+  ...CRITERION_KEYS,
   "overall",
 ];
 
@@ -51,12 +57,12 @@ export const DIMENSION_LABELS: Record<keyof Scores, string> = {
   harmony: "Harmonic coherence",
   rhythm: "Rhythmic stability",
   structure: "Long-term structure",
-  control: "Control adherence",
+  control: "Condition / control adherence",
   naturalness: "Naturalness / musicality",
   overall: "Overall",
 };
 
-// ---- papers.json : the 107 reviewed studies (the corpus) ----
+// ---- papers.json : the 107 primary studies in the final corpus ----
 export interface Paper {
   id: string;
   title: string;
@@ -158,7 +164,7 @@ export interface Trend {
 export interface Reference {
   key: string; // sort key (first author surname, lowercased)
   text: string; // full APA entry
-  included: boolean; // true = one of the 107 included studies
+  included: boolean; // true = one of the 107 primary studies
 }
 
 // ---- content.json : narrative page copy, extracted from the dissertation ----
@@ -182,7 +188,10 @@ export interface Content {
   };
   systematicReview: RichSection;
   listeningEvaluation: {
+    title: string;
     intro: string;
+    evaluatorProfile: string;
+    procedure: string;
     rubric: { key: keyof Scores; label: string; meaning: string }[];
     caveat: string;
   };
@@ -223,24 +232,21 @@ export interface Meta {
   repoUrl: string;
   prisma: {
     identified: number;
-    transferred: number;
     afterDedup: number;
     titleScreened: number;
-    afterAbstract: number;
-    initiallyIncluded: number;
-    afterConsolidation: number;
+    fullText: number;
     included: number;
     inDepth: number;
   };
   counts: {
     included: number;
     inDepth: number;
-    topSystems: number;
+    featuredSystems: number;
     trends: number;
     taxonomyDimensions: number;
   };
   batchAverages: { batch: string; quality: number; overall: number; leading: string }[];
   citations: { apa: string; bibtex: string };
-  downloads: { label: string; file: string; kind: string; available?: boolean; note?: string }[];
+  downloads: { label: string; file: string; kind: string }[];
   figures: FigureItem[];
 }

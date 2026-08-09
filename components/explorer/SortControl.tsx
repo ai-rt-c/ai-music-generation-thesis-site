@@ -4,7 +4,7 @@ const OPTIONS: { value: SortKey; label: string }[] = [
   { value: "year-desc", label: "Year (newest)" },
   { value: "year-asc", label: "Year (oldest)" },
   { value: "title-asc", label: "Title (A–Z)" },
-  { value: "overall-desc", label: "Overall score" },
+  { value: "overall-desc", label: "Evaluator’s Overall score" },
 ];
 
 export default function SortControl({

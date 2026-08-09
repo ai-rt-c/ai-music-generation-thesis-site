@@ -14,36 +14,16 @@ import openpyxl
 from content_source import META, CONTENT, TAXONOMY, TRENDS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, ".."))
-OUT = os.path.join(ROOT, "data")
+SRC = os.environ.get("THESIS_DATA_DIR", os.path.abspath(os.path.join(HERE, "..", "sources")))
+MASTER = os.environ.get("MASTER_TABLE_XLSX", os.path.join(SRC, "Master_Table_107.xlsx"))
+LISTEN = os.environ.get("LISTENING_ANALYSIS_XLSX", os.path.join(SRC, "Listening_Analysis_29_batched.xlsx"))
+OUT = os.path.abspath(os.path.join(HERE, "..", "data"))
 os.makedirs(OUT, exist_ok=True)
 
 
-def private_source_path(env_name):
-    value = os.environ.get(env_name)
-    if not value:
-        raise RuntimeError(
-            f"{env_name} must point to a private local workbook outside the repository"
-        )
-    path = os.path.abspath(os.path.expanduser(value))
-    try:
-        inside_repository = os.path.commonpath([ROOT, path]) == ROOT
-    except ValueError:
-        inside_repository = False
-    if inside_repository:
-        raise RuntimeError(f"{env_name} must not point inside the public Git repository")
-    if not os.path.isfile(path):
-        raise FileNotFoundError(path)
-    return path
-
-
-MASTER = private_source_path("THESIS_MASTER_XLSX")
-LISTEN = private_source_path("THESIS_LISTENING_XLSX")
-
-
-def rows(path):
+def rows(path, sheet_name=None):
     wb = openpyxl.load_workbook(path)
-    o = wb[wb.sheetnames[0]]
+    o = wb[sheet_name] if sheet_name else wb[wb.sheetnames[0]]
     hdr = [c.value for c in o[1]]
     out = []
     for r in o.iter_rows(min_row=2, values_only=True):
@@ -79,27 +59,13 @@ def norm_task(task):
     return "Other"
 
 
-def norm_domain(rep):
-    """Use the workbook's leading normalized representation label."""
-    label = rep.strip().lower()
-    if label.startswith("symbolic"):
-        return "Symbolic"
-    if label.startswith("audio"):
+def norm_domain(task, rep):
+    blob = (task + " " + rep).lower()
+    if any(k in blob for k in ["audio", "waveform", "spectrogram", "codec", "vocal", "24 khz", "44.1"]):
         return "Audio"
-    if label.startswith("mixed"):
-        return "Mixed"
-    raise ValueError(f"unmapped data representation: {rep!r}")
-
-
-def norm_primary_category(raw_category, domain):
-    """Collapse the final corpus to the four approved analytical categories."""
-    if raw_category in ("Arrangement", "Orchestration"):
-        return raw_category
-    if domain == "Symbolic":
-        return "Symbolic generation"
-    if domain == "Audio":
-        return "Audio generation"
-    raise ValueError(f"mixed-domain generative record needs manual classification")
+    if any(k in blob for k in ["symbolic", "midi", "score", "abc", "piano-roll", "lead sheet", "note"]):
+        return "Symbolic"
+    return None
 
 
 def norm_paradigm(fam, method):
@@ -164,30 +130,25 @@ def first_url(*vals):
 
 # ---------------- papers.json ----------------
 master = rows(MASTER)
+reclassified_background = rows(MASTER, "Reclassified background (5)")
 papers = []
 for r in master:
-    paper_id = str(r.get("ID"))
     task = s(r.get("Task"))
     rep = s(r.get("Data Representation"))
     fam = s(r.get("Architecture Family"))
     method = s(r.get("Method"))
     paradigm, ptags = norm_paradigm(fam, method)
-    # MusicAgent is an LLM-powered planning/tool-selection agent, not flow matching.
-    if paper_id == "360":
-        paradigm, ptags = "Transformer", ["Transformer", "LLM"]
-    domain = norm_domain(rep)
-    task_category = norm_primary_category(norm_task(task), domain)
     code = s(r.get("Code"))
     demo = s(r.get("Availability of Demo"))
     papers.append({
-        "id": paper_id,
+        "id": str(r.get("ID")),
         "title": s(r.get("Title")),
         "authors": s(r.get("Authors")),
         "year": int(r["Year"]) if r.get("Year") else None,
         "source": s(r.get("Source")),
         "task": task,
-        "taskCategory": task_category,
-        "domain": domain,
+        "taskCategory": norm_task(task),
+        "domain": norm_domain(task, rep),
         "method": method,
         "architectureFamily": fam,
         "paradigm": paradigm,
@@ -317,14 +278,20 @@ for r in listen:
         dtype = "link"
     else:
         dtype = "paper-only"
+    if paper_based:
+        demo_note = "Paper-reported evidence only; no directly assessable public demonstration was available."
+    elif "locally generated" in pick.lower() or "rendered" in pick.lower():
+        demo_note = "Generated or rendered locally from released project resources; the source resource opens in a new tab."
+    else:
+        demo_note = "Official author or project demonstration; opens in a new tab."
     demos.append({
         "id": sid,
         "label": pick.split("—")[0].strip() if "—" in pick else (pick[:80] or "Demonstration"),
         "url": url, "type": dtype,
-        "note": "Scores are paper-reported (no public demo)." if paper_based else "Hosted by the authors; opens in a new tab.",
+        "note": demo_note,
     })
 
-# ---------------- references.json (107 + 8 background) ----------------
+# ---------------- references.json (107 primary + 5 reclassified + 8 background) ----------------
 def initials(g):
     return " ".join(t[0].upper() + "." for t in re.split(r"[\s\.]+", g.strip()) if t)
 
@@ -384,6 +351,21 @@ for r in master:
     refs.append({"key": sortkey(r.get("Authors")), "text": text, "included": True})
     paper_cite[str(r.get("ID"))] = text
 
+for r in reclassified_background:
+    au = fmt_authors(r.get("Authors"))
+    yr = r.get("Year") or "n.d."
+    title = s(r.get("Title")).rstrip(".")
+    src = s(r.get("Source"))
+    doi = s(r.get("DOI"))
+    url = s(r.get("Paper URL"))
+    tail = (doi if doi.startswith("http") else f"https://doi.org/{doi}") if doi and doi not in ("None", "N/A") else (url if url and url not in ("None", "N/A") else "")
+    text = f"{au} ({yr}). {title}."
+    if src and src not in ("None", "N/A"):
+        text += f" {src}."
+    if tail:
+        text += f" {tail}"
+    refs.append({"key": sortkey(r.get("Authors")), "text": text, "included": False})
+
 # attach the APA citation to each paper (single source: same generator as references)
 for p in papers:
     p["citation"] = paper_cite.get(p["id"], "")
@@ -421,9 +403,9 @@ write("meta.json", META)
 # ---------------- validate ----------------
 assert len(papers) == 107, f"expected 107 papers, got {len(papers)}"
 assert len(systems) == 29 and len(evaluation) == 29 and len(demos) == 29, "expected 29 systems"
-assert len([p for p in papers if p["inDepth"]]) >= 29, "in-depth flag mismatch"
+assert len([p for p in papers if p["inDepth"]]) == 29, "in-depth flag mismatch"
 top = [e for e in evaluation if (e["scores"]["overall"] or 0) >= 4]
 print(f"papers={len(papers)} systems={len(systems)} evaluations={len(evaluation)} demos={len(demos)}")
 print(f"references={len(refs)} (included={sum(1 for r in refs if r['included'])})")
-print(f"top systems (overall>=4)={len(top)}  taxonomy dims={len(TAXONOMY)}  trends={len(TRENDS)}")
+print(f"featured systems (overall>=4)={len(top)}  taxonomy dims={len(TAXONOMY)}  trends={len(TRENDS)}")
 print("wrote:", ", ".join(sorted(os.listdir(OUT))))

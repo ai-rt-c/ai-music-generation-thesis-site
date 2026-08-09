@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production" && !process.env.VERCEL;
+const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
 // GitHub Pages project site is served under /<repo>/
 const repo = "ai-music-generation-thesis-site";
 
@@ -7,10 +7,10 @@ const nextConfig = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
-  basePath: isProd ? `/${repo}` : "",
-  assetPrefix: isProd ? `/${repo}/` : "",
+  basePath: isGitHubPages ? `/${repo}` : "",
+  assetPrefix: isGitHubPages ? `/${repo}/` : "",
   env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? `/${repo}` : "",
+    NEXT_PUBLIC_BASE_PATH: isGitHubPages ? `/${repo}` : "",
   },
   reactStrictMode: true,
 };

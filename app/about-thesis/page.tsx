@@ -20,7 +20,7 @@ export default function AboutThesisPage() {
       <p className="mt-2 leading-relaxed">{a.aim}</p>
 
       <h2 className="mt-8 text-xl">Research questions</h2>
-      <ol className="prose-copy mt-2 list-decimal space-y-2 pl-5 leading-relaxed marker:text-forest">
+      <ol className="mt-2 list-decimal space-y-2 pl-5 leading-relaxed marker:text-forest">
         {a.researchQuestions.map((q, i) => (
           <li key={i}>{q}</li>
         ))}
@@ -47,13 +47,6 @@ export default function AboutThesisPage() {
           <br />
           Supervisor: {meta.supervisor}
         </p>
-        <span
-          className="mt-3 inline-block rounded-md border border-line px-3 py-1.5 text-muted"
-          aria-disabled="true"
-          title="The full dissertation will be released after final submission"
-        >
-          Thesis available after final submission
-        </span>
       </div>
     </article>
   );
