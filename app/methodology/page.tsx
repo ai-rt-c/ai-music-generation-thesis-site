@@ -11,7 +11,13 @@ export const metadata: Metadata = {
 export default function MethodologyPage() {
   const sr = content.systematicReview;
   const le = content.listeningEvaluation;
-  const p = meta.prisma;
+  const p = {
+    ...meta.prisma,
+    transferred: 1083,
+    afterAbstract: meta.prisma.fullText,
+    initiallyIncluded: 113,
+    afterConsolidation: 112,
+  };
   const funnel = [
     { n: p.identified, label: "records identified (6 databases)" },
     { n: p.transferred, label: "transferred to Zotero" },

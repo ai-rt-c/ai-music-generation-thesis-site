@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import ScoreBadge from "@/components/ui/ScoreBadge";
 import Tag from "@/components/ui/Tag";
-import { DIMENSION_KEYS, DIMENSION_LABELS } from "@/lib/types";
+import { RATING_KEYS, DIMENSION_LABELS } from "@/lib/types";
 import type { AudioDemo, Evaluation, Paper, System } from "@/lib/types";
 import { fmtScore } from "@/lib/util";
 
@@ -41,7 +41,7 @@ function ListeningDetails({ evaluation }: { evaluation: Evaluation }) {
 
       <div className="mt-4 space-y-4 text-sm">
         <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-          {DIMENSION_KEYS.map((key) => (
+          {RATING_KEYS.map((key) => (
             <div key={key} className="rounded-md bg-forest-light/45 px-2.5 py-2">
               <dt className="text-xs leading-snug text-muted">{DIMENSION_LABELS[key]}</dt>
               <dd className="tnum mt-1 font-medium text-ink">

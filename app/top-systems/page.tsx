@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/ui/PageHeader";
 import { SystemCard } from "@/components/systems/SystemsBrowser";
-import { demos, papers, topSystems } from "@/lib/data";
+import { demos, featuredSystems, papers } from "@/lib/data";
 import { systemDisplayName } from "@/lib/systemDisplayName";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function TopSystemsPage() {
   const paperMap = new Map(papers.map((paper) => [paper.id, paper]));
   const demoMap = new Map(demos.map((demo) => [demo.id, demo]));
-  const records = topSystems()
+  const records = featuredSystems()
     .map(({ system, evaluation }) => {
       const paper = paperMap.get(system.paperId);
       const demo = demoMap.get(system.id);

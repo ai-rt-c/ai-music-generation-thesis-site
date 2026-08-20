@@ -2,14 +2,12 @@
 // Every JSON file in /data conforms to one of these types.
 // Components consume these types only — no research content is hard-coded.
 
-export type Domain = "Symbolic" | "Audio";
+export type Domain = "Symbolic" | "Audio" | "Mixed";
 export type TaskCategory =
-  | "Generation"
+  | "Symbolic generation"
+  | "Audio generation"
   | "Arrangement"
-  | "Orchestration"
-  | "Evaluation"
-  | "Representation"
-  | "Other";
+  | "Orchestration";
 
 export type Paradigm =
   | "Transformer"
