@@ -7,7 +7,7 @@ export default function HomePage() {
     { n: meta.counts.included, label: "studies reviewed" },
     { n: meta.counts.inDepth, label: "systems evaluated" },
     { n: meta.counts.trends, label: "research trends" },
-    { n: meta.counts.topSystems, label: "most promising" },
+    { n: meta.counts.featuredSystems, label: "featured at ≥ 4/5" },
   ];
   return (
     <div className="max-w-prose">

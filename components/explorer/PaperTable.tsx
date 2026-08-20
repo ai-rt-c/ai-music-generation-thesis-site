@@ -47,7 +47,7 @@ export default function PaperTable({
             <th scope="col" className="px-3 py-2 text-left font-medium text-forest-ink">Task</th>
             <th scope="col" className="px-3 py-2 text-left font-medium text-forest-ink">Domain</th>
             <th scope="col" className="px-3 py-2 text-left font-medium text-forest-ink">Paradigm</th>
-            <SortHeader label="Overall" active={sort === "overall-desc"} dir="desc" onClick={() => onSort("overall-desc")} align="right" />
+            <SortHeader label="Evaluator’s score" active={sort === "overall-desc"} dir="desc" onClick={() => onSort("overall-desc")} align="right" />
             <th scope="col" className="px-3 py-2 text-left font-medium text-forest-ink">Links</th>
           </tr>
         </thead>

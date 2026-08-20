@@ -133,7 +133,7 @@ export interface Preset {
 }
 
 export const PRESETS: Preset[] = [
-  { id: "top", label: "Top rated", patch: { minOverall: 4, sort: "overall-desc" } },
+  { id: "featured", label: "Featured (≥ 4/5)", patch: { minOverall: 4, sort: "overall-desc" } },
   { id: "latest", label: "Latest (2025)", patch: { yearMin: 2025, yearMax: 2025 } },
   { id: "transformer", label: "Transformer", patch: { paradigms: ["Transformer"] } },
   { id: "diffusion", label: "Diffusion", patch: { paradigms: ["Diffusion"] } },
@@ -141,6 +141,6 @@ export const PRESETS: Preset[] = [
   { id: "audio", label: "Audio", patch: { domains: ["Audio"] } },
   { id: "arrangement", label: "Arrangement", patch: { tasks: ["Arrangement"] } },
   { id: "orchestration", label: "Orchestration", patch: { tasks: ["Orchestration"] } },
-  { id: "structure", label: "Best structure", patch: { minStructure: 4, sort: "overall-desc" } },
-  { id: "control", label: "Best control", patch: { minControl: 4, sort: "overall-desc" } },
+  { id: "structure", label: "Structure ≥ 4/5", patch: { minStructure: 4, sort: "overall-desc" } },
+  { id: "control", label: "Control ≥ 4/5", patch: { minControl: 4, sort: "overall-desc" } },
 ];

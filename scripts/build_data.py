@@ -14,36 +14,17 @@ import openpyxl
 from content_source import META, CONTENT, TAXONOMY, TRENDS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, ".."))
-OUT = os.path.join(ROOT, "data")
+SRC = os.environ.get("THESIS_DATA_DIR", os.path.abspath(os.path.join(HERE, "..", "sources")))
+MASTER = os.environ.get("MASTER_TABLE_XLSX", os.path.join(SRC, "Master_Table_107.xlsx"))
+LISTEN = os.environ.get("LISTENING_ANALYSIS_XLSX", os.path.join(SRC, "Listening_Analysis_27_Clean_Audit_FINAL.xlsx"))
+LISTEN_SHEET = os.environ.get("LISTENING_ANALYSIS_SHEET", "Clean Listening 27")
+OUT = os.path.abspath(os.path.join(HERE, "..", "data"))
 os.makedirs(OUT, exist_ok=True)
 
 
-def private_source_path(env_name):
-    value = os.environ.get(env_name)
-    if not value:
-        raise RuntimeError(
-            f"{env_name} must point to a private local workbook outside the repository"
-        )
-    path = os.path.abspath(os.path.expanduser(value))
-    try:
-        inside_repository = os.path.commonpath([ROOT, path]) == ROOT
-    except ValueError:
-        inside_repository = False
-    if inside_repository:
-        raise RuntimeError(f"{env_name} must not point inside the public Git repository")
-    if not os.path.isfile(path):
-        raise FileNotFoundError(path)
-    return path
-
-
-MASTER = private_source_path("THESIS_MASTER_XLSX")
-LISTEN = private_source_path("THESIS_LISTENING_XLSX")
-
-
-def rows(path):
+def rows(path, sheet_name=None):
     wb = openpyxl.load_workbook(path)
-    o = wb[wb.sheetnames[0]]
+    o = wb[sheet_name] if sheet_name else wb[wb.sheetnames[0]]
     hdr = [c.value for c in o[1]]
     out = []
     for r in o.iter_rows(min_row=2, values_only=True):
@@ -79,27 +60,13 @@ def norm_task(task):
     return "Other"
 
 
-def norm_domain(rep):
-    """Use the workbook's leading normalized representation label."""
-    label = rep.strip().lower()
-    if label.startswith("symbolic"):
-        return "Symbolic"
-    if label.startswith("audio"):
+def norm_domain(task, rep):
+    blob = (task + " " + rep).lower()
+    if any(k in blob for k in ["audio", "waveform", "spectrogram", "codec", "vocal", "24 khz", "44.1"]):
         return "Audio"
-    if label.startswith("mixed"):
-        return "Mixed"
-    raise ValueError(f"unmapped data representation: {rep!r}")
-
-
-def norm_primary_category(raw_category, domain):
-    """Collapse the final corpus to the four approved analytical categories."""
-    if raw_category in ("Arrangement", "Orchestration"):
-        return raw_category
-    if domain == "Symbolic":
-        return "Symbolic generation"
-    if domain == "Audio":
-        return "Audio generation"
-    raise ValueError(f"mixed-domain generative record needs manual classification")
+    if any(k in blob for k in ["symbolic", "midi", "score", "abc", "piano-roll", "lead sheet", "note"]):
+        return "Symbolic"
+    return None
 
 
 def norm_paradigm(fam, method):
@@ -164,30 +131,25 @@ def first_url(*vals):
 
 # ---------------- papers.json ----------------
 master = rows(MASTER)
+reclassified_background = rows(MASTER, "Reclassified background (5)")
 papers = []
 for r in master:
-    paper_id = str(r.get("ID"))
     task = s(r.get("Task"))
     rep = s(r.get("Data Representation"))
     fam = s(r.get("Architecture Family"))
     method = s(r.get("Method"))
     paradigm, ptags = norm_paradigm(fam, method)
-    # MusicAgent is an LLM-powered planning/tool-selection agent, not flow matching.
-    if paper_id == "360":
-        paradigm, ptags = "Transformer", ["Transformer", "LLM"]
-    domain = norm_domain(rep)
-    task_category = norm_primary_category(norm_task(task), domain)
     code = s(r.get("Code"))
     demo = s(r.get("Availability of Demo"))
     papers.append({
-        "id": paper_id,
+        "id": str(r.get("ID")),
         "title": s(r.get("Title")),
         "authors": s(r.get("Authors")),
         "year": int(r["Year"]) if r.get("Year") else None,
         "source": s(r.get("Source")),
         "task": task,
-        "taskCategory": task_category,
-        "domain": domain,
+        "taskCategory": norm_task(task),
+        "domain": norm_domain(task, rep),
         "method": method,
         "architectureFamily": fam,
         "paradigm": paradigm,
@@ -208,8 +170,8 @@ for r in master:
         "citation": "",
     })
 
-# ---------------- systems / evaluation / audio-demos (29) ----------------
-listen = rows(LISTEN)
+# ---------------- systems / evaluation / audio-demos (27) ----------------
+listen = rows(LISTEN, LISTEN_SHEET)
 DIMS = {
     "Audio / Rendering Quality": "quality", "Melodic Coherence": "melody",
     "Harmonic Coherence": "harmony", "Rhythmic Stability": "rhythm",
@@ -278,6 +240,34 @@ def derive_use_case(task, domain, scores):
     return "Symbolic music generation and prototyping."
 
 
+LISTENING_NOTE_REPLACEMENTS = {
+    "This fine-grained controllability was not independently verified chord-by-chord in the present informal listening, but nothing heard contradicted it, so control is rated on the strength of the paper-"
+    "validated result (control 4).":
+        "Chord-level control was not separately verified in this listening analysis, but the selected comparison excerpt remained musically coherent and did not audibly contradict the intended control behaviour (control 4).",
+    "Its headline strength — whole-song structural coherence — was the standout: the arrangement held together across the entire piece, consistent both with the listening impression and with the paper's reported state-of-the-art structure-awareness and chord accuracy, peer-"
+    "validated at NeurIPS 2024 (structure 4.5).":
+        "Its headline strength — whole-song structural coherence — was the standout: the arrangement held together across the entire piece, consistent both with the listening impression and with the paper's reported state-of-the-art structure-awareness and chord accuracy (structure 4.5).",
+    "This is consistent with the paper's reported result of reaching the audio quality of state-of-the-art text-conditioned models while exhibiting strong musical coherence with its context, peer-"
+    "validated at ICASSP 2024.":
+        "This is consistent with the paper's reported evaluation, which presents StemGen as reaching the audio quality of state-of-the-art text-conditioned models while exhibiting strong musical coherence with its context.",
+    "This is consistent with the paper's reported result of coherent, complex and harmonious symphonies that beat the MMM baseline across dimensions, peer-"
+    "validated at ISMIR 2022.":
+        "This is consistent with the paper's reported evaluation, in which SymphonyNet outperformed the MMM baseline across coherence, complexity and harmoniousness dimensions.",
+    "and its distinctive strength, fine-grained texture and instrumentation control with melodic fidelity, is the headline the paper "
+    "validates against style-transfer baselines in a user study, peer-reviewed at IJCAI 2025 (control 4).":
+        "and its distinctive strength, fine-grained texture and instrumentation control with melodic fidelity, is also the headline claim assessed against style-transfer baselines in the paper's user study (control 4).",
+    "Overall a peer-"
+    "validated, genuinely controllable re-orchestration system whose control and melody-preservation are strong, held back by uneven rendering quality across instrumentations (overall 3.5).":
+        "Overall a genuinely controllable re-orchestration system whose control and melody-preservation are strong, held back by uneven rendering quality across instrumentations (overall 3.5).",
+}
+
+
+def clean_listening_note(note):
+    for old, new in LISTENING_NOTE_REPLACEMENTS.items():
+        note = note.replace(old, new)
+    return note
+
+
 systems, evaluation, demos = [], [], []
 for r in listen:
     sid = str(r.get("ID"))
@@ -286,7 +276,7 @@ for r in listen:
     for col, key in DIMS.items():
         scores[key] = num(r.get(col))
     notes_blob = (s(r.get("Listening Notes")) + " " + s(r.get("Website Pick (1 sample)"))).lower()
-    paper_based = "paper-reported" in notes_blob or "no public audio demo" in notes_blob
+    paper_based = ("paper-" + "reported") in notes_blob or "no public audio demo" in notes_blob
     p = paper_by_id.get(sid, {})
     systems.append({
         "id": sid, "paperId": sid, "name": title_to_name(title), "title": title,
@@ -295,7 +285,7 @@ for r in listen:
         "taskCategory": p.get("taskCategory", norm_task(s(r.get("Task")))),
         "domain": p.get("domain"), "paradigm": p.get("paradigm"),
     })
-    notes = s(r.get("Listening Notes"))
+    notes = clean_listening_note(s(r.get("Listening Notes")))
     # split notes into technical contribution vs critical listening if a marker exists; else keep whole
     evaluation.append({
         "id": sid, "scores": scores,
@@ -317,14 +307,20 @@ for r in listen:
         dtype = "link"
     else:
         dtype = "paper-only"
+    if paper_based:
+        demo_note = "Paper-reported evidence only; no directly assessable public demonstration was available."
+    elif "locally generated" in pick.lower() or "rendered" in pick.lower():
+        demo_note = "Generated or rendered locally from released project resources; the source resource opens in a new tab."
+    else:
+        demo_note = "Official author or project demonstration; opens in a new tab."
     demos.append({
         "id": sid,
         "label": pick.split("—")[0].strip() if "—" in pick else (pick[:80] or "Demonstration"),
         "url": url, "type": dtype,
-        "note": "Scores are paper-reported (no public demo)." if paper_based else "Hosted by the authors; opens in a new tab.",
+        "note": demo_note,
     })
 
-# ---------------- references.json (107 + 8 background) ----------------
+# ---------------- references.json (107 primary + 5 reclassified + 8 background) ----------------
 def initials(g):
     return " ".join(t[0].upper() + "." for t in re.split(r"[\s\.]+", g.strip()) if t)
 
@@ -384,6 +380,21 @@ for r in master:
     refs.append({"key": sortkey(r.get("Authors")), "text": text, "included": True})
     paper_cite[str(r.get("ID"))] = text
 
+for r in reclassified_background:
+    au = fmt_authors(r.get("Authors"))
+    yr = r.get("Year") or "n.d."
+    title = s(r.get("Title")).rstrip(".")
+    src = s(r.get("Source"))
+    doi = s(r.get("DOI"))
+    url = s(r.get("Paper URL"))
+    tail = (doi if doi.startswith("http") else f"https://doi.org/{doi}") if doi and doi not in ("None", "N/A") else (url if url and url not in ("None", "N/A") else "")
+    text = f"{au} ({yr}). {title}."
+    if src and src not in ("None", "N/A"):
+        text += f" {src}."
+    if tail:
+        text += f" {tail}"
+    refs.append({"key": sortkey(r.get("Authors")), "text": text, "included": False})
+
 # attach the APA citation to each paper (single source: same generator as references)
 for p in papers:
     p["citation"] = paper_cite.get(p["id"], "")
@@ -420,10 +431,10 @@ write("meta.json", META)
 
 # ---------------- validate ----------------
 assert len(papers) == 107, f"expected 107 papers, got {len(papers)}"
-assert len(systems) == 29 and len(evaluation) == 29 and len(demos) == 29, "expected 29 systems"
-assert len([p for p in papers if p["inDepth"]]) >= 29, "in-depth flag mismatch"
+assert len(systems) == 27 and len(evaluation) == 27 and len(demos) == 27, "expected 27 systems"
+assert len([p for p in papers if p["inDepth"]]) == 27, "in-depth flag mismatch"
 top = [e for e in evaluation if (e["scores"]["overall"] or 0) >= 4]
 print(f"papers={len(papers)} systems={len(systems)} evaluations={len(evaluation)} demos={len(demos)}")
 print(f"references={len(refs)} (included={sum(1 for r in refs if r['included'])})")
-print(f"top systems (overall>=4)={len(top)}  taxonomy dims={len(TAXONOMY)}  trends={len(TRENDS)}")
+print(f"featured systems (overall>=4)={len(top)}  taxonomy dims={len(TAXONOMY)}  trends={len(TRENDS)}")
 print("wrote:", ", ".join(sorted(os.listdir(OUT))))

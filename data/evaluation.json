@@ -164,34 +164,6 @@
     "reportedResult": "Outperforms autoregressive baseline on framewise self-similarity"
   },
   {
-    "id": "382",
-    "scores": {
-      "quality": 2.5,
-      "melody": 3.0,
-      "harmony": 3.5,
-      "rhythm": 2.5,
-      "structure": 3.5,
-      "control": null,
-      "naturalness": 2.5,
-      "overall": 2.5
-    },
-    "technicalContribution": "",
-    "criticalListening": "Multi-instrument, unconditional, three demos on different datasets (classical/pop/folk). Demo 1 is clean; Demos 2 and 3 are noticeably degraded — noisy and cutting in and out, as if recorded off a radio (likely a rendering/audio artifact rather than a compositional flaw). Harmony is present and some segment/instrument repetition is audible, supporting the long-sequence structure claim, but frequent pauses/gaps break the flow.",
-    "takeaway": "",
-    "paperBased": false,
-    "strengths": [
-      "Relatively strong harmony",
-      "Relatively strong long-term structure"
-    ],
-    "weaknesses": [
-      "Limited audio quality",
-      "unsteady rhythm"
-    ],
-    "bestUseCase": "Symbolic music generation and prototyping.",
-    "reportedMetrics": "Overlapping Area (OA) over 7 musical attributes + average OA; per-step latency & GPU memory; subjective: Emotional Consistency, Melodic Fluency, Rhythmic Stability, Structural Clarity (1-10)",
-    "reportedResult": "Highest average Overlapping Area on 3 datasets; 15-subject test"
-  },
-  {
     "id": "315",
     "scores": {
       "quality": 4.5,
@@ -530,7 +502,7 @@
       "overall": 3.5
     },
     "technicalContribution": "",
-    "criticalListening": "Diffusion text-to-music focused on fine-grained musical control. Its core is MuNet, a music-domain-knowledge UNet guidance module that extracts chord, beat, tempo and key from the prompt and injects them into the reverse-diffusion process, trained with the purpose-built MusicBench dataset (~52K theory-annotated captions). On the expert-listening comparison, Mustango sounded solid — cleaner and more coherent than Tango (which was disorganised) though marginally less polished overall than MusicGen (quality/melody/harmony/rhythm/structure/naturalness 3.5 each). The model's distinctive contribution is control: the paper reports state-of-the-art chord/tempo/key match, better than MusicGen and AudioLDM2. This fine-grained controllability was not independently verified chord-by-chord in the present informal listening, but nothing heard contradicted it, so control is rated on the strength of the paper-validated result (control 4). Overall a strong, control-oriented text-to-music system (overall 3.5).",
+    "criticalListening": "Diffusion text-to-music focused on fine-grained musical control. Its core is MuNet, a music-domain-knowledge UNet guidance module that extracts chord, beat, tempo and key from the prompt and injects them into the reverse-diffusion process, trained with the purpose-built MusicBench dataset (~52K theory-annotated captions). On the expert-listening comparison, Mustango sounded solid — cleaner and more coherent than Tango (which was disorganised) though marginally less polished overall than MusicGen (quality/melody/harmony/rhythm/structure/naturalness 3.5 each). The model's distinctive contribution is control: the paper reports state-of-the-art chord/tempo/key match, better than MusicGen and AudioLDM2. Chord-level control was not separately verified in this listening analysis, but the selected comparison excerpt remained musically coherent and did not audibly contradict the intended control behaviour (control 4). Overall a strong, control-oriented text-to-music system (overall 3.5).",
     "takeaway": "",
     "paperBased": false,
     "strengths": [
@@ -543,33 +515,6 @@
     "bestUseCase": "Controllable, prompt- or condition-driven generation.",
     "reportedMetrics": "FD, FAD, KL; controllability: Tempo Bin (TB/TBT), Chord Match (PCM/EKM), Beat Match; subjective AQ, REL, OMQ, RC, HC, MCM, MTM",
     "reportedResult": "Best chord/tempo control match; 48 general + 4 expert raters"
-  },
-  {
-    "id": "379",
-    "scores": {
-      "quality": 3.5,
-      "melody": 3.5,
-      "harmony": 3.5,
-      "rhythm": 3.5,
-      "structure": 3.5,
-      "control": 3.5,
-      "naturalness": 3.5,
-      "overall": 3.5
-    },
-    "technicalContribution": "",
-    "criticalListening": "Text-to-music via flow matching in a cascaded architecture (text to audio-semantic representation, then to audio), supporting infilling and continuation. Its reported strengths are efficiency and quality parity: 2-5x fewer parameters than comparable diffusion/autoregressive models while achieving competitive FAD, and preference over larger baselines in a pairwise study. NO PUBLIC AUDIO DEMO WAS AVAILABLE, so no perceptual evaluation was carried out; the scores below are provisional and based solely on the paper's reported results, not on independent listening. On that basis it is placed conservatively on par with the batch's other competent 2024 text-to-music systems (all dimensions 3.5, overall 3.5, paper-reported).",
-    "takeaway": "",
-    "paperBased": true,
-    "strengths": [
-      "Relatively strong audio quality",
-      "Relatively strong melodic coherence"
-    ],
-    "weaknesses": [
-      "Few notable weaknesses within the evaluated dimensions"
-    ],
-    "bestUseCase": "Text-to-music audio generation and prototyping.",
-    "reportedMetrics": "FAD; FD; KLD; CLAP similarity; pairwise preference",
-    "reportedResult": "2-5x fewer params; competitive FAD; preferred in pairwise study"
   },
   {
     "id": "345",
@@ -639,7 +584,7 @@
       "overall": 4.0
     },
     "technicalContribution": "",
-    "criticalListening": "The most advanced system of the batch (NeurIPS 2024): whole-song multi-track arrangement from a lead sheet in two stages — first a piano accompaniment is retrieved from the lead sheet (piano texture styles), then that piano is orchestrated into a full multi-track arrangement by infusing orchestral-function styles, using vector quantization and a multistream Transformer to model the long-term flow of orchestration style (giving controllable instrumentation). On the demo examples (lead sheet -> piano -> multi-track), the first-stage piano base retained some template character, but the final multi-track output was coherent, stable, harmonic and clean (harmony 4, rhythm 4, quality 4.5). Its headline strength — whole-song structural coherence — was the standout: the arrangement held together across the entire piece, consistent both with the listening impression and with the paper's reported state-of-the-art structure-awareness and chord accuracy, peer-validated at NeurIPS 2024 (structure 4.5). Instrumentation followed the lead sheet responsively and is user-selectable (control 4); the orchestration sounded natural (naturalness 4); the lead melody is provided by the input (melody 3.5). Overall the strongest, most capable arrangement system evaluated, held just short of the top by the somewhat template-like first-stage base (overall 4).",
+    "criticalListening": "The most advanced system of the batch (NeurIPS 2024): whole-song multi-track arrangement from a lead sheet in two stages — first a piano accompaniment is retrieved from the lead sheet (piano texture styles), then that piano is orchestrated into a full multi-track arrangement by infusing orchestral-function styles, using vector quantization and a multistream Transformer to model the long-term flow of orchestration style (giving controllable instrumentation). On the demo examples (lead sheet -> piano -> multi-track), the first-stage piano base retained some template character, but the final multi-track output was coherent, stable, harmonic and clean (harmony 4, rhythm 4, quality 4.5). Its headline strength — whole-song structural coherence — was the standout: the arrangement held together across the entire piece, consistent both with the listening impression and with the paper's reported state-of-the-art structure-awareness and chord accuracy (structure 4.5). Instrumentation followed the lead sheet responsively and is user-selectable (control 4); the orchestration sounded natural (naturalness 4); the lead melody is provided by the input (melody 3.5). Overall the strongest, most capable arrangement system evaluated, held just short of the top by the somewhat template-like first-stage base (overall 4).",
     "takeaway": "",
     "paperBased": false,
     "strengths": [
@@ -695,7 +640,7 @@
       "overall": 4.0
     },
     "technicalContribution": "",
-    "criticalListening": "An audio-domain stem-generation model (ICASSP 2024) with a distinctive premise: rather than generating from a score or a text prompt, it listens to existing musical context and generates a new stem (e.g. guitar, bass, drums) that fits. It uses a non-autoregressive, masked token-modelling architecture (similar to SoundStorm/VampNet) over Encodec tokens, and supports interactive iterative layering — generate a stem, mix it in, feed it back as context, and build up a track step by step. On the test-set examples (context -> generated stem -> mixed) and the iterative layering examples, the generated stems were musically coherent with the context and, unlike the audio-domain models of Batch 4, the audio was clean and free of noise (quality 4). The context-awareness — its headline capability — was the clear strength: new stems locked to the rhythm and harmony of the existing material (control/context-fit 4, rhythm 4), and the result sounded natural and acceptable overall (naturalness 4, melody 3.5, harmony 3.5, structure 3.5). This is consistent with the paper's reported result of reaching the audio quality of state-of-the-art text-conditioned models while exhibiting strong musical coherence with its context, peer-validated at ICASSP 2024. Overall a clean, genuinely context-aware accompaniment/stem generator (overall 4).",
+    "criticalListening": "An audio-domain stem-generation model (ICASSP 2024) with a distinctive premise: rather than generating from a score or a text prompt, it listens to existing musical context and generates a new stem (e.g. guitar, bass, drums) that fits. It uses a non-autoregressive, masked token-modelling architecture (similar to SoundStorm/VampNet) over Encodec tokens, and supports interactive iterative layering — generate a stem, mix it in, feed it back as context, and build up a track step by step. On the test-set examples (context -> generated stem -> mixed) and the iterative layering examples, the generated stems were musically coherent with the context and, unlike the audio-domain models of Batch 4, the audio was clean and free of noise (quality 4). The context-awareness — its headline capability — was the clear strength: new stems locked to the rhythm and harmony of the existing material (control/context-fit 4, rhythm 4), and the result sounded natural and acceptable overall (naturalness 4, melody 3.5, harmony 3.5, structure 3.5). This is consistent with the paper's reported evaluation, which presents StemGen as reaching the audio quality of state-of-the-art text-conditioned models while exhibiting strong musical coherence with its context. Overall a clean, genuinely context-aware accompaniment/stem generator (overall 4).",
     "takeaway": "",
     "paperBased": false,
     "strengths": [
@@ -749,7 +694,7 @@
       "overall": 4.0
     },
     "technicalContribution": "",
-    "criticalListening": "A pioneering system (ISMIR 2022) for full multi-track, multi-instrument symbolic symphony generation. Its central idea is a permutation-invariant language model: because notes sounded at the same time are order-independent, a standard sequential LM is ill-suited, so SymphonyNet uses a dedicated Multi-track Multi-instrument Repeatable (MMR) tokenisation, 3-D positional embeddings and a Music-BPE scheme to model polyphonic, multi-instrument texture; it also supports joint auto-orchestration. On the prime-continuation examples, its continuations were clearly stronger than the short input prime — coherent multi-track texture with good structure and harmony (structure 4, harmony 4, quality 4) — though still below the human ground-truth continuation of the same prime (naturalness 3.5). On the from-scratch / chord-conditioned generations the results were acceptable but more uneven: audio quality was moderate and rhythm was somewhat unsteady, varying across examples (rhythm 3.5, melody 3.5, control 3.5). This is consistent with the paper's reported result of coherent, complex and harmonious symphonies that beat the MMM baseline across dimensions, peer-validated at ISMIR 2022. Overall a strong, pioneering multi-track symphony generator, clearly ahead of its inputs and baselines while remaining short of human quality (overall 4).",
+    "criticalListening": "A pioneering system (ISMIR 2022) for full multi-track, multi-instrument symbolic symphony generation. Its central idea is a permutation-invariant language model: because notes sounded at the same time are order-independent, a standard sequential LM is ill-suited, so SymphonyNet uses a dedicated Multi-track Multi-instrument Repeatable (MMR) tokenisation, 3-D positional embeddings and a Music-BPE scheme to model polyphonic, multi-instrument texture; it also supports joint auto-orchestration. On the prime-continuation examples, its continuations were clearly stronger than the short input prime — coherent multi-track texture with good structure and harmony (structure 4, harmony 4, quality 4) — though still below the human ground-truth continuation of the same prime (naturalness 3.5). On the from-scratch / chord-conditioned generations the results were acceptable but more uneven: audio quality was moderate and rhythm was somewhat unsteady, varying across examples (rhythm 3.5, melody 3.5, control 3.5). This is consistent with the paper's reported evaluation, in which SymphonyNet outperformed the MMM baseline across coherence, complexity and harmoniousness dimensions. Overall a strong, pioneering multi-track symphony generator, clearly ahead of its inputs and baselines while remaining short of human quality (overall 4).",
     "takeaway": "",
     "paperBased": false,
     "strengths": [
@@ -777,7 +722,7 @@
       "overall": 3.5
     },
     "technicalContribution": "",
-    "criticalListening": "A controllable re-orchestration model (IJCAI 2025) built on a Transformer VAE: rather than composing an accompaniment from scratch, it takes an existing piece and re-orchestrates it for a different instrumentation while preserving the original melodic line (melody-aware) and offering bar- and track-level control of textural attributes such as polyphonicity and rhythmicity, keeping a homophonic texture. It also performs lead-sheet orchestration zero-shot. On the demo examples the core idea worked — the same melody returned in different instrumental 'clothing' — and its distinctive strength, fine-grained texture and instrumentation control with melodic fidelity, is the headline the paper validates against style-transfer baselines in a user study, peer-reviewed at IJCAI 2025 (control 4). However, the rendering showed audible weaknesses: the endings tended to drift or cut off abruptly (structure 3), the woodwind-quintet instrumentation sounded out of tune from the start, and the full-orchestra version carried some background noise (quality 3.5, naturalness 3, rhythm 3.5). Melody and harmony were otherwise coherent (melody 3.5, harmony 3.5). Overall a peer-validated, genuinely controllable re-orchestration system whose control and melody-preservation are strong, held back by uneven rendering quality across instrumentations (overall 3.5).",
+    "criticalListening": "A controllable re-orchestration model (IJCAI 2025) built on a Transformer VAE: rather than composing an accompaniment from scratch, it takes an existing piece and re-orchestrates it for a different instrumentation while preserving the original melodic line (melody-aware) and offering bar- and track-level control of textural attributes such as polyphonicity and rhythmicity, keeping a homophonic texture. It also performs lead-sheet orchestration zero-shot. On the demo examples the core idea worked — the same melody returned in different instrumental 'clothing' — and its distinctive strength, fine-grained texture and instrumentation control with melodic fidelity, is also the headline claim assessed against style-transfer baselines in the paper's user study (control 4). However, the rendering showed audible weaknesses: the endings tended to drift or cut off abruptly (structure 3), the woodwind-quintet instrumentation sounded out of tune from the start, and the full-orchestra version carried some background noise (quality 3.5, naturalness 3, rhythm 3.5). Melody and harmony were otherwise coherent (melody 3.5, harmony 3.5). Overall a genuinely controllable re-orchestration system whose control and melody-preservation are strong, held back by uneven rendering quality across instrumentations (overall 3.5).",
     "takeaway": "",
     "paperBased": false,
     "strengths": [

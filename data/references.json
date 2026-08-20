@@ -60,6 +60,11 @@
     "included": true
   },
   {
+    "key": "chou",
+    "text": "Chou, J. Y., Chi, T. H., Shih, Y. J., & Yang, Y. H. (2024). MidiBERT-Piano: Large-scale Pre-training for Symbolic Music Understanding. arXiv. https://doi.org/10.48550/arXiv.2107.05223",
+    "included": false
+  },
+  {
     "key": "cideron",
     "text": "Cideron, G., Girgin, S., Verzetti, M., Vincent, D., Kastelic, M., Borsos, Z., Mcwilliams, B., Ungureanu, V., Bachem, O., Pietquin, O., Geist, M., Hussenot, L., Zeghidour, N., & Agostinelli, A. (2024). MusicRL: Aligning Music Generation to Human Preferences. arXiv (Google DeepMind). https://doi.org/10.48550/arXiv.2402.04229",
     "included": true
@@ -235,6 +240,11 @@
     "included": true
   },
   {
+    "key": "li",
+    "text": "Li, Y., Yuan, R., Zhang, G., Ma, Y., Chen, X., Yin, H., et al. (2024). MERT: Acoustic Music Understanding Model with Large-Scale Self-Supervised Training. ICLR 2024. https://doi.org/10.48550/arXiv.2306.00107",
+    "included": false
+  },
+  {
     "key": "lin",
     "text": "Lin, L., Xia, G., Jiang, J., & Zhang, Y. (2023). Content-based Controls for Music Large Language Modeling. ISMIR 2024. https://doi.org/10.5281/zenodo.14877447",
     "included": true
@@ -253,6 +263,11 @@
     "key": "liu",
     "text": "Liu, J., Dong, Y., Cheng, Z., Zhang, X., Li, X., Yu, F., & Sun, M. (2022). Symphony Generation with Permutation Invariant Language Model (SymphonyNet). ISMIR 2022. https://doi.org/10.5281/zenodo.7316721",
     "included": true
+  },
+  {
+    "key": "liu",
+    "text": "Liu, S., Hussain, A. S., Sun, C., & Shan, Y. (2024). Music Understanding LLaMA: Advancing Text-to-Music Generation. ICASSP 2024. https://doi.org/10.48550/arXiv.2308.11276",
+    "included": false
   },
   {
     "key": "lu",
@@ -485,6 +500,11 @@
     "included": true
   },
   {
+    "key": "wu",
+    "text": "Wu, S., Yu, D., Tan, X., & Sun, M. (2023). CLaMP: Contrastive Language-Music Pre-Training for Symbolic Music. ISMIR 2023. https://doi.org/10.5281/zenodo.10265246",
+    "included": false
+  },
+  {
     "key": "xu",
     "text": "Xu, Z., Dutta, D., Wei, Y., & Choudhury, R. R. (2024). Multi-Source Music Generation with Latent Diffusion. arXiv 2024. https://doi.org/10.48550/arXiv.2409.06190",
     "included": true
@@ -538,6 +558,11 @@
     "key": "yuan",
     "text": "Yuan, S., Tang, X., Chen, J., Xie, T., Wang, J., & Shi, B. (2025). Diffusion-based Symbolic Music Generation with Structured State Space Models. arXiv. https://doi.org/10.48550/arXiv.2507.20128",
     "included": true
+  },
+  {
+    "key": "zeng",
+    "text": "Zeng, M., Tan, X., Wang, R., Ju, Z., Qin, T., & Liu, T. Y. (2021). MusicBERT: Symbolic Music Understanding with Large-Scale Pre-Training. ACL Findings 2021. https://doi.org/10.18653/v1/2021.findings-acl.70",
+    "included": false
   },
   {
     "key": "zhang",

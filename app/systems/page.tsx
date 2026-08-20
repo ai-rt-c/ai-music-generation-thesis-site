@@ -1,49 +1,56 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
-import SystemsBrowser from "@/components/systems/SystemsBrowser";
-import { demos, evaluations, papers, systems } from "@/lib/data";
+import SystemCard from "@/components/cards/SystemCard";
+import { content, demoById, evaluationById, paperById, systems } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Systems & Listening Demos",
-  description:
-    "Browse the 29 systems selected for in-depth synthesis and listening analysis, including public demos and descriptive listening scores.",
+  title: "27 selected systems",
+  description: "The 27 systems examined in the pilot exploratory listening analysis, organised in seven comparable batches.",
 };
 
 export default function SystemsPage() {
-  const paperMap = new Map(papers.map((paper) => [paper.id, paper]));
-  const evaluationMap = new Map(evaluations.map((evaluation) => [evaluation.id, evaluation]));
-  const demoMap = new Map(demos.map((demo) => [demo.id, demo]));
-
-  const records = systems.map((system) => {
-    const paper = paperMap.get(system.paperId);
-    const evaluation = evaluationMap.get(system.id);
-    const demo = demoMap.get(system.id);
-
-    if (!paper || !evaluation || !demo) {
-      throw new Error(`Incomplete systems-page data for system ${system.id}`);
-    }
-
-    return { system, paper, evaluation, demo };
-  });
+  const batches = Array.from(new Set(systems.map((system) => system.batch)));
 
   return (
-    <div>
+    <article>
       <PageHeader
-        kicker="In-depth subset"
-        title="Systems & Listening Demos"
-        intro="Browse the 29 systems selected after inclusion for closer synthesis and structured listening analysis. Open available author-hosted demos, compare descriptive scores and follow the original paper or code links."
+        kicker="Systems"
+        title="27 selected systems"
+        intro="The systems are organised in seven batches so that comparisons stay close to task, domain and modelling context. Their order within each batch is descriptive, not a ranking."
       />
 
-      <div className="mb-8 max-w-prose rounded-lg border border-line bg-forest-light/35 p-4 text-sm text-muted">
-        <p>
-          These scores support qualitative comparison within this thesis; they are not an
-          objective benchmark. Overall is a holistic judgement and is not calculated as the
-          arithmetic mean of the other dimensions. A dash means that a dimension was not
-          applicable.
-        </p>
+      <div className="max-w-prose rounded-lg border border-line bg-forest-light/40 p-4 text-sm leading-relaxed text-muted">
+        {content.listeningEvaluation.caveat}
       </div>
 
-      <SystemsBrowser records={records} />
-    </div>
+      {batches.map((batch) => {
+        const batchSystems = systems.filter((system) => system.batch === batch);
+        return (
+          <section key={batch} className="mt-10">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-2">
+              <h2 className="text-xl">{batch}</h2>
+              <p className="text-sm text-muted">{batchSystems.length} systems</p>
+            </div>
+            <div className="mt-4 grid gap-4 lg:grid-cols-2">
+              {batchSystems.map((system) => {
+                const evaluation = evaluationById(system.id);
+                const paper = paperById(system.paperId);
+                const demo = demoById(system.id);
+                if (!evaluation || !paper || !demo) return null;
+                return (
+                  <SystemCard
+                    key={system.id}
+                    system={system}
+                    evaluation={evaluation}
+                    paper={paper}
+                    demo={demo}
+                  />
+                );
+              })}
+            </div>
+          </section>
+        );
+      })}
+    </article>
   );
 }

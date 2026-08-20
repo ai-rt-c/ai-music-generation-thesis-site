@@ -22,7 +22,7 @@ export type Paradigm =
   | "Hybrid"
   | "Non-neural";
 
-// The eight listening-evaluation dimensions.
+// Seven listening criteria plus a separate holistic Overall score.
 export interface Scores {
   quality: number | null;
   melody: number | null;
@@ -34,7 +34,7 @@ export interface Scores {
   overall: number | null;
 }
 
-export const DIMENSION_KEYS: (keyof Scores)[] = [
+export const CRITERION_KEYS: (keyof Scores)[] = [
   "quality",
   "melody",
   "harmony",
@@ -42,6 +42,10 @@ export const DIMENSION_KEYS: (keyof Scores)[] = [
   "structure",
   "control",
   "naturalness",
+];
+
+export const RATING_KEYS: (keyof Scores)[] = [
+  ...CRITERION_KEYS,
   "overall",
 ];
 
@@ -51,12 +55,12 @@ export const DIMENSION_LABELS: Record<keyof Scores, string> = {
   harmony: "Harmonic coherence",
   rhythm: "Rhythmic stability",
   structure: "Long-term structure",
-  control: "Control adherence",
+  control: "Condition / control adherence",
   naturalness: "Naturalness / musicality",
   overall: "Overall",
 };
 
-// ---- papers.json : the 107 reviewed studies (the corpus) ----
+// ---- papers.json : the 107 primary studies in the final corpus ----
 export interface Paper {
   id: string;
   title: string;
@@ -81,12 +85,12 @@ export interface Paper {
   hasDemo: boolean;
   doi: string | null;
   paperUrl: string | null;
-  inDepth: boolean; // is it one of the 29 evaluated systems?
+  inDepth: boolean; // is it one of the 27 evaluated systems?
   notes: string;
   citation: string; // APA (same generator as references.json)
 }
 
-// ---- systems.json : the 29 in-depth systems ----
+// ---- systems.json : the 27 in-depth systems ----
 export interface System {
   id: string; // same id as its paper
   paperId: string;
@@ -158,7 +162,7 @@ export interface Trend {
 export interface Reference {
   key: string; // sort key (first author surname, lowercased)
   text: string; // full APA entry
-  included: boolean; // true = one of the 107 included studies
+  included: boolean; // true = one of the 107 primary studies
 }
 
 // ---- content.json : narrative page copy, extracted from the dissertation ----
@@ -182,7 +186,10 @@ export interface Content {
   };
   systematicReview: RichSection;
   listeningEvaluation: {
+    title: string;
     intro: string;
+    evaluatorProfile: string;
+    procedure: string;
     rubric: { key: keyof Scores; label: string; meaning: string }[];
     caveat: string;
   };
@@ -223,24 +230,21 @@ export interface Meta {
   repoUrl: string;
   prisma: {
     identified: number;
-    transferred: number;
     afterDedup: number;
     titleScreened: number;
-    afterAbstract: number;
-    initiallyIncluded: number;
-    afterConsolidation: number;
+    fullText: number;
     included: number;
     inDepth: number;
   };
   counts: {
     included: number;
     inDepth: number;
-    topSystems: number;
+    featuredSystems: number;
     trends: number;
     taxonomyDimensions: number;
   };
   batchAverages: { batch: string; quality: number; overall: number; leading: string }[];
   citations: { apa: string; bibtex: string };
-  downloads: { label: string; file: string; kind: string; available?: boolean; note?: string }[];
+  downloads: { label: string; file: string; kind: string }[];
   figures: FigureItem[];
 }

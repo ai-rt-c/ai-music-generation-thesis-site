@@ -56,7 +56,7 @@ function Slider({
   return (
     <label className="mb-4 block text-sm">
       <span className="flex items-center justify-between text-xs font-medium uppercase tracking-wide text-muted">
-        {label} <span className="tnum text-forest-ink">{value ? `≥ ${value}` : "any"}</span>
+        {label} <span className="tnum text-forest-ink">{value ? `≥ ${value}/5` : "any"}</span>
       </span>
       <input
         type="range"
@@ -121,14 +121,14 @@ export default function FilterPanel({
 
       <div className="mb-3 border-t border-line pt-4">
         <p className="mb-3 text-xs font-medium uppercase tracking-wide text-muted">
-          Evaluation score
+          Pilot evaluator score (1–5)
         </p>
-        <Slider label="Overall" value={state.minOverall} onChange={(v) => onChange({ minOverall: v })} />
+        <Slider label="Holistic Overall" value={state.minOverall} onChange={(v) => onChange({ minOverall: v })} />
         <Slider label="Control" value={state.minControl} onChange={(v) => onChange({ minControl: v })} />
         <Slider label="Structure" value={state.minStructure} onChange={(v) => onChange({ minStructure: v })} />
         {scoreFilterActive(state) && (
           <p className="text-xs italic text-muted">
-            Score filters apply to the 29 evaluated systems only.
+            Score filters apply only to the 27 systems in the pilot exploratory analysis.
           </p>
         )}
       </div>

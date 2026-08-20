@@ -28,9 +28,9 @@ export default function ActiveFilters({
   state.tasks.forEach((t) => chips.push({ label: t, clear: { tasks: state.tasks.filter((x) => x !== t) } }));
   state.domains.forEach((d) => chips.push({ label: d, clear: { domains: state.domains.filter((x) => x !== d) } }));
   state.paradigms.forEach((p) => chips.push({ label: p, clear: { paradigms: state.paradigms.filter((x) => x !== p) } }));
-  if (state.minOverall) chips.push({ label: `overall ≥ ${state.minOverall}`, clear: { minOverall: 0 } });
-  if (state.minControl) chips.push({ label: `control ≥ ${state.minControl}`, clear: { minControl: 0 } });
-  if (state.minStructure) chips.push({ label: `structure ≥ ${state.minStructure}`, clear: { minStructure: 0 } });
+  if (state.minOverall) chips.push({ label: `Overall ≥ ${state.minOverall}/5`, clear: { minOverall: 0 } });
+  if (state.minControl) chips.push({ label: `Control ≥ ${state.minControl}/5`, clear: { minControl: 0 } });
+  if (state.minStructure) chips.push({ label: `Structure ≥ ${state.minStructure}/5`, clear: { minStructure: 0 } });
 
   return (
     <div className="flex flex-wrap items-center gap-2">

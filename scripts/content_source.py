@@ -3,7 +3,7 @@
 # (content.json, taxonomy.json, trends.json, meta.json). No component holds prose;
 # it all originates here and is emitted to /data by build_data.py.
 
-LAST_UPDATED = "2026-07-29"
+LAST_UPDATED = "2026-08-12"
 REPO_URL = "https://github.com/ai-rt-c/ai-music-generation-thesis-site"
 
 META = {
@@ -17,18 +17,16 @@ META = {
     "lastUpdated": LAST_UPDATED,
     "repoUrl": REPO_URL,
     "prisma": {
-        "identified": 4521, "transferred": 1083, "afterDedup": 783,
-        "titleScreened": 383, "afterAbstract": 146,
-        "initiallyIncluded": 113, "afterConsolidation": 112,
-        "included": 107, "inDepth": 29,
+        "identified": 4521, "afterDedup": 783, "titleScreened": 383,
+        "fullText": 146, "included": 107, "inDepth": 27,
     },
-    "counts": {"included": 107, "inDepth": 29, "topSystems": 9, "trends": 8, "taxonomyDimensions": 4},
+    "counts": {"included": 107, "inDepth": 27, "featuredSystems": 9, "trends": 8, "taxonomyDimensions": 4},
     "batchAverages": [
         {"batch": "B1 — Symbolic pop/piano", "quality": 4.3, "overall": 3.3, "leading": "structure / melody"},
-        {"batch": "B2 — Symbolic diffusion & control", "quality": 3.9, "overall": 3.4, "leading": "control adherence"},
+        {"batch": "B2 — Symbolic diffusion & control", "quality": 4.3, "overall": 3.7, "leading": "control adherence"},
         {"batch": "B3 — Symbolic language models", "quality": 4.4, "overall": 3.8, "leading": "control / melody"},
         {"batch": "B4 — Foundational audio", "quality": 3.6, "overall": 3.2, "leading": "control adherence"},
-        {"batch": "B5 — Recent text-to-music", "quality": 4.0, "overall": 3.6, "leading": "quality / control"},
+        {"batch": "B5 — Recent text-to-music", "quality": 4.2, "overall": 3.7, "leading": "quality / control"},
         {"batch": "B6 — Accompaniment arrangement", "quality": 4.1, "overall": 3.5, "leading": "quality / structure"},
         {"batch": "B7 — Orchestration", "quality": 4.2, "overall": 3.8, "leading": "control adherence"},
     ],
@@ -38,37 +36,39 @@ META = {
     },
     "downloads": [],
     "figures": [
-        {"id": "graphical-abstract", "number": 1, "title": "Graphical abstract", "png": "figures/fig_graphical_abstract.png", "caption": "Graphical abstract summarising the scope, method, analysis and key findings of the review.", "alt": "Overview diagram: scope, PRISMA screening funnel, analysis, key findings and the nine most promising methods."},
-        {"id": "prisma", "number": 2, "title": "PRISMA 2020 flow diagram", "png": "figures/fig_prisma.png", "caption": "PRISMA 2020 flow diagram of the review. The synthesis-stage selection of 29 methods is separate from PRISMA eligibility.", "alt": "PRISMA flow: 4,521 records identified, 783 screened, 145 full-text, 112 included, 29 in-depth."},
-        {"id": "taxonomy", "number": 3, "title": "Extended taxonomy", "png": "figures/Taxonomy.png", "caption": "Extended taxonomy of AI music generation, arrangement and orchestration (2020–2025), extending Zhu et al. (2023).", "alt": "Four-dimension taxonomy: task, generative paradigm, conditioning modality, data representation."},
-        {"id": "year-112", "number": 4, "title": "Included studies per year", "png": "figures/fig_year112.png", "caption": "Included studies per year (n = 112).", "alt": "Bar chart of included studies per year, peaking in 2024."},
-        {"id": "task-112", "number": 5, "title": "Included studies by task", "png": "figures/fig_task112.png", "caption": "Included studies by task (n = 112).", "alt": "Bar chart of studies by task; orchestration is the sparsest."},
-        {"id": "paradigm-112", "number": 6, "title": "Paradigm across the corpus", "png": "figures/fig_paradigm112.png", "caption": "Generative modelling paradigm across the corpus (n = 112).", "alt": "Bar chart of paradigms across the corpus; Transformer/LLM and diffusion dominate."},
-        {"id": "trends-timeline", "number": 7, "title": "Trends timeline", "png": "figures/fig_trends_timeline.png", "caption": "Chronological span of the eight research trends (2020–2025); darker = dominant period.", "alt": "Gantt-style timeline of eight research trends across 2020 to 2025."},
-        {"id": "paradigm-29", "number": 8, "title": "Paradigm of the 29 systems", "png": "figures/fig_arch.png", "caption": "Generative modelling paradigm of the 29 evaluated systems (Dimension 2 of the taxonomy).", "alt": "Horizontal bar chart of paradigms among the 29 evaluated systems."},
-        {"id": "year-trend-29", "number": 9, "title": "Mean overall score by year", "png": "figures/fig_year.png", "caption": "Mean overall score by year across the evaluated subset (n per year shown).", "alt": "Line chart: mean overall score rising from about 2.8 to 3.8."},
-        {"id": "domain", "number": 10, "title": "Symbolic vs audio by dimension", "png": "figures/fig_domain.png", "caption": "Symbolic versus audio systems, average score by dimension.", "alt": "Grouped bar chart comparing symbolic and audio systems across dimensions."},
-        {"id": "heatmap", "number": 11, "title": "Batch-average heatmap", "png": "figures/fig_heatmap.png", "caption": "Batch-average scores across the eight evaluation dimensions (darker = higher).", "alt": "Heatmap of batch-average scores across eight dimensions."},
-        {"id": "rank", "number": 12, "title": "Overall score by system", "png": "figures/fig_rank.png", "caption": "Overall score by system, coloured by domain; the dashed line marks the 4.0 threshold.", "alt": "Ranked horizontal bar chart of overall scores for the 29 systems."},
+        {"id": "graphical-abstract", "number": 1, "title": "Graphical abstract", "png": "figures/fig_01_graphical_abstract.png", "caption": "Graphical abstract summarising the scope, method, analysis and key findings of the review.", "alt": "Overview diagram showing the review scope, PRISMA screening, analyses and principal findings."},
+        {"id": "operational-framework", "number": 2, "title": "Operational framework", "png": "figures/fig_02_operational_framework.png", "caption": "Operational framework relating music generation, arrangement and orchestration across symbolic and audio domains.", "alt": "Framework showing generation, arrangement and orchestration and their conditioning relationships in symbolic and audio domains."},
+        {"id": "review-workflow", "number": 3, "title": "Review and synthesis workflow", "png": "figures/fig_03_review_workflow.png", "caption": "Research workflow, showing the systematic-review stage and the subsequent synthesis stage.", "alt": "Workflow from identification and screening to a 107-study corpus, trend synthesis and the 27-system pilot analysis."},
+        {"id": "prisma", "number": 4, "title": "PRISMA 2020 flow diagram", "png": "figures/fig_04_prisma.png", "caption": "PRISMA 2020 flow diagram of the review. The synthesis-stage selection of 27 methods is separate from PRISMA eligibility.", "alt": "PRISMA flow: 4,521 records identified, 1,083 managed, 783 after deduplication, 146 full texts, 107 primary studies and 27 systems selected for additional analysis."},
+        {"id": "taxonomy", "number": 5, "title": "Extended taxonomy", "png": "figures/fig_05_taxonomy.png", "caption": "Extended taxonomy of AI music generation, arrangement and orchestration (2020–2025), extending Zhu et al. (2023).", "alt": "Four-dimension taxonomy covering task, generative paradigm, conditioning modality and data representation."},
+        {"id": "year-107", "number": 6, "title": "Included studies per year", "png": "figures/fig_06_year_107.png", "caption": "Included studies per year (n = 107).", "alt": "Bar chart of the 107 included studies by analytical year, peaking in 2024."},
+        {"id": "category-107", "number": 7, "title": "Primary corpus categories", "png": "figures/fig_07_category_107.png", "caption": "Included studies by primary corpus category (n = 107).", "alt": "Bar chart of primary corpus categories: symbolic generation, audio generation, arrangement and orchestration."},
+        {"id": "paradigm-107", "number": 8, "title": "Paradigm across the corpus", "png": "figures/fig_08_paradigm_107.png", "caption": "Generative modelling paradigm across the corpus (n = 107).", "alt": "Bar chart showing Transformer and language-model approaches as the most common paradigm, followed by diffusion."},
+        {"id": "trends-timeline", "number": 9, "title": "Trends timeline", "png": "figures/fig_09_trends_timeline.png", "caption": "Chronological span of the eight research trends (2020–2025); darker indicates the dominant period.", "alt": "Timeline of eight research trends across 2020 to 2025."},
+        {"id": "paradigm-27", "number": 10, "title": "Modelling families of the 27 systems", "png": "figures/fig_10_paradigm_27.png", "caption": "Generative modelling family across the 27 evaluated systems, using the same grouping as the corpus-level analysis.", "alt": "Bar chart of modelling families among the 27 systems."},
+        {"id": "year-trend-27", "number": 11, "title": "Mean Overall score by year", "png": "figures/fig_11_year_trend_27.png", "caption": "Mean holistic Overall score by year across the evaluated subset, with the number of systems shown for each year.", "alt": "Line chart of the mean holistic Overall score by year for the 27-system subset."},
+        {"id": "domain", "number": 12, "title": "Symbolic versus audio ratings", "png": "figures/fig_12_domain.png", "caption": "Symbolic versus audio systems, average rating by criterion.", "alt": "Grouped bar chart comparing symbolic and audio systems across the seven criteria and holistic Overall score."},
+        {"id": "heatmap", "number": 13, "title": "Batch-average ratings", "png": "figures/fig_13_heatmap.png", "caption": "Batch-average ratings across the seven listening criteria and holistic Overall score; darker indicates a higher value.", "alt": "Heatmap of batch-average ratings across seven criteria and a separate holistic Overall score."},
+        {"id": "overall-order", "number": 14, "title": "Overall score by system", "png": "figures/fig_14_overall_order.png", "caption": "Systems ordered by holistic Overall score and coloured by domain; the dashed line marks the 4.0 threshold used to define the featured set.", "alt": "Horizontal bar chart with systems ordered by holistic Overall score; it is a presentation order, not a definitive leaderboard."},
     ],
 }
 
 CONTENT = {
     "home": {
         "tagline": "A systematic review of how AI learned to generate, arrange and orchestrate music, 2020–2025.",
-        "summary": "This companion site presents the final 107-study corpus from a PRISMA 2020 systematic review of AI music generation, arrangement and orchestration. It extends an existing taxonomy, synthesises eight research trends, and reports a structured listening evaluation of a post-inclusion subset of 29 representative systems — nine of which score 4.0 or above. Everything here is drawn from the dissertation and is browsable independently of the PDF.",
+        "summary": "This companion site presents a PRISMA-guided systematic review of 107 primary studies on AI music generation, arrangement and orchestration. It extends an existing taxonomy, synthesises eight research trends, and reports a pilot exploratory, single-evaluator listening analysis of 27 selected systems. Nine systems form a featured set at a holistic Overall score of 4.0/5 or above; this is a discussion threshold, not a definitive leaderboard.",
         "readingPath": [
             {"label": "About the thesis", "href": "/about-thesis"},
-            {"label": "Systematic review", "href": "/systematic-review"},
+            {"label": "Systematic review", "href": "/methodology"},
             {"label": "Taxonomy", "href": "/taxonomy"},
             {"label": "Research trends", "href": "/trends"},
             {"label": "Listening evaluation", "href": "/listening-evaluation"},
-            {"label": "29 selected systems", "href": "/systems"},
+            {"label": "27 selected systems", "href": "/systems"},
             {"label": "Discussion", "href": "/discussion"},
         ],
     },
     "aboutThesis": {
-        "abstract": "The rapid growth of AI-based music generation, arrangement and orchestration has produced a large and fragmented literature, making it difficult to navigate recent developments and identify the most promising approaches. This thesis addresses that gap through a systematic literature review following the PRISMA 2020 guidelines, covering AI methods published between 2020 and 2025. From 4,521 records identified across six academic databases, 1,083 were transferred to Zotero, 783 unique records remained after deduplication, 383 passed title screening and 146 passed abstract screening. Full-text assessment initially included 113 studies; post-inclusion verification consolidated one duplicate publication version to 112 and reclassified five studies as background, producing the final primary corpus of 107 studies. For each primary study, information on methodology, datasets, musical representations, evaluation procedures, metrics and code availability was extracted into a comprehensive comparison table. The review extends the taxonomy proposed by Zhu et al. (2023), synthesises eight major research trends, and identifies and justifies a post-inclusion subset of 29 representative methods for structured listening analysis.",
+        "abstract": "The rapid growth of AI-based music generation, arrangement and orchestration has resulted in a large and fragmented body of literature. This thesis addresses the resulting navigation and comparison problem through a PRISMA-guided systematic review of work published between 2020 and 2025. From 4,521 records identified across six academic sources, 1,083 could be exported to Zotero for record management and screening; after deduplication, eligibility assessment and a final eligibility-consistency audit, 107 primary studies were included. The review extends the taxonomy of Zhu et al. (2023), synthesises eight research trends and selects 27 methods for additional analysis. Their traceable demonstrations and outputs are examined through a pilot exploratory, single-evaluator listening analysis.",
         "aim": "To conduct a PRISMA-guided systematic review of AI methods for music generation, arrangement and orchestration, with a focus on developments from 2020 to 2025.",
         "researchQuestions": [
             "How have AI-based methods for music generation, arrangement and orchestration evolved since 2020, particularly with the emergence of transformer and diffusion models?",
@@ -77,9 +77,9 @@ CONTENT = {
         ],
         "contributions": [
             "An extended taxonomy of AI music systems across four dimensions.",
-            "A structured comparison of all 107 verified primary studies.",
+            "A structured comparison of all 107 included primary studies.",
             "A synthesis of eight research trends spanning 2020–2025.",
-            "A structured listening evaluation of a 29-system post-inclusion subset, presented through a companion website.",
+            "A pilot exploratory, single-evaluator listening analysis of 27 methods, with a traceable evidence profile for every system.",
         ],
         "objectives": [
             "Perform a systematic literature review following PRISMA 2020.",
@@ -96,33 +96,36 @@ CONTENT = {
         "intro": "The review followed the PRISMA 2020 Statement: identification, screening, eligibility assessment, data extraction and qualitative synthesis.",
         "blocks": [
             {"heading": "Data collection", "body": "Publications were identified through six databases and digital libraries: Google Scholar, IEEE Xplore, ACM Digital Library, SpringerLink, ScienceDirect and arXiv, using a predefined keyword set. The search yielded 4,521 records; owing to platform export restrictions, 1,083 could be exported to Zotero, and after removing 300 duplicates, 783 unique records remained."},
-            {"heading": "Study selection", "body": "Of the 783 unique records, title screening retained 383 and abstract screening retained 146 for full-text assessment. Full-text eligibility initially included 113 studies. Two post-inclusion verification steps followed: consolidation of the AccoMontage-3 preprint with the published Structured Multi-Track Accompaniment Arrangement contribution reduced the corpus to 112 publication-level studies, and a later eligibility-consistency audit reclassified five studies as background, producing the final primary corpus of 107 studies. These 113→112 and 112→107 transitions document post-inclusion verification rather than rewriting the original PRISMA screening history."},
-            {"heading": "In-depth subset", "body": "After the final 107-study primary corpus was established, 29 systems were selected for in-depth synthesis and listening analysis using five criteria: task coverage (S1), methodological influence (S2), architectural diversity (S3), accessible MIDI/MP3 demonstrations (S4) and temporal spread across 2020–2025 (S5). This is a post-inclusion synthesis subset, not a PRISMA eligibility or exclusion stage; all 107 primary studies remain in the master comparison table."},
+            {"heading": "Study selection", "body": "Title screening excluded 400 off-topic records, retaining 383. Abstract screening excluded a further 237 and retained 146 for full-text review. Full-text eligibility produced 113 studies; one duplicated publication version was then consolidated, and a final eligibility-consistency audit moved five representation-learning or music-understanding studies to background literature because they did not satisfy the primary-study criterion E1. The final primary corpus therefore contains 107 studies."},
+            {"heading": "In-depth subset", "body": "A subset of 27 methods was selected using five criteria: task coverage (S1), methodological influence (S2), architectural diversity (S3), assessable output availability (S4) and temporal spread across 2020–2025 (S5). A final demonstration-provenance audit removed two candidates that did not satisfy S4 for the corpus-eligible material. This selection is separate from PRISMA eligibility; all 107 included studies remain in the primary corpus and appear in the master comparison table."},
             {"heading": "Data analysis", "body": "For each study, authors, year, task, architecture, dataset, representation, evaluation method, metrics, music length, training requirements and code availability were extracted into the master comparison table and analysed qualitatively to identify trends, dominant methodologies, challenges and future directions."},
         ],
     },
     "listeningEvaluation": {
-        "intro": "The 29 selected systems were assessed through manual critical listening on eight dimensions rated on a five-point scale. Each system was judged on at least one representative example — a hosted demo where available, or, where none existed, a locally generated output or the results reported in the paper. As the assessment reflects a single listener, ratings are descriptive summaries rather than objective benchmarks, and where authors publish curated examples they bound the best case rather than the average case.",
+        "title": "Pilot exploratory listening analysis",
+        "intro": "The 27 selected systems were examined in a pilot exploratory, single-evaluator analysis. Seven predefined listening criteria were rated separately on a 1–5 scale, and a distinct holistic Overall score was recorded on the same scale. Overall is not an eighth criterion and is not the arithmetic mean of the seven criterion ratings.",
+        "evaluatorProfile": "The evaluator was the thesis author, an MSc Artificial Intelligence student who had extracted and verified the methodological and evaluation information for the corpus. This is a technically informed author-reviewer profile, not an independent expert panel or a representative listener sample. System identities, objectives and conditioning were known; no blinding, randomisation or separate listener-screening procedure was used.",
+        "procedure": "The pilot analysis was conducted across multiple working sessions approximately between 24 and 27 July 2026. One or more representative outputs were examined for each system from an official demonstration or project resource, or generated or rendered locally where stated. Ratings and observations were entered contemporaneously in a structured spreadsheet. Exact session-level dates and times, playback device and listening level, and complete environmental conditions were not recorded in a separate standardised log, so the conditions cannot be claimed as experimentally controlled.",
         "rubric": [
             {"key": "quality", "label": "Audio / rendering quality", "meaning": "Cleanliness and fidelity of the produced sound (absence of noise or artefacts)."},
             {"key": "melody", "label": "Melodic coherence", "meaning": "Sensibility and sense of direction of the melodic line."},
             {"key": "harmony", "label": "Harmonic coherence", "meaning": "Consistency and plausibility of the underlying harmony."},
             {"key": "rhythm", "label": "Rhythmic stability", "meaning": "Steadiness and regularity of the rhythmic pulse."},
             {"key": "structure", "label": "Long-term structure", "meaning": "Presence of large-scale musical form (e.g. verse–chorus, development)."},
-            {"key": "control", "label": "Control adherence", "meaning": "Fidelity of the output to the given conditioning (text, chords, melody or target)."},
+            {"key": "control", "label": "Condition / control adherence", "meaning": "Fidelity of the output to the given conditioning (text, chords, melody or target)."},
             {"key": "naturalness", "label": "Naturalness / musicality", "meaning": "Overall musical plausibility and expressive quality."},
-            {"key": "overall", "label": "Overall", "meaning": "Overall judgement integrating the preceding dimensions."},
+            {"key": "overall", "label": "Overall", "meaning": "A separate holistic judgement of the evaluated material; not an arithmetic mean of the seven criteria."},
         ],
-        "caveat": "Scores are descriptive summaries of a structured listening exercise, not objective performance benchmarks, and are interpreted as such throughout.",
+        "caveat": "Evaluator scores describe the specific material examined. They are not objective performance benchmarks, population-level perceptual results or definitive system rankings. Author-curated demonstrations may represent favourable rather than typical output. All 27 included systems had a directly assessable, traceable demonstration or output.",
     },
     "discussion": {
         "intro": "The review is interpreted in relation to the three research questions, followed by the limitations of the review and of the field.",
         "rq": [
-            {"q": "RQ1 — How have methods evolved since 2020?", "a": "The corpus describes a three-stage evolution: representation engineering (2020–2022), paradigm competition and the language interface (2023), and consolidation around controllable diffusion, foundation models and evaluation (2024–2025). Transformers supplied the representational substrate and the autoregressive token-LM baseline (Jukebox → AudioLM → MusicGen); diffusion arrived as the complementary paradigm, decisive where autoregression was weakest — global structure and fine-grained control. The two now coexist by a division of labour. In the structured listening subset, the mean overall score was approximately 2.8 in 2020 and approximately 3.9 in 2024; the intervening annual means fluctuate, so this is not a monotonic year-by-year increase."},
-            {"q": "RQ2 — What are the dominant trends, techniques, datasets and evaluation?", "a": "Eight higher-level trends were synthesised from the 107-study corpus. The largest primary categories are symbolic generation (43 studies) and audio generation (31), followed by arrangement (26) and orchestration (7). The corpus comprises 63 symbolic-domain, 43 audio-domain and one mixed-domain study. Transformer or language-model approaches are most common (40 studies), followed by diffusion (32), VAE (11), hybrid or other (8), GAN (8), RNN/LSTM (5) and flow matching (3). Publication activity is concentrated in 2023 and 2024, which together account for 63 of 107 studies. Evaluation combines objective distributional metrics (notably FAD) with subjective preference and controllability measures, alongside an emerging concern with evaluation validity itself."},
-            {"q": "RQ3 — Which approaches are most promising, and why?", "a": "Nine of the 29 evaluated methods scored 4.0 or above: GETMusic and ChatMusician (both 4.5), with MusicLM, MusicGen, StemGen, AccoMontage, Whole-Song Generation, Structured Arrangement and SymphonyNet (all 4.0). Two factors separated them: verifiable controllability — the ability to hear that the output follows its conditioning — and explicit long-term structural planning. Audio fidelity was generally high across the subset and did not differentiate the leaders. The most effective systems treated control and structure as first-class design goals rather than by-products of scale."},
+            {"q": "RQ1 — How have methods evolved since 2020?", "a": "The corpus describes a three-stage evolution: representation engineering (2020–2022), paradigm competition and the language interface (2023), and consolidation around controllable diffusion, foundation models and evaluation (2024–2025). Transformers supplied the representational substrate and the autoregressive token-LM baseline (Jukebox → AudioLM → MusicGen); diffusion arrived as a complementary paradigm, especially for global context and fine-grained control. The pilot listening analysis is consistent with this trajectory: the mean holistic Overall score rose from about 2.8 for the 2020 systems to about 3.8 for the 2024 systems, without constituting a causal or population-level claim."},
+            {"q": "RQ2 — What are the dominant trends, techniques, datasets and evaluation?", "a": "Eight higher-level trends were synthesised from the 107 studies. Transformer and language-model approaches are the most common, accounting for 40 studies, followed by diffusion with 32; VAEs persist mainly in arrangement and re-orchestration. Text emerged as the dominant conditioning interface, later augmented with music-theoretic and time-varying controls. Evaluation remains heterogeneous: 79 studies combine objective and subjective assessment, 22 report objective measures only, 4 subjective assessment only, and 2 demonstrations or qualitative discussion alone."},
+            {"q": "RQ3 — Which approaches are most promising, and why?", "a": "Nine of the 27 methods received a holistic Overall score of 4.0/5 or above in the pilot analysis: GETMusic and ChatMusician (both 4.5), with MusicLM, MusicGen, StemGen, AccoMontage, Whole-Song Generation, Structured Arrangement and SymphonyNet (all 4.0). This threshold defines a featured discussion set, not a definitive ranking. Two recurring factors distinguished these highly rated examples: verifiable controllability and explicit long-term structural planning. Audio fidelity was generally high across the subset and was less discriminating than control and structure."},
         ],
-        "limitationsReview": "Screening was carried out by a single reviewer, introducing a risk of selection bias. Export restrictions on three databases meant only 1,083 of 4,521 records could be exported, so the screened set is broad but not exhaustive. The auditory analysis reflects a single listener and is indicative rather than statistically generalisable; where authors publish curated examples, the ratings bound the best case, and for systems without a public demonstration the assessment relied on reported results.",
+        "limitationsReview": "Screening and qualitative synthesis were carried out by a single reviewer, introducing risks of selection and interpretation bias. Export restrictions meant only 1,083 of 4,521 identified records could be transferred into the managed screening set, so the corpus is broad but not exhaustive. The pilot listening analysis reflects one informed author-evaluator, was not blinded or randomised, and did not use a separately logged, standardised playback protocol. Its ratings describe the material examined rather than listeners or systems in general; author-curated examples may represent favourable output. The final 27-system subset is purposive rather than representative of the full corpus.",
         "limitationsField": "Evaluation validity emerged as one of the most pressing challenges: distributional metrics correlate imperfectly with human judgement, and some reported gains do not survive fair comparison. Cultural bias is a second concern, as models trained predominantly on Western music generalise poorly beyond those idioms. Efficiency and latency remain obstacles to interactive use. Two capability gaps recur: convincing sung vocals were absent from every system evaluated, and genuine long-term structure remained difficult except where explicitly planned.",
     },
     "futureDirections": {
@@ -157,13 +160,14 @@ CONTENT = {
         "domain": {
             "Symbolic": "Music as notes or score (MIDI, ABC notation).",
             "Audio": "Music as raw waveform or audio/codec tokens.",
-            "Mixed": "A system spanning both symbolic and audio representations.",
         },
         "task": {
-            "Symbolic generation": "Generating music represented as notes or score.",
-            "Audio generation": "Generating music represented as waveform or audio tokens.",
+            "Generation": "Generating music from scratch or a prompt.",
             "Arrangement": "Backing or accompaniment for a given lead.",
             "Orchestration": "Choosing instruments; timbre matching or re-orchestration.",
+            "Evaluation": "Benchmarking models or evaluation-metric methodology.",
+            "Representation": "Learning reusable music representations.",
+            "Other": "Other or infrastructure work.",
         },
         "paradigm": {
             "Transformer": "Autoregressive Transformer language model over music tokens.",
@@ -241,7 +245,7 @@ TRENDS = [
      "periodLabel": "understanding-first from 2021; generation 2024–2025", "span": {"start": 2024, "end": 2025, "seedStart": 2021},
      "coreIdea": "The unit of progress shifts from the task-specific architecture to the reusable pretrained checkpoint — understanding first, generation second.",
      "whyItMatters": "It changes what counts as a contribution and sets the field's working assumptions at the review's endpoint.",
-     "representativeIds": ["311", "321", "365", "74", "65", "30", "322"]},
+     "representativeIds": ["74", "65", "30", "322"]},
     {"id": "t6", "number": 6, "name": "Arrangement matures: from accompaniment to stem-aware co-creation",
      "periodLabel": "2020–2025, shift around 2023", "span": {"start": 2020, "end": 2025, "seedStart": 2020},
      "coreIdea": "Arrangement moves from autonomous accompaniment to responding to material a human actually provides — audio, vocals, existing stems.",
@@ -256,5 +260,5 @@ TRENDS = [
      "periodLabel": "2024–2025, with a 2020 precursor", "span": {"start": 2024, "end": 2025, "seedStart": 2020},
      "coreIdea": "Once capability was established, research turned inward — making generation fast (non-autoregressive, distillation), aligned (RLHF) and measurable (benchmarking, bias analysis).",
      "whyItMatters": "Deployment, alignment and measurement validity jointly determine whether reported progress is real and usable.",
-     "representativeIds": ["78", "337", "340", "338", "383", "374", "373", "376"]},
+     "representativeIds": ["78", "337", "340", "338", "383", "374", "373"]},
 ]

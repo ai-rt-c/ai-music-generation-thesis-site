@@ -18,7 +18,7 @@ export default function ExplorerPage() {
       <PageHeader
         kicker="Systems"
         title="Interactive explorer"
-        intro={`Browse all ${meta.counts.included} reviewed studies. Filter, search and sort; the ${meta.counts.inDepth} evaluated systems additionally carry listening scores.`}
+        intro={`Browse all ${meta.counts.included} primary studies. Filter, search and sort; the ${meta.counts.inDepth} systems in the pilot exploratory analysis additionally carry evaluator scores on a maximum of 5.`}
       />
       <Explorer papers={papers} scores={scores} facets={facets} tips={content.tips} />
     </div>

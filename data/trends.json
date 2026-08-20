@@ -100,9 +100,6 @@
     "coreIdea": "The unit of progress shifts from the task-specific architecture to the reusable pretrained checkpoint — understanding first, generation second.",
     "whyItMatters": "It changes what counts as a contribution and sets the field's working assumptions at the review's endpoint.",
     "representativeIds": [
-      "311",
-      "321",
-      "365",
       "74",
       "65",
       "30",
@@ -168,8 +165,7 @@
       "338",
       "383",
       "374",
-      "373",
-      "376"
+      "373"
     ]
   }
 ]

@@ -11,7 +11,13 @@ export const metadata: Metadata = {
 export default function MethodologyPage() {
   const sr = content.systematicReview;
   const le = content.listeningEvaluation;
-  const p = meta.prisma;
+  const p = {
+    ...meta.prisma,
+    transferred: 1083,
+    afterAbstract: meta.prisma.fullText,
+    initiallyIncluded: 113,
+    afterConsolidation: 112,
+  };
   const funnel = [
     { n: p.identified, label: "records identified (6 databases)" },
     { n: p.transferred, label: "transferred to Zotero" },
@@ -51,14 +57,18 @@ export default function MethodologyPage() {
         </section>
       ))}
 
-      <h2 className="mt-12 text-xl">Listening evaluation rubric</h2>
+      <h2 className="mt-12 text-xl">{le.title}</h2>
       <p className="mt-2 leading-relaxed">{le.intro}</p>
+      <h3 className="mt-6 text-base">Evaluator profile</h3>
+      <p className="mt-2 leading-relaxed">{le.evaluatorProfile}</p>
+      <h3 className="mt-6 text-base">Procedure and session record</h3>
+      <p className="mt-2 leading-relaxed">{le.procedure}</p>
 
       <div className="mt-5 overflow-hidden rounded-lg border border-line">
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="bg-forest-light text-left text-forest-ink">
-              <th className="px-4 py-2 font-medium">Criterion</th>
+              <th className="px-4 py-2 font-medium">Rating item</th>
               <th className="px-4 py-2 font-medium">Meaning</th>
             </tr>
           </thead>

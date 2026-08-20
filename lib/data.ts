@@ -29,8 +29,8 @@ export const demoById = (id: string) => demos.find((d) => d.id === id);
 export const paperById = (id: string) => papers.find((p) => p.id === id);
 export const systemById = (id: string) => systems.find((s) => s.id === id);
 
-// The Top 9: systems whose overall listening score is >= 4, ranked desc.
-export const topSystems = () =>
+// Featured set: systems whose holistic Overall score is >= 4/5, ordered for presentation.
+export const featuredSystems = () =>
   systems
     .map((s) => ({ system: s, evaluation: evaluationById(s.id)! }))
     .filter((x) => (x.evaluation?.scores.overall ?? 0) >= 4)

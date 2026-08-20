@@ -5,7 +5,7 @@ import { meta } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Author and citation information for the companion website.",
+  description: "Author and citation details for the companion website.",
 };
 
 export default function AboutPage() {
@@ -35,7 +35,7 @@ export default function AboutPage() {
 
       <h2 className="mt-8 text-xl">Repository</h2>
       <p className="mt-2 leading-relaxed">
-        Website source code: <a href={meta.repoUrl}>{meta.repoUrl}</a>
+        Source and data: <a href={meta.repoUrl}>{meta.repoUrl}</a>
       </p>
       <p className="mt-4 text-sm text-muted">Last updated {meta.lastUpdated}.</p>
     </article>

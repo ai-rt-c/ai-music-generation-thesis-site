@@ -20,10 +20,10 @@ export default function ScoreBadge({
             ? "bg-forest text-white"
             : "bg-forest-light text-forest-ink"
       }`}
-      title={label ? `${label}: ${fmtScore(v)}` : undefined}
+      title={`${label ?? "Evaluator’s score"}: ${fmtScore(v)} out of 5`}
     >
       {label && <span className="font-normal opacity-80">{label}</span>}
-      {fmtScore(v)}
+      {fmtScore(v)}/5
     </span>
   );
 }
