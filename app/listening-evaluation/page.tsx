@@ -6,7 +6,7 @@ import { content, figureById } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Pilot exploratory listening analysis",
-  description: "Evaluator profile, procedure, seven-criterion rubric, holistic Overall score and limitations for the 29-system pilot analysis.",
+  description: "Evaluator profile, procedure, seven-criterion rubric, holistic Overall score and limitations for the 27-system pilot analysis.",
 };
 
 export default function ListeningEvaluationPage() {
@@ -58,7 +58,7 @@ export default function ListeningEvaluationPage() {
         <h2 className="text-xl">How to read the results</h2>
         <p className="mt-2 max-w-prose leading-relaxed">{analysis.caveat}</p>
         <p className="mt-4 max-w-prose leading-relaxed">
-          Each system page separates the evaluator’s ratings from the original authors’ evaluation design, reported metrics and headline result. It also states whether the assessed evidence was a public demonstration, a locally generated or rendered output, or paper-reported only.
+          Each system page separates the evaluator’s ratings from the original authors’ evaluation design, reported metrics and headline result. It also states whether the assessed evidence was a public demonstration or a locally generated or rendered output.
         </p>
       </section>
 
@@ -67,7 +67,7 @@ export default function ListeningEvaluationPage() {
 
       <div className="mt-8 flex flex-wrap gap-3">
         <Link href="/systems" className="rounded-md bg-forest px-4 py-2 text-sm font-medium text-white no-underline hover:no-underline">
-          Explore all 29 systems
+          Explore all 27 systems
         </Link>
         <Link href="/featured-systems" className="rounded-md border border-forest px-4 py-2 text-sm font-medium text-forest no-underline hover:no-underline">
           View the featured set

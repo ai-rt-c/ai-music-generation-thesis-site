@@ -30,7 +30,7 @@ export const navGroups: NavGroup[] = [
   {
     title: "Systems",
     items: [
-      { label: "29 selected systems", href: "/systems" },
+      { label: "27 selected systems", href: "/systems" },
       { label: "Featured systems", href: "/featured-systems" },
       { label: "Interactive explorer", href: "/explorer" },
     ],

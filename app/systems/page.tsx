@@ -4,8 +4,8 @@ import SystemCard from "@/components/cards/SystemCard";
 import { content, demoById, evaluationById, paperById, systems } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "29 selected systems",
-  description: "The 29 systems examined in the pilot exploratory listening analysis, organised in seven comparable batches.",
+  title: "27 selected systems",
+  description: "The 27 systems examined in the pilot exploratory listening analysis, organised in seven comparable batches.",
 };
 
 export default function SystemsPage() {
@@ -15,7 +15,7 @@ export default function SystemsPage() {
     <article>
       <PageHeader
         kicker="Systems"
-        title="29 selected systems"
+        title="27 selected systems"
         intro="The systems are organised in seven batches so that comparisons stay close to task, domain and modelling context. Their order within each batch is descriptive, not a ranking."
       />
 

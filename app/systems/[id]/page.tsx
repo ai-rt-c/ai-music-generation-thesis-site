@@ -160,7 +160,7 @@ export default function SystemDetailPage({ params }: { params: { id: string } })
       </div>
 
       <p className="mt-8 text-sm">
-        <Link href="/systems">← Back to all 29 systems</Link>
+        <Link href="/systems">← Back to all 27 systems</Link>
       </p>
     </article>
   );

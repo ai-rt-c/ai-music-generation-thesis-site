@@ -87,12 +87,12 @@ export interface Paper {
   hasDemo: boolean;
   doi: string | null;
   paperUrl: string | null;
-  inDepth: boolean; // is it one of the 29 evaluated systems?
+  inDepth: boolean; // is it one of the 27 evaluated systems?
   notes: string;
   citation: string; // APA (same generator as references.json)
 }
 
-// ---- systems.json : the 29 in-depth systems ----
+// ---- systems.json : the 27 in-depth systems ----
 export interface System {
   id: string; // same id as its paper
   paperId: string;

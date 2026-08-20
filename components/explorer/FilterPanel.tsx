@@ -128,7 +128,7 @@ export default function FilterPanel({
         <Slider label="Structure" value={state.minStructure} onChange={(v) => onChange({ minStructure: v })} />
         {scoreFilterActive(state) && (
           <p className="text-xs italic text-muted">
-            Score filters apply only to the 29 systems in the pilot exploratory analysis.
+            Score filters apply only to the 27 systems in the pilot exploratory analysis.
           </p>
         )}
       </div>

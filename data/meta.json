@@ -6,19 +6,19 @@
   "university": "IU International University of Applied Sciences",
   "program": "M.Sc. Artificial Intelligence",
   "year": 2026,
-  "lastUpdated": "2026-08-09",
+  "lastUpdated": "2026-08-12",
   "repoUrl": "https://github.com/ai-rt-c/ai-music-generation-thesis-site",
   "prisma": {
     "identified": 4521,
     "afterDedup": 783,
     "titleScreened": 383,
-    "fullText": 145,
+    "fullText": 146,
     "included": 107,
-    "inDepth": 29
+    "inDepth": 27
   },
   "counts": {
     "included": 107,
-    "inDepth": 29,
+    "inDepth": 27,
     "featuredSystems": 9,
     "trends": 8,
     "taxonomyDimensions": 4
@@ -32,8 +32,8 @@
     },
     {
       "batch": "B2 — Symbolic diffusion & control",
-      "quality": 3.9,
-      "overall": 3.4,
+      "quality": 4.3,
+      "overall": 3.7,
       "leading": "control adherence"
     },
     {
@@ -50,8 +50,8 @@
     },
     {
       "batch": "B5 — Recent text-to-music",
-      "quality": 4.0,
-      "overall": 3.6,
+      "quality": 4.2,
+      "overall": 3.7,
       "leading": "quality / control"
     },
     {
@@ -95,15 +95,15 @@
       "title": "Review and synthesis workflow",
       "png": "figures/fig_03_review_workflow.png",
       "caption": "Research workflow, showing the systematic-review stage and the subsequent synthesis stage.",
-      "alt": "Workflow from identification and screening to a 107-study corpus, trend synthesis and the 29-system pilot analysis."
+      "alt": "Workflow from identification and screening to a 107-study corpus, trend synthesis and the 27-system pilot analysis."
     },
     {
       "id": "prisma",
       "number": 4,
       "title": "PRISMA 2020 flow diagram",
       "png": "figures/fig_04_prisma.png",
-      "caption": "PRISMA 2020 flow diagram of the review. The synthesis-stage selection of 29 methods is separate from PRISMA eligibility.",
-      "alt": "PRISMA flow: 4,521 records identified, 1,083 managed, 783 after deduplication, 145 full texts, 107 primary studies and 29 systems selected for additional analysis."
+      "caption": "PRISMA 2020 flow diagram of the review. The synthesis-stage selection of 27 methods is separate from PRISMA eligibility.",
+      "alt": "PRISMA flow: 4,521 records identified, 1,083 managed, 783 after deduplication, 146 full texts, 107 primary studies and 27 systems selected for additional analysis."
     },
     {
       "id": "taxonomy",
@@ -146,20 +146,20 @@
       "alt": "Timeline of eight research trends across 2020 to 2025."
     },
     {
-      "id": "paradigm-29",
+      "id": "paradigm-27",
       "number": 10,
-      "title": "Modelling families of the 29 systems",
-      "png": "figures/fig_10_paradigm_29.png",
-      "caption": "Generative modelling family across the 29 evaluated systems, using the same grouping as the corpus-level analysis.",
-      "alt": "Horizontal bar chart of modelling families among the 29 systems."
+      "title": "Modelling families of the 27 systems",
+      "png": "figures/fig_10_paradigm_27.png",
+      "caption": "Generative modelling family across the 27 evaluated systems, using the same grouping as the corpus-level analysis.",
+      "alt": "Bar chart of modelling families among the 27 systems."
     },
     {
-      "id": "year-trend-29",
+      "id": "year-trend-27",
       "number": 11,
       "title": "Mean Overall score by year",
-      "png": "figures/fig_11_year_trend_29.png",
+      "png": "figures/fig_11_year_trend_27.png",
       "caption": "Mean holistic Overall score by year across the evaluated subset, with the number of systems shown for each year.",
-      "alt": "Line chart of the mean holistic Overall score by year for the 29-system subset."
+      "alt": "Line chart of the mean holistic Overall score by year for the 27-system subset."
     },
     {
       "id": "domain",

@@ -22,12 +22,12 @@ python scripts/build_data.py
 ```
 
 Sources: `Master_Table_107.xlsx` (107 primary studies plus a separate five-item
-reclassified-background sheet), `Listening_Analysis_29_batched.xlsx` (29 systems),
+reclassified-background sheet), `Listening_Analysis_27_Clean_Audit_FINAL.xlsx` (27 systems),
 and `scripts/content_source.py` (narrative extracted from the thesis). Set
 `MASTER_TABLE_XLSX` and `LISTENING_ANALYSIS_XLSX` when the workbooks live outside
 the repository.
 
-Generated files: `papers.json` (107), `systems.json` (29), `evaluation.json`
+Generated files: `papers.json` (107), `systems.json` (27), `evaluation.json`
 (scores + derived strengths/weaknesses/best-use-case), `audio-demos.json`,
 `taxonomy.json`, `trends.json`, `references.json` (120), `content.json`, `meta.json`.
 Schemas are in `lib/types.ts`.
@@ -55,7 +55,7 @@ GitHub Pages. The site is served under `/ai-music-generation-thesis-site/`
 - **M2** — static content pages (Home, About the thesis, Methodology, Discussion, Future directions, About) ✅
 - **M3** — interactive Explorer (107 papers: filters, presets, search, sort, URL bookmarking, responsive;
   CSV export, per-paper cite/DOI/repo actions, facet tooltips, active-filter count, table/card/timeline views) ✅
-- **M4** — system detail, 29 selected, featured set, evidence/resource profiles ✅
+- **M4** — system detail, 27 selected, featured set, evidence/resource profiles ✅
 - M5 — Compare page
 - **M6** — figures, taxonomy, trends, listening-analysis charts ✅
 - M7 — polish (subtle motion, responsive)

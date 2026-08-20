@@ -1,7 +1,7 @@
 {
   "home": {
     "tagline": "A systematic review of how AI learned to generate, arrange and orchestrate music, 2020–2025.",
-    "summary": "This companion site presents a PRISMA-guided systematic review of 107 primary studies on AI music generation, arrangement and orchestration. It extends an existing taxonomy, synthesises eight research trends, and reports a pilot exploratory, single-evaluator listening analysis of 29 selected systems. Nine systems form a featured set at a holistic Overall score of 4.0/5 or above; this is a discussion threshold, not a definitive leaderboard.",
+    "summary": "This companion site presents a PRISMA-guided systematic review of 107 primary studies on AI music generation, arrangement and orchestration. It extends an existing taxonomy, synthesises eight research trends, and reports a pilot exploratory, single-evaluator listening analysis of 27 selected systems. Nine systems form a featured set at a holistic Overall score of 4.0/5 or above; this is a discussion threshold, not a definitive leaderboard.",
     "readingPath": [
       {
         "label": "About the thesis",
@@ -24,7 +24,7 @@
         "href": "/listening-evaluation"
       },
       {
-        "label": "29 selected systems",
+        "label": "27 selected systems",
         "href": "/systems"
       },
       {
@@ -34,7 +34,7 @@
     ]
   },
   "aboutThesis": {
-    "abstract": "The rapid growth of AI-based music generation, arrangement and orchestration has resulted in a large and fragmented body of literature. This thesis addresses the resulting navigation and comparison problem through a PRISMA-guided systematic review of work published between 2020 and 2025. From 4,521 records identified across six academic sources, 1,083 could be exported to Zotero for record management and screening; after deduplication, eligibility assessment and a final eligibility-consistency audit, 107 primary studies were included. The review extends the taxonomy of Zhu et al. (2023), synthesises eight research trends and selects 29 methods for additional analysis. Available demonstrations and outputs are examined through a pilot exploratory, single-evaluator listening analysis; MusicFlow is the sole paper-reported case because no directly assessable public demonstration was available.",
+    "abstract": "The rapid growth of AI-based music generation, arrangement and orchestration has resulted in a large and fragmented body of literature. This thesis addresses the resulting navigation and comparison problem through a PRISMA-guided systematic review of work published between 2020 and 2025. From 4,521 records identified across six academic sources, 1,083 could be exported to Zotero for record management and screening; after deduplication, eligibility assessment and a final eligibility-consistency audit, 107 primary studies were included. The review extends the taxonomy of Zhu et al. (2023), synthesises eight research trends and selects 27 methods for additional analysis. Their traceable demonstrations and outputs are examined through a pilot exploratory, single-evaluator listening analysis.",
     "aim": "To conduct a PRISMA-guided systematic review of AI methods for music generation, arrangement and orchestration, with a focus on developments from 2020 to 2025.",
     "researchQuestions": [
       "How have AI-based methods for music generation, arrangement and orchestration evolved since 2020, particularly with the emergence of transformer and diffusion models?",
@@ -45,7 +45,7 @@
       "An extended taxonomy of AI music systems across four dimensions.",
       "A structured comparison of all 107 included primary studies.",
       "A synthesis of eight research trends spanning 2020–2025.",
-      "A pilot exploratory, single-evaluator listening analysis of 29 methods, with a traceable evidence profile for every system."
+      "A pilot exploratory, single-evaluator listening analysis of 27 methods, with a traceable evidence profile for every system."
     ],
     "objectives": [
       "Perform a systematic literature review following PRISMA 2020.",
@@ -67,11 +67,11 @@
       },
       {
         "heading": "Study selection",
-        "body": "Title screening excluded 400 off-topic records, retaining 383. Abstract screening excluded a further 238 and retained 145 for full-text review. Full-text eligibility produced 113 studies; one duplicated publication version was then consolidated, and a final eligibility-consistency audit moved five representation-learning or music-understanding studies to background literature because they did not satisfy the primary-study criterion E1. The final primary corpus therefore contains 107 studies."
+        "body": "Title screening excluded 400 off-topic records, retaining 383. Abstract screening excluded a further 237 and retained 146 for full-text review. Full-text eligibility produced 113 studies; one duplicated publication version was then consolidated, and a final eligibility-consistency audit moved five representation-learning or music-understanding studies to background literature because they did not satisfy the primary-study criterion E1. The final primary corpus therefore contains 107 studies."
       },
       {
         "heading": "In-depth subset",
-        "body": "A subset of 29 methods was selected using five criteria: task coverage (S1), methodological influence (S2), architectural diversity (S3), assessable output availability (S4) and temporal spread across 2020–2025 (S5). This selection is separate from PRISMA eligibility; all 107 included studies remain in the primary corpus and appear in the master comparison table."
+        "body": "A subset of 27 methods was selected using five criteria: task coverage (S1), methodological influence (S2), architectural diversity (S3), assessable output availability (S4) and temporal spread across 2020–2025 (S5). A final demonstration-provenance audit removed two candidates that did not satisfy S4 for the corpus-eligible material. This selection is separate from PRISMA eligibility; all 107 included studies remain in the primary corpus and appear in the master comparison table."
       },
       {
         "heading": "Data analysis",
@@ -81,7 +81,7 @@
   },
   "listeningEvaluation": {
     "title": "Pilot exploratory listening analysis",
-    "intro": "The 29 selected systems were examined in a pilot exploratory, single-evaluator analysis. Seven predefined listening criteria were rated separately on a 1–5 scale, and a distinct holistic Overall score was recorded on the same scale. Overall is not an eighth criterion and is not the arithmetic mean of the seven criterion ratings.",
+    "intro": "The 27 selected systems were examined in a pilot exploratory, single-evaluator analysis. Seven predefined listening criteria were rated separately on a 1–5 scale, and a distinct holistic Overall score was recorded on the same scale. Overall is not an eighth criterion and is not the arithmetic mean of the seven criterion ratings.",
     "evaluatorProfile": "The evaluator was the thesis author, an MSc Artificial Intelligence student who had extracted and verified the methodological and evaluation information for the corpus. This is a technically informed author-reviewer profile, not an independent expert panel or a representative listener sample. System identities, objectives and conditioning were known; no blinding, randomisation or separate listener-screening procedure was used.",
     "procedure": "The pilot analysis was conducted across multiple working sessions approximately between 24 and 27 July 2026. One or more representative outputs were examined for each system from an official demonstration or project resource, or generated or rendered locally where stated. Ratings and observations were entered contemporaneously in a structured spreadsheet. Exact session-level dates and times, playback device and listening level, and complete environmental conditions were not recorded in a separate standardised log, so the conditions cannot be claimed as experimentally controlled.",
     "rubric": [
@@ -126,7 +126,7 @@
         "meaning": "A separate holistic judgement of the evaluated material; not an arithmetic mean of the seven criteria."
       }
     ],
-    "caveat": "Evaluator scores describe the specific material examined. They are not objective performance benchmarks, population-level perceptual results or definitive system rankings. Author-curated demonstrations may represent favourable rather than typical output; MusicFlow is clearly marked as paper-reported because no directly assessable public demonstration was available."
+    "caveat": "Evaluator scores describe the specific material examined. They are not objective performance benchmarks, population-level perceptual results or definitive system rankings. Author-curated demonstrations may represent favourable rather than typical output. All 27 included systems had a directly assessable, traceable demonstration or output."
   },
   "discussion": {
     "intro": "The review is interpreted in relation to the three research questions, followed by the limitations of the review and of the field.",
@@ -141,10 +141,10 @@
       },
       {
         "q": "RQ3 — Which approaches are most promising, and why?",
-        "a": "Nine of the 29 methods received a holistic Overall score of 4.0/5 or above in the pilot analysis: GETMusic and ChatMusician (both 4.5), with MusicLM, MusicGen, StemGen, AccoMontage, Whole-Song Generation, Structured Arrangement and SymphonyNet (all 4.0). This threshold defines a featured discussion set, not a definitive ranking. Two recurring factors distinguished these highly rated examples: verifiable controllability and explicit long-term structural planning. Audio fidelity was generally high across the subset and was less discriminating than control and structure."
+        "a": "Nine of the 27 methods received a holistic Overall score of 4.0/5 or above in the pilot analysis: GETMusic and ChatMusician (both 4.5), with MusicLM, MusicGen, StemGen, AccoMontage, Whole-Song Generation, Structured Arrangement and SymphonyNet (all 4.0). This threshold defines a featured discussion set, not a definitive ranking. Two recurring factors distinguished these highly rated examples: verifiable controllability and explicit long-term structural planning. Audio fidelity was generally high across the subset and was less discriminating than control and structure."
       }
     ],
-    "limitationsReview": "Screening and qualitative synthesis were carried out by a single reviewer, introducing risks of selection and interpretation bias. Export restrictions meant only 1,083 of 4,521 identified records could be transferred into the managed screening set, so the corpus is broad but not exhaustive. The pilot listening analysis reflects one technically informed author-evaluator, was not blinded or randomised, and did not use a separately logged, standardised playback protocol. Its ratings describe the material examined rather than listeners or systems in general; author-curated examples may represent favourable output, and MusicFlow relies on paper-reported evidence only.",
+    "limitationsReview": "Screening and qualitative synthesis were carried out by a single reviewer, introducing risks of selection and interpretation bias. Export restrictions meant only 1,083 of 4,521 identified records could be transferred into the managed screening set, so the corpus is broad but not exhaustive. The pilot listening analysis reflects one informed author-evaluator, was not blinded or randomised, and did not use a separately logged, standardised playback protocol. Its ratings describe the material examined rather than listeners or systems in general; author-curated examples may represent favourable output. The final 27-system subset is purposive rather than representative of the full corpus.",
     "limitationsField": "Evaluation validity emerged as one of the most pressing challenges: distributional metrics correlate imperfectly with human judgement, and some reported gains do not survive fair comparison. Cultural bias is a second concern, as models trained predominantly on Western music generalise poorly beyond those idioms. Efficiency and latency remain obstacles to interactive use. Two capability gaps recur: convincing sung vocals were absent from every system evaluated, and genuine long-term structure remained difficult except where explicitly planned."
   },
   "futureDirections": {

@@ -42,13 +42,6 @@
     "note": "Official author or project demonstration; opens in a new tab."
   },
   {
-    "id": "382",
-    "label": "Demo 1 (clean, unconditional)",
-    "url": "https://3328702107.github.io/smdim-music/",
-    "type": "link",
-    "note": "Official author or project demonstration; opens in a new tab."
-  },
-  {
     "id": "315",
     "label": "SoundCloud set",
     "url": "https://soundcloud.com/user-751999449/sets/figaro-generating-symbolic-music-with-fine-grained-artistic-control",
@@ -140,13 +133,6 @@
     "note": "Official author or project demonstration; opens in a new tab."
   },
   {
-    "id": "379",
-    "label": "No public audio demo available",
-    "url": null,
-    "type": "paper-only",
-    "note": "Paper-reported evidence only; no directly assessable public demonstration was available."
-  },
-  {
     "id": "345",
     "label": "Sample 1",
     "url": "https://music-popmag.github.io/popmag/index.html",
@@ -155,8 +141,8 @@
   },
   {
     "id": "346",
-    "label": "AccoMontage full-song piano accompaniment demo (authors' Colab notebook)",
-    "url": "https://github.com/zhaojw1998/AccoMontage",
+    "label": "AccoMontage full-song piano accompaniment example",
+    "url": "https://colab.research.google.com/drive/1F4saDkh45KNxePD5yEcje61b0F09buDW?usp=sharing",
     "type": "link",
     "note": "Official author or project demonstration; opens in a new tab."
   },
