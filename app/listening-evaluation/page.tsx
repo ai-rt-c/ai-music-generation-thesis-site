@@ -69,8 +69,8 @@ export default function ListeningEvaluationPage() {
         <Link href="/systems" className="rounded-md bg-forest px-4 py-2 text-sm font-medium text-white no-underline hover:no-underline">
           Explore all 27 systems
         </Link>
-        <Link href="/featured-systems" className="rounded-md border border-forest px-4 py-2 text-sm font-medium text-forest no-underline hover:no-underline">
-          View the featured set
+        <Link href="/top-systems" className="rounded-md border border-forest px-4 py-2 text-sm font-medium text-forest no-underline hover:no-underline">
+          View the top systems
         </Link>
       </div>
     </article>
