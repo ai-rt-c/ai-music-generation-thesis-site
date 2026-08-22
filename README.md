@@ -1,7 +1,7 @@
 # AI Music Review — companion website
 
-Interactive companion to the MSc dissertation *Artificial Intelligence for Music
-Generation, Arrangement and Orchestration: A Systematic Review (2020–2025)* by
+Interactive companion to the MSc dissertation *A Systematic Overview on AI Music
+Generation, Arrangement, and Orchestration* by
 ZahraSadat Tahawori (IU International University of Applied Sciences).
 
 Static Next.js site — calm, journal-like, data-driven. Every page renders from
@@ -55,7 +55,7 @@ GitHub Pages. The site is served under `/ai-music-generation-thesis-site/`
 - **M2** — static content pages (Home, About the thesis, Methodology, Discussion, Future directions, About) ✅
 - **M3** — interactive Explorer (107 papers: filters, presets, search, sort, URL bookmarking, responsive;
   CSV export, per-paper cite/DOI/repo actions, facet tooltips, active-filter count, table/card/timeline views) ✅
-- **M4** — system detail, 27 selected, featured set, evidence/resource profiles ✅
+- **M4** — system detail, 27 selected, top systems, evidence/resource profiles ✅
 - M5 — Compare page
 - **M6** — figures, taxonomy, trends, listening-analysis charts ✅
 - M7 — polish (subtle motion, responsive)

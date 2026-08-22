@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
-import SystemCard from "@/components/cards/SystemCard";
+import SystemsBrowser from "@/components/systems/SystemsBrowser";
 import { content, demoById, evaluationById, paperById, systems } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -9,23 +9,27 @@ export const metadata: Metadata = {
 };
 
 export default function SystemsPage() {
-  const batches = Array.from(new Set(systems.map((system) => system.batch)));
-  const evidenceOverview = systems.reduce(
-    (counts, system) => {
-      const demo = demoById(system.id);
-      const paper = paperById(system.paperId);
-      const evaluation = evaluationById(system.id);
-      if (demo?.note.toLowerCase().includes("locally")) {
-        counts.local += 1;
-      } else if (demo?.url) {
-        counts.official += 1;
-      }
-      if (paper?.hasCode) counts.code += 1;
-      if (evaluation?.reportedMetrics || paper?.metrics) counts.metrics += 1;
-      return counts;
-    },
-    { official: 0, local: 0, code: 0, metrics: 0 },
-  );
+  const records = systems.flatMap((system) => {
+    const evaluation = evaluationById(system.id);
+    const paper = paperById(system.paperId);
+    const demo = demoById(system.id);
+    return evaluation && paper && demo ? [{ system, evaluation, paper, demo }] : [];
+  });
+  const evidenceRows = systems.map((system) => {
+    const evaluation = evaluationById(system.id);
+    const paper = paperById(system.paperId);
+    const demo = demoById(system.id);
+    return {
+      evidence:
+        evaluation?.paperBased ? "paper" : demo?.note.toLowerCase().includes("locally") ? "local" : "direct",
+      hasCode: Boolean(paper?.hasCode),
+      hasMetrics: Boolean(evaluation?.reportedMetrics || paper?.metrics),
+    };
+  });
+  const directCount = evidenceRows.filter((row) => row.evidence === "direct").length;
+  const localCount = evidenceRows.filter((row) => row.evidence === "local").length;
+  const codeCount = evidenceRows.filter((row) => row.hasCode).length;
+  const metricsCount = evidenceRows.filter((row) => row.hasMetrics).length;
 
   return (
     <article>
@@ -39,71 +43,39 @@ export default function SystemsPage() {
         {content.listeningEvaluation.caveat}
       </div>
 
-      <section className="mt-8" aria-labelledby="evidence-resource-overview">
-        <h2 id="evidence-resource-overview" className="text-xl">
-          Evidence and resource overview
-        </h2>
+      <section className="mt-8 rounded-lg border border-line bg-white p-5">
+        <h2 className="text-lg">Evidence and resource overview</h2>
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-muted">
-          The final pilot set combines directly assessable project resources with locally
-          generated or rendered outputs, alongside the code and evaluation evidence recorded
-          for each study.
+          All 27 systems have a traceable listening source. The system detail pages separate the
+          pilot evaluator ratings from the original authors' evaluation design, reported metrics,
+          headline result, code availability and the specific demonstration or output examined.
+        </p>
+        <p className="mt-2 max-w-prose text-xs leading-relaxed text-muted">
+          These indicators are not mutually exclusive. The first two describe the provenance of
+          the material examined; the latter two describe code and author-reported evaluation
+          evidence.
         </p>
         <dl className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-lg border border-line bg-white p-4">
-            <dt className="text-sm text-muted">Official/project demos</dt>
-            <dd className="tnum mt-1 text-2xl font-semibold text-forest-ink">
-              {evidenceOverview.official}
-            </dd>
+          <div className="rounded-md bg-forest-light/45 px-3 py-2">
+            <dt className="text-xs text-muted">Official or project demos</dt>
+            <dd className="tnum mt-1 text-lg font-medium text-forest-ink">{directCount}</dd>
           </div>
-          <div className="rounded-lg border border-line bg-white p-4">
-            <dt className="text-sm text-muted">Local rendering/generation</dt>
-            <dd className="tnum mt-1 text-2xl font-semibold text-forest-ink">
-              {evidenceOverview.local}
-            </dd>
+          <div className="rounded-md bg-forest-light/45 px-3 py-2">
+            <dt className="text-xs text-muted">Local rendering/generation</dt>
+            <dd className="tnum mt-1 text-lg font-medium text-forest-ink">{localCount}</dd>
           </div>
-          <div className="rounded-lg border border-line bg-white p-4">
-            <dt className="text-sm text-muted">Code located or reported</dt>
-            <dd className="tnum mt-1 text-2xl font-semibold text-forest-ink">
-              {evidenceOverview.code}
-            </dd>
+          <div className="rounded-md bg-forest-light/45 px-3 py-2">
+            <dt className="text-xs text-muted">Code located or reported</dt>
+            <dd className="tnum mt-1 text-lg font-medium text-forest-ink">{codeCount}</dd>
           </div>
-          <div className="rounded-lg border border-line bg-white p-4">
-            <dt className="text-sm text-muted">Author metrics reported</dt>
-            <dd className="tnum mt-1 text-2xl font-semibold text-forest-ink">
-              {evidenceOverview.metrics}
-            </dd>
+          <div className="rounded-md bg-forest-light/45 px-3 py-2">
+            <dt className="text-xs text-muted">Author metrics reported</dt>
+            <dd className="tnum mt-1 text-lg font-medium text-forest-ink">{metricsCount}</dd>
           </div>
         </dl>
       </section>
 
-      {batches.map((batch) => {
-        const batchSystems = systems.filter((system) => system.batch === batch);
-        return (
-          <section key={batch} className="mt-10">
-            <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-2">
-              <h2 className="text-xl">{batch}</h2>
-              <p className="text-sm text-muted">{batchSystems.length} systems</p>
-            </div>
-            <div className="mt-4 grid gap-4 lg:grid-cols-2">
-              {batchSystems.map((system) => {
-                const evaluation = evaluationById(system.id);
-                const paper = paperById(system.paperId);
-                const demo = demoById(system.id);
-                if (!evaluation || !paper || !demo) return null;
-                return (
-                  <SystemCard
-                    key={system.id}
-                    system={system}
-                    evaluation={evaluation}
-                    paper={paper}
-                    demo={demo}
-                  />
-                );
-              })}
-            </div>
-          </section>
-        );
-      })}
+      <SystemsBrowser records={records} />
     </article>
   );
 }

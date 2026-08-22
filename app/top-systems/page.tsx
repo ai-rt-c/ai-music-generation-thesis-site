@@ -8,7 +8,7 @@ import { systemDisplayName } from "@/lib/systemDisplayName";
 export const metadata: Metadata = {
   title: "Top 9 systems",
   description:
-    "The top-systems group with a holistic Overall score of 4.0 or above in the final 27-system pilot listening analysis.",
+    "The nine systems scoring 4.0 or above in the thesis's descriptive 27-system pilot listening analysis.",
 };
 
 export default function TopSystemsPage() {
@@ -38,7 +38,7 @@ export default function TopSystemsPage() {
       <PageHeader
         kicker="Listening subset"
         title="Top 9 systems"
-        intro="This top-systems group comprises the nine systems with a holistic Overall score of 4.0 or above in the final 27-system pilot listening analysis."
+        intro="Nine systems reached a holistic Overall score of 4.0 or above in the final 27-system pilot listening analysis."
       />
 
       <p className="prose-copy mb-8 rounded-lg border border-line bg-forest-light/35 p-4 text-sm leading-relaxed text-muted">
@@ -65,11 +65,11 @@ export default function TopSystemsPage() {
       <aside className="mt-10 rounded-lg border border-line bg-white p-5">
         <h2 className="text-lg">Explore the full listening analysis</h2>
         <p className="prose-copy mt-2 text-sm leading-relaxed text-muted">
-          Browse all selected systems and their available demos, or review the rubric,
+          Browse all selected systems and their available evidence records, or review the rubric,
           batch summaries, yearly summaries and interpretation of the listening exercise.
         </p>
         <div className="mt-4 flex flex-wrap gap-4 text-sm font-medium">
-          <Link href="/systems">Browse all 27 systems and demos</Link>
+          <Link href="/systems">Browse all 27 systems</Link>
           <Link href="/listening-evaluation">Read the listening evaluation</Link>
         </div>
       </aside>

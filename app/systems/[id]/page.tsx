@@ -44,8 +44,8 @@ export default function SystemDetailPage({ params }: { params: { id: string } })
   if (!system || !evaluation || !paper || !demo) notFound();
 
   const evidenceType = demo.note.toLowerCase().includes("locally")
-    ? "Generated or rendered locally from released project resources."
-    : "Direct assessment of an official author or project demonstration.";
+      ? "Generated or rendered locally from released project resources."
+      : "Direct assessment of an official author or project demonstration.";
 
   return (
     <article className="max-w-4xl">
@@ -133,7 +133,7 @@ export default function SystemDetailPage({ params }: { params: { id: string } })
                 paper.codeUrl ? <a href={paper.codeUrl} target="_blank" rel="noopener noreferrer">Available repository</a> : "Reported as available"
               ) : "No code repository was located or reported in the extracted record."}
             </EvidenceRow>
-            <EvidenceRow label="Original authors’ evaluation design">
+            <EvidenceRow label="Original authors’ evaluation criteria and design">
               {paper.evaluation || "Not reported in the extracted record."}
             </EvidenceRow>
             <EvidenceRow label="Original authors’ metrics">

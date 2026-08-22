@@ -9,8 +9,8 @@ export default function Navbar({ title }: { title: string }) {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-canvas/90 backdrop-blur">
       <div className="mx-auto flex max-w-content items-center justify-between px-5 py-3">
-        <Link href="/" className="font-serif text-[15px] font-semibold text-ink no-underline hover:no-underline">
-          AI Music Review <span className="font-sans text-xs font-normal text-muted">· 2020–2025</span>
+        <Link href="/" className="max-w-[78vw] truncate font-serif text-[15px] font-semibold text-ink no-underline hover:no-underline md:max-w-[70vw]">
+          {title}
         </Link>
         <button
           type="button"

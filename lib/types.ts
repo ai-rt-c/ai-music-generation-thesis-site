@@ -111,7 +111,7 @@ export interface Evaluation {
   technicalContribution: string;
   criticalListening: string;
   takeaway: string;
-  paperBased: boolean; // no public demo — scores from reported results
+  paperBased: boolean; // retained for data compatibility; current 27-system subset is directly assessable
   // Derived (in the build script, from scores + notes) — never hand-written in a component:
   strengths: string[];
   weaknesses: string[];
@@ -121,7 +121,7 @@ export interface Evaluation {
 }
 
 // ---- audio-demos.json : demo references, keyed by system id ----
-export type DemoType = "hosted" | "link" | "interactive" | "paper-only";
+export type DemoType = "hosted" | "link" | "interactive";
 export interface AudioDemo {
   id: string;
   label: string;

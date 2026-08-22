@@ -15,8 +15,8 @@ export default function SystemCard({
   demo: AudioDemo;
 }) {
   const evidenceLabel = demo.note.toLowerCase().includes("locally")
-    ? "Locally generated / rendered"
-    : "Directly assessable output";
+      ? "Locally generated / rendered"
+      : "Directly assessable output";
 
   return (
     <article className="flex h-full flex-col rounded-xl border border-line bg-white p-4">

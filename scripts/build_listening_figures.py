@@ -92,14 +92,14 @@ def build_graphical_abstract():
         (0.035, "Scope", "3 tasks\n6 academic sources\n2020–2025"),
         (0.275, "Screening", "4,521 identified\n1,083 managed\n783 unique\n107 primary studies"),
         (0.515, "Analysis", "4-dimension taxonomy\n8 research trends\n107-study master table\n27-system pilot analysis"),
-        (0.755, "Key findings", "Overall: 2.8 → 3.8\n(2020 to 2024 subset)\nControl + long-term structure\ndifferentiate stronger examples"),
+        (0.755, "Key findings", "Overall: 2.8 → 3.9\n(2020 to 2024 subset)\nControl + long-term structure\ndifferentiate stronger examples"),
     ]
     for x, title, body in cards:
         box(ax, x, 0.50, 0.205, 0.31, title, body, fill=PALE, title_size=17, body_size=13)
     for x in (0.248, 0.488, 0.728):
         arrow(ax, (x, 0.655), (x + 0.02, 0.655))
 
-    ax.text(0.5, 0.445, "Nine featured systems (holistic Overall ≥ 4.0/5; discussion threshold, not a definitive ranking)", ha="center", va="center", fontsize=14, color=GREEN, fontweight="bold")
+    ax.text(0.5, 0.445, "Nine top-scoring systems (holistic Overall ≥ 4.0/5; discussion threshold, not a definitive ranking)", ha="center", va="center", fontsize=14, color=GREEN, fontweight="bold")
     featured = ["GETMusic 4.5", "ChatMusician 4.5", "MusicLM 4.0", "MusicGen 4.0", "StemGen 4.0", "AccoMontage 4.0", "Whole-Song 4.0", "Structured Arrangement 4.0", "SymphonyNet 4.0"]
     positions = [(0.05 + i * 0.185, 0.35) for i in range(5)] + [(0.12 + i * 0.215, 0.27) for i in range(4)]
     for index, ((x, y), label) in enumerate(zip(positions, featured)):
@@ -307,7 +307,7 @@ def build_overall():
     ax.set_title("Systems ordered by holistic Overall score (27-system subset)", fontsize=19, color=GREEN, pad=16)
     ax.set_xlabel("Holistic Overall score (1–5)", fontsize=13)
     ax.set_xlim(0, 5.15)
-    ax.axvline(4.0, color="#b86b45", linestyle="--", linewidth=2, label="Featured-set threshold (4.0)")
+    ax.axvline(4.0, color="#b86b45", linestyle="--", linewidth=2, label="Top-systems threshold (4.0)")
     ax.bar_label(bars, fmt="%.1f", padding=4, fontsize=9.5, color=TEXT)
     ax.legend(frameon=False, loc="lower right")
     save(fig, "fig_14_overall_order.png")

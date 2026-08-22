@@ -1,12 +1,12 @@
 {
-  "title": "Artificial Intelligence for Music Generation, Arrangement and Orchestration",
-  "subtitle": "A Systematic Review (2020–2025)",
+  "title": "A Systematic Overview on AI Music Generation, Arrangement, and Orchestration",
+  "subtitle": "Companion website · 2020–2025",
   "author": "ZahraSadat Tahawori",
   "supervisor": "Prof. Dr. Gissel Velarde",
   "university": "IU International University of Applied Sciences",
   "program": "M.Sc. Artificial Intelligence",
   "year": 2026,
-  "lastUpdated": "2026-08-12",
+  "lastUpdated": "2026-08-22",
   "repoUrl": "https://github.com/ai-rt-c/ai-music-generation-thesis-site",
   "prisma": {
     "identified": 4521,
@@ -68,8 +68,8 @@
     }
   ],
   "citations": {
-    "apa": "Tahawori, Z. (2026). Artificial intelligence for music generation, arrangement and orchestration: A systematic review (2020–2025) [Master's thesis, IU International University of Applied Sciences].",
-    "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, ZahraSadat},\n  title   = {Artificial Intelligence for Music Generation, Arrangement and Orchestration: A Systematic Review (2020--2025)},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis}\n}"
+    "apa": "Tahawori, Z. (2026). A systematic overview on AI music generation, arrangement, and orchestration [Master's thesis, IU International University of Applied Sciences].",
+    "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, ZahraSadat},\n  title   = {A Systematic Overview on AI Music Generation, Arrangement, and Orchestration},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis}\n}"
   },
   "downloads": [],
   "figures": [
@@ -102,7 +102,7 @@
       "number": 4,
       "title": "PRISMA 2020 flow diagram",
       "png": "figures/fig_04_prisma.png",
-      "caption": "PRISMA 2020 flow diagram of the review. The synthesis-stage selection of 27 methods is separate from PRISMA eligibility.",
+      "caption": "PRISMA 2020 flow diagram of the review. The synthesis-stage selection of 27 systems is separate from PRISMA eligibility.",
       "alt": "PRISMA flow: 4,521 records identified, 1,083 managed, 783 after deduplication, 146 full texts, 107 primary studies and 27 systems selected for additional analysis."
     },
     {
@@ -182,7 +182,7 @@
       "number": 14,
       "title": "Overall score by system",
       "png": "figures/fig_14_overall_order.png",
-      "caption": "Systems ordered by holistic Overall score and coloured by domain; the dashed line marks the 4.0 threshold used to define the featured set.",
+      "caption": "Systems ordered by holistic Overall score and coloured by domain; the dashed line marks the 4.0 threshold used to define the top-systems group.",
       "alt": "Horizontal bar chart with systems ordered by holistic Overall score; it is a presentation order, not a definitive leaderboard."
     }
   ]
