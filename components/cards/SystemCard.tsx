@@ -14,9 +14,7 @@ export default function SystemCard({
   paper: Paper;
   demo: AudioDemo;
 }) {
-  const evidenceLabel = evaluation.paperBased
-    ? "Paper-reported only"
-    : demo.note.toLowerCase().includes("locally")
+  const evidenceLabel = demo.note.toLowerCase().includes("locally")
       ? "Locally generated / rendered"
       : "Directly assessable output";
 

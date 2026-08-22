@@ -280,7 +280,9 @@ for r in listen:
     p = paper_by_id.get(sid, {})
     systems.append({
         "id": sid, "paperId": sid, "name": title_to_name(title), "title": title,
-        "year": int(r["Year"]) if r.get("Year") else p.get("year"),
+        # Use the verified master-table analytical year in preference to the
+        # listening workbook's copied bibliographic year (e.g. FIGARO 2022).
+        "year": p.get("year") or (int(r["Year"]) if r.get("Year") else None),
         "batch": s(r.get("Batch")), "batchIndex": batch_index(s(r.get("Batch"))),
         "taskCategory": p.get("taskCategory", norm_task(s(r.get("Task")))),
         "domain": p.get("domain"), "paradigm": p.get("paradigm"),
@@ -299,17 +301,13 @@ for r in listen:
     })
     pick = s(r.get("Website Pick (1 sample)"))
     url = first_url(pick, r.get("Demo Link"))
-    if paper_based or "no public" in pick.lower():
-        dtype = "paper-only"
-    elif "interactive" in pick.lower() or "hf space" in pick.lower() or "huggingface.co/spaces" in (url or ""):
+    if "interactive" in pick.lower() or "hf space" in pick.lower() or "huggingface.co/spaces" in (url or ""):
         dtype = "interactive"
     elif url:
         dtype = "link"
     else:
-        dtype = "paper-only"
-    if paper_based:
-        demo_note = "Paper-reported evidence only; no directly assessable public demonstration was available."
-    elif "locally generated" in pick.lower() or "rendered" in pick.lower():
+        dtype = "link"
+    if "locally generated" in pick.lower() or "rendered" in pick.lower():
         demo_note = "Generated or rendered locally from released project resources; the source resource opens in a new tab."
     else:
         demo_note = "Official author or project demonstration; opens in a new tab."

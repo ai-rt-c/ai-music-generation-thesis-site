@@ -146,12 +146,6 @@ export function SystemCard({
         </p>
       )}
 
-      {evaluation.paperBased && (
-        <p className="mt-4 rounded-md border border-line bg-canvas px-3 py-2 text-sm text-muted">
-          Paper-reported entry: no independent listening demo was available for this analysis.
-        </p>
-      )}
-
       <div className="mt-5 flex flex-wrap items-center gap-3">
         {hasDemo ? (
           <a
@@ -212,6 +206,7 @@ export function SystemCard({
 }
 
 export default function SystemsBrowser({ records }: { records: SystemRecord[] }) {
+  const [query, setQuery] = useState("");
   const [batch, setBatch] = useState("all");
   const [year, setYear] = useState("all");
   const [category, setCategory] = useState("all");
@@ -249,8 +244,14 @@ export default function SystemsBrowser({ records }: { records: SystemRecord[] })
   );
 
   const visibleRecords = useMemo(() => {
+    const normalizedQuery = query.trim().toLocaleLowerCase();
     const filtered = records.filter(({ system }) => {
+      const searchable = [system.id, system.name, system.title, system.batch, system.taskCategory, system.domain, system.paradigm]
+        .filter(Boolean)
+        .join(" ")
+        .toLocaleLowerCase();
       return (
+        (!normalizedQuery || searchable.includes(normalizedQuery)) &&
         (batch === "all" || String(system.batchIndex) === batch) &&
         (year === "all" || String(system.year) === year) &&
         (category === "all" || system.taskCategory === category) &&
@@ -270,7 +271,7 @@ export default function SystemsBrowser({ records }: { records: SystemRecord[] })
         a.system.name.localeCompare(b.system.name)
       );
     });
-  }, [batch, category, paradigm, records, sort, year]);
+  }, [batch, category, paradigm, query, records, sort, year]);
 
   const visibleGroups = useMemo(() => {
     return batches
@@ -284,7 +285,7 @@ export default function SystemsBrowser({ records }: { records: SystemRecord[] })
   }, [batch, batches, visibleRecords]);
 
   const hasFilters =
-    batch !== "all" || year !== "all" || category !== "all" || paradigm !== "all";
+    query.trim() !== "" || batch !== "all" || year !== "all" || category !== "all" || paradigm !== "all";
 
   return (
     <section aria-labelledby="systems-browser-heading">
@@ -293,6 +294,17 @@ export default function SystemsBrowser({ records }: { records: SystemRecord[] })
       </h2>
 
       <div className="rounded-xl border border-line bg-white p-4 shadow-sm">
+        <label className="block text-sm font-medium text-ink">
+          Search systems
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search name, ID, year, batch, task, domain or paradigm"
+            className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm text-ink shadow-sm outline-none focus:border-forest focus:ring-2 focus:ring-forest-light"
+          />
+        </label>
+
         <div className="rounded-lg border border-forest/25 bg-forest-light/40 p-3">
           <label className="block text-sm font-medium text-ink sm:max-w-xl">
             Listening batch
@@ -386,6 +398,7 @@ export default function SystemsBrowser({ records }: { records: SystemRecord[] })
             <button
               type="button"
               onClick={() => {
+                setQuery("");
                 setBatch("all");
                 setYear("all");
                 setCategory("all");

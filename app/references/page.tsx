@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
-import { references } from "@/lib/data";
+import { ReferenceBrowser } from "@/components/references/ReferenceBrowser";
+import { papers, references } from "@/lib/data";
+import { formatReferenceDisplay } from "@/lib/referenceDisplay";
 
 export const metadata: Metadata = {
   title: "References",
@@ -10,6 +12,7 @@ export const metadata: Metadata = {
 export default function ReferencesPage() {
   const primary = references.filter((reference) => reference.included);
   const background = references.filter((reference) => !reference.included);
+  const primaryDisplays = papers.map(formatReferenceDisplay);
 
   const list = (items: typeof references) => (
     <ol className="mt-4 space-y-3 text-sm leading-relaxed">
@@ -29,7 +32,7 @@ export default function ReferencesPage() {
 
       <section>
         <h2 className="text-xl">Primary corpus ({primary.length})</h2>
-        {list(primary)}
+        <ReferenceBrowser references={primaryDisplays} />
       </section>
 
       <section className="mt-12">

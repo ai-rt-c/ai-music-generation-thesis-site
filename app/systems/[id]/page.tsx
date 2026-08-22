@@ -43,9 +43,7 @@ export default function SystemDetailPage({ params }: { params: { id: string } })
   const demo = demoById(params.id);
   if (!system || !evaluation || !paper || !demo) notFound();
 
-  const evidenceType = evaluation.paperBased
-    ? "Paper-reported only — no directly assessable public demonstration was available."
-    : demo.note.toLowerCase().includes("locally")
+  const evidenceType = demo.note.toLowerCase().includes("locally")
       ? "Generated or rendered locally from released project resources."
       : "Direct assessment of an official author or project demonstration.";
 
@@ -62,7 +60,6 @@ export default function SystemDetailPage({ params }: { params: { id: string } })
         <Tag label={system.taskCategory} />
         {system.domain && <Tag label={system.domain} muted />}
         {system.paradigm && <Tag label={system.paradigm} muted />}
-        {evaluation.paperBased && <Tag label="Paper-reported" muted />}
       </div>
       <p className="mt-3 max-w-prose text-sm leading-relaxed text-muted">
         The Overall score is a separate holistic judgement on a maximum of 5. It is not an eighth criterion and is not calculated as the mean of the seven criterion ratings.
@@ -136,7 +133,7 @@ export default function SystemDetailPage({ params }: { params: { id: string } })
                 paper.codeUrl ? <a href={paper.codeUrl} target="_blank" rel="noopener noreferrer">Available repository</a> : "Reported as available"
               ) : "No code repository was located or reported in the extracted record."}
             </EvidenceRow>
-            <EvidenceRow label="Original authors’ evaluation design">
+            <EvidenceRow label="Original authors’ evaluation criteria and design">
               {paper.evaluation || "Not reported in the extracted record."}
             </EvidenceRow>
             <EvidenceRow label="Original authors’ metrics">

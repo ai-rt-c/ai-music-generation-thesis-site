@@ -32,6 +32,10 @@ export default function ListeningEvaluationPage() {
         <p className="mt-2 max-w-prose leading-relaxed">
           Every rating uses a maximum of 5: 1 indicates clearly weak material, 3 adequate or mixed material, and 5 consistently strong material. Values of 2 and 4 indicate intermediate cases.
         </p>
+        <p className="mt-3 max-w-prose leading-relaxed text-muted">
+          The seven criterion ratings and the Overall score use the same 1–5 scale. Overall is a
+          separate holistic judgement, not an arithmetic mean of the seven criterion ratings.
+        </p>
         <div className="mt-5 overflow-hidden rounded-lg border border-line bg-white">
           <table className="w-full border-collapse text-sm">
             <thead>
@@ -69,8 +73,8 @@ export default function ListeningEvaluationPage() {
         <Link href="/systems" className="rounded-md bg-forest px-4 py-2 text-sm font-medium text-white no-underline hover:no-underline">
           Explore all 27 systems
         </Link>
-        <Link href="/featured-systems" className="rounded-md border border-forest px-4 py-2 text-sm font-medium text-forest no-underline hover:no-underline">
-          View the featured set
+        <Link href="/top-systems" className="rounded-md border border-forest px-4 py-2 text-sm font-medium text-forest no-underline hover:no-underline">
+          View the top systems
         </Link>
       </div>
     </article>

@@ -10,12 +10,12 @@ import { meta } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: {
-    default: `${meta.title} — Companion`,
+    default: meta.title,
     template: `%s · AI Music Review`,
   },
-  description: meta.subtitle + ". A PRISMA systematic review of AI music generation, arrangement and orchestration.",
+  description: `Companion website for ${meta.title}, presenting a PRISMA-guided systematic review of AI music generation, arrangement and orchestration (2020–2025).`,
   authors: [{ name: meta.author }],
-  metadataBase: new URL("https://ai-rt-c.github.io"),
+  metadataBase: new URL("https://ai-music-generation-thesis-review.vercel.app"),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

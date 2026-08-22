@@ -15,7 +15,7 @@ export default function AboutPage() {
 
       <p className="leading-relaxed">
         This is the interactive companion to the master&rsquo;s dissertation{" "}
-        <span className="italic">{meta.title}: {meta.subtitle}</span>. Every page is
+        <span className="italic">{meta.title}</span>. Every page is
         generated from structured data extracted from the dissertation, so the site can be
         read independently of the PDF.
       </p>
