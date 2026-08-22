@@ -279,7 +279,9 @@ for r in listen:
     paper_based = ("paper-" + "reported") in notes_blob or "no public audio demo" in notes_blob
     p = paper_by_id.get(sid, {})
     task_category = p.get("taskCategory", norm_task(s(r.get("Task"))) )
-    if sid == "352":
+    if sid in {"57", "327"}:
+        task_category = "Generation"
+    elif sid == "352":
         task_category = "Orchestration"
     systems.append({
         "id": sid, "paperId": sid, "name": title_to_name(title), "title": title,

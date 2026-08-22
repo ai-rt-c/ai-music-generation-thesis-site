@@ -55,7 +55,7 @@
     "year": 2024,
     "batch": "B1 — Symbolic: pop/piano generation",
     "batchIndex": 1,
-    "taskCategory": "Arrangement",
+    "taskCategory": "Generation",
     "domain": "Symbolic",
     "paradigm": "Diffusion"
   },
@@ -91,7 +91,7 @@
     "year": 2023,
     "batch": "B2 — Symbolic: diffusion & controllable",
     "batchIndex": 2,
-    "taskCategory": "Arrangement",
+    "taskCategory": "Generation",
     "domain": "Symbolic",
     "paradigm": "Diffusion"
   },

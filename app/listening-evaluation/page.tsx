@@ -6,7 +6,7 @@ import { content, figureById } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Pilot exploratory listening analysis",
-  description: "Evaluator profile, procedure, seven-criterion rubric, holistic Overall score and limitations for the 27-system pilot analysis.",
+  description: "Evaluator profile, eight-dimension rubric, independent holistic Overall score and limitations for the 27-system pilot analysis.",
 };
 
 export default function ListeningEvaluationPage() {
