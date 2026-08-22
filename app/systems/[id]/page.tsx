@@ -62,7 +62,7 @@ export default function SystemDetailPage({ params }: { params: { id: string } })
         {system.paradigm && <Tag label={system.paradigm} muted />}
       </div>
       <p className="mt-3 max-w-prose text-sm leading-relaxed text-muted">
-        The Overall score is a separate holistic judgement on a maximum of 5. It is not an eighth criterion and is not calculated as the mean of the seven criterion ratings.
+        The Overall score is one of the eight rubric dimensions and is a separate holistic judgement on a maximum of 5. It is not calculated as the mean of the other seven rubric dimensions.
       </p>
 
       <section className="mt-9">

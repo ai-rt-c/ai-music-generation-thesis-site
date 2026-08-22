@@ -278,13 +278,16 @@ for r in listen:
     notes_blob = (s(r.get("Listening Notes")) + " " + s(r.get("Website Pick (1 sample)"))).lower()
     paper_based = ("paper-" + "reported") in notes_blob or "no public audio demo" in notes_blob
     p = paper_by_id.get(sid, {})
+    task_category = p.get("taskCategory", norm_task(s(r.get("Task"))) )
+    if sid == "352":
+        task_category = "Orchestration"
     systems.append({
         "id": sid, "paperId": sid, "name": title_to_name(title), "title": title,
         # Use the verified master-table analytical year in preference to the
         # listening workbook's copied bibliographic year (e.g. FIGARO 2022).
         "year": p.get("year") or (int(r["Year"]) if r.get("Year") else None),
         "batch": s(r.get("Batch")), "batchIndex": batch_index(s(r.get("Batch"))),
-        "taskCategory": p.get("taskCategory", norm_task(s(r.get("Task")))),
+        "taskCategory": task_category,
         "domain": p.get("domain"), "paradigm": p.get("paradigm"),
     })
     notes = clean_listening_note(s(r.get("Listening Notes")))

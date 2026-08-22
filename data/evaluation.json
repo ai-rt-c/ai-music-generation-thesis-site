@@ -188,7 +188,7 @@
     ],
     "bestUseCase": "Symbolic music generation and prototyping.",
     "reportedMetrics": "PPL; controllability/similarity: time-signature & chord accuracy, note-density NRMSE, MOA of pitch/velocity/duration; pairwise preference",
-    "reportedResult": "Strong control adherence; large listening study (691 participants)"
+    "reportedResult": "Quality study with 691 participants; condition adherence was not directly tested"
   },
   {
     "id": "57",
@@ -296,8 +296,8 @@
       "Weak long-term structure"
     ],
     "bestUseCase": "Symbolic music generation and prototyping.",
-    "reportedMetrics": "Repetition rate; intra-texture similarity; pairwise musicality preference (79% vs GPT-4); scaling-law fit",
-    "reportedResult": "Preferred 79% of the time vs GPT-4 (webMUSHRA)"
+    "reportedMetrics": "Repetition rate; intra-texture similarity; pairwise musicality preference (table-derived 76.7% vs GPT-4); scaling-law fit",
+    "reportedResult": "Table-derived preference 76.7% vs GPT-4 (115/150 pairwise judgements; webMUSHRA)"
   },
   {
     "id": "67",

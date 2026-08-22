@@ -33,8 +33,9 @@ export default function ListeningEvaluationPage() {
           Every rating uses a maximum of 5: 1 indicates clearly weak material, 3 adequate or mixed material, and 5 consistently strong material. Values of 2 and 4 indicate intermediate cases.
         </p>
         <p className="mt-3 max-w-prose leading-relaxed text-muted">
-          The seven criterion ratings and the Overall score use the same 1–5 scale. Overall is a
-          separate holistic judgement, not an arithmetic mean of the seven criterion ratings.
+          The Overall score was one of the eight rubric dimensions and used the same 1–5 scale as
+          the other seven dimensions. It was recorded as an independent holistic judgement, not
+          calculated as an arithmetic mean or any other combination of the other seven dimensions.
         </p>
         <div className="mt-5 overflow-hidden rounded-lg border border-line bg-white">
           <table className="w-full border-collapse text-sm">

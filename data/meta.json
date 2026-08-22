@@ -174,7 +174,7 @@
       "number": 13,
       "title": "Batch-average ratings",
       "png": "figures/fig_13_heatmap.png",
-      "caption": "Batch-average ratings across the seven listening criteria and holistic Overall score; darker indicates a higher value.",
+      "caption": "Batch-average ratings across the eight rubric dimensions, including the independent holistic Overall score; darker indicates a higher value.",
       "alt": "Heatmap of batch-average ratings across seven criteria and a separate holistic Overall score."
     },
     {
