@@ -100,7 +100,7 @@
     "inDepth": false,
     "notes": "",
     "citation": "Ens, J., & Pasquier, P. (2020). MMM: Exploring Conditional Multi-Track Music Generation with the Transformer. arXiv. https://doi.org/10.48550/arXiv.2008.06048",
-    "evaluationCategory": "Objective + subjective"
+    "evaluationCategory": "Demonstration / qualitative only"
   },
   {
     "id": "345",
@@ -307,7 +307,7 @@
     "inDepth": true,
     "notes": "",
     "citation": "Dhariwal, P., Jun, H., Payne, C., Kim, J. W., Radford, A., & Sutskever, I. (2020). Jukebox: A Generative Model for Music. arXiv 2020. https://doi.org/10.48550/arXiv.2005.00341",
-    "evaluationCategory": "Objective + subjective"
+    "evaluationCategory": "Demonstration / qualitative only"
   },
   {
     "id": "276",
@@ -512,7 +512,7 @@
     "inDepth": true,
     "notes": "Architecture family is recorded as RNN / LSTM because the published system combines stochastic matching pursuit with an LSTM component and evolutionary optimisation. In the extended taxonomy (Figure 5) the system is listed under Non-neural, which refers to its target-based search core rather than to those neural components; see Section 2.3. The two entries describe different aspects of the same system and are not in conflict.",
     "citation": "Cella, C. E., Ghisi, D., Maresz, Y., Petrolati, A., Teiller, A., & Esling, P. (2021). Dynamic Computer-Aided Orchestration in Practice with Orchidea. Computer Music Journal 2021. https://doi.org/10.1162/comj_a_00629",
-    "evaluationCategory": "Objective + subjective"
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "62",
@@ -788,7 +788,7 @@
     "inDepth": false,
     "notes": "",
     "citation": "Hawthorne, C., Simon, I., Roberts, A., Zeghidour, N., Gardner, J., Manilow, E., & Engel, J. (2022). Multi-Instrument Music Synthesis with Spectrogram Diffusion. ISMIR 2022. https://doi.org/10.5281/zenodo.7316733",
-    "evaluationCategory": "Objective + subjective"
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "347",
@@ -858,7 +858,7 @@
     "inDepth": false,
     "notes": "",
     "citation": "Cella, C. E. (2022). Orchidea: A Comprehensive Framework for Target-Based Computer-Assisted Dynamic Orchestration. Journal of New Music Research. https://doi.org/10.1080/09298215.2022.2150650",
-    "evaluationCategory": "Objective + subjective"
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "359",
@@ -1344,7 +1344,7 @@
     "inDepth": false,
     "notes": "",
     "citation": "Yu, D., Song, K., Lu, P., He, T., Tan, X., Ye, W., Zhang, S., & Bian, J. (2023). MusicAgent: An AI Agent for Music Understanding and Generation with LLMs. EMNLP 2023 System Demos. https://doi.org/10.18653/v1/2023.emnlp-demo.21",
-    "evaluationCategory": "Objective + subjective"
+    "evaluationCategory": "Demonstration / qualitative only"
   },
   {
     "id": "363",
