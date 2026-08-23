@@ -79,11 +79,19 @@ export const scoreFilterActive = (s: FilterState) =>
 
 function matchesText(p: Paper, q: string): boolean {
   if (!q) return true;
+  const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
   const hay = [
-    p.title, p.authors, p.method, p.dataset, p.taskCategory,
-    p.paradigm ?? "", p.paradigmTags.join(" "), String(p.year ?? ""),
+    p.title, p.authors, p.method, p.dataset, p.datasetTags.join(" "), p.taskCategory,
+    p.evaluationCategory, p.paradigm ?? "", p.paradigmTags.join(" "), String(p.year ?? ""),
   ].join(" ").toLowerCase();
-  return q.toLowerCase().split(/\s+/).filter(Boolean).every((tok) => hay.includes(tok));
+
+  return tokens.every((tok) => {
+    // The canonical Lakh tag deliberately excludes Slakh, whose name contains
+    // the substring "lakh". Use the audited dataset tag instead of substring
+    // matching so a Lakh search reproduces the final master-table count.
+    if (tok === "lakh") return p.datasetTags.includes("Lakh MIDI");
+    return hay.includes(tok);
+  });
 }
 
 export function filterPapers(papers: Paper[], scores: ScoreMap, s: FilterState): Paper[] {

@@ -45,22 +45,23 @@ def num(v):
         return None
 
 
-def norm_task(task):
+def norm_task(task, rep):
     t = task.lower()
     if "arrang" in t or "accompan" in t:
         return "Arrangement"
-    if "orchestr" in t:
+    # MusicAgent orchestrates software tools, not musical parts; the audited
+    # corpus grouping places this mixed-domain study under symbolic generation.
+    if "orchestrat" in t and "orchestrating music tools" not in t:
         return "Orchestration"
-    if "eval" in t or "benchmark" in t or "metric" in t:
-        return "Evaluation"
-    if "represent" in t:
-        return "Representation"
-    if "generation" in t or "composition" in t or "text-to-music" in t or "text-to-audio" in t:
-        return "Generation"
-    return "Other"
+    blob = (task + " " + rep).lower()
+    if any(k in blob for k in ["audio", "waveform", "spectrogram", "codec", "vocal", "24 khz", "44.1"]):
+        return "Audio generation"
+    return "Symbolic generation"
 
 
 def norm_domain(task, rep):
+    if rep.lower().startswith("mixed"):
+        return "Mixed"
     blob = (task + " " + rep).lower()
     if any(k in blob for k in ["audio", "waveform", "spectrogram", "codec", "vocal", "24 khz", "44.1"]):
         return "Audio"
@@ -141,6 +142,7 @@ for r in master:
     paradigm, ptags = norm_paradigm(fam, method)
     code = s(r.get("Code"))
     demo = s(r.get("Availability of Demo"))
+    corpus_category = s(r.get("Primary Corpus Category")) or norm_task(task, rep)
     papers.append({
         "id": str(r.get("ID")),
         "title": s(r.get("Title")),
@@ -148,7 +150,7 @@ for r in master:
         "year": int(r["Year"]) if r.get("Year") else None,
         "source": s(r.get("Source")),
         "task": task,
-        "taskCategory": norm_task(task),
+        "taskCategory": corpus_category,
         "domain": norm_domain(task, rep),
         "method": method,
         "architectureFamily": fam,
@@ -156,7 +158,9 @@ for r in master:
         "paradigmTags": ptags,
         "dataRepresentation": rep,
         "dataset": s(r.get("Dataset")),
+        "datasetTags": [tag.strip() for tag in s(r.get("Dataset Tags")).split(";") if tag.strip()],
         "evaluation": s(r.get("Evaluation Method")),
+        "evaluationCategory": s(r.get("Evaluation Category")),
         "metrics": s(r.get("Metrics")),
         "musicLength": s(r.get("Music Length")),
         "code": code,

@@ -9,6 +9,12 @@ export type TaskCategory =
   | "Arrangement"
   | "Orchestration";
 
+export type EvaluationCategory =
+  | "Objective + subjective"
+  | "Objective only"
+  | "Subjective only"
+  | "Demonstration / qualitative only";
+
 export type Paradigm =
   | "Transformer"
   | "LLM"
@@ -76,7 +82,9 @@ export interface Paper {
   paradigmTags: Paradigm[]; // e.g. ["Transformer","LLM"]
   dataRepresentation: string;
   dataset: string;
+  datasetTags: string[]; // canonical tags from the final master table
   evaluation: string;
+  evaluationCategory: EvaluationCategory; // audited category from the final master table
   metrics: string;
   musicLength: string;
   code: string;

@@ -6,7 +6,7 @@
     "year": 2020,
     "source": "ISMIR 2020",
     "task": "Music Representation Learning (polyphonic; + downstream symbolic generation)",
-    "taskCategory": "Representation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "PianoTree VAE: tree-structured VAE (hierarchical GRU encoder/decoder over simu_note tree)",
     "architectureFamily": "VAE",
@@ -16,6 +16,9 @@
     ],
     "dataRepresentation": "Symbolic (tree-structured surface representation of MIDI; 8-beat segments, 32 steps @ 16th-note)",
     "dataset": "~5K classical/pop piano pieces from Musicalion + POP909 -> 19.8K 8-beat samples (90/10 song-level split, 12-key augmentation)",
+    "datasetTags": [
+      "POP909"
+    ],
     "evaluation": "Objective (reconstruction) + subjective (double-blind online survey, 33 subjects, latent-space interpolation)",
     "metrics": "Reconstruction accuracy (onset/pitch/duration criteria); best-version votes for musicality & smoothness",
     "musicLength": "8-beat (2-bar) segments",
@@ -27,7 +30,8 @@
     "paperUrl": "https://arxiv.org/abs/2008.07118",
     "inDepth": false,
     "notes": "",
-    "citation": "Wang, Z., Zhang, Y., Zhang, Y., Jiang, J., Yang, R., Xia, G., & Zhao, J. (2020). PianoTree VAE: Structured Representation Learning for Polyphonic Music. ISMIR 2020. https://doi.org/10.5281/zenodo.4245445"
+    "citation": "Wang, Z., Zhang, Y., Zhang, Y., Jiang, J., Yang, R., Xia, G., & Zhao, J. (2020). PianoTree VAE: Structured Representation Learning for Polyphonic Music. ISMIR 2020. https://doi.org/10.5281/zenodo.4245445",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "318",
@@ -36,7 +40,7 @@
     "year": 2020,
     "source": "IEEE",
     "task": "Music Representation Learning (melody; structure-aware, interpretable; context transfer)",
-    "taskCategory": "Representation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Transformer VAE: hierarchical model with parallel local bar encoders + masked-attention Transformer for inter-bar context",
     "architectureFamily": "VAE",
@@ -46,6 +50,9 @@
     ],
     "dataRepresentation": "Symbolic (8-bar melody pieces, bar-wise tokens)",
     "dataset": "Hooktheory (crowd-annotated): 16,142 8-bar pieces, 4/4",
+    "datasetTags": [
+      "Hooktheory"
+    ],
     "evaluation": "Objective only (reconstruction accuracy, KL; context-transfer demos)",
     "metrics": "Reconstruction accuracy; KL loss",
     "musicLength": "8-bar pieces",
@@ -57,7 +64,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9054554",
     "inDepth": false,
     "notes": "",
-    "citation": "Jiang, J., Xia, G., Carlton, D. B., Anderson, C. N., & Miyakawa, R. H. (2020). Transformer VAE: A Hierarchical Model for Structure-Aware Music Representation. IEEE. https://doi.org/10.1109/ICASSP40776.2020.9054554"
+    "citation": "Jiang, J., Xia, G., Carlton, D. B., Anderson, C. N., & Miyakawa, R. H. (2020). Transformer VAE: A Hierarchical Model for Structure-Aware Music Representation. IEEE. https://doi.org/10.1109/ICASSP40776.2020.9054554",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "326",
@@ -66,7 +74,7 @@
     "year": 2020,
     "source": "arXiv",
     "task": "Symbolic Music Generation (conditional multi-track generation, track/bar inpainting, attribute control)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "GPT-2 Transformer (6 layers, 2048 window) with MultiTrack and BarFill event representations (MMM)",
     "architectureFamily": "Transformer / LLM",
@@ -77,6 +85,9 @@
     ],
     "dataRepresentation": "Symbolic (multi-track MIDI event tokens; bars nested in tracks)",
     "dataset": "Lakh MIDI Dataset (LMD)",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "None formal (interactive demo + generated examples only; no listening test or objective benchmark)",
     "metrics": "N/A (no quantitative metrics reported)",
     "musicLength": "4-bar and 8-bar segments (up to 12 tracks)",
@@ -88,7 +99,8 @@
     "paperUrl": "https://arxiv.org/abs/2008.06048",
     "inDepth": false,
     "notes": "",
-    "citation": "Ens, J., & Pasquier, P. (2020). MMM: Exploring Conditional Multi-Track Music Generation with the Transformer. arXiv. https://doi.org/10.48550/arXiv.2008.06048"
+    "citation": "Ens, J., & Pasquier, P. (2020). MMM: Exploring Conditional Multi-Track Music Generation with the Transformer. arXiv. https://doi.org/10.48550/arXiv.2008.06048",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "345",
@@ -107,6 +119,10 @@
     ],
     "dataRepresentation": "Symbolic (MIDI - MuMIDI tokens)",
     "dataset": "LMD (pop subset); FreeMidi (pop); CPMD (private Chinese pop MIDI)",
+    "datasetTags": [
+      "Lakh MIDI",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + subjective (human study, 15 participants)",
     "metrics": "Chord Accuracy (CA); PPL; distribution overlap (Pitch, Velocity, Duration, IOI); subjective preference scores",
     "musicLength": "N/A",
@@ -118,7 +134,8 @@
     "paperUrl": "https://arxiv.org/abs/2008.07703",
     "inDepth": true,
     "notes": "",
-    "citation": "Ren, Y., He, J., Tan, X., Qin, T., Zhao, Z., & Liu, T. Y. (2020). PopMAG: Pop Music Accompaniment Generation. ACM Multimedia 2020. https://doi.org/10.1145/3394171.3413721"
+    "citation": "Ren, Y., He, J., Tan, X., Qin, T., Zhao, Z., & Liu, T. Y. (2020). PopMAG: Pop Music Accompaniment Generation. ACM Multimedia 2020. https://doi.org/10.1145/3394171.3413721",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "350",
@@ -137,6 +154,9 @@
     ],
     "dataRepresentation": "Symbolic (MIDI event sequences + piano-roll style input)",
     "dataset": "Custom synthetic parallel dataset generated with Band-in-a-Box (many styles; released)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective only (no listening test)",
     "metrics": "Content preservation (chroma cosine similarity); style fit (style-profile metrics: time-pitch, onset-duration, onset-velocity, onset-drum)",
     "musicLength": "N/A (8-bar excerpts shown; no fixed generation length stated)",
@@ -148,7 +168,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/document/9178446",
     "inDepth": false,
     "notes": "",
-    "citation": "Cífka, O., Şimşekli, U., & Richard, G. (2020). Groove2Groove: One-Shot Music Style Transfer with Supervision from Synthetic Data. IEEE/ACM TASLP 2020. https://doi.org/10.1109/TASLP.2020.3019642"
+    "citation": "Cífka, O., Şimşekli, U., & Richard, G. (2020). Groove2Groove: One-Shot Music Style Transfer with Supervision from Synthetic Data. IEEE/ACM TASLP 2020. https://doi.org/10.1109/TASLP.2020.3019642",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "375",
@@ -157,7 +178,7 @@
     "year": 2020,
     "source": "ISMIR 2020",
     "task": "Controllable Music Generation (high-level feature control, e.g. arousal, via low-level attribute faders)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Music FaderNets: Gaussian Mixture VAE with latent regularization; faders for rhythm/note density; semi-supervised arousal clusters",
     "architectureFamily": "VAE",
@@ -167,6 +188,10 @@
     ],
     "dataRepresentation": "Symbolic (event-based tokens of 4-beat piano segments)",
     "dataset": "Yamaha Piano-e-Competition + VGMIDI (95 arousal/valence-annotated game soundtracks)",
+    "datasetTags": [
+      "VGMIDI",
+      "Yamaha e-Competition"
+    ],
     "evaluation": "Objective + subjective (listening test, 48 subjects)",
     "metrics": "Consistency, restrictiveness, linearity (R2 interpretability); subjective arousal-shift ratings",
     "musicLength": "4-beat segments",
@@ -178,7 +203,8 @@
     "paperUrl": "https://arxiv.org/abs/2007.15474",
     "inDepth": false,
     "notes": "",
-    "citation": "Tan, H. H., & Herremans, D. (2020). Music FaderNets: Controllable Music Generation Based on High-Level Features. ISMIR 2020. https://doi.org/10.5281/zenodo.4245375"
+    "citation": "Tan, H. H., & Herremans, D. (2020). Music FaderNets: Controllable Music Generation Based on High-Level Features. ISMIR 2020. https://doi.org/10.5281/zenodo.4245375",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "376",
@@ -187,7 +213,7 @@
     "year": 2020,
     "source": "ISMIR 2020",
     "task": "Symbolic Music Generation (jazz lead sheets) + evaluation methodology for AI-composed music",
-    "taskCategory": "Evaluation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Jazz Transformer: Transformer-XL (12 layers, 41M) on structure-augmented event representation of WJazzD",
     "architectureFamily": "Transformer / LLM",
@@ -197,6 +223,9 @@
     ],
     "dataRepresentation": "Symbolic (event tokens incl. structure/chord events from lead sheets)",
     "dataset": "Weimar Jazz Database (WJazzD): 431 4/4 jazz solos (5% held out)",
+    "datasetTags": [
+      "WJazzD"
+    ],
     "evaluation": "Objective (proposed metrics) + subjective (blind listening test, 59 subjects)",
     "metrics": "Pitch-class histogram entropy; grooving pattern similarity; chord progression irregularity; structureness (fitness scape plot); MIREX-like continuation accuracy; subjective ratings (Impression, Structureness, Richness, etc.)",
     "musicLength": "One-minute pieces in listening test",
@@ -208,7 +237,8 @@
     "paperUrl": "https://arxiv.org/abs/2008.01307",
     "inDepth": false,
     "notes": "",
-    "citation": "Wu, S. L., & Yang, Y. H. (2020). The Jazz Transformer on the Front Line: Exploring the Shortcomings of AI-Composed Music. ISMIR 2020. https://doi.org/10.5281/zenodo.4245389"
+    "citation": "Wu, S. L., & Yang, Y. H. (2020). The Jazz Transformer on the Front Line: Exploring the Shortcomings of AI-Composed Music. ISMIR 2020. https://doi.org/10.5281/zenodo.4245389",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "89",
@@ -217,7 +247,7 @@
     "year": 2020,
     "source": "ACM Multimedia 2020",
     "task": "Symbolic Music Generation (expressive pop piano)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Transformer-XL with REMI beat-based event representation",
     "architectureFamily": "Transformer / LLM",
@@ -227,6 +257,9 @@
     ],
     "dataRepresentation": "Symbolic (REMI event tokens from transcribed MIDI)",
     "dataset": "Custom: 775 pop piano covers (~48 h audio, transcribed to MIDI; released as MIDI/REMI)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (user study, 76 participants, pairwise comparison)",
     "metrics": "Beat STD; Downbeat STD; Downbeat salience; pairwise preference (Wilcoxon signed-rank p-values)",
     "musicLength": "N/A (generates sequences of 4,096 events)",
@@ -238,7 +271,8 @@
     "paperUrl": "http://arxiv.org/abs/2002.00212",
     "inDepth": true,
     "notes": "",
-    "citation": "Huang, Y., & Yang, Y. (2020). Pop Music Transformer: Beat-based Modeling and Generation of Expressive Pop Piano Compositions. ACM Multimedia 2020. https://doi.org/10.1145/3394171.3413671"
+    "citation": "Huang, Y., & Yang, Y. (2020). Pop Music Transformer: Beat-based Modeling and Generation of Expressive Pop Piano Compositions. ACM Multimedia 2020. https://doi.org/10.1145/3394171.3413671",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "92",
@@ -247,7 +281,7 @@
     "year": 2020,
     "source": "arXiv 2020",
     "task": "Audio Music Generation (raw audio, with singing; artist/genre/lyrics conditioning)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Hierarchical (3-level) VQ-VAE + autoregressive sparse Transformer priors/upsamplers",
     "architectureFamily": "VAE",
@@ -257,6 +291,10 @@
     ],
     "dataRepresentation": "Audio (44.1 kHz raw waveform compressed to discrete VQ-VAE codes)",
     "dataset": "Custom: 1.2M songs scraped with lyrics/metadata from LyricWiki (private)",
+    "datasetTags": [
+      "Custom / self-built",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Qualitative/manual assessment only (no formal user study or objective benchmark)",
     "metrics": "Manual assessment of coherence, musicality, diversity, novelty (no quantitative metrics)",
     "musicLength": "Multiple minutes (coherence ~24 s context; full-length songs generated by sliding window)",
@@ -268,7 +306,8 @@
     "paperUrl": "http://arxiv.org/abs/2005.00341",
     "inDepth": true,
     "notes": "",
-    "citation": "Dhariwal, P., Jun, H., Payne, C., Kim, J. W., Radford, A., & Sutskever, I. (2020). Jukebox: A Generative Model for Music. arXiv 2020. https://doi.org/10.48550/arXiv.2005.00341"
+    "citation": "Dhariwal, P., Jun, H., Payne, C., Kim, J. W., Radford, A., & Sutskever, I. (2020). Jukebox: A Generative Model for Music. arXiv 2020. https://doi.org/10.48550/arXiv.2005.00341",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "276",
@@ -287,6 +326,9 @@
     ],
     "dataRepresentation": "Symbolic (MIDI as piano-roll images) + Audio (spectrogram input for transcription)",
     "dataset": "Self-made paired dataset (un-arranged vs arranged music, built by authors)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Subjective hearing test (20 people, 1-10 ranking) + objective Inception score for transcription",
     "metrics": "Average rank (1-10, hearing test); Inception score (transcription comparison)",
     "musicLength": "N/A",
@@ -298,7 +340,8 @@
     "paperUrl": "https://waseda.repo.nii.ac.jp/record/58137/files/t5118FG19.pdf",
     "inDepth": false,
     "notes": "MSc thesis (Waseda University); no DOI.",
-    "citation": "Gao, T. (2020). An Automatic Music Arrangement System Using Machine Learning. MSc thesis, Waseda University 2020. https://waseda.repo.nii.ac.jp/record/58137/files/t5118FG19.pdf"
+    "citation": "Gao, T. (2020). An Automatic Music Arrangement System Using Machine Learning. MSc thesis, Waseda University 2020. https://waseda.repo.nii.ac.jp/record/58137/files/t5118FG19.pdf",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "297",
@@ -307,7 +350,7 @@
     "year": 2020,
     "source": "AI 2020: Advances in Artificial Intelligence",
     "task": "Comparative Study (data representations for melody generation with seq2seq)",
-    "taskCategory": "Representation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Seq2seq LSTM (encoder-decoder) trained with 3 representations: monophonic, polyphonic, complex-polyphonic",
     "architectureFamily": "RNN / LSTM",
@@ -317,6 +360,9 @@
     ],
     "dataRepresentation": "Symbolic (3 token representations of MIDI, compared)",
     "dataset": "International Piano e-Competition (Yamaha) MIDI performances",
+    "datasetTags": [
+      "Yamaha e-Competition"
+    ],
     "evaluation": "Objective (feature-based statistical analysis, absolute/relative measures) + subjective (survey, 20 participants)",
     "metrics": "Musical feature distributions (e.g., pitch count, note length); survey ratings",
     "musicLength": "Flexible-length melodies",
@@ -328,7 +374,8 @@
     "paperUrl": "https://link.springer.com/10.1007/978-3-030-64984-5_2",
     "inDepth": false,
     "notes": "",
-    "citation": "Li, S., & Martin, C. P. (2020). Comparing Three Data Representations for Music with a Sequence-to-Sequence Model. AI 2020: Advances in Artificial Intelligence. https://doi.org/10.1007/978-3-030-64984-5_2"
+    "citation": "Li, S., & Martin, C. P. (2020). Comparing Three Data Representations for Music with a Sequence-to-Sequence Model. AI 2020: Advances in Artificial Intelligence. https://doi.org/10.1007/978-3-030-64984-5_2",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "309",
@@ -337,7 +384,7 @@
     "year": 2021,
     "source": "AAAI 2021",
     "task": "Symbolic Music Generation (pop piano, full-song; conditional on lead sheet + unconditional)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Compound Word (CP) representation + linear Transformer with type-specific feed-forward heads",
     "architectureFamily": "Transformer / LLM",
@@ -347,6 +394,9 @@
     ],
     "dataRepresentation": "Symbolic (CP compound-word tokens from transcribed MIDI)",
     "dataset": "Custom: 1,748 pop piano songs (~108 h audio, auto-transcribed; 50 held out for test)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (online questionnaire, 18 subjects, 5-point Likert)",
     "metrics": "Melody matchness (LCS-based); chord matchness (chroma cosine); training/inference time & GPU memory; subjective Fidelity/Richness/Humanness/Correctness/Structureness/Overall",
     "musicLength": "Full-song (~4 min avg; up to 10K tokens per song)",
@@ -358,7 +408,8 @@
     "paperUrl": "https://arxiv.org/abs/2101.02402",
     "inDepth": true,
     "notes": "",
-    "citation": "Hsiao, W. Y., Liu, J. Y., Yeh, Y. C., & Yang, Y. H. (2021). Compound Word Transformer: Learning to Compose Full-Song Music\nover Dynamic Directed Hypergraphs. AAAI 2021. https://doi.org/10.1609/aaai.v35i1.16091"
+    "citation": "Hsiao, W. Y., Liu, J. Y., Yeh, Y. C., & Yang, Y. H. (2021). Compound Word Transformer: Learning to Compose Full-Song Music\nover Dynamic Directed Hypergraphs. AAAI 2021. https://doi.org/10.1609/aaai.v35i1.16091",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "314",
@@ -367,7 +418,7 @@
     "year": 2021,
     "source": "IEEE/ACM TASLP 2023",
     "task": "Music Style Transfer (full-song piano; bar-level attribute control: rhythmic intensity, polyphony)",
-    "taskCategory": "Other",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "MuseMorphose: Transformer VAE (12-layer encoder+decoder, 79.4M) with in-attention conditioning",
     "architectureFamily": "VAE",
@@ -377,6 +428,9 @@
     ],
     "dataRepresentation": "Symbolic (REMI event tokens; 32-bar pieces)",
     "dataset": "AILabs.tw-Pop1K7 (1,747 transcribed pop piano covers)",
+    "datasetTags": [
+      "Pop1K7"
+    ],
     "evaluation": "Objective only (attribute-control + quality/similarity metrics; no listening test)",
     "metrics": "Attribute-control accuracy; fluency (LM-based); chroma/grooving/instrumentation similarity; self-similarity-matrix distance; diversity",
     "musicLength": "32-bar pieces (full-song level)",
@@ -388,7 +442,8 @@
     "paperUrl": "https://arxiv.org/abs/2105.04090",
     "inDepth": false,
     "notes": "",
-    "citation": "Wu, S. L., & Yang, Y. H. (2021). MuseMorphose: Full-Song and Fine-Grained Piano Music Style Transfer with One Transformer VAE. IEEE/ACM TASLP 2023. https://doi.org/10.1109/TASLP.2023.3270726"
+    "citation": "Wu, S. L., & Yang, Y. H. (2021). MuseMorphose: Full-Song and Fine-Grained Piano Music Style Transfer with One Transformer VAE. IEEE/ACM TASLP 2023. https://doi.org/10.1109/TASLP.2023.3270726",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "346",
@@ -407,6 +462,10 @@
     ],
     "dataRepresentation": "Symbolic (MIDI; piano-roll, chromagram, melody one-hot features)",
     "dataset": "POP909 (857 songs / 11,032 phrases as reference space); Nottingham Dataset (query lead sheets)",
+    "datasetTags": [
+      "POP909",
+      "Nottingham"
+    ],
     "evaluation": "Subjective (survey, 72 subjects, 67 effective ratings, within-subject ANOVA) + objective transition-model analysis",
     "metrics": "Subjective: coherence, structure, musicality (5-pt); Objective: contrastive loss, RD/VN difference, Rank@50, phrase/song ranking accuracy",
     "musicLength": "Full-length songs (16-32 bars in evaluation)",
@@ -418,7 +477,8 @@
     "paperUrl": "https://arxiv.org/abs/2108.11213",
     "inDepth": true,
     "notes": "",
-    "citation": "Zhao, J., & Xia, G. (2021). AccoMontage: Accompaniment Arrangement via Phrase Selection and Style Transfer. ISMIR 2021. https://doi.org/10.5281/zenodo.5625705"
+    "citation": "Zhao, J., & Xia, G. (2021). AccoMontage: Accompaniment Arrangement via Phrase Selection and Style Transfer. ISMIR 2021. https://doi.org/10.5281/zenodo.5625705",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "357",
@@ -437,6 +497,9 @@
     ],
     "dataRepresentation": "Audio target + orchestral sample database with symbolic metadata (score output)",
     "dataset": "Orchestral sample databases (OrchideaSOL-style; user datasets via orch-idea.org)",
+    "datasetTags": [
+      "SOL family"
+    ],
     "evaluation": "Computational/quantitative only (this paper is a practice overview; quantitative comparison in Cella 2022: 26 targets, 1,040 orchestrations vs CAMO-GA/Orchids/CAMO-AIS); no user study",
     "metrics": "Cosine-similarity-based feature-space distance (Caetano et al. 2019, Eq. 15)",
     "musicLength": "N/A",
@@ -447,8 +510,9 @@
     "doi": "10.1162/comj_a_00629",
     "paperUrl": "https://direct.mit.edu/comj/article-abstract/45/4/40/114725/",
     "inDepth": true,
-    "notes": "",
-    "citation": "Cella, C. E., Ghisi, D., Maresz, Y., Petrolati, A., Teiller, A., & Esling, P. (2021). Dynamic Computer-Aided Orchestration in Practice with Orchidea. Computer Music Journal 2021. https://doi.org/10.1162/comj_a_00629"
+    "notes": "Architecture family is recorded as RNN / LSTM because the published system combines stochastic matching pursuit with an LSTM component and evolutionary optimisation. In the extended taxonomy (Figure 5) the system is listed under Non-neural, which refers to its target-based search core rather than to those neural components; see Section 2.3. The two entries describe different aspects of the same system and are not in conflict.",
+    "citation": "Cella, C. E., Ghisi, D., Maresz, Y., Petrolati, A., Teiller, A., & Esling, P. (2021). Dynamic Computer-Aided Orchestration in Practice with Orchidea. Computer Music Journal 2021. https://doi.org/10.1162/comj_a_00629",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "62",
@@ -457,7 +521,7 @@
     "year": 2021,
     "source": "ISMIR 2021",
     "task": "Symbolic Music Generation (unconditional melody generation + post-hoc infilling)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "DDPM (Transformer denoiser) over continuous latents of pre-trained 2-bar MusicVAE",
     "architectureFamily": "Diffusion",
@@ -467,6 +531,9 @@
     ],
     "dataRepresentation": "Symbolic (monophonic MIDI as MusicVAE latent embedding sequences)",
     "dataset": "Lakh MIDI Dataset (988,893 64-bar monophonic sequences train / 11,295 val)",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "Objective only (no listening test)",
     "metrics": "Framewise self-similarity OA (pitch/duration Consistency & Variance); Frechet Distance; MMD",
     "musicLength": "64 bars (1,024 tokens; 32 latents)",
@@ -478,7 +545,8 @@
     "paperUrl": "http://arxiv.org/abs/2103.16091",
     "inDepth": true,
     "notes": "",
-    "citation": "Mittal, G., Engel, J., Hawthorne, C., & Simon, I. (2021). Symbolic Music Generation with Diffusion Models. ISMIR 2021. https://doi.org/10.5281/zenodo.5624362"
+    "citation": "Mittal, G., Engel, J., Hawthorne, C., & Simon, I. (2021). Symbolic Music Generation with Diffusion Models. ISMIR 2021. https://doi.org/10.5281/zenodo.5624362",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "83",
@@ -487,7 +555,7 @@
     "year": 2021,
     "source": "ICASSP 2022",
     "task": "Symbolic Music Generation (full-song melody with long-term structure)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "MELONS: structure graph (8 bar-relation types) + two-stage Transformer (structure generation + structure-conditional melody generation)",
     "architectureFamily": "Transformer / LLM",
@@ -497,6 +565,10 @@
     ],
     "dataRepresentation": "Symbolic (melody MIDI; bar-relation graph)",
     "dataset": "POP909 (901 scores) + Wikifonia (1,600 scores), 4/4 melodies",
+    "datasetTags": [
+      "POP909",
+      "Wikifonia"
+    ],
     "evaluation": "Objective + subjective (listening test, 12 professional musicians, 80 samples; t-tests with Holm-Bonferroni)",
     "metrics": "Objective structure statistics (relation distributions, correlations); subjective 5-pt MOS: Structure, Richness, Pleasure, Overall",
     "musicLength": "Full-song melodies, flexible length",
@@ -508,7 +580,8 @@
     "paperUrl": "http://arxiv.org/abs/2110.05020",
     "inDepth": false,
     "notes": "",
-    "citation": "Zou, Y., Zou, P., Zhao, Y., Zhang, K., Zhang, R., & Wang, X. (2021). MELONS: generating melody with long-term structure using transformers and structure graph. ICASSP 2022. https://doi.org/10.1109/ICASSP43922.2022.9747802"
+    "citation": "Zou, Y., Zou, P., Zhao, Y., Zhang, K., Zhang, R., & Wang, X. (2021). MELONS: generating melody with long-term structure using transformers and structure graph. ICASSP 2022. https://doi.org/10.1109/ICASSP43922.2022.9747802",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "312",
@@ -517,7 +590,7 @@
     "year": 2022,
     "source": "NeurIPS 2022",
     "task": "Symbolic Music Generation (multi-track, long-sequence)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Transformer with fine- and coarse-grained attention (FC-Attention); structure-related bar selection",
     "architectureFamily": "Transformer / LLM",
@@ -527,6 +600,9 @@
     ],
     "dataRepresentation": "Symbolic (MIDI token sequences; instruments merged to 6 tracks)",
     "dataset": "Lakh MIDI (LMD): 29,940 songs / 1,727 h after preprocessing",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "Objective + subjective (listening test, 10 participants; pairwise Wilcoxon signed-rank)",
     "metrics": "PPL (at 1,024/5,120/10,240 tokens); Similarity Error (SE); subjective musicality, short-/long-term structure, overall, preference score",
     "musicLength": "Full-song scale (avg 95 bars/song; sequences >10K tokens)",
@@ -538,7 +614,8 @@
     "paperUrl": "https://arxiv.org/abs/2210.10349",
     "inDepth": true,
     "notes": "",
-    "citation": "Yu, B., Lu, P., Wang, R., Hu, W., Tan, X., Ye, W., Zhang, S., Qin, T., & Liu, T. Y. (2022). Museformer: Transformer with Fine- and Coarse-Grained Attention for Music Generation. NeurIPS 2022. https://doi.org/10.48550/arXiv.2210.10349"
+    "citation": "Yu, B., Lu, P., Wang, R., Hu, W., Tan, X., Ye, W., Zhang, S., Qin, T., & Liu, T. Y. (2022). Museformer: Transformer with Fine- and Coarse-Grained Attention for Music Generation. NeurIPS 2022. https://doi.org/10.48550/arXiv.2210.10349",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "313",
@@ -557,6 +634,10 @@
     ],
     "dataRepresentation": "Symbolic (MMR token sequences with Music BPE)",
     "dataset": "Custom Symphony Dataset (46,359 multi-track MIDI, avg 4.26 min); Lakh MIDI (for MMM comparison)",
+    "datasetTags": [
+      "Lakh MIDI",
+      "Custom / self-built"
+    ],
     "evaluation": "Objective (train/val loss ablation) + subjective (50 participants: 25 musicians, 25 non-musicians; 5-pt Likert)",
     "metrics": "MOS: Coherence, Diversity, Harmoniousness, Structureness, Orchestration, Overall Preference (95% CI); training/validation loss",
     "musicLength": "N/A (input sequence 4,096 tokens; excerpt-level evaluation)",
@@ -568,7 +649,8 @@
     "paperUrl": "https://arxiv.org/abs/2205.05448",
     "inDepth": true,
     "notes": "",
-    "citation": "Liu, J., Dong, Y., Cheng, Z., Zhang, X., Li, X., Yu, F., & Sun, M. (2022). Symphony Generation with Permutation Invariant Language Model (SymphonyNet). ISMIR 2022. https://doi.org/10.5281/zenodo.7316721"
+    "citation": "Liu, J., Dong, Y., Cheng, Z., Zhang, X., Li, X., Yu, F., & Sun, M. (2022). Symphony Generation with Permutation Invariant Language Model (SymphonyNet). ISMIR 2022. https://doi.org/10.5281/zenodo.7316721",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "320",
@@ -577,7 +659,7 @@
     "year": 2022,
     "source": "Applied Intelligence (Springer)",
     "task": "Symbolic Music Generation (melody + chord lead sheets with long-term structure)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Bar Transformer: note-to-bar hierarchical Transformer (note encoder + bar-level arrangement decoder)",
     "architectureFamily": "Transformer / LLM",
@@ -587,6 +669,9 @@
     ],
     "dataRepresentation": "Symbolic (lead sheets: melody + chord channels, MusicXML-derived tokens)",
     "dataset": "Custom: 1,065 crawled pop lead sheets (MusicXML)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (listening experiments, 20 volunteers incl. 8 professionals)",
     "metrics": "Precision/Recall/F-measure (teacher-forcing reconstruction); distribution similarity; subjective ratings",
     "musicLength": "Variable-length full melodies",
@@ -598,7 +683,8 @@
     "paperUrl": "https://link.springer.com/article/10.1007/s10489-022-04049-3",
     "inDepth": false,
     "notes": "",
-    "citation": "Qin, Y., Xie, H., Ding, S., Tan, B., Li, Y., Zhao, B., & Ye, M. (2022). Bar Transformer: A Hierarchical Model for Learning Long-Term Structure in Pop Music. Applied Intelligence (Springer). https://doi.org/10.1007/s10489-022-04049-3"
+    "citation": "Qin, Y., Xie, H., Ding, S., Tan, B., Li, Y., Zhao, B., & Ye, M. (2022). Bar Transformer: A Hierarchical Model for Learning Long-Term Structure in Pop Music. Applied Intelligence (Springer). https://doi.org/10.1007/s10489-022-04049-3",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "328",
@@ -607,7 +693,7 @@
     "year": 2022,
     "source": "IEEE/ACM TASLP 2023",
     "task": "Audio Generation via language modeling (speech continuation + piano music continuation)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "3-stage hierarchical Transformer LM over hybrid tokens: semantic (w2v-BERT) + acoustic (SoundStream codec) tokens",
     "architectureFamily": "Transformer / LLM",
@@ -617,6 +703,10 @@
     ],
     "dataRepresentation": "Audio (waveform tokenized to discrete semantic + acoustic tokens)",
     "dataset": "Speech: Libri-Light (60k h); Piano: internal 40k h piano dataset; MAESTRO (4-s prompts)",
+    "datasetTags": [
+      "MAESTRO",
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (piano: preference test, 10 raters, 15 pairs; speech: human detection study)",
     "metrics": "Piano: rater preference (83.3%); Speech: sWUGGY, sBLIMP, WER/CER, ViSQOL, ABX, speaker-classifier accuracy",
     "musicLength": "20-s piano continuations (4-s prompt)",
@@ -628,7 +718,8 @@
     "paperUrl": "https://arxiv.org/abs/2209.03143",
     "inDepth": true,
     "notes": "",
-    "citation": "Borsos, Z., Marinier, R., Vincent, D., Kharitonov, E., Pietquin, O., Sharifi, M., Roblek, D., Teboul, O., Grangier, D., Tagliasacchi, M., & Zeghidour, N. (2022). AudioLM: A Language Modeling Approach to Audio Generation. IEEE/ACM TASLP 2023. https://doi.org/10.1109/TASLP.2023.3288409"
+    "citation": "Borsos, Z., Marinier, R., Vincent, D., Kharitonov, E., Pietquin, O., Sharifi, M., Roblek, D., Teboul, O., Grangier, D., Tagliasacchi, M., & Zeghidour, N. (2022). AudioLM: A Language Modeling Approach to Audio Generation. IEEE/ACM TASLP 2023. https://doi.org/10.1109/TASLP.2023.3288409",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "339",
@@ -637,7 +728,7 @@
     "year": 2022,
     "source": "ISMIR 2022",
     "task": "Audio Music Generation (fast, infinite-length, unconditional + conditioned piano/techno)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Musika: 2-level adversarial autoencoders + latent GAN with latent coordinate system (non-autoregressive)",
     "architectureFamily": "GAN",
@@ -647,6 +738,9 @@
     ],
     "dataRepresentation": "Audio (22.05 kHz waveform to compact latent sequences; log-magnitude spectrogram + IF)",
     "dataset": "Universal autoencoder: SXSW 17k songs + LibriTTS; Piano: MAESTRO (200 h); Techno: 10,190 Jamendo songs",
+    "datasetTags": [
+      "MAESTRO"
+    ],
     "evaluation": "Objective only (FAD comparisons; no listening test)",
     "metrics": "FAD; generation speed (faster than real-time on CPU)",
     "musicLength": "Arbitrary length (conditional windows ~12 s; infinite via coordinate system)",
@@ -658,7 +752,8 @@
     "paperUrl": "https://arxiv.org/abs/2208.08706",
     "inDepth": false,
     "notes": "",
-    "citation": "Pasini, M., & Schlüter, J. (2022). MUSIKA: Fast Infinite Waveform Music Generation. ISMIR 2022. https://doi.org/10.5281/zenodo.7316719"
+    "citation": "Pasini, M., & Schlüter, J. (2022). MUSIKA: Fast Infinite Waveform Music Generation. ISMIR 2022. https://doi.org/10.5281/zenodo.7316719",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "343",
@@ -667,7 +762,7 @@
     "year": 2022,
     "source": "ISMIR 2022",
     "task": "Neural Audio Synthesis (MIDI-to-audio, multi-instrument, note-level control)",
-    "taskCategory": "Other",
+    "taskCategory": "Symbolic generation",
     "domain": "Audio",
     "method": "Encoder-decoder Transformer (T5-style) MIDI-to-spectrogram with DDPM decoder + GAN spectrogram inverter; segment-wise autoregressive conditioning",
     "architectureFamily": "Diffusion",
@@ -677,6 +772,10 @@
     ],
     "dataRepresentation": "Symbolic input (MIDI note events) to Audio output (spectrograms/waveform)",
     "dataset": "MAESTROv3, Slakh2100, Cerberus4, GuitarSet, MusicNet, URMP (MT3 splits)",
+    "datasetTags": [
+      "Slakh2100",
+      "MAESTRO"
+    ],
     "evaluation": "Objective + qualitative examples (no formal listening test)",
     "metrics": "Reconstruction embedding distance (VGGish, TRILL); FAD; note onset F-measure",
     "musicLength": "Arbitrary length (~5-s segments, autoregressive stitching)",
@@ -688,7 +787,8 @@
     "paperUrl": "https://arxiv.org/abs/2206.05408",
     "inDepth": false,
     "notes": "",
-    "citation": "Hawthorne, C., Simon, I., Roberts, A., Zeghidour, N., Gardner, J., Manilow, E., & Engel, J. (2022). Multi-Instrument Music Synthesis with Spectrogram Diffusion. ISMIR 2022. https://doi.org/10.5281/zenodo.7316733"
+    "citation": "Hawthorne, C., Simon, I., Roberts, A., Zeghidour, N., Gardner, J., Manilow, E., & Engel, J. (2022). Multi-Instrument Music Synthesis with Spectrogram Diffusion. ISMIR 2022. https://doi.org/10.5281/zenodo.7316733",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "347",
@@ -707,6 +807,11 @@
     ],
     "dataRepresentation": "Symbolic (melody, chords, piano accompaniment; MIDI)",
     "dataset": "Self-collected chord progression dataset; Nottingham (~1000 melody-chord pairs, harmonization eval); POP909 (arrangement eval)",
+    "datasetTags": [
+      "POP909",
+      "Nottingham",
+      "Custom / self-built"
+    ],
     "evaluation": "Subjective only (two surveys: harmonization, 15 subjects/44 ratings, within-subject ANOVA; accompaniment survey)",
     "metrics": "Subjective harmonicity, musicality, creativity (and overall arrangement criteria)",
     "musicLength": "Full-length songs (4/8-bar phrases)",
@@ -718,7 +823,8 @@
     "paperUrl": "https://arxiv.org/abs/2209.00353",
     "inDepth": false,
     "notes": "",
-    "citation": "Yi, L., Hu, H., Zhao, J., & Xia, G. (2022). AccoMontage2: A Complete Harmonization and Accompaniment Arrangement System. ISMIR 2022. https://doi.org/10.5281/zenodo.7316641"
+    "citation": "Yi, L., Hu, H., Zhao, J., & Xia, G. (2022). AccoMontage2: A Complete Harmonization and Accompaniment Arrangement System. ISMIR 2022. https://doi.org/10.5281/zenodo.7316641",
+    "evaluationCategory": "Subjective only"
   },
   {
     "id": "358",
@@ -737,6 +843,9 @@
     ],
     "dataRepresentation": "Audio target + orchestral sample database (SOL-derived: TinySOL/OrchideaSOL/FullSOL); symbolic score output",
     "dataset": "SOL-derived databases (TinySOL, OrchideaSOL, FullSOL); 26 quasi-stationary evaluation targets",
+    "datasetTags": [
+      "SOL family"
+    ],
     "evaluation": "Objective/computational (static orchestration: 26 targets x 4 systems = 1,040 orchestrations vs CAMO-GA, Orchids, CAMO-AIS); no user study",
     "metrics": "Cosine-similarity-based spectral feature distance (Caetano et al. 2019, Eq. 15)",
     "musicLength": "N/A",
@@ -748,7 +857,8 @@
     "paperUrl": "https://www.tandfonline.com/doi/full/10.1080/09298215.2022.2150650",
     "inDepth": false,
     "notes": "",
-    "citation": "Cella, C. E. (2022). Orchidea: A Comprehensive Framework for Target-Based Computer-Assisted Dynamic Orchestration. Journal of New Music Research. https://doi.org/10.1080/09298215.2022.2150650"
+    "citation": "Cella, C. E. (2022). Orchidea: A Comprehensive Framework for Target-Based Computer-Assisted Dynamic Orchestration. Journal of New Music Research. https://doi.org/10.1080/09298215.2022.2150650",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "359",
@@ -767,6 +877,9 @@
     ],
     "dataRepresentation": "Audio (4-s, 44.1 kHz combinations of TinySOL samples; spectral input)",
     "dataset": "TinySOL (1,529 samples, 12 instruments); randomly generated N-sample combinations",
+    "datasetTags": [
+      "SOL family"
+    ],
     "evaluation": "Objective only (classification accuracy; spectral distance vs Orchidea solutions)",
     "metrics": "Classification accuracy; amplitude-spectrum distance metric",
     "musicLength": "4-s sound combinations (not music pieces)",
@@ -778,7 +891,8 @@
     "paperUrl": "https://www.jcms.org.uk/article/id/890/",
     "inDepth": false,
     "notes": "",
-    "citation": "Cella, C. E., Dzwonczyk, L. J., Saldarriaga-Fuertes, A., Liu, H., & Crayencour, H. (2022). Neural Models for Target-Based Computer-Assisted Musical Orchestration. Journal of Creative Music Systems. https://doi.org/10.5281/zenodo.4285355"
+    "citation": "Cella, C. E., Dzwonczyk, L. J., Saldarriaga-Fuertes, A., Liu, H., & Crayencour, H. (2022). Neural Models for Target-Based Computer-Assisted Musical Orchestration. Journal of Creative Music Systems. https://doi.org/10.5281/zenodo.4285355",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "367",
@@ -787,7 +901,7 @@
     "year": 2022,
     "source": "Applied Sciences",
     "task": "Interactive Music Co-Creation (AI infilling interface for pop composition; track/bar variation)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Max/MSP interface over a Transformer-based infilling model (author's prior work) with track density/polyphony/occupation and bar tonal tension controls",
     "architectureFamily": "Transformer / LLM",
@@ -797,6 +911,9 @@
     ],
     "dataRepresentation": "Symbolic (3-track MIDI, up to 16 bars per infilling window)",
     "dataset": "N/A (interface paper; model from prior work trained on pop MIDI)",
+    "datasetTags": [
+      "No training corpus"
+    ],
     "evaluation": "None formal (demonstration/interface description only)",
     "metrics": "N/A",
     "musicLength": "Up to 16 bars per infilling region (whole songs by repetition)",
@@ -808,7 +925,8 @@
     "paperUrl": "https://arxiv.org/abs/2203.12736",
     "inDepth": false,
     "notes": "",
-    "citation": "Guo, R. (2022). An interactive music infilling interface for pop music composition. Applied Sciences. https://doi.org/10.48550/arXiv.2203.12736"
+    "citation": "Guo, R. (2022). An interactive music infilling interface for pop music composition. Applied Sciences. https://doi.org/10.48550/arXiv.2203.12736",
+    "evaluationCategory": "Demonstration / qualitative only"
   },
   {
     "id": "174",
@@ -827,6 +945,10 @@
     ],
     "dataRepresentation": "Symbolic (MIDI composition) + Audio (timbre transfer, STFT)",
     "dataset": "JSB Chorales + MAESTRO (composition); NSynth + Solo Violin (timbre)",
+    "datasetTags": [
+      "MAESTRO",
+      "JSB Chorales"
+    ],
     "evaluation": "Qualitative analysis + subjective survey (50 participants, MAEI index)",
     "metrics": "MAEI (direct impression + human-likeness misleading score; avg 8.4/10); qualitative rhythm/melody analysis",
     "musicLength": "N/A",
@@ -838,7 +960,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/document/10050687/",
     "inDepth": false,
     "notes": "",
-    "citation": "Wang, J., Sun, W., Wu, R., Fang, Y., Liu, R., Li, S., Li, Z., & Steven, X. (2022). A Novel Machine Learning Algorithm: Music Arrangement and Timbre Transfer System. 2022 5th International Conference on Information Communication and Signal Processing (ICICSP). https://doi.org/10.1109/ICICSP55539.2022.10050687"
+    "citation": "Wang, J., Sun, W., Wu, R., Fang, Y., Liu, R., Li, S., Li, Z., & Steven, X. (2022). A Novel Machine Learning Algorithm: Music Arrangement and Timbre Transfer System. 2022 5th International Conference on Information Communication and Signal Processing (ICICSP). https://doi.org/10.1109/ICICSP55539.2022.10050687",
+    "evaluationCategory": "Subjective only"
   },
   {
     "id": "194",
@@ -847,7 +970,7 @@
     "year": 2022,
     "source": "Multimedia Tools and Applications",
     "task": "Symbolic Music Generation (polyphonic, GAN-based)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "WGAN with Markov decision process (MDP) + Monte Carlo tree search (MCTS) in generation loop",
     "architectureFamily": "GAN",
@@ -857,6 +980,9 @@
     ],
     "dataRepresentation": "Symbolic (MIDI note matrices/pianoroll-style)",
     "dataset": "Custom self-built MIDI dataset (details limited)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective measurements + subjective (40 subjects: 20 music majors + 20 non-majors, 10-pt scale)",
     "metrics": "Objective sample-quality measures (loss/statistics-based); subjective creativity, naturalness, musicality",
     "musicLength": "N/A",
@@ -868,7 +994,8 @@
     "paperUrl": "https://link.springer.com/10.1007/s11042-022-12925-w",
     "inDepth": false,
     "notes": "",
-    "citation": "Huang, W., Xue, Y., Xu, Z., Peng, G., & Wu, Y. (2022). Polyphonic music generation generative adversarial network with Markov decision process. Multimedia Tools and Applications. https://doi.org/10.1007/s11042-022-12925-w"
+    "citation": "Huang, W., Xue, Y., Xu, Z., Peng, G., & Wu, Y. (2022). Polyphonic music generation generative adversarial network with Markov decision process. Multimedia Tools and Applications. https://doi.org/10.1007/s11042-022-12925-w",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "240",
@@ -877,7 +1004,7 @@
     "year": 2022,
     "source": "Artificial Intelligence in Music, Sound, Art and Design",
     "task": "Symbolic Music Generation (multi-track infilling with multi-level control)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Transformer (BERT-style masked encoder + decoder) with music control tokens (track density, polyphony, tonal tension per bar)",
     "architectureFamily": "Transformer / LLM",
@@ -887,6 +1014,9 @@
     ],
     "dataRepresentation": "Symbolic (multi-track MIDI event tokens with control tokens)",
     "dataset": "Lakh MIDI (LMD-matched, filtered)",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "Objective only (7 pitch/rhythm metrics; listening experiment planned but authors rely on objective eval)",
     "metrics": "7 objective metrics: track density, polyphony rate, tonal tension (tensile strain, cloud diameter), pitch/rhythm similarity to original",
     "musicLength": "Up to 16 bars per infilling region",
@@ -898,7 +1028,8 @@
     "paperUrl": "https://link.springer.com/10.1007/978-3-031-03789-4_22",
     "inDepth": false,
     "notes": "",
-    "citation": "Guo, R., Simpson, I., Kiefer, C., Magnusson, T., & Herremans, D. (2022). MusIAC: An Extensible Generative Framework for Music Infilling Applications with Multi-level Control. Artificial Intelligence in Music, Sound, Art and Design. https://doi.org/10.1007/978-3-031-03789-4_22"
+    "citation": "Guo, R., Simpson, I., Kiefer, C., Magnusson, T., & Herremans, D. (2022). MusIAC: An Extensible Generative Framework for Music Infilling Applications with Multi-level Control. Artificial Intelligence in Music, Sound, Art and Design. https://doi.org/10.1007/978-3-031-03789-4_22",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "247",
@@ -917,6 +1048,9 @@
     ],
     "dataRepresentation": "Symbolic (piano-roll / tatum grid, 16x12 = 192)",
     "dataset": "Custom: 184 band-piano score pairs (85 elementary + 99 advanced); 4-fold CV",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective only (F-measure + note-statistic distributions; no listening test)",
     "metrics": "F-measure (right/left hand note reconstruction); note-statistic distributions (pitch, polyphony, width)",
     "musicLength": "12 measures (4/4)",
@@ -928,7 +1062,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/document/9747615/",
     "inDepth": false,
     "notes": "",
-    "citation": "Terao, M., Hiramatsu, Y., Ishizuka, R., Wu, Y., & Yoshii, K. (2022). Difficulty-Aware Neural Band-to-Piano Score Arrangement based on Note- and Statistic-Level Criteria. ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). https://doi.org/10.1109/ICASSP43922.2022.9747615"
+    "citation": "Terao, M., Hiramatsu, Y., Ishizuka, R., Wu, Y., & Yoshii, K. (2022). Difficulty-Aware Neural Band-to-Piano Score Arrangement based on Note- and Statistic-Level Criteria. ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). https://doi.org/10.1109/ICASSP43922.2022.9747615",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "319",
@@ -937,7 +1072,7 @@
     "year": 2023,
     "source": "ICASSP 2023",
     "task": "Symbolic Music Generation (well-structured expressive piano performance; two-stage)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Compose & Embellish: two-stage Transformer (lead-sheet Compose model + performance Embellish seq2seq), pretrained on LMD-full",
     "architectureFamily": "Transformer / LLM",
@@ -947,6 +1082,10 @@
     ],
     "dataRepresentation": "Symbolic (lead sheet + REMI/CP-like performance tokens)",
     "dataset": "Lakh MIDI (LMD-full, pretraining lead-sheet model); piano performance dataset (Pop1K7-style, finetuning)",
+    "datasetTags": [
+      "Lakh MIDI",
+      "Pop1K7"
+    ],
     "evaluation": "Objective + subjective (listening test, 15 subjects)",
     "metrics": "Structureness Indicators (SI short/mid/long); diversity; subjective structureness, richness, coherence, quality",
     "musicLength": "Full-song (up to 2,400 tokens; phrases <=32 bars)",
@@ -958,7 +1097,8 @@
     "paperUrl": "https://arxiv.org/abs/2209.08212",
     "inDepth": false,
     "notes": "",
-    "citation": "Wu, S. L., & Yang, Y. H. (2023). Compose & Embellish: Well-Structured Piano Performance Generation via Two-Stage Approach. ICASSP 2023. https://doi.org/10.1109/ICASSP49357.2023.10096525"
+    "citation": "Wu, S. L., & Yang, Y. H. (2023). Compose & Embellish: Well-Structured Piano Performance Generation via Two-Stage Approach. ICASSP 2023. https://doi.org/10.1109/ICASSP49357.2023.10096525",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "324",
@@ -967,7 +1107,7 @@
     "year": 2023,
     "source": "arXiv (Microsoft Research)",
     "task": "Text-to-Music Generation (symbolic; two-stage text-to-attribute + attribute-to-music)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "BERT-large (text-to-attribute understanding) + attribute-conditioned Linear Transformer (203M; 1.2B XL version)",
     "architectureFamily": "Transformer / LLM",
@@ -977,6 +1117,11 @@
     ],
     "dataRepresentation": "Symbolic (REMI-like token sequences)",
     "dataset": "MMD + EMOPIA + MetaMIDI + POP909 + Symphony + Emotion-gen (947,659 MIDI after filtering)",
+    "datasetTags": [
+      "POP909",
+      "EMOPIA",
+      "MetaMIDI"
+    ],
     "evaluation": "Objective + subjective (questionnaire, participants with musical background)",
     "metrics": "Average Sample-wise Accuracy (ASA) of attribute control; subjective Musicality, Controllability, Overall",
     "musicLength": "Up to 16 bars (max 5,120 tokens per sample)",
@@ -988,7 +1133,8 @@
     "paperUrl": "https://arxiv.org/abs/2306.00110",
     "inDepth": true,
     "notes": "",
-    "citation": "Lu, P., Xu, X., Kang, C., Yu, B., Xing, C., Tan, X., & Bian, J. (2023). MuseCoco: Generating Symbolic Music from Text. arXiv (Microsoft Research). https://doi.org/10.48550/arXiv.2306.00110"
+    "citation": "Lu, P., Xu, X., Kang, C., Yu, B., Xing, C., Tan, X., & Bian, J. (2023). MuseCoco: Generating Symbolic Music from Text. arXiv (Microsoft Research). https://doi.org/10.48550/arXiv.2306.00110",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "325",
@@ -997,7 +1143,7 @@
     "year": 2023,
     "source": "ICASSP 2023",
     "task": "Symbolic Music Generation (multitrack; unconditional + instrument/note infilling)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Multitrack Music Transformer (MMT): decoder-only Transformer with multi-dimensional token inputs/outputs (compact representation)",
     "architectureFamily": "Transformer / LLM",
@@ -1007,6 +1153,9 @@
     ],
     "dataRepresentation": "Symbolic (multi-dimensional token: beat, position, pitch, duration, instrument)",
     "dataset": "Symbolic Orchestral Database (SOD): 5,743 songs / 357 h (80/10/10 split)",
+    "datasetTags": [
+      "SOD"
+    ],
     "evaluation": "Objective + subjective (listening test, 9 music amateurs)",
     "metrics": "Pitch-class entropy; scale consistency; groove consistency; subjective ratings; inference speed/memory",
     "musicLength": "Up to 1,024 tokens / 256 beats",
@@ -1018,7 +1167,8 @@
     "paperUrl": "https://arxiv.org/abs/2207.06983",
     "inDepth": false,
     "notes": "",
-    "citation": "Dong, H. W., Chen, K., Dubnov, S., McAuley, J., & Berg-Kirkpatrick, T. (2023). Multitrack Music Transformer. ICASSP 2023. https://doi.org/10.1109/ICASSP49357.2023.10095769"
+    "citation": "Dong, H. W., Chen, K., Dubnov, S., McAuley, J., & Berg-Kirkpatrick, T. (2023). Multitrack Music Transformer. ICASSP 2023. https://doi.org/10.1109/ICASSP49357.2023.10095769",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "332",
@@ -1027,7 +1177,7 @@
     "year": 2023,
     "source": "ICML 2023",
     "task": "Text-to-Audio Generation (general audio incl. music; also inpainting/style-transfer)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Latent Diffusion Model over VAE audio latents with CLAP audio/text embeddings (train on audio embedding, infer from text)",
     "architectureFamily": "Diffusion",
@@ -1037,6 +1187,11 @@
     ],
     "dataRepresentation": "Audio (mel-spectrogram VAE latents)",
     "dataset": "AudioSet + AudioCaps (+ Freesound, BBC SFX for larger version); eval on AudioCaps test",
+    "datasetTags": [
+      "AudioSet",
+      "AudioCaps",
+      "Freesound"
+    ],
     "evaluation": "Objective + subjective (human evaluation: OVL overall quality, REL relevance)",
     "metrics": "Frechet Distance (FD); Inception Score (IS); KL divergence; FAD; subjective OVL, REL",
     "musicLength": "~10-s audio clips",
@@ -1048,7 +1203,8 @@
     "paperUrl": "https://arxiv.org/abs/2301.12503",
     "inDepth": false,
     "notes": "",
-    "citation": "Liu, H., Chen, Z., Yuan, Y., Mei, X., Liu, X., Mandic, D., Wang, W., & Plumbley, M. D. (2023). AudioLDM: Text-to-Audio Generation with Latent Diffusion Models. ICML 2023. https://doi.org/10.48550/arXiv.2301.12503"
+    "citation": "Liu, H., Chen, Z., Yuan, Y., Mei, X., Liu, X., Mandic, D., Wang, W., & Plumbley, M. D. (2023). AudioLDM: Text-to-Audio Generation with Latent Diffusion Models. ICML 2023. https://doi.org/10.48550/arXiv.2301.12503",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "349",
@@ -1067,6 +1223,10 @@
     ],
     "dataRepresentation": "Audio (16 kHz waveform tokenized to discrete semantic/acoustic codes)",
     "dataset": "Internal: 1M audio tracks (~46k h) source-separated with MDXNet; MUSDB18 for evaluation",
+    "datasetTags": [
+      "MUSDB18",
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (pairwise listening study)",
     "metrics": "FAD (FADi on isolated / FADs on source-separated vocals); pairwise listener preference (66% vs retrieval baseline)",
     "musicLength": "10-s clips (longer examples on demo page)",
@@ -1078,7 +1238,8 @@
     "paperUrl": "https://arxiv.org/abs/2301.12662",
     "inDepth": true,
     "notes": "",
-    "citation": "Donahue, C., Simon, I., & Dieleman, S. (2023). SingSong: Generating Musical Accompaniments from Singing. arXiv (Google DeepMind). https://doi.org/10.48550/arXiv.2301.12662"
+    "citation": "Donahue, C., Simon, I., & Dieleman, S. (2023). SingSong: Generating Musical Accompaniments from Singing. arXiv (Google DeepMind). https://doi.org/10.48550/arXiv.2301.12662",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "351",
@@ -1097,6 +1258,9 @@
     ],
     "dataRepresentation": "Audio input (spectrogram) to Symbolic output (piano MIDI tokens)",
     "dataset": "Custom TOP (Pop2Piano) dataset: 4,989 synchronized {pop, piano cover} tracks (307 h) via automated pipeline",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Subjective (listening test: winning rate + MOS) + objective checks",
     "metrics": "Winning rate; Mean Opinion Score (MOS)",
     "musicLength": "N/A (segment-wise waveform training)",
@@ -1108,7 +1272,8 @@
     "paperUrl": "https://arxiv.org/abs/2211.00895",
     "inDepth": false,
     "notes": "",
-    "citation": "Choi, C., Kim, J., Park, J., & Lee, S. (2023). Pop2Piano: Pop Audio-Based Piano Cover Generation. ICASSP 2023. https://doi.org/10.1109/ICASSP49357.2023.10095844"
+    "citation": "Choi, C., Kim, J., Park, J., & Lee, S. (2023). Pop2Piano: Pop Audio-Based Piano Cover Generation. ICASSP 2023. https://doi.org/10.1109/ICASSP49357.2023.10095844",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "354",
@@ -1117,7 +1282,7 @@
     "year": 2023,
     "source": "IEEE/ACM TASLP 2024",
     "task": "Text-to-Music Generation (audio) with time-varying melody/dynamics/rhythm control",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Music ControlNet: diffusion over audio spectrograms with ControlNet-style adapters for melody, dynamics, rhythm; partially-specified controls",
     "architectureFamily": "Diffusion",
@@ -1127,6 +1292,11 @@
     ],
     "dataRepresentation": "Audio (mel-spectrogram; 22.05 kHz)",
     "dataset": "~1,800 h licensed music; MusicCaps (+ChatGPT-processed) for text; internal control extractors",
+    "datasetTags": [
+      "MusicCaps",
+      "Custom / self-built",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective only (control-adherence + quality metrics; own recorded melodies for melody test)",
     "metrics": "Melody accuracy; dynamics correlation; Rhythm F1; CLAP score; FAD",
     "musicLength": "~6-s outputs (512 frames)",
@@ -1138,7 +1308,8 @@
     "paperUrl": "https://arxiv.org/abs/2311.07069",
     "inDepth": false,
     "notes": "",
-    "citation": "Wu, S. L., Donahue, C., Watanabe, S., & Bryan, N. J. (2023). Music ControlNet: Multiple Time-Varying Controls for Music Generation. IEEE/ACM TASLP 2024. https://doi.org/10.1109/TASLP.2024.3399604"
+    "citation": "Wu, S. L., Donahue, C., Watanabe, S., & Bryan, N. J. (2023). Music ControlNet: Multiple Time-Varying Controls for Music Generation. IEEE/ACM TASLP 2024. https://doi.org/10.1109/TASLP.2024.3399604",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "360",
@@ -1147,10 +1318,10 @@
     "year": 2023,
     "source": "EMNLP 2023 System Demos",
     "task": "Music Understanding & Generation System (LLM-driven agent orchestrating music tools)",
-    "taskCategory": "Orchestration",
-    "domain": "Audio",
+    "taskCategory": "Symbolic generation",
+    "domain": "Mixed",
     "method": "MusicAgent: LLM (ChatGPT) autonomous workflow + toolset from Hugging Face/GitHub/Web APIs; task decomposition and tool invocation",
-    "architectureFamily": "Transformer / LLM (agent framework)",
+    "architectureFamily": "Transformer / LLM",
     "paradigm": "Transformer",
     "paradigmTags": [
       "Transformer",
@@ -1158,6 +1329,9 @@
     ],
     "dataRepresentation": "Mixed (delegates to underlying tools; symbolic + audio)",
     "dataset": "N/A (no training; integrates pre-existing models/tools)",
+    "datasetTags": [
+      "No training corpus"
+    ],
     "evaluation": "Qualitative demonstration (system/framework paper; no benchmark or listening test)",
     "metrics": "N/A",
     "musicLength": "N/A",
@@ -1169,7 +1343,8 @@
     "paperUrl": "https://arxiv.org/abs/2310.11954",
     "inDepth": false,
     "notes": "",
-    "citation": "Yu, D., Song, K., Lu, P., He, T., Tan, X., Ye, W., Zhang, S., & Bian, J. (2023). MusicAgent: An AI Agent for Music Understanding and Generation with LLMs. EMNLP 2023 System Demos. https://doi.org/10.18653/v1/2023.emnlp-demo.21"
+    "citation": "Yu, D., Song, K., Lu, P., He, T., Tan, X., Ye, W., Zhang, S., & Bian, J. (2023). MusicAgent: An AI Agent for Music Understanding and Generation with LLMs. EMNLP 2023 System Demos. https://doi.org/10.18653/v1/2023.emnlp-demo.21",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "363",
@@ -1178,7 +1353,7 @@
     "year": 2023,
     "source": "arXiv",
     "task": "Multi-modal Music Understanding & Generation (text/image/video-to-music; music QA/captioning; editing)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "M2UGen: LLaMA-2 LLM bridging multimodal encoders (MERT/ViT/ViViT) with AudioLDM2 & MusicGen decoders",
     "architectureFamily": "Transformer / LLM",
@@ -1189,6 +1364,9 @@
     ],
     "dataRepresentation": "Audio (music) + text/image/video inputs",
     "dataset": "Self-created via MU-LLaMA: MUCaps, MUEdit (55.69 h), MUImage, MUVideo datasets",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (music-generation listening study)",
     "metrics": "FAD (VGGish); KL; CLAP score; ImageBind Rank; LSD; captioning BLEU/METEOR/ROUGE-L; subjective ratings",
     "musicLength": "10-s clips",
@@ -1200,7 +1378,8 @@
     "paperUrl": "https://arxiv.org/abs/2311.11255",
     "inDepth": false,
     "notes": "",
-    "citation": "Hussain, A. S., Liu, S., Sun, C., & Shan, Y. (2023). M2UGen: Multi-Modal Music Understanding and Generation. arXiv. https://doi.org/10.48550/arXiv.2311.11255"
+    "citation": "Hussain, A. S., Liu, S., Sun, C., & Shan, Y. (2023). M2UGen: Multi-Modal Music Understanding and Generation. arXiv. https://doi.org/10.48550/arXiv.2311.11255",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "374",
@@ -1209,7 +1388,7 @@
     "year": 2023,
     "source": "Machine Learning (Springer)",
     "task": "Comparative Evaluation of music generation algorithms (piano improvisation)",
-    "taskCategory": "Evaluation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Study comparing deep (Music Transformer, Music VAE) vs non-deep (MAIA Markov) generation via listening study + Bayesian testing",
     "architectureFamily": "VAE",
@@ -1219,6 +1398,9 @@
     ],
     "dataRepresentation": "Symbolic (MIDI piano improvisations)",
     "dataset": "Corpus of piano improvisations (training data for the compared systems)",
+    "datasetTags": [
+      "Other / unnamed"
+    ],
     "evaluation": "Subjective listening study (50 participants, high musical knowledge; unlabelled samples) + objective metrics",
     "metrics": "Human ratings across multiple dimensions; non-parametric Bayesian hypothesis testing (Wilcoxon signed-rank, Spearman rho); computational features",
     "musicLength": "Short improvisation excerpts",
@@ -1230,7 +1412,8 @@
     "paperUrl": "https://link.springer.com/article/10.1007/s10994-023-06309-w",
     "inDepth": false,
     "notes": "",
-    "citation": "Yin, Z., Reuben, F., Stepney, S., & Collins, T. (2023). Deep Learning's Shallow Gains: A Comparative Evaluation for Automatic Music Generation. Machine Learning (Springer). https://doi.org/10.1007/s10994-023-06309-w"
+    "citation": "Yin, Z., Reuben, F., Stepney, S., & Collins, T. (2023). Deep Learning's Shallow Gains: A Comparative Evaluation for Automatic Music Generation. Machine Learning (Springer). https://doi.org/10.1007/s10994-023-06309-w",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "377",
@@ -1239,7 +1422,7 @@
     "year": 2023,
     "source": "PLoS ONE",
     "task": "Symbolic Music Generation (melody) + objective music evaluation method",
-    "taskCategory": "Evaluation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "MT-GPT-2: GPT-2 (8 layers) fine-tuned via transfer learning on text-encoded melodies; MEM evaluation model (statistics + music theory + signal processing)",
     "architectureFamily": "Transformer / LLM",
@@ -1250,6 +1433,9 @@
     ],
     "dataRepresentation": "Symbolic (melody encoded as text: pitch+rhythm tokens; C-major transposed)",
     "dataset": "POP909 (909 Chinese pop songs; melody tracks via music21)",
+    "datasetTags": [
+      "POP909"
+    ],
     "evaluation": "Objective only (proposed MEM: mathematical-statistics tests + music-theory indicators; comparison vs LSTM, Leak-GAN, Music SketchNet)",
     "metrics": "MEM indicators (statistical tests, spectral/DFT analysis, music-theory rules); training loss/accuracy",
     "musicLength": "N/A",
@@ -1261,7 +1447,8 @@
     "paperUrl": "https://doi.org/10.1371/journal.pone.0283103",
     "inDepth": false,
     "notes": "",
-    "citation": "Guo, Y., Liu, Y., Zhou, T., Xu, L., & Zhang, Q. (2023). An Automatic Music Generation and Evaluation Method Based on Transfer Learning. PLoS ONE. https://doi.org/10.1371/journal.pone.0283103"
+    "citation": "Guo, Y., Liu, Y., Zhou, T., Xu, L., & Zhang, Q. (2023). An Automatic Music Generation and Evaluation Method Based on Transfer Learning. PLoS ONE. https://doi.org/10.1371/journal.pone.0283103",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "378",
@@ -1270,7 +1457,7 @@
     "year": 2023,
     "source": "NAACL 2024",
     "task": "Text-to-Music Generation (audio; controllable via chords/beats/tempo/key)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Latent diffusion (Tango-based) with MuNet music-domain-knowledge-informed UNet guidance",
     "architectureFamily": "Diffusion",
@@ -1280,6 +1467,10 @@
     ],
     "dataRepresentation": "Audio (latent diffusion over audio representations; 10-s clips)",
     "dataset": "MusicBench (~53K clips; 11x augmented from MusicCaps/AudioSet)",
+    "datasetTags": [
+      "MusicCaps",
+      "AudioSet"
+    ],
     "evaluation": "Objective + subjective (general listening test, 48 participants + expert controllability study, 4 experts; 7-pt Likert)",
     "metrics": "FD, FAD, KL; controllability: Tempo Bin (TB/TBT), Chord Match (PCM/EKM), Beat Match; subjective AQ, REL, OMQ, RC, HC, MCM, MTM",
     "musicLength": "10-s clips",
@@ -1291,7 +1482,8 @@
     "paperUrl": "https://arxiv.org/abs/2311.08355",
     "inDepth": true,
     "notes": "",
-    "citation": "Melechovsky, J., Guo, Z., Ghosal, D., Majumder, N., Herremans, D., & Poria, S. (2023). Mustango: Toward Controllable Text-to-Music Generation. NAACL 2024. https://doi.org/10.18653/v1/2024.naacl-long.459"
+    "citation": "Melechovsky, J., Guo, Z., Ghosal, D., Majumder, N., Herremans, D., & Poria, S. (2023). Mustango: Toward Controllable Text-to-Music Generation. NAACL 2024. https://doi.org/10.18653/v1/2024.naacl-long.459",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "381",
@@ -1300,7 +1492,7 @@
     "year": 2023,
     "source": "ISMIR 2024",
     "task": "Content-based Controllable Music Generation (chord + drum/rhythm control on top of text-to-music LLM)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Coco-Mulla: parameter-efficient fine-tuning (LoRA-style) of MusicGen with symbolic chord + drum-track content conditions",
     "architectureFamily": "Other / Hybrid",
@@ -1310,6 +1502,10 @@
     ],
     "dataRepresentation": "Audio (MusicGen/EnCodec tokens) + symbolic chord & drum conditions",
     "dataset": "299 unannotated instrumental songs (150 MUSDB18 + RWC-POP MIDI annotations); eval on RWC-POP-100",
+    "datasetTags": [
+      "MUSDB18",
+      "RWC-POP"
+    ],
     "evaluation": "Objective only (chord/rhythm adherence + audio quality)",
     "metrics": "Chord accuracy (weighted recall); CLAP score; FAD (VGGish)",
     "musicLength": "N/A (MusicGen-based clips)",
@@ -1321,7 +1517,8 @@
     "paperUrl": "https://arxiv.org/abs/2310.17162",
     "inDepth": false,
     "notes": "",
-    "citation": "Lin, L., Xia, G., Jiang, J., & Zhang, Y. (2023). Content-based Controls for Music Large Language Modeling. ISMIR 2024. https://doi.org/10.5281/zenodo.14877447"
+    "citation": "Lin, L., Xia, G., Jiang, J., & Zhang, Y. (2023). Content-based Controls for Music Large Language Modeling. ISMIR 2024. https://doi.org/10.5281/zenodo.14877447",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "21",
@@ -1340,6 +1537,9 @@
     ],
     "dataRepresentation": "Symbolic (image-like piano-roll representation)",
     "dataset": "POP909 (~1K MIDI; 8-bar segments -> 64K samples)",
+    "datasetTags": [
+      "POP909"
+    ],
     "evaluation": "Objective + subjective (evaluations on 5 tasks)",
     "metrics": "Averaging Overlapped Area (OA); L2 distance (control adherence); subjective creativity, naturalness, musicality, fitness",
     "musicLength": "8-bar segments",
@@ -1351,7 +1551,8 @@
     "paperUrl": "http://arxiv.org/abs/2307.10304",
     "inDepth": false,
     "notes": "",
-    "citation": "Min, L., Jiang, J., Xia, G., & Zhao, J. (2023). Polyffusion: A Diffusion Model for Polyphonic Score Generation with Internal and External Controls. ISMIR 2023. https://doi.org/10.5281/zenodo.10265264"
+    "citation": "Min, L., Jiang, J., Xia, G., & Zhao, J. (2023). Polyffusion: A Diffusion Model for Polyphonic Score Generation with Internal and External Controls. ISMIR 2023. https://doi.org/10.5281/zenodo.10265264",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "57",
@@ -1370,6 +1571,9 @@
     ],
     "dataRepresentation": "Symbolic (2D GETScore token matrix; pitch+duration tokens per track)",
     "dataset": "Custom: 1,569,469 MIDI crawled from MuseScore -> 137,812 GETScores (~2,800 h) after cleansing",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (blind test, 10 evaluators with basic music knowledge; kappa>0.6)",
     "metrics": "Chord Accuracy; KL-divergence of Pitch/Duration/IOI distributions; Human Rating (1-5); inference time",
     "musicLength": "Max 512 GETScore columns (~32 bars typical clip length)",
@@ -1381,7 +1585,8 @@
     "paperUrl": "http://arxiv.org/abs/2305.10841",
     "inDepth": true,
     "notes": "",
-    "citation": "Lv, A., Tan, X., Lu, P., Ye, W., Zhang, S., Bian, J., & Yan, R. (2023). GETMusic: Generating Any Music Tracks with a Unified Representation and Diffusion Framework. NeurIPS 2023. https://doi.org/10.48550/arXiv.2305.10841"
+    "citation": "Lv, A., Tan, X., Lu, P., Ye, W., Zhang, S., Bian, J., & Yan, R. (2023). GETMusic: Generating Any Music Tracks with a Unified Representation and Diffusion Framework. NeurIPS 2023. https://doi.org/10.48550/arXiv.2305.10841",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "58",
@@ -1390,7 +1595,7 @@
     "year": 2023,
     "source": "arXiv 2023",
     "task": "Text-to-Music Generation (audio, 30-s clips)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Cascaded diffusion models (1D efficient U-Net; waveform and spectrogram variants + super-resolution cascaders); text conditioning via MuLan/LaMDA pseudo-labels",
     "architectureFamily": "Diffusion",
@@ -1400,6 +1605,12 @@
     ],
     "dataRepresentation": "Audio (waveform; log-mel spectrogram intermediate; final 24 kHz)",
     "dataset": "Internal: ~340k h music with pseudo-labeled text; MuLaMCap (~400K pairs); eval: MusicCaps, AudioSet-music, MagnaTagATune",
+    "datasetTags": [
+      "MusicCaps",
+      "AudioSet",
+      "MagnaTagATune",
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (pairwise human listening study)",
     "metrics": "FAD (VGG); MuLan similarity score (audio-text, audio-audio); pairwise wins",
     "musicLength": "30-s clips",
@@ -1411,7 +1622,8 @@
     "paperUrl": "http://arxiv.org/abs/2302.03917",
     "inDepth": true,
     "notes": "",
-    "citation": "Huang, Q., Park, D. S., Wang, T., Denk, T. I., Ly, A., Chen, N., Zhang, Z., Zhang, Z., Yu, J., Frank, C., Engel, J., Le, Q. V., Chan, W., Chen, Z., & Han, W. (2023). Noise2Music: Text-conditioned Music Generation with Diffusion Models. arXiv 2023. https://doi.org/10.48550/arXiv.2302.03917"
+    "citation": "Huang, Q., Park, D. S., Wang, T., Denk, T. I., Ly, A., Chen, N., Zhang, Z., Zhang, Z., Yu, J., Frank, C., Engel, J., Le, Q. V., Chan, W., Chen, Z., & Han, W. (2023). Noise2Music: Text-conditioned Music Generation with Diffusion Models. arXiv 2023. https://doi.org/10.48550/arXiv.2302.03917",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "61",
@@ -1420,7 +1632,7 @@
     "year": 2023,
     "source": "ISMIR 2023",
     "task": "Symbolic Music Generation (unconditional + arbitrary infilling)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "SCHmUBERT: discrete diffusion (D3PM, absorbing-state) over quantized music tokens; non-autoregressive infilling",
     "architectureFamily": "Diffusion",
@@ -1430,6 +1642,9 @@
     ],
     "dataRepresentation": "Symbolic (time-quantized tokens, 16 steps/bar; monophonic melodies + trios)",
     "dataset": "Lakh MIDI (LMD): 44K monophonic melodies & trios (16-64 bars) via MusicVAE pipeline",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "Objective + critical metric analysis (framework-level caution; adversarial metric confounding experiment)",
     "metrics": "Framewise Overlapping Area (Consistency, Variance for pitch/duration); Frechet Distance",
     "musicLength": "16-64 bars",
@@ -1441,7 +1656,8 @@
     "paperUrl": "http://arxiv.org/abs/2305.09489",
     "inDepth": false,
     "notes": "",
-    "citation": "Plasser, M., Peter, S., & Widmer, G. (2023). Discrete Diffusion Probabilistic Models for Symbolic Music Generation. ISMIR 2023. https://doi.org/10.48550/arXiv.2305.09489"
+    "citation": "Plasser, M., Peter, S., & Widmer, G. (2023). Discrete Diffusion Probabilistic Models for Symbolic Music Generation. ISMIR 2023. https://doi.org/10.48550/arXiv.2305.09489",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "76",
@@ -1450,7 +1666,7 @@
     "year": 2023,
     "source": "arXiv 2023",
     "task": "Text-to-Music Generation (audio, 24 kHz, long-form)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Hierarchical sequence-to-sequence LM (AudioLM-based): MuLan text/audio conditioning + w2v-BERT semantic tokens + SoundStream acoustic tokens",
     "architectureFamily": "Transformer / LLM",
@@ -1460,6 +1676,11 @@
     ],
     "dataRepresentation": "Audio (waveform tokenized to semantic + acoustic tokens; 24 kHz)",
     "dataset": "Internal: 5M audio clips / 280k h; SoundStream & w2v-BERT trained on FMA; MusicCaps (5.5k pairs, released) for evaluation",
+    "datasetTags": [
+      "MusicCaps",
+      "FMA",
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (pairwise preference study with human raters; Wilcoxon + Bonferroni)",
     "metrics": "FAD (Trill, VGGish); KLD; MuLan Cycle Consistency (MCC); pairwise wins",
     "musicLength": "30-s clips (evaluation); coherent generation up to 5 min",
@@ -1471,7 +1692,8 @@
     "paperUrl": "http://arxiv.org/abs/2301.11325",
     "inDepth": true,
     "notes": "",
-    "citation": "Agostinelli, A., Denk, T. I., Borsos, Z., Engel, J., Verzetti, M., Caillon, A., Huang, Q., Jansen, A., Roberts, A., Tagliasacchi, M., Sharifi, M., Zeghidour, N., & Frank, C. (2023). MusicLM: Generating Music From Text. arXiv 2023. https://doi.org/10.48550/arXiv.2301.11325"
+    "citation": "Agostinelli, A., Denk, T. I., Borsos, Z., Engel, J., Verzetti, M., Caillon, A., Huang, Q., Jansen, A., Roberts, A., Tagliasacchi, M., Sharifi, M., Zeghidour, N., & Frank, C. (2023). MusicLM: Generating Music From Text. arXiv 2023. https://doi.org/10.48550/arXiv.2301.11325",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "78",
@@ -1480,7 +1702,7 @@
     "year": 2023,
     "source": "ISMIR 2023",
     "task": "Audio Music Generation (masked acoustic token modeling; vamping/variation/inpainting via prompting)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "VampNet: masked generative Transformer (MaskGIT-style) over Descript Audio Codec (DAC) tokens with parallel iterative decoding",
     "architectureFamily": "Transformer / LLM",
@@ -1490,6 +1712,9 @@
     ],
     "dataRepresentation": "Audio (44.1 kHz waveform to DAC tokens)",
     "dataset": "Custom: 797k popular-music tracks (2k val, 2k test; artist-disjoint)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective only (no listening study)",
     "metrics": "Mel reconstruction error; FAD",
     "musicLength": "~10-s segments (token-prompted)",
@@ -1501,7 +1726,8 @@
     "paperUrl": "http://arxiv.org/abs/2307.04686",
     "inDepth": false,
     "notes": "",
-    "citation": "Garcia, H. F., Seetharaman, P., Kumar, R., & Pardo, B. (2023). VampNet: Music Generation via Masked Acoustic Token Modeling. ISMIR 2023. https://doi.org/10.5281/zenodo.10265298"
+    "citation": "Garcia, H. F., Seetharaman, P., Kumar, R., & Pardo, B. (2023). VampNet: Music Generation via Masked Acoustic Token Modeling. ISMIR 2023. https://doi.org/10.5281/zenodo.10265298",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "171",
@@ -1510,7 +1736,7 @@
     "year": 2023,
     "source": "IEEE Transactions on Multimedia",
     "task": "Symbolic Music Generation (theme-conditioned pop piano)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Theme Transformer: seq2seq Transformer with theme-aligned positional encoding + contrastive-learning-based theme retrieval",
     "architectureFamily": "Transformer / LLM",
@@ -1520,6 +1746,9 @@
     ],
     "dataRepresentation": "Symbolic (MIDI token sequences, REMI-like; melody+accompaniment)",
     "dataset": "POP909 (train split; 29 test songs; themes via contrastive clustering)",
+    "datasetTags": [
+      "POP909"
+    ],
     "evaluation": "Objective + subjective (online listening test, 50 subjects: 27M/23F, familiar & unfamiliar with Mandarin pop)",
     "metrics": "Pitch-class consistency (OA); melody inconsistency (embedding distance); grooving consistency; theme inconsistency; theme coverage/gap; subjective MOS",
     "musicLength": "64-bar generated pieces",
@@ -1531,7 +1760,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/document/9740506/",
     "inDepth": true,
     "notes": "",
-    "citation": "Shih, Y., Wu, S., Zalkow, F., Müller, M., & Yang, Y. (2023). Theme Transformer: Symbolic Music Generation With Theme-Conditioned Transformer. IEEE Transactions on Multimedia. https://doi.org/10.1109/TMM.2022.3161851"
+    "citation": "Shih, Y., Wu, S., Zalkow, F., Müller, M., & Yang, Y. (2023). Theme Transformer: Symbolic Music Generation With Theme-Conditioned Transformer. IEEE Transactions on Multimedia. https://doi.org/10.1109/TMM.2022.3161851",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "181",
@@ -1540,7 +1770,7 @@
     "year": 2023,
     "source": "IEEE Transactions on Neural Networks and Learning Systems",
     "task": "Symbolic Music Generation (multi-track polyphonic, long-sequence)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Adversarial Transformer: self-attention generator trained with GAN adversarial objective + teacher forcing",
     "architectureFamily": "GAN",
@@ -1550,6 +1780,9 @@
     ],
     "dataRepresentation": "Symbolic (MIDI event token sequences)",
     "dataset": "Custom: 907 classical guitar MIDI files (single/two-track; 725 train / 90 val / 92 test)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (listening test, participants rate six aspects)",
     "metrics": "Objective: unique note pitches/durations, and other statistical metrics; subjective 6-aspect ratings",
     "musicLength": "Long sequences (hierarchical bar structure)",
@@ -1561,7 +1794,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/document/9132664/",
     "inDepth": false,
     "notes": "",
-    "citation": "Zhang, N. (2023). Learning Adversarial Transformer for Symbolic Music Generation. IEEE Transactions on Neural Networks and Learning Systems. https://doi.org/10.1109/TNNLS.2022.3157242"
+    "citation": "Zhang, N. (2023). Learning Adversarial Transformer for Symbolic Music Generation. IEEE Transactions on Neural Networks and Learning Systems. https://doi.org/10.1109/TNNLS.2022.3157242",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "218",
@@ -1580,6 +1814,9 @@
     ],
     "dataRepresentation": "Symbolic (piano-roll / tatum grid)",
     "dataset": "Custom: 184 band-piano score pairs (85 elementary + 99 advanced; 138 train / 46 test)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective (note-level loss / F-measure; performance-error-frequency for difficulty) + analysis",
     "metrics": "F-measure (note reconstruction); performance-difficulty (error frequency); note statistics",
     "musicLength": "Measure-level segments",
@@ -1591,7 +1828,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/document/10095462/",
     "inDepth": false,
     "notes": "",
-    "citation": "Terao, M., Nakamura, E., & Yoshii, K. (2023). Neural Band-to-Piano Score Arrangement with Stepless Difficulty Control. ICASSP 2023 - 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). https://doi.org/10.1109/ICASSP49357.2023.10095695"
+    "citation": "Terao, M., Nakamura, E., & Yoshii, K. (2023). Neural Band-to-Piano Score Arrangement with Stepless Difficulty Control. ICASSP 2023 - 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). https://doi.org/10.1109/ICASSP49357.2023.10095695",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "224",
@@ -1610,6 +1848,10 @@
     ],
     "dataRepresentation": "Symbolic (novel pianoroll representation; multi-track MIDI)",
     "dataset": "Lakh Pianoroll Dataset (LPD) + FreeMidi + GPMD (global popular music, self-collected)",
+    "datasetTags": [
+      "Lakh MIDI",
+      "Custom / self-built"
+    ],
     "evaluation": "Objective (statistical metrics) + comparison vs MMM/MuseGAN",
     "metrics": "Pitch Classes (PC); Pitch Shift (PS); Inter-Onset-Interval (IOI); and related distributional metrics",
     "musicLength": "Long sequences (sliding-window, drums/guitar/bass/strings)",
@@ -1621,7 +1863,8 @@
     "paperUrl": "https://link.springer.com/10.1007/s10489-023-04664-8",
     "inDepth": false,
     "notes": "",
-    "citation": "Ding, F., & Cui, Y. (2023). MuseFlow: music accompaniment generation based on flow. Applied Intelligence. https://doi.org/10.1007/s10489-023-04664-8"
+    "citation": "Ding, F., & Cui, Y. (2023). MuseFlow: music accompaniment generation based on flow. Applied Intelligence. https://doi.org/10.1007/s10489-023-04664-8",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "233",
@@ -1640,6 +1883,10 @@
     ],
     "dataRepresentation": "Audio (mel-spectrograms; source-separated bass/drum)",
     "dataset": "Free Music Archive (FMA) + MUSDB18 (source-separated)",
+    "datasetTags": [
+      "MUSDB18",
+      "FMA"
+    ],
     "evaluation": "Subjective (listener pool) + proposed objective metric",
     "metrics": "Proposed spectrogram-based metric (correlated to human/expert judgment); subjective listener response",
     "musicLength": "Short samples (spectrogram segments)",
@@ -1651,7 +1898,8 @@
     "paperUrl": "https://link.springer.com/10.1007/s44163-023-00047-7",
     "inDepth": false,
     "notes": "",
-    "citation": "Barnabò, G., Trappolini, G., Lastilla, L., Campagnano, C., Fan, A., Petroni, F., & Silvestri, F. (2023). CycleDRUMS: automatic drum arrangement for bass lines using CycleGAN. Discover Artificial Intelligence. https://doi.org/10.1007/s44163-024-00107-6"
+    "citation": "Barnabò, G., Trappolini, G., Lastilla, L., Campagnano, C., Fan, A., Petroni, F., & Silvestri, F. (2023). CycleDRUMS: automatic drum arrangement for bass lines using CycleGAN. Discover Artificial Intelligence. https://doi.org/10.1007/s44163-024-00107-6",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "260",
@@ -1660,7 +1908,7 @@
     "year": 2023,
     "source": "2023 2nd International Conference on Artificial Intelligence and Intelligent Information Processing (AIIIP)",
     "task": "Text-to-Music Generation (hybrid symbolic + audio pipeline)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Audio",
     "method": "Cascaded pipeline: MuseCoco (text-to-symbolic) -> MIDI-to-audio -> MusicGen conditioned on text + transformed audio",
     "architectureFamily": "Other / Hybrid",
@@ -1670,6 +1918,9 @@
     ],
     "dataRepresentation": "Symbolic (MuseCoco MIDI) + Audio (MusicGen)",
     "dataset": "N/A (uses pretrained MuseCoco & MusicGen; eval on 2K generated pieces)",
+    "datasetTags": [
+      "No training corpus"
+    ],
     "evaluation": "Objective (CLAP-based text-music alignment) + qualitative examples",
     "metrics": "CLAP score (mean/std) for text-music coherence",
     "musicLength": "N/A",
@@ -1681,7 +1932,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/abstract/document/10417667/?casa_token=yjFyZzB7dtcAAAAA:Ir3gsD7-v4CfB_gId4i2xkE-NveX6G1Yfq47gwKkcejUwngJHG4d9dS-cJdHnEPuTc7KA4euWiD-fg",
     "inDepth": false,
     "notes": "",
-    "citation": "Yan, X., Ma, C., & Hao, Y. (2023). Harmonizing ai-generated music: Integrating symbolic and audio models for text-to-music generation. 2023 2nd International Conference on Artificial Intelligence and Intelligent Information Processing (AIIIP). https://doi.org/10.1109/AIIIP61647.2023.00030"
+    "citation": "Yan, X., Ma, C., & Hao, Y. (2023). Harmonizing ai-generated music: Integrating symbolic and audio models for text-to-music generation. 2023 2nd International Conference on Artificial Intelligence and Intelligent Information Processing (AIIIP). https://doi.org/10.1109/AIIIP61647.2023.00030",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "315",
@@ -1690,16 +1942,19 @@
     "year": 2022,
     "source": "ICLR 2023",
     "task": "Symbolic Music Generation (controllable multi-track; description-to-sequence)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Transformer encoder-decoder trained on description-to-sequence objective; hand-crafted expert description + learned VQ-VAE description (FIGARO)",
-    "architectureFamily": "VAE",
-    "paradigm": "VAE",
+    "architectureFamily": "Transformer / LLM",
+    "paradigm": "Transformer",
     "paradigmTags": [
-      "VAE"
+      "Transformer"
     ],
     "dataRepresentation": "Symbolic (REMI+ multi-track token sequences + bar-level description codes)",
     "dataset": "Lakh MIDI (80/10/10 split)",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "Objective + subjective (listening study: 691 participants, 7,569 pairwise comparisons)",
     "metrics": "PPL; controllability/similarity: time-signature & chord accuracy, note-density NRMSE, MOA of pitch/velocity/duration; pairwise preference",
     "musicLength": "32 bars per generated sample",
@@ -1711,7 +1966,8 @@
     "paperUrl": "https://arxiv.org/abs/2201.10936",
     "inDepth": true,
     "notes": "Coded as 2022 from the first public posting (arXiv:2201.10936); ICLR 2023 retained for bibliographic traceability.",
-    "citation": "von, R. D., Biggio, L., Kilcher, Y., & Hofmann, T. (2022). FIGARO: Generating Symbolic Music with Fine-Grained Artistic Control. ICLR 2023. https://doi.org/10.48550/arXiv.2201.10936"
+    "citation": "von, R. D., Biggio, L., Kilcher, Y., & Hofmann, T. (2022). FIGARO: Generating Symbolic Music with Fine-Grained Artistic Control. ICLR 2023. https://doi.org/10.48550/arXiv.2201.10936",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "316",
@@ -1720,7 +1976,7 @@
     "year": 2024,
     "source": "ACL Findings 2024",
     "task": "Text-to-Music Generation + Music Understanding (LLM over symbolic ABC notation)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "LLaMA2-7B with continual pre-training + LoRA fine-tuning on music-language corpus (MusicPile, 4B tokens)",
     "architectureFamily": "Transformer / LLM",
@@ -1731,6 +1987,9 @@
     ],
     "dataRepresentation": "Symbolic (ABC notation, text-compatible)",
     "dataset": "MusicPile (4B-token music-language corpus, incl. 1.1M music-score samples); MusicTheoryBench (released benchmark)",
+    "datasetTags": [
+      "MusicPile"
+    ],
     "evaluation": "Objective benchmarks + subjective (pairwise listening study, N=80; Wilcoxon signed-rank)",
     "metrics": "MusicTheoryBench accuracy (knowledge/reasoning); MMLU; phrase-level repetition; parsing success rate; edit-distance similarity; listener preference %",
     "musicLength": "Full-length structured pieces (ABC)",
@@ -1742,7 +2001,8 @@
     "paperUrl": "https://arxiv.org/abs/2402.16153",
     "inDepth": true,
     "notes": "",
-    "citation": "Yuan, R., Lin, H., Wang, Y., Tian, Z., Wu, S., Shen, T., Zhang, G., Wu, Y., Liu, C., Zhou, Z., Xue, L., Ma, Z., Liu, Q., Zheng, T., Li, Y., Ma, Y., Liang, Y., Chi, X., Liu, R., Wang, Z., Lin, C., Liu, Q., Jiang, T., Huang, W., Chen, W., Fu, J., Benetos, E., Xia, G., Dannenberg, R., Xue, W., Kang, S., & Guo, Y. (2024). ChatMusician: Understanding and Generating Music Intrinsically with LLM. ACL Findings 2024. https://doi.org/10.18653/v1/2024.findings-acl.373"
+    "citation": "Yuan, R., Lin, H., Wang, Y., Tian, Z., Wu, S., Shen, T., Zhang, G., Wu, Y., Liu, C., Zhou, Z., Xue, L., Ma, Z., Liu, Q., Zheng, T., Li, Y., Ma, Y., Liang, Y., Chi, X., Liu, R., Wang, Z., Lin, C., Liu, Q., Jiang, T., Huang, W., Chen, W., Fu, J., Benetos, E., Xia, G., Dannenberg, R., Xue, W., Kang, S., & Guo, Y. (2024). ChatMusician: Understanding and Generating Music Intrinsically with LLM. ACL Findings 2024. https://doi.org/10.18653/v1/2024.findings-acl.373",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "322",
@@ -1761,6 +2021,9 @@
     ],
     "dataRepresentation": "Symbolic (MIDI event sequences with arrival-time encoding)",
     "dataset": "Lakh MIDI (178,561 files)",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "Objective + subjective (human evaluation of accompaniments vs human compositions)",
     "metrics": "Per-event perplexity (time/duration/note components); human preference ratings",
     "musicLength": "N/A (long event sequences)",
@@ -1772,7 +2035,8 @@
     "paperUrl": "https://arxiv.org/abs/2306.08620",
     "inDepth": false,
     "notes": "",
-    "citation": "Thickstun, J., Hall, D., Donahue, C., & Liang, P. (2024). Anticipatory Music Transformer. arXiv. https://doi.org/10.48550/arXiv.2306.08620"
+    "citation": "Thickstun, J., Hall, D., Donahue, C., & Liang, P. (2024). Anticipatory Music Transformer. arXiv. https://doi.org/10.48550/arXiv.2306.08620",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "327",
@@ -1791,6 +2055,9 @@
     ],
     "dataRepresentation": "Symbolic (hierarchical 4-level language; piano-roll-like image representations per level)",
     "dataset": "POP909",
+    "datasetTags": [
+      "POP909"
+    ],
     "evaluation": "Objective + subjective (double-blind online survey, 57 participants; 8-measure and 32-measure parts)",
     "metrics": "Inter-Phrase Latent Similarity (ILS: pitch/rhythm/chord/texture); Degree of Copying (DoC); subjective Creativity, Naturalness, Musicality, well-structuredness",
     "musicLength": "Full-song (up to 256 measures; subjective eval on 32 measures)",
@@ -1802,7 +2069,8 @@
     "paperUrl": "https://arxiv.org/abs/2405.09901",
     "inDepth": true,
     "notes": "",
-    "citation": "Wang, Z., Min, L., & Xia, G. (2024). Whole-Song Hierarchical Generation of Symbolic Music Using Cascaded Diffusion Models. ICLR 2024. https://doi.org/10.48550/arXiv.2405.09901"
+    "citation": "Wang, Z., Min, L., & Xia, G. (2024). Whole-Song Hierarchical Generation of Symbolic Music Using Cascaded Diffusion Models. ICLR 2024. https://doi.org/10.48550/arXiv.2405.09901",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "329",
@@ -1811,7 +2079,7 @@
     "year": 2023,
     "source": "NeurIPS 2023",
     "task": "Text-to-Music Generation (audio; + melody conditioning)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Single-stage Transformer LM (300M/1.5B/3.3B) over multi-stream EnCodec tokens with codebook interleaving patterns (MusicGen)",
     "architectureFamily": "Transformer / LLM",
@@ -1821,6 +2089,11 @@
     ],
     "dataRepresentation": "Audio (32 kHz waveform to 4-codebook EnCodec tokens)",
     "dataset": "20K h licensed music (10K internal tracks + ShutterStock + Pond5); MusicCaps for evaluation",
+    "datasetTags": [
+      "MusicCaps",
+      "Custom / self-built",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + subjective (human raters: overall quality OVL and relevance REL, following Kreuk et al. setup)",
     "metrics": "FAD (VGGish); KL divergence (PaSST); CLAP score; subjective OVL, REL",
     "musicLength": "30-s crops/generations",
@@ -1832,7 +2105,8 @@
     "paperUrl": "https://arxiv.org/abs/2306.05284",
     "inDepth": true,
     "notes": "",
-    "citation": "Copet, J., Kreuk, F., Gat, I., Remez, T., Kant, D., Synnaeve, G., Adi, Y., & Défossez, A. (2023). Simple and Controllable Music Generation (MusicGen). NeurIPS 2023. https://doi.org/10.48550/arXiv.2306.05284"
+    "citation": "Copet, J., Kreuk, F., Gat, I., Remez, T., Kant, D., Synnaeve, G., Adi, Y., & Défossez, A. (2023). Simple and Controllable Music Generation (MusicGen). NeurIPS 2023. https://doi.org/10.48550/arXiv.2306.05284",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "333",
@@ -1841,7 +2115,7 @@
     "year": 2024,
     "source": "IEEE/ACM TASLP 2024",
     "task": "Text-to-Audio Generation (holistic: text-to-audio/music/speech)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "AudioLDM 2: GPT-2 translates conditions into AudioMAE 'language of audio' (LOA) features, then latent diffusion synthesizes audio",
     "architectureFamily": "Diffusion",
@@ -1852,6 +2126,11 @@
     ],
     "dataRepresentation": "Audio (AudioMAE self-supervised features + mel-spectrogram VAE latents)",
     "dataset": "AudioSet + AudioCaps + MusicCaps (+ speech corpora); music eval on MusicCaps",
+    "datasetTags": [
+      "MusicCaps",
+      "AudioSet",
+      "AudioCaps"
+    ],
     "evaluation": "Objective + subjective (human OVL/REL ratings)",
     "metrics": "FD; FAD; KL; IS; CLAP; subjective OVL, REL",
     "musicLength": "~10-s clips",
@@ -1863,7 +2142,8 @@
     "paperUrl": "https://arxiv.org/abs/2308.05734",
     "inDepth": false,
     "notes": "",
-    "citation": "Liu, H., Yuan, Y., Liu, X., Mei, X., Kong, Q., Tian, Q., Wang, Y., Wang, W., Wang, Y., & Plumbley, M. D. (2024). AudioLDM 2: Learning Holistic Audio Generation with Self-Supervised Pretraining. IEEE/ACM TASLP 2024. https://doi.org/10.1109/TASLP.2024.3399607"
+    "citation": "Liu, H., Yuan, Y., Liu, X., Mei, X., Kong, Q., Tian, Q., Wang, Y., Wang, W., Wang, Y., & Plumbley, M. D. (2024). AudioLDM 2: Learning Holistic Audio Generation with Self-Supervised Pretraining. IEEE/ACM TASLP 2024. https://doi.org/10.1109/TASLP.2024.3399607",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "334",
@@ -1872,7 +2152,7 @@
     "year": 2024,
     "source": "ICML 2024",
     "task": "Text-to-Music/Audio Generation (long-form, variable-length, 44.1 kHz stereo; timing-conditioned)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Stable Audio: latent diffusion (907M U-Net) over VAE latents with CLAP text conditioning + timing embeddings",
     "architectureFamily": "Diffusion",
@@ -1882,6 +2162,9 @@
     ],
     "dataRepresentation": "Audio (44.1 kHz stereo waveform to VAE latents)",
     "dataset": "AudioSparx: 806,284 audios / 19,500 h (music, SFX, instrument stems) with text metadata",
+    "datasetTags": [
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + qualitative assessment (prompts from MusicCaps/AudioCaps)",
     "metrics": "FD-openl3 (long-form stereo); KL-passt (up to 32 kHz); CLAP score; qualitative: audio quality, text alignment, musicality, stereo correctness, musical structure",
     "musicLength": "Up to 95 s (variable-length; 8-s inference on A100 40GB)",
@@ -1893,7 +2176,8 @@
     "paperUrl": "https://arxiv.org/abs/2402.04825",
     "inDepth": true,
     "notes": "",
-    "citation": "Evans, Z., Carr, C. J., Taylor, J., Hawley, S. H., & Pons, J. (2024). Fast Timing-Conditioned Latent Audio Diffusion. ICML 2024. https://doi.org/10.48550/arXiv.2402.04825"
+    "citation": "Evans, Z., Carr, C. J., Taylor, J., Hawley, S. H., & Pons, J. (2024). Fast Timing-Conditioned Latent Audio Diffusion. ICML 2024. https://doi.org/10.48550/arXiv.2402.04825",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "335",
@@ -1902,7 +2186,7 @@
     "year": 2024,
     "source": "ICASSP 2025",
     "task": "Text-to-Audio/Music Generation (open-weights, variable-length up to 47s, 44.1 kHz stereo)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Stable Audio Open: latent diffusion (DiT 1057M) over autoencoder latents with T5 text conditioning",
     "architectureFamily": "Diffusion",
@@ -1912,6 +2196,10 @@
     ],
     "dataRepresentation": "Audio (44.1 kHz stereo waveform to VAE latents)",
     "dataset": "Creative Commons: Freesound + FMA (266,324 CC0 + 194,840 CC-BY + 11,454 CC Sampling+)",
+    "datasetTags": [
+      "FMA",
+      "Freesound"
+    ],
     "evaluation": "Objective only (realism + text adherence)",
     "metrics": "FD-openl3; KL-passt; CLAP score",
     "musicLength": "Up to 47 s",
@@ -1923,7 +2211,8 @@
     "paperUrl": "https://arxiv.org/abs/2407.14358",
     "inDepth": false,
     "notes": "",
-    "citation": "Evans, Z., Parker, J. D., Carr, C. J., Zukowski, Z., Taylor, J., & Pons, J. (2024). Stable Audio Open. ICASSP 2025. https://doi.org/10.48550/arXiv.2407.14358"
+    "citation": "Evans, Z., Parker, J. D., Carr, C. J., Zukowski, Z., Taylor, J., & Pons, J. (2024). Stable Audio Open. ICASSP 2025. https://doi.org/10.48550/arXiv.2407.14358",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "336",
@@ -1932,7 +2221,7 @@
     "year": 2024,
     "source": "ICASSP 2024",
     "task": "Text-to-Music Generation (audio; novelty/plagiarism-aware)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "MusicLDM: latent diffusion (AudioLDM-style) + CLAP + Hifi-GAN vocoder; beat-synchronous audio & latent mixup augmentation",
     "architectureFamily": "Diffusion",
@@ -1942,6 +2231,9 @@
     ],
     "dataRepresentation": "Audio (16 kHz; mel-spectrogram VAE latents)",
     "dataset": "Audiostock (9,000 train + 1,000 test tracks, 455.6 h)",
+    "datasetTags": [
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + subjective (listening test: quality, relevance, musicality)",
     "metrics": "FAD; KL; CLAP score; new CLAP-based novelty/plagiarism metrics; subjective quality/relevance/musicality",
     "musicLength": "10.24-s clips",
@@ -1953,7 +2245,8 @@
     "paperUrl": "https://arxiv.org/abs/2308.01546",
     "inDepth": false,
     "notes": "",
-    "citation": "Chen, K., Wu, Y., Liu, H., Nezhurina, M., Berg-Kirkpatrick, T., & Dubnov, S. (2024). MusicLDM: Enhancing Novelty in Text-to-Music Generation Using Beat-Synchronous Mixup. ICASSP 2024. https://doi.org/10.1109/ICASSP48485.2024.10447265"
+    "citation": "Chen, K., Wu, Y., Liu, H., Nezhurina, M., Berg-Kirkpatrick, T., & Dubnov, S. (2024). MusicLDM: Enhancing Novelty in Text-to-Music Generation Using Beat-Synchronous Mixup. ICASSP 2024. https://doi.org/10.1109/ICASSP48485.2024.10447265",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "337",
@@ -1962,7 +2255,7 @@
     "year": 2024,
     "source": "ICLR 2024",
     "task": "Text-to-Music/Audio Generation (single-stage non-autoregressive)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "MAGNeT: masked generative Transformer over EnCodec token streams (single non-autoregressive stage; hybrid AR+NAR variant)",
     "architectureFamily": "Transformer / LLM",
@@ -1972,6 +2265,11 @@
     ],
     "dataRepresentation": "Audio (EnCodec token streams)",
     "dataset": "~20K h licensed music (10K internal + ShutterStock + Pond5); eval on MusicCaps",
+    "datasetTags": [
+      "MusicCaps",
+      "Custom / self-built",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + subjective (human study, mean + CI95)",
     "metrics": "FAD; KL; CLAP score; human ratings",
     "musicLength": "10-s and 30-s generations",
@@ -1983,7 +2281,8 @@
     "paperUrl": "https://arxiv.org/abs/2401.04577",
     "inDepth": false,
     "notes": "",
-    "citation": "Ziv, A., Gat, I., Le Lan, G., Remez, T., Kreuk, F., Copet, J., Défossez, A., Synnaeve, G., & Adi, Y. (2024). Masked Audio Generation Using a Single Non-Autoregressive Transformer. ICLR 2024. https://doi.org/10.48550/arXiv.2401.04577"
+    "citation": "Ziv, A., Gat, I., Le Lan, G., Remez, T., Kreuk, F., Copet, J., Défossez, A., Synnaeve, G., & Adi, Y. (2024). Masked Audio Generation Using a Single Non-Autoregressive Transformer. ICLR 2024. https://doi.org/10.48550/arXiv.2401.04577",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "338",
@@ -1992,7 +2291,7 @@
     "year": 2024,
     "source": "arXiv (Google DeepMind)",
     "task": "Text-to-Music Generation (audio) aligned to human preferences via RLHF",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "MusicRL: MusicLM (autoregressive audio-token LM) finetuned with RL on reward models for quality, text-adherence, and 300K user pairwise preferences",
     "architectureFamily": "Other / Hybrid",
@@ -2002,6 +2301,9 @@
     ],
     "dataRepresentation": "Audio (discrete audio tokens, MusicLM/SoundStream)",
     "dataset": "MusicLM pretraining data + 300,000 user pairwise-preference pairs (RLHF); MusicCaps for eval",
+    "datasetTags": [
+      "MusicCaps"
+    ],
     "evaluation": "Objective + subjective (human raters; MOS-style + qualitative ablations)",
     "metrics": "MuLan text-adherence score; quality reward; KLD; human MOS/preference",
     "musicLength": "~30-s clips (MusicLM-based)",
@@ -2013,7 +2315,8 @@
     "paperUrl": "https://arxiv.org/abs/2402.04229",
     "inDepth": false,
     "notes": "",
-    "citation": "Cideron, G., Girgin, S., Verzetti, M., Vincent, D., Kastelic, M., Borsos, Z., Mcwilliams, B., Ungureanu, V., Bachem, O., Pietquin, O., Geist, M., Hussenot, L., Zeghidour, N., & Agostinelli, A. (2024). MusicRL: Aligning Music Generation to Human Preferences. arXiv (Google DeepMind). https://doi.org/10.48550/arXiv.2402.04229"
+    "citation": "Cideron, G., Girgin, S., Verzetti, M., Vincent, D., Kastelic, M., Borsos, Z., Mcwilliams, B., Ungureanu, V., Bachem, O., Pietquin, O., Geist, M., Hussenot, L., Zeghidour, N., & Agostinelli, A. (2024). MusicRL: Aligning Music Generation to Human Preferences. arXiv (Google DeepMind). https://doi.org/10.48550/arXiv.2402.04229",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "341",
@@ -2022,7 +2325,7 @@
     "year": 2024,
     "source": "ICLR 2024",
     "task": "Music Source Separation + Generation (simultaneous; total/partial generation, source imputation)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Multi-Source Diffusion Models (MSDM): score-based model of the joint density of sources; Dirac-likelihood inference for separation",
     "architectureFamily": "Diffusion",
@@ -2032,6 +2335,9 @@
     ],
     "dataRepresentation": "Audio (waveform)",
     "dataset": "Slakh2100",
+    "datasetTags": [
+      "Slakh2100"
+    ],
     "evaluation": "Objective + subjective (listening tests) for both generation and separation",
     "metrics": "SI-SDR (separation); sub-FAD / FAD (generation quality); subjective listening",
     "musicLength": "N/A (Slakh stems)",
@@ -2043,7 +2349,8 @@
     "paperUrl": "https://arxiv.org/abs/2302.02257",
     "inDepth": false,
     "notes": "",
-    "citation": "Mariani, G., Tallini, I., Postolache, E., Mancusi, M., Cosmo, L., & Rodolà, E. (2024). Multi-Source Diffusion Models for Simultaneous Music Generation and Separation. ICLR 2024. https://doi.org/10.48550/arXiv.2302.02257"
+    "citation": "Mariani, G., Tallini, I., Postolache, E., Mancusi, M., Cosmo, L., & Rodolà, E. (2024). Multi-Source Diffusion Models for Simultaneous Music Generation and Separation. ICLR 2024. https://doi.org/10.48550/arXiv.2302.02257",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "352",
@@ -2062,6 +2369,11 @@
     ],
     "dataRepresentation": "Audio (32 kHz waveform to EnCodec tokens)",
     "dataset": "Slakh (145 h synthetic stems) + internal 500 h licensed stem dataset",
+    "datasetTags": [
+      "Slakh2100",
+      "Custom / self-built",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + subjective (MOS listening test, 10 musically trained participants)",
     "metrics": "FAD (VGGish); MIRDD (MIR Descriptor Distance, KL over pitch/rhythm/structure descriptors); MOS",
     "musicLength": "20-s crops/segments",
@@ -2073,7 +2385,8 @@
     "paperUrl": "https://arxiv.org/abs/2312.08723",
     "inDepth": true,
     "notes": "",
-    "citation": "Parker, J. D., Spijkervet, J., Kosta, K., Yesiler, F., Kuznetsov, B., Wang, J., Avent, M., Chen, J., & Le, D. (2024). StemGen: A Music Generation Model That Listens. ICASSP 2024. https://doi.org/10.48550/arXiv.2312.08723"
+    "citation": "Parker, J. D., Spijkervet, J., Kosta, K., Yesiler, F., Kuznetsov, B., Wang, J., Avent, M., Chen, J., & Le, D. (2024). StemGen: A Music Generation Model That Listens. ICASSP 2024. https://doi.org/10.48550/arXiv.2312.08723",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "353",
@@ -2082,7 +2395,7 @@
     "year": 2024,
     "source": "ISMIR 2024",
     "task": "Text-to-Music Generation (audio) with temporally-aligned symbolic conditioning (chords, melody, drums)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "JASCO: conditional flow matching (CFM) over audio tokens with joint audio + symbolic (chord/melody/drum) conditioning",
     "architectureFamily": "Flow matching",
@@ -2092,6 +2405,10 @@
     ],
     "dataRepresentation": "Audio (tokens) + symbolic conditions (chords, melody, drums)",
     "dataset": "20K h licensed music (Shutterstock + Pond5-style); eval on MusicCaps (5.5K) + 528-track in-domain test",
+    "datasetTags": [
+      "MusicCaps",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective (+ conditioning adherence)",
     "metrics": "FAD; CLAP; chord/melody/beat adherence (F1-style)",
     "musicLength": "~10-s clips",
@@ -2103,7 +2420,8 @@
     "paperUrl": "https://arxiv.org/abs/2406.10970",
     "inDepth": false,
     "notes": "",
-    "citation": "Tal, O., Ziv, A., Gat, I., Kreuk, F., & Adi, Y. (2024). Joint Audio and Symbolic Conditioning for Temporally Controlled Text-to-Music Generation. ISMIR 2024. https://doi.org/10.48550/arXiv.2406.10970"
+    "citation": "Tal, O., Ziv, A., Gat, I., Kreuk, F., & Adi, Y. (2024). Joint Audio and Symbolic Conditioning for Temporally Controlled Text-to-Music Generation. ISMIR 2024. https://doi.org/10.48550/arXiv.2406.10970",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "356",
@@ -2122,6 +2440,9 @@
     ],
     "dataRepresentation": "Audio (autoencoder latents)",
     "dataset": "Proprietary: 12,000 multi-track recordings -> 1M training pairs (1,200 held-out multi-tracks)",
+    "datasetTags": [
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + subjective (listening tests)",
     "metrics": "FAD; Audio Prompt Adherence (APA); CLAP scores; subjective ratings",
     "musicLength": "~10-s segments (3-s hop)",
@@ -2133,7 +2454,8 @@
     "paperUrl": "https://arxiv.org/abs/2406.08384",
     "inDepth": false,
     "notes": "",
-    "citation": "Nistal, J., Pasini, M., Aouameur, C., Grachten, M., & Lattner, S. (2024). Diff-A-Riff: Musical Accompaniment Co-creation via Latent Diffusion Models. ISMIR 2024. https://doi.org/10.48550/arXiv.2406.08384"
+    "citation": "Nistal, J., Pasini, M., Aouameur, C., Grachten, M., & Lattner, S. (2024). Diff-A-Riff: Musical Accompaniment Co-creation via Latent Diffusion Models. ISMIR 2024. https://doi.org/10.48550/arXiv.2406.08384",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "366",
@@ -2142,7 +2464,7 @@
     "year": 2024,
     "source": "arXiv",
     "task": "Symbolic Music Generation (piano; reproducible LLM baseline with structural embeddings)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Vanilla GPT-2 with MuseNet-style structural embeddings on raw MIDI (GPT2-SE)",
     "architectureFamily": "Transformer / LLM",
@@ -2153,6 +2475,11 @@
     ],
     "dataRepresentation": "Symbolic (raw MIDI tokens + structural embeddings)",
     "dataset": "POP909 + GiantMIDI-Piano (transcribed piano); MAESTRO (1,276 songs, prompts/eval)",
+    "datasetTags": [
+      "POP909",
+      "MAESTRO",
+      "GiantMIDI-Piano"
+    ],
     "evaluation": "Objective + subjective (A-vs-B human rating, 12 prompts)",
     "metrics": "Structureness Indicators (SI); Chord Progression; Prompt Maintenance; subjective Naturalness & Prompt Maintenance (win counts)",
     "musicLength": "Up to ~30-s / 64-token-prompt continuations",
@@ -2164,7 +2491,8 @@
     "paperUrl": "https://arxiv.org/abs/2407.19900",
     "inDepth": false,
     "notes": "",
-    "citation": "Rhyu, S., Yang, K., Cho, S., Kim, J., Lee, K., & Lee, M. (2024). Practical and Reproducible Symbolic Music Generation by LLMs with Structural Embeddings. arXiv. https://doi.org/10.48550/arXiv.2407.19900"
+    "citation": "Rhyu, S., Yang, K., Cho, S., Kim, J., Lee, K., & Lee, M. (2024). Practical and Reproducible Symbolic Music Generation by LLMs with Structural Embeddings. arXiv. https://doi.org/10.48550/arXiv.2407.19900",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "379",
@@ -2173,7 +2501,7 @@
     "year": 2024,
     "source": "ICML 2024",
     "task": "Text-to-Music Generation (audio; + infilling/continuation tasks)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "MusicFlow: cascaded non-autoregressive flow matching (text-to-HuBERT-semantic + semantic-to-acoustic Encodec features); 84M+246M Transformers",
     "architectureFamily": "Flow matching",
@@ -2183,6 +2511,10 @@
     ],
     "dataRepresentation": "Audio (HuBERT semantic units + Encodec acoustic features)",
     "dataset": "20K h proprietary music (~400K tracks); MusicCaps for evaluation",
+    "datasetTags": [
+      "MusicCaps",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + subjective (pairwise human preference, MusicLM protocol)",
     "metrics": "FAD; FD; KLD; CLAP similarity; pairwise preference",
     "musicLength": "10-s chunks",
@@ -2194,7 +2526,8 @@
     "paperUrl": "https://arxiv.org/abs/2410.20478",
     "inDepth": false,
     "notes": "",
-    "citation": "Prajwal, K. R., Shi, B., Le, M., Vyas, A., Tjandra, A., Luthra, M., Guo, B., Wang, H., Afouras, T., Kant, D., & Hsu, W. (2024). MusicFlow: Cascaded Flow Matching for Text Guided Music Generation. ICML 2024. https://doi.org/10.48550/arXiv.2410.20478"
+    "citation": "Prajwal, K. R., Shi, B., Le, M., Vyas, A., Tjandra, A., Luthra, M., Guo, B., Wang, H., Afouras, T., Kant, D., & Hsu, W. (2024). MusicFlow: Cascaded Flow Matching for Text Guided Music Generation. ICML 2024. https://doi.org/10.48550/arXiv.2410.20478",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "383",
@@ -2203,7 +2536,7 @@
     "year": 2024,
     "source": "NeurIPS 2024 Workshop / ICASSP 2025",
     "task": "Benchmarking / Evaluation study (music generation models + metrics via human preference)",
-    "taskCategory": "Evaluation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Large-scale human preference study: 12 SOTA text-to-music models compared via pairwise audio comparisons; metric-correlation analysis",
     "architectureFamily": "Other / Hybrid",
@@ -2213,6 +2546,9 @@
     ],
     "dataRepresentation": "Audio (generated music from 12 models)",
     "dataset": "Custom: 6,000 generated songs from 12 models; 15,600 pairwise comparisons / 2,500+ participants (released)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Subjective (human preference survey) + objective metric correlation",
     "metrics": "Elo ratings (preference & text-audio alignment); correlation with CLAP, FAD and other objective metrics",
     "musicLength": "N/A",
@@ -2224,7 +2560,8 @@
     "paperUrl": "https://arxiv.org/abs/2506.19085",
     "inDepth": false,
     "notes": "",
-    "citation": "Grötschla, F., Solak, A., Lanzendörfer, L., & Wattenhofer, R. (2024). Benchmarking Music Generation Models and Metrics via Human Preference Studies. NeurIPS 2024 Workshop / ICASSP 2025. https://doi.org/10.48550/arXiv.2506.19085"
+    "citation": "Grötschla, F., Solak, A., Lanzendörfer, L., & Wattenhofer, R. (2024). Benchmarking Music Generation Models and Metrics via Human Preference Studies. NeurIPS 2024 Workshop / ICASSP 2025. https://doi.org/10.48550/arXiv.2506.19085",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "19",
@@ -2243,6 +2580,12 @@
     ],
     "dataRepresentation": "Symbolic (MIDI; latent style/content codes)",
     "dataset": "Slakh2100 (autoencoder); Lakh MIDI 110k pieces (prior); Nottingham + WikiMT (test lead sheets); POP909 (GT structure)",
+    "datasetTags": [
+      "Lakh MIDI",
+      "POP909",
+      "Slakh2100",
+      "Nottingham"
+    ],
     "evaluation": "Objective (300 arrangement sets, Wilcoxon + Bonferroni) + subjective (double-blind survey, 23 participants)",
     "metrics": "Chord accuracy; degree of arrangement (DOA); structure awareness; inference latency (s/bar); subjective ratings (5 dimensions)",
     "musicLength": "Whole-song (test pieces 16-32 bars)",
@@ -2254,7 +2597,8 @@
     "paperUrl": "http://arxiv.org/abs/2310.16334",
     "inDepth": true,
     "notes": "Published version (NeurIPS 2024). arXiv 2310.16334 also circulated as the AccoMontage-3 preprint, removed here as a duplicate.",
-    "citation": "Zhao, J., Xia, G., Wang, Z., & Wang, Y. (2024). Structured Multi-Track Accompaniment Arrangement via Style Prior Modelling. NeurIPS 2024. https://doi.org/10.48550/arXiv.2310.16334"
+    "citation": "Zhao, J., Xia, G., Wang, Z., & Wang, Y. (2024). Structured Multi-Track Accompaniment Arrangement via Style Prior Modelling. NeurIPS 2024. https://doi.org/10.48550/arXiv.2310.16334",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "34",
@@ -2273,6 +2617,9 @@
     ],
     "dataRepresentation": "Audio (stereo autoencoder latents)",
     "dataset": "Proprietary: over 20,000 multi-track recordings across genres",
+    "datasetTags": [
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective only (ablation experiments)",
     "metrics": "FAD; Audio Prompt Adherence (APA); CLAP scores; inference speed",
     "musicLength": "~10-s segments",
@@ -2284,7 +2631,8 @@
     "paperUrl": "http://arxiv.org/abs/2410.23005",
     "inDepth": false,
     "notes": "",
-    "citation": "Nistal, J., Pasini, M., & Lattner, S. (2024). Improving Musical Accompaniment Co-creation via Diffusion Transformers. arXiv 2024. https://doi.org/10.48550/arXiv.2410.23005"
+    "citation": "Nistal, J., Pasini, M., & Lattner, S. (2024). Improving Musical Accompaniment Co-creation via Diffusion Transformers. arXiv 2024. https://doi.org/10.48550/arXiv.2410.23005",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "36",
@@ -2293,7 +2641,7 @@
     "year": 2024,
     "source": "IEEE MLSP 2024",
     "task": "Timbre Transfer (multi-instrument, end-to-end; mixtures and individual instruments)",
-    "taskCategory": "Other",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "WaveTransfer: bilateral denoising diffusion model (BDDM) for waveform timbre transfer",
     "architectureFamily": "Diffusion",
@@ -2303,6 +2651,9 @@
     ],
     "dataRepresentation": "Audio (waveform, 44.1 kHz)",
     "dataset": "StarNet (104 classical compositions, 6 instruments)",
+    "datasetTags": [
+      "StarNet"
+    ],
     "evaluation": "Objective + subjective (MOS listening)",
     "metrics": "Frechet-style audio distance; subjective MOS",
     "musicLength": "N/A",
@@ -2314,7 +2665,8 @@
     "paperUrl": "http://arxiv.org/abs/2409.15321",
     "inDepth": false,
     "notes": "",
-    "citation": "Baoueb, T., Bie, X., Janati, H., & Richard, G. (2024). WaveTransfer: A Flexible End-to-end Multi-instrument Timbre Transfer with Diffusion. IEEE MLSP 2024. https://doi.org/10.1109/MLSP58920.2024.10734764"
+    "citation": "Baoueb, T., Bie, X., Janati, H., & Richard, G. (2024). WaveTransfer: A Flexible End-to-end Multi-instrument Timbre Transfer with Diffusion. IEEE MLSP 2024. https://doi.org/10.1109/MLSP58920.2024.10734764",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "37",
@@ -2333,6 +2685,10 @@
     ],
     "dataRepresentation": "Audio (per-track mel-spectrogram VAE latents)",
     "dataset": "Slakh2100 (for training/comparison; also internal larger set)",
+    "datasetTags": [
+      "Slakh2100",
+      "Custom / self-built"
+    ],
     "evaluation": "Objective (FAD for total & arrangement generation)",
     "metrics": "FAD (VGGish)",
     "musicLength": "N/A (Slakh stems)",
@@ -2344,7 +2700,8 @@
     "paperUrl": "http://arxiv.org/abs/2409.02845",
     "inDepth": false,
     "notes": "",
-    "citation": "Karchkhadze, T., Izadi, M. R., Chen, K., Assayag, G., & Dubnov, S. (2024). Multi-Track MusicLDM: Towards Versatile Music Generation with Latent Diffusion Model. ICASSP 2025. https://doi.org/10.48550/arXiv.2409.02845"
+    "citation": "Karchkhadze, T., Izadi, M. R., Chen, K., Assayag, G., & Dubnov, S. (2024). Multi-Track MusicLDM: Towards Versatile Music Generation with Latent Diffusion Model. ICASSP 2025. https://doi.org/10.48550/arXiv.2409.02845",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "41",
@@ -2353,7 +2710,7 @@
     "year": 2024,
     "source": "arXiv 2024 (ByteDance technical report)",
     "task": "Unified Music Generation & Editing (vocal music from multimodal inputs: lyrics, melody, reference audio, text)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Seed-Music: unified framework combining auto-regressive LM + diffusion; intermediate token representations (audio tokens, symbolic, vocoder latents)",
     "architectureFamily": "Diffusion",
@@ -2363,6 +2720,9 @@
     ],
     "dataRepresentation": "Audio + Symbolic (lead-sheet/lyric/melody tokens; multiple intermediate representations)",
     "dataset": "Large-scale paired audio/symbolic data (proprietary; details limited)",
+    "datasetTags": [
+      "Proprietary / licensed"
+    ],
     "evaluation": "Subjective (listening/MOS-style) + objective; requires domain expertise",
     "metrics": "MOS-style ratings; WER (lyrics); music quality/adherence metrics",
     "musicLength": "Full vocal music pieces",
@@ -2374,7 +2734,8 @@
     "paperUrl": "http://arxiv.org/abs/2409.09214",
     "inDepth": false,
     "notes": "",
-    "citation": "Bai, Y., Chen, H., Chen, J., Chen, Z., Deng, Y., Dong, X., Hantrakul, L., Hao, W., Huang, Q., Huang, Z., Jia, D., La, F., Le, D., Li, B., Li, C., Li, H., Li, X., Liu, S., Lu, W., Lu, Y., Shaw, A., Spijkervet, J., Sun, Y., Wang, B., Wang, J., Wang, Y., Wang, Y., Xu, L., Yang, Y., Yao, C., Zhang, S., Zhang, Y., Zhang, Y., Zhao, H., Zhao, Z., Zhong, D., Zhou, S., & Zou, P. (2024). Seed-Music: A Unified Framework for High Quality and Controlled Music Generation. arXiv 2024 (ByteDance technical report). https://doi.org/10.48550/arXiv.2409.09214"
+    "citation": "Bai, Y., Chen, H., Chen, J., Chen, Z., Deng, Y., Dong, X., Hantrakul, L., Hao, W., Huang, Q., Huang, Z., Jia, D., La, F., Le, D., Li, B., Li, C., Li, H., Li, X., Liu, S., Lu, W., Lu, Y., Shaw, A., Spijkervet, J., Sun, Y., Wang, B., Wang, J., Wang, Y., Wang, Y., Xu, L., Yang, Y., Yao, C., Zhang, S., Zhang, Y., Zhang, Y., Zhao, H., Zhao, Z., Zhong, D., Zhou, S., & Zou, P. (2024). Seed-Music: A Unified Framework for High Quality and Controlled Music Generation. arXiv 2024 (ByteDance technical report). https://doi.org/10.48550/arXiv.2409.09214",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "44",
@@ -2393,6 +2754,9 @@
     ],
     "dataRepresentation": "Audio (Mel spectrogram)",
     "dataset": "Public songs (vocal+accompaniment mixes, source-separated; internal collection)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (MOS listening)",
     "metrics": "FAD (VGGish); MOS; inference speed (RTF)",
     "musicLength": "N/A",
@@ -2404,7 +2768,8 @@
     "paperUrl": "http://arxiv.org/abs/2405.07682",
     "inDepth": false,
     "notes": "",
-    "citation": "Chen, J., Xue, W., Tan, X., Ye, Z., Liu, Q., & Guo, Y. (2024). FastSAG: Towards Fast Non-Autoregressive Singing Accompaniment Generation. IJCAI 2024. https://doi.org/10.24963/ijcai.2024/850"
+    "citation": "Chen, J., Xue, W., Tan, X., Ye, Z., Liu, Q., & Guo, Y. (2024). FastSAG: Towards Fast Non-Autoregressive Singing Accompaniment Generation. IJCAI 2024. https://doi.org/10.24963/ijcai.2024/850",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "48",
@@ -2413,7 +2778,7 @@
     "year": 2024,
     "source": "ICML 2024",
     "task": "Controllable Music Generation (inference-time control of pre-trained text-to-music diffusion: intensity, melody, structure, outpainting)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "DITTO: inference-time optimization of initial diffusion noise latents via feature-matching loss (no fine-tuning); gradient checkpointing",
     "architectureFamily": "Diffusion",
@@ -2423,6 +2788,10 @@
     ],
     "dataRepresentation": "Audio (mel-spectrogram latent; on MusicLDM-style pretrained model)",
     "dataset": "N/A (controls a pre-trained model; MusicCaps for eval)",
+    "datasetTags": [
+      "MusicCaps",
+      "No training corpus"
+    ],
     "evaluation": "Objective (control adherence + quality) + comparisons",
     "metrics": "Melody accuracy; intensity control error; FAD; CLAP",
     "musicLength": "N/A",
@@ -2434,7 +2803,8 @@
     "paperUrl": "http://arxiv.org/abs/2401.12179",
     "inDepth": false,
     "notes": "",
-    "citation": "Novack, Z., McAuley, J., Berg-Kirkpatrick, T., & Bryan, N. J. (2024). DITTO: Diffusion Inference-Time T-Optimization for Music Generation. ICML 2024. https://doi.org/10.48550/arXiv.2401.12179"
+    "citation": "Novack, Z., McAuley, J., Berg-Kirkpatrick, T., & Bryan, N. J. (2024). DITTO: Diffusion Inference-Time T-Optimization for Music Generation. ICML 2024. https://doi.org/10.48550/arXiv.2401.12179",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "49",
@@ -2443,7 +2813,7 @@
     "year": 2024,
     "source": "ICML 2024",
     "task": "Symbolic Music Generation (piano roll) with non-differentiable rule guidance",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Latent diffusion (Transformer backbone) + Stochastic Control Guidance (SCG) for non-differentiable rule adherence (note density, chords)",
     "architectureFamily": "Diffusion",
@@ -2453,6 +2823,12 @@
     ],
     "dataRepresentation": "Symbolic (piano-roll latents)",
     "dataset": "MAESTRO + Muscore (~14k crawled MIDI) + Pop1K7 + POP909 (classical & pop)",
+    "datasetTags": [
+      "POP909",
+      "MAESTRO",
+      "Pop1K7",
+      "Custom / self-built"
+    ],
     "evaluation": "Objective + subjective (overall rating study)",
     "metrics": "Overlapping Area (OA, 7 attributes); rule-adherence (note density, chord); subjective overall rating",
     "musicLength": "N/A (piano-roll segments)",
@@ -2464,7 +2840,8 @@
     "paperUrl": "http://arxiv.org/abs/2402.14285",
     "inDepth": false,
     "notes": "",
-    "citation": "Huang, Y., Ghatare, A., Liu, Y., Hu, Z., Zhang, Q., Sastry, C. S., Gururani, S., Oore, S., & Yue, Y. (2024). Symbolic Music Generation with Non-Differentiable Rule Guided Diffusion. ICML 2024. https://doi.org/10.48550/arXiv.2402.14285"
+    "citation": "Huang, Y., Ghatare, A., Liu, Y., Hu, Z., Zhang, Q., Sastry, C. S., Gururani, S., Oore, S., & Yue, Y. (2024). Symbolic Music Generation with Non-Differentiable Rule Guided Diffusion. ICML 2024. https://doi.org/10.48550/arXiv.2402.14285",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "50",
@@ -2473,7 +2850,7 @@
     "year": 2024,
     "source": "ISMIR 2024",
     "task": "Long-form Music Generation (audio; up to 4m 45s coherent structure)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Latent diffusion (Diffusion Transformer / DiT) over autoencoder latents with CLAP text conditioning; long context (285 s)",
     "architectureFamily": "Diffusion",
@@ -2483,6 +2860,9 @@
     ],
     "dataRepresentation": "Audio (44.1 kHz stereo; VAE latents)",
     "dataset": "Large licensed music dataset (Stable Audio-style; details limited)",
+    "datasetTags": [
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + subjective (webMUSHRA listening test; memorization analysis)",
     "metrics": "FD-openl3; KL-passt; CLAP; subjective MUSHRA ratings",
     "musicLength": "Up to 285 s (4m 45s)",
@@ -2494,7 +2874,8 @@
     "paperUrl": "http://arxiv.org/abs/2404.10301",
     "inDepth": false,
     "notes": "",
-    "citation": "Evans, Z., Parker, J. D., Carr, C. J., Zukowski, Z., Taylor, J., & Pons, J. (2024). Long-form music generation with latent diffusion. ISMIR 2024. https://doi.org/10.48550/arXiv.2404.10301"
+    "citation": "Evans, Z., Parker, J. D., Carr, C. J., Zukowski, Z., Taylor, J., & Pons, J. (2024). Long-form music generation with latent diffusion. ISMIR 2024. https://doi.org/10.48550/arXiv.2404.10301",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "54",
@@ -2513,6 +2894,10 @@
     ],
     "dataRepresentation": "Audio (latent diffusion over audio latents)",
     "dataset": "High-fidelity proprietary studio multi-track dataset; Slakh2100 for FAD comparison",
+    "datasetTags": [
+      "Slakh2100",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective (FAD, CLAP vs StemGen/MSDM) + qualitative",
     "metrics": "FAD (Slakh2100 test: 4.04); CLAP score",
     "musicLength": "N/A",
@@ -2524,7 +2909,8 @@
     "paperUrl": "http://arxiv.org/abs/2310.19180",
     "inDepth": false,
     "notes": "",
-    "citation": "Yao, Y., Li, P., Chen, B., & Wang, A. (2023). JEN-1 Composer: A Unified Framework for High-Fidelity Multi-Track Music Generation. arXiv 2023. https://doi.org/10.48550/arXiv.2310.19180"
+    "citation": "Yao, Y., Li, P., Chen, B., & Wang, A. (2023). JEN-1 Composer: A Unified Framework for High-Fidelity Multi-Track Music Generation. arXiv 2023. https://doi.org/10.48550/arXiv.2310.19180",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "71",
@@ -2533,7 +2919,7 @@
     "year": 2024,
     "source": "ISMIR 2024",
     "task": "Symbolic Music Processing (unified score-to-score: 7 melody tasks incl. generation, harmonization, segmentation)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "MelodyT5: T5-style encoder-decoder Transformer with bar patching over ABC notation",
     "architectureFamily": "Transformer / LLM",
@@ -2543,6 +2929,9 @@
     ],
     "dataRepresentation": "Symbolic (ABC notation, bar patching)",
     "dataset": "MelodyHub (>1M task instances; 261k+ unique melodies in ABC)",
+    "datasetTags": [
+      "MelodyHub"
+    ],
     "evaluation": "Objective only (per-task benchmarks)",
     "metrics": "Task-specific: BLEU, edit distance, F1/accuracy across the 7 tasks",
     "musicLength": "N/A (score-to-score)",
@@ -2554,7 +2943,8 @@
     "paperUrl": "http://arxiv.org/abs/2407.02277",
     "inDepth": false,
     "notes": "",
-    "citation": "Wu, S., Wang, Y., Li, X., Yu, F., & Sun, M. (2024). MelodyT5: A Unified Score-to-Score Transformer for Symbolic Music Processing. ISMIR 2024. https://doi.org/10.5281/zenodo.14877418"
+    "citation": "Wu, S., Wang, Y., Li, X., Yu, F., & Sun, M. (2024). MelodyT5: A Unified Score-to-Score Transformer for Symbolic Music Processing. ISMIR 2024. https://doi.org/10.5281/zenodo.14877418",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "74",
@@ -2563,7 +2953,7 @@
     "year": 2024,
     "source": "arXiv 2024",
     "task": "Symbolic Music Generation (multi-track; generative pre-trained LM series)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "MuPT: decoder-only Transformer LLMs (190M-4.23B) on SMT-ABC notation; Symbolic Music Scaling (SMS) Law; 8192-token context",
     "architectureFamily": "Transformer / LLM",
@@ -2574,6 +2964,9 @@
     ],
     "dataRepresentation": "Symbolic (SMT-ABC notation, BPE vocab 50k)",
     "dataset": "Web-collected mono/polyphonic ABC corpus (trained on 49-346B tokens incl. repeated epochs)",
+    "datasetTags": [
+      "Other / unnamed"
+    ],
     "evaluation": "Objective + subjective (webMUSHRA pairwise listening study; Wilcoxon signed-rank)",
     "metrics": "Repetition rate; intra-texture similarity; pairwise musicality preference (79% vs GPT-4); scaling-law fit",
     "musicLength": "Full pieces (8192-token context covers >90% of scores)",
@@ -2585,7 +2978,8 @@
     "paperUrl": "http://arxiv.org/abs/2404.06393",
     "inDepth": true,
     "notes": "",
-    "citation": "Qu, X., Bai, Y., Ma, Y., Zhou, Z., Lo, K. M., Liu, J., Yuan, R., Min, L., Liu, X., Zhang, T., Du, X., Guo, S., Liang, Y., Li, Y., Wu, S., Zhou, J., Zheng, T., Ma, Z., Han, F., Xue, W., Xia, G., Benetos, E., Yue, X., Lin, C., Tan, X., Huang, S. W., Fu, J., & Zhang, G. (2024). MuPT: A Generative Symbolic Music Pretrained Transformer. arXiv 2024. https://doi.org/10.48550/arXiv.2404.06393"
+    "citation": "Qu, X., Bai, Y., Ma, Y., Zhou, Z., Lo, K. M., Liu, J., Yuan, R., Min, L., Liu, X., Zhang, T., Du, X., Guo, S., Liang, Y., Li, Y., Wu, S., Zhou, J., Zheng, T., Ma, Z., Han, F., Xue, W., Xia, G., Benetos, E., Yue, X., Lin, C., Tan, X., Huang, S. W., Fu, J., & Zhang, G. (2024). MuPT: A Generative Symbolic Music Pretrained Transformer. arXiv 2024. https://doi.org/10.48550/arXiv.2404.06393",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "108",
@@ -2594,7 +2988,7 @@
     "year": 2024,
     "source": "MSc thesis, Aalto University 2024",
     "task": "Real-time Symbolic Music Generation (interactive AI improvisation for musicians)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Transformer-based real-time improvisation model with new tokenization + model-size techniques (CPU/GPU deployment)",
     "architectureFamily": "Transformer / LLM",
@@ -2604,6 +2998,9 @@
     ],
     "dataRepresentation": "Symbolic (note-level tokens; ComMU conditional melody representation)",
     "dataset": "ComMU dataset (conditional melody generation)",
+    "datasetTags": [
+      "ComMU"
+    ],
     "evaluation": "Objective (music-domain metrics) + subjective evaluation",
     "metrics": "Harmonic consistency and other music-domain objective metrics; subjective ratings; inference latency (CPU/GPU)",
     "musicLength": "Real-time improvisation (short phrases)",
@@ -2615,7 +3012,8 @@
     "paperUrl": "https://aaltodoc.aalto.fi/items/3b1cfe5f-b299-46b5-855a-d7e0b75d6791",
     "inDepth": false,
     "notes": "MSc thesis (Aalto University); no DOI.",
-    "citation": "Wang, S. (2024). Real-time Symbolic Music Generation using Deep Learning Methods—An Interactive AI-based Improvisation System for Musicians. MSc thesis, Aalto University 2024. https://aaltodoc.aalto.fi/items/3b1cfe5f-b299-46b5-855a-d7e0b75d6791"
+    "citation": "Wang, S. (2024). Real-time Symbolic Music Generation using Deep Learning Methods—An Interactive AI-based Improvisation System for Musicians. MSc thesis, Aalto University 2024. https://aaltodoc.aalto.fi/items/3b1cfe5f-b299-46b5-855a-d7e0b75d6791",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "178",
@@ -2624,7 +3022,7 @@
     "year": 2024,
     "source": "2024 IEEE International Conference on Big Data (BigData)",
     "task": "Symbolic Music Generation (rule-defined novel styles; hybrid ML + rule-based)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Generalize GAN discriminator into a constraint solver combined with rule-based style definition (proof of concept)",
     "architectureFamily": "GAN",
@@ -2634,6 +3032,9 @@
     ],
     "dataRepresentation": "Symbolic (note-based)",
     "dataset": "N/A (proof of concept; rule-defined styles rather than a training corpus)",
+    "datasetTags": [
+      "No training corpus"
+    ],
     "evaluation": "Proof-of-concept demonstration / qualitative analysis",
     "metrics": "Rule-satisfaction (constraint compliance); qualitative",
     "musicLength": "N/A",
@@ -2645,7 +3046,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/document/10825900/",
     "inDepth": false,
     "notes": "",
-    "citation": "Tanaka, T. (2024). Integrating Machine Learning and Rule-Based Approaches in Symbolic Music Generation. 2024 IEEE International Conference on Big Data (BigData). https://doi.org/10.1109/BigData62323.2024.10826038"
+    "citation": "Tanaka, T. (2024). Integrating Machine Learning and Rule-Based Approaches in Symbolic Music Generation. 2024 IEEE International Conference on Big Data (BigData). https://doi.org/10.1109/BigData62323.2024.10826038",
+    "evaluationCategory": "Demonstration / qualitative only"
   },
   {
     "id": "235",
@@ -2664,6 +3066,10 @@
     ],
     "dataRepresentation": "Symbolic (MuMIDI multi-track tokens)",
     "dataset": "Lakh MIDI (LMD pop subset, PopMAG pipeline) + private pop dataset (6,806 multi-track MIDIs, 247 h, 4/4)",
+    "datasetTags": [
+      "Lakh MIDI",
+      "Proprietary / licensed"
+    ],
     "evaluation": "Objective + subjective",
     "metrics": "Chord Accuracy (CA); Perplexity (PPL); other objective metrics; subjective ratings",
     "musicLength": "Multi-track (longer sequences)",
@@ -2675,7 +3081,8 @@
     "paperUrl": "https://link.springer.com/10.1007/978-981-97-0576-4_8",
     "inDepth": false,
     "notes": "",
-    "citation": "Wu, J., Ji, Z., & Li, P. (2024). C2-MAGIC: Chord-Controllable Multi-track Accompaniment Generation with Interpretability and Creativity. Music Intelligence. https://doi.org/10.1007/978-981-97-0576-4_8"
+    "citation": "Wu, J., Ji, Z., & Li, P. (2024). C2-MAGIC: Chord-Controllable Multi-track Accompaniment Generation with Interpretability and Creativity. Music Intelligence. https://doi.org/10.1007/978-981-97-0576-4_8",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "280",
@@ -2684,10 +3091,10 @@
     "year": 2024,
     "source": "ISMIR 2024",
     "task": "Symbolic Music Composition (training-free multi-agent LLM composition)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "ComposerX: multi-agent framework over GPT-4 (leader + melody/harmony/instrument agents) generating ABC notation",
-    "architectureFamily": "LLM agent",
+    "architectureFamily": "Transformer / LLM",
     "paradigm": "Transformer",
     "paradigmTags": [
       "Transformer",
@@ -2695,6 +3102,9 @@
     ],
     "dataRepresentation": "Symbolic (ABC notation)",
     "dataset": "N/A (training-free; uses GPT-4 + ChatMusician prompt examples)",
+    "datasetTags": [
+      "No training corpus"
+    ],
     "evaluation": "Subjective evaluations + comparison to GPT-4 baseline",
     "metrics": "Subjective composition-quality ratings (multiple aspects)",
     "musicLength": "N/A",
@@ -2706,7 +3116,8 @@
     "paperUrl": "http://arxiv.org/abs/2404.18081",
     "inDepth": false,
     "notes": "",
-    "citation": "Deng, Q., Yang, Q., Yuan, R., Huang, Y., Wang, Y., Liu, X., Tian, Z., Pan, J., Zhang, G., Lin, H., Li, Y., Ma, Y., Fu, J., Lin, C., Benetos, E., Wang, W., Xia, G., Xue, W., & Guo, Y. (2024). ComposerX: Multi-Agent Symbolic Music Composition with LLMs. ISMIR 2024. https://doi.org/10.5281/zenodo.14877424"
+    "citation": "Deng, Q., Yang, Q., Yuan, R., Huang, Y., Wang, Y., Liu, X., Tian, Z., Pan, J., Zhang, G., Lin, H., Li, Y., Ma, Y., Fu, J., Lin, C., Benetos, E., Wang, W., Xia, G., Xue, W., & Guo, Y. (2024). ComposerX: Multi-Agent Symbolic Music Composition with LLMs. ISMIR 2024. https://doi.org/10.5281/zenodo.14877424",
+    "evaluationCategory": "Subjective only"
   },
   {
     "id": "323",
@@ -2715,7 +3126,7 @@
     "year": 2025,
     "source": "arXiv",
     "task": "Symbolic Music Generation (high-quality classical sheet music; controllable)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "NotaGen: two hierarchical GPT-2 decoders over ABC notation; pre-train + fine-tune + CLaMP-DPO reinforcement learning",
     "architectureFamily": "Transformer / LLM",
@@ -2726,6 +3137,9 @@
     ],
     "dataRepresentation": "Symbolic (ABC notation)",
     "dataset": "Pre-train: 1.6M pieces (ABC); fine-tune: ~9K high-quality classical compositions (period/composer/instrument conditioned)",
+    "datasetTags": [
+      "Other / unnamed"
+    ],
     "evaluation": "Objective + subjective (A/B listening tests)",
     "metrics": "CLaMP-based scores; controllability; subjective A/B preference",
     "musicLength": "Full classical pieces",
@@ -2737,7 +3151,8 @@
     "paperUrl": "https://arxiv.org/abs/2502.18008",
     "inDepth": false,
     "notes": "",
-    "citation": "Wang, Y., Wu, S., Hu, J., Du, X., Peng, Y., Huang, Y., Fan, S., Li, X., Yu, F., & Sun, M. (2025). NotaGen: Advancing Musicality in Symbolic Music Generation with Large Language Model Training Paradigms. arXiv. https://doi.org/10.48550/arXiv.2502.18008"
+    "citation": "Wang, Y., Wu, S., Hu, J., Du, X., Peng, Y., Huang, Y., Fan, S., Li, X., Yu, F., & Sun, M. (2025). NotaGen: Advancing Musicality in Symbolic Music Generation with Large Language Model Training Paradigms. arXiv. https://doi.org/10.48550/arXiv.2502.18008",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "340",
@@ -2746,7 +3161,7 @@
     "year": 2025,
     "source": "ICLR 2025",
     "task": "Text-to-Music Generation acceleration (fast inference via distillation)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Presto: dual distillation for diffusion Transformers - score-based distribution matching (step) + layer distillation (cost per step)",
     "architectureFamily": "Diffusion",
@@ -2756,6 +3171,10 @@
     ],
     "dataRepresentation": "Audio (latent diffusion; on Stable Audio Open-style base)",
     "dataset": "N/A (distills a pre-trained TTM model; eval on MusicCaps/Song Describer)",
+    "datasetTags": [
+      "MusicCaps",
+      "No training corpus"
+    ],
     "evaluation": "Objective + subjective (listening) + speed benchmarks",
     "metrics": "FAD; CLAP; subjective ratings; latency/speedup (10-18x; 230/435ms for 32s mono/stereo)",
     "musicLength": "32-s clips (44.1 kHz)",
@@ -2767,7 +3186,8 @@
     "paperUrl": "https://arxiv.org/abs/2410.05167",
     "inDepth": false,
     "notes": "",
-    "citation": "Novack, Z., Zhu, G., Casebeer, J., McAuley, J., Berg-Kirkpatrick, T., & Bryan, N. J. (2025). Presto! Distilling Steps and Layers for Accelerating Music Generation. ICLR 2025. https://doi.org/10.48550/arXiv.2410.05167"
+    "citation": "Novack, Z., Zhu, G., Casebeer, J., McAuley, J., Berg-Kirkpatrick, T., & Bryan, N. J. (2025). Presto! Distilling Steps and Layers for Accelerating Music Generation. ICLR 2025. https://doi.org/10.48550/arXiv.2410.05167",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "355",
@@ -2776,7 +3196,7 @@
     "year": 2025,
     "source": "arXiv",
     "task": "Symbolic Music Generation (conditional multi-track popular music; steerable)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "BandControlNet/BandCondiNet: parallel Transformers with multi-view features + Structure-Enhanced self-attention (SE) + Cross-Track Transformer (CTT)",
     "architectureFamily": "Transformer / LLM",
@@ -2786,6 +3206,9 @@
     ],
     "dataRepresentation": "Symbolic (multi-track MIDI; multi-view time/instrument features)",
     "dataset": "Two music datasets of different sequence lengths (LMD-derived: shorter + longer subsets)",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "Objective + subjective (listening tests)",
     "metrics": "10 fidelity/structure metrics (incl. Chord Accuracy); subjective ratings",
     "musicLength": "Short and long multi-track sequences",
@@ -2797,7 +3220,8 @@
     "paperUrl": "https://arxiv.org/abs/2407.10462",
     "inDepth": false,
     "notes": "",
-    "citation": "Luo, J., Yang, X., & Herremans, D. (2025). BandControlNet: Parallel Transformers-Based Steerable Popular Music Generation. arXiv. https://doi.org/10.48550/arXiv.2407.10462"
+    "citation": "Luo, J., Yang, X., & Herremans, D. (2025). BandControlNet: Parallel Transformers-Based Steerable Popular Music Generation. arXiv. https://doi.org/10.48550/arXiv.2407.10462",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "364",
@@ -2806,7 +3230,7 @@
     "year": 2025,
     "source": "arXiv",
     "task": "Symbolic Song Generation (lyric + melody composition; lyric-to-melody, melody-to-lyric, song continuation, text-to-song)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "SongComposer: music-specialized LLM (InternLM2-7B) with flexible tuple format for words+notes; multi-stage pipeline",
     "architectureFamily": "Transformer / LLM",
@@ -2817,6 +3241,9 @@
     ],
     "dataRepresentation": "Symbolic (tuple format: lyrics + melody notes/durations)",
     "dataset": "SongCompose-PT pretraining dataset (~10M-scale); 8K curated lyric-melody pairs for tuning",
+    "datasetTags": [
+      "SongCompose-PT"
+    ],
     "evaluation": "Objective + subjective (vs GPT-4 and baselines)",
     "metrics": "Lyric/melody quality metrics (BLEU, melody distance); subjective MOS-style ratings",
     "musicLength": "Full songs",
@@ -2828,7 +3255,8 @@
     "paperUrl": "https://arxiv.org/abs/2402.17645",
     "inDepth": false,
     "notes": "",
-    "citation": "Ding, Q., Cai, Z., Wu, J., Pan, W., Li, D., Kong, L., & Liu, B. (2025). SongComposer: A Large Language Model for Lyric and Melody Composition in Song Generation. arXiv. https://doi.org/10.48550/arXiv.2402.17645"
+    "citation": "Ding, Q., Cai, Z., Wu, J., Pan, W., Li, D., Kong, L., & Liu, B. (2025). SongComposer: A Large Language Model for Lyric and Melody Composition in Song Generation. arXiv. https://doi.org/10.48550/arXiv.2402.17645",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "373",
@@ -2837,7 +3265,7 @@
     "year": 2025,
     "source": "arXiv",
     "task": "Study of representational bias + cross-cultural adaptation of music generation models (low-resource genres)",
-    "taskCategory": "Representation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Analysis of dataset/paper bias + parameter-efficient fine-tuning (PEFT) adaptation of MusicGen and Mustango to non-Western traditions",
     "architectureFamily": "Other / Hybrid",
@@ -2847,6 +3275,9 @@
     ],
     "dataRepresentation": "Audio (MusicGen/Mustango) + genre-specific datasets",
     "dataset": "Meta-analysis of existing music datasets; two underrepresented non-Western traditions (e.g., Turkish Makam, Hindustani) for adaptation",
+    "datasetTags": [
+      "No training corpus"
+    ],
     "evaluation": "Objective + subjective (bias analysis + adaptation evaluation)",
     "metrics": "FAD/CLAP-style generation metrics; representational-coverage statistics; subjective ratings",
     "musicLength": "N/A",
@@ -2858,7 +3289,8 @@
     "paperUrl": "https://arxiv.org/abs/2502.07328",
     "inDepth": false,
     "notes": "",
-    "citation": "Mehta, A., Chauhan, S., Djanibekov, M., Kulkarni, A., Xia, G., & Choudhury, M. (2025). Music for All: Representational Bias and Cross-Cultural Adaptability of Music Generation Models. arXiv. https://doi.org/10.48550/arXiv.2502.07328"
+    "citation": "Mehta, A., Chauhan, S., Djanibekov, M., Kulkarni, A., Xia, G., & Choudhury, M. (2025). Music for All: Representational Bias and Cross-Cultural Adaptability of Music Generation Models. arXiv. https://doi.org/10.48550/arXiv.2502.07328",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "382",
@@ -2867,7 +3299,7 @@
     "year": 2025,
     "source": "arXiv",
     "task": "Symbolic Music Generation (long-sequence, unconditional)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "SMDIM: discrete (absorbing-state) diffusion with Mamba/SSM + MFA blocks (Mamba-FeedForward-Attention)",
     "architectureFamily": "Diffusion",
@@ -2878,6 +3310,10 @@
     ],
     "dataRepresentation": "Symbolic (REMI tokens from MIDI)",
     "dataset": "MAESTRO; POP909; FolkDB (traditional Chinese folk)",
+    "datasetTags": [
+      "POP909",
+      "MAESTRO"
+    ],
     "evaluation": "Objective + subjective (double-blind listening test, 15 participants; paired t-test)",
     "metrics": "Overlapping Area (OA) over 7 musical attributes + average OA; per-step latency & GPU memory; subjective: Emotional Consistency, Melodic Fluency, Rhythmic Stability, Structural Clarity (1-10)",
     "musicLength": "16 bars (input sequence 2,048 tokens; stable up to 2,048 tokens)",
@@ -2889,7 +3325,8 @@
     "paperUrl": "https://arxiv.org/abs/2507.20128",
     "inDepth": false,
     "notes": "First posted as arXiv:2507.20128 in July 2025. This record was later withdrawn as a duplicate; arXiv identifies arXiv:2603.00576 (2026) as the updated and correct replacement. Detailed extraction and in-depth analysis used the replacement version. Counted once; temporal coding retains the 2025 first-posting year.",
-    "citation": "Yuan, S., Tang, X., Chen, J., Xie, T., Wang, J., & Shi, B. (2025). Diffusion-based Symbolic Music Generation with Structured State Space Models. arXiv. https://doi.org/10.48550/arXiv.2507.20128"
+    "citation": "Yuan, S., Tang, X., Chen, J., Xie, T., Wang, J., & Shi, B. (2025). Diffusion-based Symbolic Music Generation with Structured State Space Models. arXiv. https://doi.org/10.48550/arXiv.2507.20128",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "20",
@@ -2908,6 +3345,10 @@
     ],
     "dataRepresentation": "Symbolic (multi-track MIDI; REMI-z structured tokens)",
     "dataset": "Los Angeles MIDI dataset (405K files, 4.3B tokens, pretraining) + Slakh2100 (1,289/270/151, fine-tuning)",
+    "datasetTags": [
+      "Slakh2100",
+      "Los Angeles MIDI"
+    ],
     "evaluation": "Objective + subjective (perceptual evaluation)",
     "metrics": "Task-specific objective arrangement metrics; sequence-length compactness; perceptual scores",
     "musicLength": "Full multitrack pieces (2048-token context)",
@@ -2919,7 +3360,8 @@
     "paperUrl": "http://arxiv.org/abs/2408.15176",
     "inDepth": false,
     "notes": "",
-    "citation": "Ou, L., Zhao, J., Wang, Z., Xia, G., Liang, Q., Hopkins, T., & Wang, Y. (2024). Unifying Symbolic Music Arrangement: Track-Aware Reconstruction and Structured Tokenization. NeurIPS 2025. https://doi.org/10.48550/arXiv.2408.15176"
+    "citation": "Ou, L., Zhao, J., Wang, Z., Xia, G., Liang, Q., Hopkins, T., & Wang, Y. (2024). Unifying Symbolic Music Arrangement: Track-Aware Reconstruction and Structured Tokenization. NeurIPS 2025. https://doi.org/10.48550/arXiv.2408.15176",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "25",
@@ -2928,7 +3370,7 @@
     "year": 2025,
     "source": "arXiv 2025",
     "task": "Symbolic Music Generation (full-song multitrack via latent diffusion)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "PhraseVAE (compresses variable-length polyphonic phrase to 64-D latent) + PhraseLDM (non-autoregressive latent diffusion over phrase latents)",
     "architectureFamily": "Diffusion",
@@ -2938,6 +3380,10 @@
     ],
     "dataRepresentation": "Symbolic (phrase-level 64-D latent from multitrack notes)",
     "dataset": "POP909 (5% val); Slakh2100 referenced",
+    "datasetTags": [
+      "POP909",
+      "Slakh2100"
+    ],
     "evaluation": "Objective + subjective",
     "metrics": "VAE reconstruction (99.0% F1); FAD-style / structureness; subjective ratings",
     "musicLength": "Full-song (up to 128 bars, ~8 min; 3.3 s inference on A40)",
@@ -2949,7 +3395,8 @@
     "paperUrl": "http://arxiv.org/abs/2512.11348",
     "inDepth": false,
     "notes": "",
-    "citation": "Ou, L., & Wang, Y. (2025). PhraseVAE and PhraseLDM: Latent Diffusion for Full-Song Multitrack Symbolic Music Generation. arXiv 2025. https://doi.org/10.48550/arXiv.2512.11348"
+    "citation": "Ou, L., & Wang, Y. (2025). PhraseVAE and PhraseLDM: Latent Diffusion for Full-Song Multitrack Symbolic Music Generation. arXiv 2025. https://doi.org/10.48550/arXiv.2512.11348",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "30",
@@ -2958,7 +3405,7 @@
     "year": 2025,
     "source": "arXiv 2025",
     "task": "Text-to-Music Generation (open-source foundation model; lyrics + style, fast; voice cloning, lyric editing)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "ACE-Step: diffusion-based generation with Sana's linear DiT + deep compression autoencoder; CLAP text conditioning + AudioLDM2 structure enhancement",
     "architectureFamily": "Diffusion",
@@ -2968,6 +3415,9 @@
     ],
     "dataRepresentation": "Audio (deep-compression autoencoder latents)",
     "dataset": "Large-scale music dataset (details limited; foundation-model scale)",
+    "datasetTags": [
+      "Other / unnamed"
+    ],
     "evaluation": "Objective + subjective (melody/harmony/rhythm + lyric alignment)",
     "metrics": "Lyric alignment / PER; melody/harmony/rhythm metrics; CLAP; inference speed (RTF; 15x faster than LLM baselines)",
     "musicLength": "Full songs (fast: e.g. minutes of audio in seconds on A100)",
@@ -2979,7 +3429,8 @@
     "paperUrl": "http://arxiv.org/abs/2506.00045",
     "inDepth": false,
     "notes": "",
-    "citation": "Gong, J., Zhao, S., Wang, S., Xu, S., & Guo, J. (2025). ACE-Step: A Step Towards Music Generation Foundation Model. arXiv 2025. https://doi.org/10.48550/arXiv.2506.00045"
+    "citation": "Gong, J., Zhao, S., Wang, S., Xu, S., & Guo, J. (2025). ACE-Step: A Step Towards Music Generation Foundation Model. arXiv 2025. https://doi.org/10.48550/arXiv.2506.00045",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "40",
@@ -2988,7 +3439,7 @@
     "year": 2024,
     "source": "arXiv 2024",
     "task": "Multi-Source Music Generation (coherent instrumental sources: piano, drums, bass, guitar; total/partial generation, separation)",
-    "taskCategory": "Generation",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "MSLDM: per-source VAEs encode each source; single latent diffusion model over concatenated source latents",
     "architectureFamily": "Diffusion",
@@ -2998,6 +3449,9 @@
     ],
     "dataRepresentation": "Audio (per-source VAE latents)",
     "dataset": "Slakh2100 (same as MSDM)",
+    "datasetTags": [
+      "Slakh2100"
+    ],
     "evaluation": "Objective + subjective (listening tests, 26 participants)",
     "metrics": "FAD (VGGish); subjective listening ratings (5-pt)",
     "musicLength": "N/A (Slakh stems)",
@@ -3009,7 +3463,8 @@
     "paperUrl": "http://arxiv.org/abs/2409.06190",
     "inDepth": false,
     "notes": "",
-    "citation": "Xu, Z., Dutta, D., Wei, Y., & Choudhury, R. R. (2024). Multi-Source Music Generation with Latent Diffusion. arXiv 2024. https://doi.org/10.48550/arXiv.2409.06190"
+    "citation": "Xu, Z., Dutta, D., Wei, Y., & Choudhury, R. R. (2024). Multi-Source Music Generation with Latent Diffusion. arXiv 2024. https://doi.org/10.48550/arXiv.2409.06190",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "43",
@@ -3018,7 +3473,7 @@
     "year": 2024,
     "source": "arXiv 2024",
     "task": "Music Stem Insertion (generate a missing instrument stem given other stems + text instruction)",
-    "taskCategory": "Other",
+    "taskCategory": "Audio generation",
     "domain": "Audio",
     "method": "Subtractive Training: fine-tune pre-trained text-to-audio diffusion model on (full-mix, stem-removed, LLM-generated instruction) triples",
     "architectureFamily": "Diffusion",
@@ -3029,6 +3484,11 @@
     ],
     "dataRepresentation": "Audio (spectrograms)",
     "dataset": "MUSDB18 + MagnaTagATune + MusicCaps (full-mix and stem-removed variants) + LLM-generated instructions",
+    "datasetTags": [
+      "MusicCaps",
+      "MUSDB18",
+      "MagnaTagATune"
+    ],
     "evaluation": "Objective + subjective (human evaluation)",
     "metrics": "FAD; subjective ratings",
     "musicLength": "N/A (stem segments)",
@@ -3040,7 +3500,8 @@
     "paperUrl": "http://arxiv.org/abs/2406.19328",
     "inDepth": false,
     "notes": "",
-    "citation": "Villa-Renteria, I., Wang, M. L., Shah, Z., Li, Z., Kim, S., Ramachandran, N., & Pilanci, M. (2024). Subtractive Training for Music Stem Insertion using Latent Diffusion Models. arXiv 2024. https://doi.org/10.48550/arXiv.2406.19328"
+    "citation": "Villa-Renteria, I., Wang, M. L., Shah, Z., Li, Z., Kim, S., Ramachandran, N., & Pilanci, M. (2024). Subtractive Training for Music Stem Insertion using Latent Diffusion Models. arXiv 2024. https://doi.org/10.48550/arXiv.2406.19328",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "65",
@@ -3049,7 +3510,7 @@
     "year": 2025,
     "source": "arXiv 2025",
     "task": "Symbolic Music Foundation Model (understanding + conditional generation; classification, infilling)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "Moonbeam: Transformer foundation model with domain-knowledge tokenization + Multidimensional attention; pretrained then finetuned with adapters",
     "architectureFamily": "Transformer / LLM",
@@ -3060,6 +3521,9 @@
     ],
     "dataRepresentation": "Symbolic (MIDI; novel multidimensional tokenization)",
     "dataset": "Large MIDI collection: 81.6K h / 18B tokens (pretraining); 4 datasets for downstream classification",
+    "datasetTags": [
+      "Other / unnamed"
+    ],
     "evaluation": "Objective only (3 downstream classification tasks + conditional generation)",
     "metrics": "Accuracy / F1 (player, emotion, composer classification); generation metrics",
     "musicLength": "N/A (foundation model)",
@@ -3071,7 +3535,8 @@
     "paperUrl": "http://arxiv.org/abs/2505.15559",
     "inDepth": false,
     "notes": "",
-    "citation": "Guo, Z., & Dixon, S. (2025). Moonbeam: A MIDI Foundation Model Using Both Absolute and Relative Music Attributes. arXiv 2025. https://doi.org/10.48550/arXiv.2505.15559"
+    "citation": "Guo, Z., & Dixon, S. (2025). Moonbeam: A MIDI Foundation Model Using Both Absolute and Relative Music Attributes. arXiv 2025. https://doi.org/10.48550/arXiv.2505.15559",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "67",
@@ -3080,7 +3545,7 @@
     "year": 2025,
     "source": "AAAI 2025",
     "task": "Symbolic Music Generation (computer-assisted composition: multi-track generation, continuation, infilling, attribute control)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "MIDI-GPT: GPT-2-style Transformer (20M params, 6 layers) with multi-track/bar-fill representation and expressive DELTA tokens",
     "architectureFamily": "Transformer / LLM",
@@ -3091,6 +3556,9 @@
     ],
     "dataRepresentation": "Symbolic (multi-track MIDI token representation, REMI-like with expressive timing/velocity tokens)",
     "dataset": "GigaMIDI (80/10/10 split)",
+    "datasetTags": [
+      "GigaMIDI"
+    ],
     "evaluation": "Objective only (no listening study; refers to prior user study): originality, stylistic similarity, attribute-control experiments",
     "metrics": "Duplication rate (intra-dataset & infilling originality); stylistic similarity (feature-based); attribute-control accuracy (density, polyphony, duration)",
     "musicLength": "4/8-bar multi-track segments (2048-token window)",
@@ -3102,7 +3570,8 @@
     "paperUrl": "http://arxiv.org/abs/2501.17011",
     "inDepth": true,
     "notes": "",
-    "citation": "Pasquier, P., Ens, J., Fradet, N., Triana, P., Rizzotti, D., Rolland, J., & Safi, M. (2025). MIDI-GPT: A Controllable Generative Model for Computer-Assisted Multitrack Music Composition. AAAI 2025. https://doi.org/10.48550/arXiv.2501.17011"
+    "citation": "Pasquier, P., Ens, J., Fradet, N., Triana, P., Rizzotti, D., Rolland, J., & Safi, M. (2025). MIDI-GPT: A Controllable Generative Model for Computer-Assisted Multitrack Music Composition. AAAI 2025. https://doi.org/10.48550/arXiv.2501.17011",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "127",
@@ -3121,6 +3590,9 @@
     ],
     "dataRepresentation": "Symbolic MIDI",
     "dataset": "MIDI corpora",
+    "datasetTags": [
+      "Other / unnamed"
+    ],
     "evaluation": "Objective",
     "metrics": "Histogram metrics",
     "musicLength": "Segments",
@@ -3132,7 +3604,8 @@
     "paperUrl": "https://journals.sagepub.com/doi/10.1177/14727978251337904",
     "inDepth": false,
     "notes": "Full text not accessible (SAGE/JCMSE); fields from metadata and abstract only.",
-    "citation": "Cui, X. H., Hu, P., & Huang, Z. (2025). Music sequence generation and arrangement based on transformer model. Journal of Computational Methods in Sciences and Engineering. https://doi.org/10.1177/14727978251337904"
+    "citation": "Cui, X. H., Hu, P., & Huang, Z. (2025). Music sequence generation and arrangement based on transformer model. Journal of Computational Methods in Sciences and Engineering. https://doi.org/10.1177/14727978251337904",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "221",
@@ -3151,6 +3624,9 @@
     ],
     "dataRepresentation": "Symbolic (multi-instrument MIDI tokens)",
     "dataset": "Custom pop band MIDI dataset with melody/style/mood labels handcrafted by musicians (contributed)",
+    "datasetTags": [
+      "Custom / self-built"
+    ],
     "evaluation": "Objective (benchmark comparison) + control-adherence",
     "metrics": "Chord/control accuracy and infilling-quality metrics; GPU memory efficiency",
     "musicLength": "Multi-instrument segments",
@@ -3162,7 +3638,8 @@
     "paperUrl": "https://ieeexplore.ieee.org/document/11208972/",
     "inDepth": false,
     "notes": "",
-    "citation": "Zou, Y., Cheng, H., Ye, L., & Zhang, Q. (2025). Pop-Diffuseq: Controllable Symbolic Music Multi-Instrument Infilling and Accompaniment Generation with Long-Axis Attention. 2025 IEEE International Conference on Multimedia and Expo (ICME). https://doi.org/10.1109/ICME59968.2025.11208972"
+    "citation": "Zou, Y., Cheng, H., Ye, L., & Zhang, Q. (2025). Pop-Diffuseq: Controllable Symbolic Music Multi-Instrument Infilling and Accompaniment Generation with Long-Axis Attention. 2025 IEEE International Conference on Multimedia and Expo (ICME). https://doi.org/10.1109/ICME59968.2025.11208972",
+    "evaluationCategory": "Objective only"
   },
   {
     "id": "259",
@@ -3181,6 +3658,9 @@
     ],
     "dataRepresentation": "Symbolic (multi-track token sequences with texture attributes: polyphony, rhythmic intensity)",
     "dataset": "SymphonyNet dataset (46k multi-track pieces); LakhMIDI (part of reference set for metrics)",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "Objective + subjective (survey: 24 participants re-orchestration, 13 lead-sheet orchestration)",
     "metrics": "Bar-/track-level controllability accuracy; melodic fidelity; melodic-instrument playability; distribution-based similarity to reference; subjective quality/recognizability ratings",
     "musicLength": "N/A (bar-level segments; K-bar windows)",
@@ -3192,7 +3672,8 @@
     "paperUrl": "https://hal.science/hal-05228512/",
     "inDepth": true,
     "notes": "",
-    "citation": "Yang, Y. (2025). METEOR: Melody-aware Texture-controllable Symbolic Orchestral Music Generation via Transformer VAE. Thirty-Fourth International Joint Conference on Artificial Intelligence AI, Arts & Creativity. https://doi.org/10.48550/arXiv.2409.11753"
+    "citation": "Yang, Y. (2025). METEOR: Melody-aware Texture-controllable Symbolic Orchestral Music Generation via Transformer VAE. Thirty-Fourth International Joint Conference on Artificial Intelligence AI, Arts & Creativity. https://doi.org/10.48550/arXiv.2409.11753",
+    "evaluationCategory": "Objective + subjective"
   },
   {
     "id": "258",
@@ -3201,7 +3682,7 @@
     "year": 2024,
     "source": "Audio Imagination: NeurIPS 2024 Workshop AI-Driven Speech, Music, and Sound Generation",
     "task": "Symbolic Music Generation (controllable via three modalities: melody, structure/expert description, texture)",
-    "taskCategory": "Generation",
+    "taskCategory": "Symbolic generation",
     "domain": "Symbolic",
     "method": "FIGARO-based transformer with explicit 3-modal separation (expert description + learned texture via VQ-VAE)",
     "architectureFamily": "VAE",
@@ -3211,6 +3692,9 @@
     ],
     "dataRepresentation": "Symbolic (expert description tokens + VQ-VAE texture latents; multi-track)",
     "dataset": "Lakh MIDI 'Clean MIDI' subset (15,887 files)",
+    "datasetTags": [
+      "Lakh MIDI"
+    ],
     "evaluation": "Objective (control-adherence + quality)",
     "metrics": "Feature-control metrics (mean pitch, chords, note density); reconstruction",
     "musicLength": "Bar-level (per-bar descriptions)",
@@ -3222,6 +3706,7 @@
     "paperUrl": "https://openreview.net/forum?id=TvmdURcO5z",
     "inDepth": false,
     "notes": "Workshop paper (OpenReview); no registered DOI.",
-    "citation": "Lucht, D. A., Leins, D. P., von Rütte, D., & Moringen, A. (2024). Three-modal guidance for symbolic music generation: melody, structure, texture. Audio Imagination: NeurIPS 2024 Workshop AI-Driven Speech, Music, and Sound Generation. https://openreview.net/forum?id=TvmdURcO5z"
+    "citation": "Lucht, D. A., Leins, D. P., von Rütte, D., & Moringen, A. (2024). Three-modal guidance for symbolic music generation: melody, structure, texture. Audio Imagination: NeurIPS 2024 Workshop AI-Driven Speech, Music, and Sound Generation. https://openreview.net/forum?id=TvmdURcO5z",
+    "evaluationCategory": "Objective only"
   }
 ]

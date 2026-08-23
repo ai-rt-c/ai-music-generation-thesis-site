@@ -137,7 +137,7 @@
       },
       {
         "q": "RQ2 — What are the dominant trends, techniques, datasets and evaluation?",
-        "a": "Eight higher-level trends were synthesised from the 107 studies. Transformer and language-model approaches are the most common, accounting for 40 studies, followed by diffusion with 32; VAEs persist as a smaller but continuing family of 11 studies, including in arrangement and re-orchestration. Text emerged as the dominant conditioning interface, later augmented with music-theoretic and time-varying controls. Evaluation remains heterogeneous: 79 studies combine objective and subjective assessment, 22 report objective measures only, 4 subjective assessment only, and 2 demonstrations or qualitative discussion alone."
+        "a": "Eight higher-level trends were synthesised from the 107 studies. In the mutually exclusive task grouping used for the corpus-level distribution, 75 studies concern generation, 26 arrangement and 6 orchestration. Transformer and language-model approaches are the most common, accounting for 41 studies, followed by diffusion with 32; VAEs persist as a smaller but continuing family of 10 studies, including in arrangement and re-orchestration. Dataset use clusters around a small number of shared resources: Lakh MIDI is tagged in 16 studies, POP909 in 14, MusicCaps in 13, Slakh in 9 and MAESTRO in 7. Text emerged as the dominant conditioning interface, later augmented with music-theoretic and time-varying controls. Evaluation remains heterogeneous: 73 studies combine objective and subjective assessment, 29 report objective measures only, 3 subjective assessment only, and 2 demonstrations or qualitative discussion alone."
       },
       {
         "q": "RQ3 — Which approaches are most promising, and why?",
@@ -238,15 +238,14 @@
   "tips": {
     "domain": {
       "Symbolic": "Music as notes or score (MIDI, ABC notation).",
-      "Audio": "Music as raw waveform or audio/codec tokens."
+      "Audio": "Music as raw waveform or audio/codec tokens.",
+      "Mixed": "A system that delegates across both symbolic and audio representations."
     },
     "task": {
-      "Generation": "Generating music from scratch or a prompt.",
+      "Symbolic generation": "Generating note- or score-based music, including the mixed-domain MusicAgent grouping used in Figure 7.",
+      "Audio generation": "Generating waveform, spectrogram or audio-token music.",
       "Arrangement": "Backing or accompaniment for a given lead.",
-      "Orchestration": "Choosing instruments; timbre matching or re-orchestration.",
-      "Evaluation": "Benchmarking models or evaluation-metric methodology.",
-      "Representation": "Learning reusable music representations.",
-      "Other": "Other or infrastructure work."
+      "Orchestration": "Choosing instruments; timbre matching or re-orchestration."
     },
     "paradigm": {
       "Transformer": "Autoregressive Transformer language model over music tokens.",
