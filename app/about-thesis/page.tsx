@@ -13,6 +13,20 @@ export default function AboutThesisPage() {
     <article className="max-w-prose">
       <PageHeader kicker="Master thesis" title="About the thesis" />
 
+      <div className="mt-6 rounded-lg border border-line bg-white p-4 text-sm">
+        <a
+          href="/thesis/AI_Music_Thesis_Public_Edition.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold text-forest hover:underline"
+        >
+          Read the public thesis PDF
+        </a>
+        <p className="mt-1.5 text-xs leading-relaxed text-muted">
+          135 pages · signed declaration and matriculation number omitted from the public edition
+        </p>
+      </div>
+
       <h2 className="mt-8 text-xl">Abstract</h2>
       <p className="mt-2 leading-relaxed">{a.abstract}</p>
 

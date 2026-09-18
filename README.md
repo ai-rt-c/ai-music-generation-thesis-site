@@ -4,13 +4,17 @@ Interactive companion to the MSc dissertation *A Systematic Overview on AI Music
 Generation, Arrangement, and Orchestration* by
 ZahraSadat Tahawori (IU International University of Applied Sciences).
 
-Static Next.js site — calm, journal-like, data-driven. Every page renders from
-generated JSON; no research content is hard-coded in components.
+Calm, journal-like, data-driven Next.js site. Every research page renders from
+generated JSON; no research content is hard-coded in components. The Vercel
+deployment also exposes an evidence-grounded thesis assistant through a
+server-side route so model credentials never reach the browser.
 
 ## Stack
 
 Next.js (App Router) · TypeScript · TailwindCSS · Framer Motion (subtle) ·
-static export → GitHub Pages. No runtime data dependencies.
+AI SDK + Vercel AI Gateway. Research pages are statically rendered; Vercel runs
+the assistant endpoint. GitHub Pages remains a static mirror whose assistant UI
+calls the Vercel endpoint.
 
 ## Data pipeline (M0)
 
@@ -37,16 +41,22 @@ Schemas are in `lib/types.ts`.
 ```
 npm install
 npm run dev      # local dev server
-npm run build    # static export to ./out (GitHub Pages ready)
+npm run build    # Vercel-ready build, including /api/assistant
 ```
+
+The assistant authenticates with Vercel OIDC on a linked deployment or with an
+`AI_GATEWAY_API_KEY` in `.env.local`. Its default model is
+`google/gemini-2.5-flash`; override it with `THESIS_ASSISTANT_MODEL`. Never expose
+either credential through a `NEXT_PUBLIC_*` variable.
 
 Fonts (Inter, Source Serif 4) are self-hosted via `@fontsource-variable/*` — no
 external font CDN, works offline, and builds without network access to fonts.
 
-Deployment is automated: pushing to `main` triggers `.github/workflows/deploy.yml`,
-which runs `npm ci && npm run build`, adds `.nojekyll`, and publishes `out/` to
-GitHub Pages. The site is served under `/ai-music-generation-thesis-site/`
-(configured via `basePath` in `next.config.mjs`).
+Deployment is automated: Vercel builds the complete site and server-side
+assistant. Pushing to `main` also triggers `.github/workflows/deploy.yml`, which
+temporarily excludes the server route, creates a static export, and publishes
+the mirror to GitHub Pages under `/ai-music-generation-thesis-site/`. The mirror
+uses `NEXT_PUBLIC_ASSISTANT_API_URL` to call the Vercel endpoint.
 
 ## Milestones
 
@@ -61,3 +71,4 @@ GitHub Pages. The site is served under `/ai-music-generation-thesis-site/`
 - M7 — polish (subtle motion, responsive)
 - M8 — accessibility & SEO
 - M9 — final deployment
+- M10 — evidence-grounded thesis assistant (local preview complete; live Gateway authentication pending)

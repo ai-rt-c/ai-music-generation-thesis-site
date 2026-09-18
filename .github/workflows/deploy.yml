@@ -21,10 +21,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - run: npm ci
+      # GitHub Pages is a static mirror. The assistant API runs only on Vercel;
+      # exclude the server route from this export and point the UI to Vercel.
+      - run: mv app/api /tmp/thesis-site-api
       - run: npm run build
+        env:
+          NEXT_PUBLIC_ASSISTANT_API_URL: https://ai-music-generation-thesis-review.vercel.app/api/assistant/
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

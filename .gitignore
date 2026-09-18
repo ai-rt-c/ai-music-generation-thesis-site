@@ -3,6 +3,7 @@ node_modules/
 out/
 .DS_Store
 *.log
+*.tsbuildinfo
 .env*
 scripts/__pycache__/
 
@@ -15,3 +16,7 @@ scripts/__pycache__/
 /public/downloads/*[Tt]hesis*.pdf
 /public/downloads/*[Dd]raft*.pdf
 /public/downloads/*[Dd]issertation*.pdf
+
+# The sanitised public thesis is reconstructed from versioned base64 parts at build time.
+/public/thesis/AI_Music_Thesis_Public_Edition.pdf
+/data/thesis-corpus.json

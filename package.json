@@ -2,17 +2,24 @@
   "name": "ai-music-generation-thesis-site",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "description": "Interactive companion website for the MSc thesis: AI for Music Generation, Arrangement and Orchestration — A Systematic Review (2020–2025).",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "python3 scripts/prepare_thesis_assistant.py",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "data": "python3 scripts/build_data.py"
+    "data": "python3 scripts/build_data.py",
+    "thesis:corpus": "python3 scripts/build_thesis_corpus.py",
+    "thesis:package": "python3 scripts/package_public_thesis.py"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.20",
     "@fontsource-variable/source-serif-4": "^5.0.6",
+    "ai": "^7.0.106",
     "framer-motion": "^11.3.19",
     "next": "14.2.35",
     "react": "^18.3.1",

@@ -4,7 +4,9 @@ const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
 const repo = "ai-music-generation-thesis-site";
 
 const nextConfig = {
-  output: "export",
+  // The assistant needs a server-side route so credentials never reach the browser.
+  // GitHub Pages remains a static mirror; the live assistant is a Vercel feature.
+  ...(isGitHubPages ? { output: "export" } : {}),
   trailingSlash: true,
   images: { unoptimized: true },
   basePath: isGitHubPages ? `/${repo}` : "",
