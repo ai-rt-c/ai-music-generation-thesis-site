@@ -1,3 +1,4 @@
+import { google } from "@ai-sdk/google";
 import { generateText } from "ai";
 import { NextResponse } from "next/server";
 import { buildAssistantInstructions } from "@/lib/assistant/prompt";
@@ -8,7 +9,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
 
-const MODEL = process.env.THESIS_ASSISTANT_MODEL || "google/gemini-2.5-flash";
+const MODEL = process.env.THESIS_ASSISTANT_MODEL || "gemini-2.5-flash";
 const MAX_MESSAGES = 8;
 const MAX_MESSAGE_LENGTH = 4_000;
 const MAX_TOTAL_LENGTH = 14_000;
@@ -112,7 +113,7 @@ export async function POST(request: Request) {
       .join("\n");
     const retrieved = retrieveThesisContext(`${latestQuestion}\n${recentConversation}`);
     const result = await generateText({
-      model: MODEL,
+      model: google(MODEL),
       instructions: buildAssistantInstructions(retrieved),
       messages,
       maxOutputTokens: 700,

@@ -5,6 +5,7 @@ out/
 *.log
 *.tsbuildinfo
 .env*
+!.env.example
 scripts/__pycache__/
 
 # Private thesis and research sources must never enter the public export.

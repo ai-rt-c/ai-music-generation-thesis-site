@@ -12,7 +12,7 @@ server-side route so model credentials never reach the browser.
 ## Stack
 
 Next.js (App Router) · TypeScript · TailwindCSS · Framer Motion (subtle) ·
-AI SDK + Vercel AI Gateway. Research pages are statically rendered; Vercel runs
+AI SDK + Google Gemini Developer API. Research pages are statically rendered; Vercel runs
 the assistant endpoint. GitHub Pages remains a static mirror whose assistant UI
 calls the Vercel endpoint.
 
@@ -44,10 +44,11 @@ npm run dev      # local dev server
 npm run build    # Vercel-ready build, including /api/assistant
 ```
 
-The assistant authenticates with Vercel OIDC on a linked deployment or with an
-`AI_GATEWAY_API_KEY` in `.env.local`. Its default model is
-`google/gemini-2.5-flash`; override it with `THESIS_ASSISTANT_MODEL`. Never expose
-either credential through a `NEXT_PUBLIC_*` variable.
+The assistant uses the server-only `GOOGLE_GENERATIVE_AI_API_KEY` environment
+variable; copy `.env.example` to `.env.local` for local development or add the
+secret in the Vercel project settings. Its default model is
+`gemini-2.5-flash`; override it with `THESIS_ASSISTANT_MODEL`. Never expose the
+credential through a `NEXT_PUBLIC_*` variable.
 
 Fonts (Inter, Source Serif 4) are self-hosted via `@fontsource-variable/*` — no
 external font CDN, works offline, and builds without network access to fonts.
@@ -71,4 +72,4 @@ uses `NEXT_PUBLIC_ASSISTANT_API_URL` to call the Vercel endpoint.
 - M7 — polish (subtle motion, responsive)
 - M8 — accessibility & SEO
 - M9 — final deployment
-- M10 — evidence-grounded thesis assistant (local preview complete; live Gateway authentication pending)
+- M10 — evidence-grounded thesis assistant (preview implementation complete; server-side Gemini key required)
