@@ -30,6 +30,12 @@ const WELCOME: DisplayMessage = {
     "Ask about the review, individual studies, datasets, methods, findings, or the 27-system listening analysis. I use the public thesis plus verified structured records from the final 107-study and 27-system tables, cite the evidence used, and keep the answer brief.",
 };
 
+function cleanAssistantText(content: string) {
+  return content
+    .replaceAll("**", "")
+    .replace(/\*([^*\n]+)\*/g, "$1");
+}
+
 function MessageSources({ sources }: { sources: AssistantSource[] }) {
   const readingLinks = sources
     .flatMap((source) => [
@@ -206,7 +212,7 @@ export default function ThesisAssistant() {
                     : "border border-line bg-canvas text-ink"
                 }`}
               >
-                {message.role === "assistant" ? message.content.replaceAll("**", "") : message.content}
+                {message.role === "assistant" ? cleanAssistantText(message.content) : message.content}
               </div>
               {message.sources && message.sources.length > 0 && (
                 <MessageSources sources={message.sources} />

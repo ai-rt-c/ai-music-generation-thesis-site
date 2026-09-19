@@ -22,6 +22,10 @@ const QUERY_STOP_WORDS = new Set([
   "generation", "مقاله", "مقالات", "سیستم", "سیستمها", "کدام", "چی", "چه",
 ]);
 
+export type StructuredEvidenceSource = AssistantEvidenceSource & {
+  directAnswer?: string;
+};
+
 function normalize(value: string) {
   return value
     .normalize("NFKD")
@@ -46,6 +50,21 @@ function truncate(value: string, length = 190) {
   const clipped = value.slice(0, length);
   const boundary = clipped.lastIndexOf(" ");
   return `${clipped.slice(0, boundary > length * 0.65 ? boundary : length).trimEnd()}…`;
+}
+
+function isPersian(query: string) {
+  return /[\u0600-\u06FF]/.test(query);
+}
+
+function readableList(values: string[]) {
+  if (values.length <= 1) return values[0] ?? "";
+  if (values.length === 2) return `${values[0]} and ${values[1]}`;
+  return `${values.slice(0, -1).join(", ")}, and ${values.at(-1)}`;
+}
+
+function formatScore(value: number | null | undefined) {
+  if (typeof value !== "number") return "N/A";
+  return value.toFixed(1);
 }
 
 function countBy<T>(values: T[], key: (value: T) => string) {
@@ -162,7 +181,7 @@ const DATASET_ALIASES: Array<[RegExp, string]> = [
   [/\bnsynth\b/i, "NSynth"],
 ];
 
-function buildMasterSource(query: string): AssistantEvidenceSource | null {
+function buildMasterSource(query: string): StructuredEvidenceSource | null {
   const normalizedQuery = normalize(query);
   const masterIntent = /\b(papers?|stud(?:y|ies)|corpus|dataset|architecture|method|evaluation|code|demo|doi|authors?)\b|مقاله|مطالعه|پژوهش|دیتاست|معماری|روش|ارزیابی|کد/i.test(query);
   const listeningOnlyIntent = /\b(listening|listener|rating|ratings|scor(?:e|ed|es|ing)|rubric|evaluator)\b|شنیدار|شنونده|امتیاز|ارزیاب/i.test(query);
@@ -285,6 +304,18 @@ function buildMasterSource(query: string): AssistantEvidenceSource | null {
       ? `${matches.length} most relevant rows were retrieved by title and field matching.`
       : "No individual row filter was requested; aggregate counts are supplied.";
 
+  const examplePapers = matches.slice(0, 5);
+  const exampleText = readableList(examplePapers.map((paper) => `${paper.title.replace(/\s+/g, " ")} (ID ${paper.id})`));
+  const directAnswer = filters.length
+    ? isPersian(query)
+      ? matches.length
+        ? `در جدول نهایی، ${matches.length} مورد از ۱۰۷ مطالعه با معیار «${criteria.join(" و ")}» مطابقت دارند [M1]. ${matches.length > 5 ? "چند نمونه" : "موارد"}: ${exampleText} [M1].`
+        : `در جدول نهایی ۱۰۷تایی، هیچ مطالعه‌ای با معیار «${criteria.join(" و ")}» پیدا نشد [M1].`
+      : matches.length
+        ? `The final master dataset contains ${matches.length} of 107 studies matching ${criteria.join(" and ")} [M1]. ${matches.length > 5 ? "Examples" : "Matches"}: ${exampleText} [M1].`
+        : `No study in the final 107-study master dataset matches ${criteria.join(" and ")} [M1].`
+    : undefined;
+
   return {
     id: "master-dataset",
     citation: "M1",
@@ -292,6 +323,7 @@ function buildMasterSource(query: string): AssistantEvidenceSource | null {
     label: filters.length ? `107-study master table · ${matches.length} matched` : "107-study master table",
     href,
     excerpt: `${matchSummary} Exact row fields and counts are validated against the final 107-study workbook; the workbook itself is not published.`,
+    directAnswer,
     siteLinks,
     context: [
       "AUTHORITATIVE STRUCTURED SOURCE: final 107-study master table.",
@@ -336,7 +368,7 @@ function meanScore(key: keyof Scores) {
   return values.reduce((total, value) => total + value, 0) / values.length;
 }
 
-function buildListeningSource(query: string): AssistantEvidenceSource | null {
+function buildListeningSource(query: string): StructuredEvidenceSource | null {
   const listeningIntent = /\b(listening|listener|rating|ratings|scor(?:e|ed|es|ing)|rubric|evaluator|pilot|top|best|leader)\b|شنیدار|شنونده|امتیاز|ارزیاب|برتر|بهترین/i.test(query);
   const normalizedQuery = normalize(query);
   const ids = exactIds(query, new Set(systems.map((system) => system.id)));
@@ -411,6 +443,25 @@ function buildListeningSource(query: string): AssistantEvidenceSource | null {
     ? `${selectedRows.length} of 27 systems match: ${criteria.join(" AND ")}.`
     : "The source contains all 27 systems; no row-level score filter was requested.";
 
+  const exampleRecords = selectedRows.slice(0, 5);
+  const exampleText = readableList(exampleRecords.map(({ system, evaluation }) =>
+    `${system.name} (${formatScore(evaluation.scores[dimension])}/5)`,
+  ));
+  const wantsInterpretation = asksForTop
+    || /distinguish|distinguished|why|factor|separate|promising|چه چیزی.*متمایز|چرا.*بهتر|عامل/i.test(query);
+  const interpretation = isPersian(query)
+    ? "در این تحلیل اکتشافی، پایبندی به کنترل و ساختار بلندمدت تمایزبخش‌تر از کیفیت صوت بودند؛ این نتیجه رتبه‌بندی قطعی نیست [L1]."
+    : "In this exploratory analysis, control adherence and long-term structure were more discriminating than audio quality; this is not a definitive ranking [L1].";
+  const directAnswer = criteria.length
+    ? isPersian(query)
+      ? selectedRows.length
+        ? `${selectedRows.length} مورد از ۲۷ سیستم با معیار «${criteria.join(" و ")}» مطابقت دارند [L1]. ${selectedRows.length > 5 ? "چند نمونه" : "موارد"}: ${exampleText} [L1].${wantsInterpretation ? ` ${interpretation}` : ""}`
+        : `در تحلیل شنیداری ۲۷تایی، هیچ سیستمی با معیار «${criteria.join(" و ")}» پیدا نشد [L1].`
+      : selectedRows.length
+        ? `${selectedRows.length} of the 27 systems match ${criteria.join(" and ")} [L1]. ${selectedRows.length > 5 ? "Examples" : "Matches"}: ${exampleText} [L1].${wantsInterpretation ? ` ${interpretation}` : ""}`
+        : `No system in the final 27-system listening analysis matches ${criteria.join(" and ")} [L1].`
+    : undefined;
+
   return {
     id: "listening-dataset",
     citation: "L1",
@@ -418,6 +469,7 @@ function buildListeningSource(query: string): AssistantEvidenceSource | null {
     label: criteria.length ? `27-system listening analysis · ${selectedRows.length} matched` : "27-system listening analysis",
     href,
     excerpt: `${matchSummary} Scores and IDs are validated against the final 27-system workbook; the workbook itself is not published.`,
+    directAnswer,
     siteLinks: [{
       label: exactSingle ? `Open ${selectedRows[0].system.name}` : isFeatured ? "Open the top-systems view" : "Browse the 27 systems",
       href,
@@ -426,6 +478,7 @@ function buildListeningSource(query: string): AssistantEvidenceSource | null {
       "AUTHORITATIVE STRUCTURED SOURCE: final 27-system pilot exploratory listening analysis.",
       "Use this source for exact system IDs, eight evaluator ratings, selected-system comparisons, listening notes, and concise paper-evidence summaries.",
       "Caution: these are ratings by one non-musician evaluator on a common 1–5 rubric, not a population-level listening experiment. Overall is a separate holistic rating, not a calculated mean.",
+      "Interpretive synthesis: among systems rated at least 4/5 Overall, verifiable control adherence and explicit long-term structural planning were more discriminating than audio quality.",
       matchSummary,
       `Dimension means across available ratings — quality ${meanScore("quality").toFixed(2)}; melody ${meanScore("melody").toFixed(2)}; harmony ${meanScore("harmony").toFixed(2)}; rhythm ${meanScore("rhythm").toFixed(2)}; structure ${meanScore("structure").toFixed(2)}; control ${meanScore("control").toFixed(2)}; naturalness ${meanScore("naturalness").toFixed(2)}; overall ${meanScore("overall").toFixed(2)}.`,
       rowLines.length
@@ -435,9 +488,9 @@ function buildListeningSource(query: string): AssistantEvidenceSource | null {
   };
 }
 
-export function retrieveStructuredContext(query: string): AssistantEvidenceSource[] {
+export function retrieveStructuredContext(query: string): StructuredEvidenceSource[] {
   return [buildMasterSource(query), buildListeningSource(query)]
-    .filter((source): source is AssistantEvidenceSource => source !== null);
+    .filter((source): source is StructuredEvidenceSource => source !== null);
 }
 
 export function wantsExpandedAnswer(query: string) {

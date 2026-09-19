@@ -7,7 +7,8 @@ import {
   retrieveStructuredContext,
   wantsExpandedAnswer,
 } from "@/lib/assistant/structured";
-import type { AssistantMessage } from "@/lib/assistant/types";
+import type { StructuredEvidenceSource } from "@/lib/assistant/structured";
+import type { AssistantEvidenceSource, AssistantMessage } from "@/lib/assistant/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -91,6 +92,12 @@ function parseMessages(input: unknown): AssistantMessage[] | null {
   return parsed.at(-1)?.role === "user" ? parsed : null;
 }
 
+function publicSource(source: AssistantEvidenceSource | StructuredEvidenceSource) {
+  const structuredSource = source as StructuredEvidenceSource;
+  const { context: _context, directAnswer: _directAnswer, ...publicFields } = structuredSource;
+  return publicFields;
+}
+
 export async function POST(request: Request) {
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
   if (!allowRequest(ip)) {
@@ -116,12 +123,26 @@ export async function POST(request: Request) {
       .map(({ role, content }) => `${role}: ${content}`)
       .join("\n");
     const structured = retrieveStructuredContext(latestQuestion);
+    const expandedAnswer = wantsExpandedAnswer(latestQuestion);
+    const directAnswer = expandedAnswer
+      ? undefined
+      : structured.find((source) => source.directAnswer)?.directAnswer;
+
+    if (directAnswer) {
+      return NextResponse.json(
+        {
+          answer: directAnswer,
+          sources: structured.map(publicSource),
+        },
+        { headers: responseHeaders(request) },
+      );
+    }
+
     const thesis = retrieveThesisContext(
       `${latestQuestion}\n${recentConversation}`,
       structured.length ? 2 : 3,
     );
     const retrieved = [...structured, ...thesis];
-    const expandedAnswer = wantsExpandedAnswer(latestQuestion);
     const result = await generateText({
       model: google(MODEL),
       instructions: buildAssistantInstructions(retrieved, expandedAnswer),
@@ -135,7 +156,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         answer: result.text,
-        sources: retrieved.map(({ context: _context, ...source }) => source),
+        sources: retrieved.map(publicSource),
       },
       { headers: responseHeaders(request) },
     );
