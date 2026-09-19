@@ -116,7 +116,8 @@ export async function POST(request: Request) {
       model: google(MODEL),
       instructions: buildAssistantInstructions(retrieved),
       messages,
-      maxOutputTokens: 700,
+      maxOutputTokens: 1_200,
+      reasoning: "minimal",
       temperature: 0.2,
       maxRetries: 1,
     });
