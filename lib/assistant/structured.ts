@@ -250,7 +250,8 @@ function buildMasterSource(query: string): AssistantEvidenceSource | null {
     .map(([label, count]) => `${label}: ${count}`)
     .join("; ");
 
-  const rowLines = matches.map((paper) => {
+  const contextMatches = wantsExpandedAnswer(query) ? matches : matches.slice(0, 5);
+  const rowLines = contextMatches.map((paper) => {
     const system = systemById.get(paper.id);
     const extra = [
       `architecture=${paper.architectureFamily}`,
@@ -300,7 +301,9 @@ function buildMasterSource(query: string): AssistantEvidenceSource | null {
       `Task totals — ${taskCounts}.`,
       `Evaluation totals — ${evaluationCounts}.`,
       `Other totals — code available: ${papers.filter((paper) => paper.hasCode).length}; demo available: ${papers.filter((paper) => paper.hasDemo).length}; in-depth subset: ${papers.filter((paper) => paper.inDepth).length}.`,
-      rowLines.length ? "Matching rows:\n" + rowLines.join("\n") : "",
+      rowLines.length
+        ? `${contextMatches.length < matches.length ? "Representative" : "Matching"} rows supplied to the answer model:\n${rowLines.join("\n")}`
+        : "",
     ].filter(Boolean).join("\n"),
   };
 }
@@ -385,7 +388,8 @@ function buildListeningSource(query: string): AssistantEvidenceSource | null {
 
   const shouldIncludeRows = criteria.length > 0 || asksForTop || namedRecords.length > 0;
   const selectedRows = shouldIncludeRows ? matches : [];
-  const rowLines = selectedRows.map(({ system, evaluation, paper }) => {
+  const contextRows = wantsExpandedAnswer(query) ? selectedRows : selectedRows.slice(0, 5);
+  const rowLines = contextRows.map(({ system, evaluation, paper }) => {
     const scores = Object.entries(evaluation.scores)
       .map(([key, value]) => `${key}=${value == null ? "N/A" : value}`)
       .join(", ");
@@ -424,7 +428,9 @@ function buildListeningSource(query: string): AssistantEvidenceSource | null {
       "Caution: these are ratings by one non-musician evaluator on a common 1–5 rubric, not a population-level listening experiment. Overall is a separate holistic rating, not a calculated mean.",
       matchSummary,
       `Dimension means across available ratings — quality ${meanScore("quality").toFixed(2)}; melody ${meanScore("melody").toFixed(2)}; harmony ${meanScore("harmony").toFixed(2)}; rhythm ${meanScore("rhythm").toFixed(2)}; structure ${meanScore("structure").toFixed(2)}; control ${meanScore("control").toFixed(2)}; naturalness ${meanScore("naturalness").toFixed(2)}; overall ${meanScore("overall").toFixed(2)}.`,
-      rowLines.length ? "Matching rows:\n" + rowLines.join("\n") : "",
+      rowLines.length
+        ? `${contextRows.length < selectedRows.length ? "Representative" : "Matching"} rows supplied to the answer model:\n${rowLines.join("\n")}`
+        : "",
     ].filter(Boolean).join("\n"),
   };
 }
