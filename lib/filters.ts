@@ -81,7 +81,7 @@ function matchesText(p: Paper, q: string): boolean {
   if (!q) return true;
   const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
   const hay = [
-    p.title, p.authors, p.method, p.dataset, p.datasetTags.join(" "), p.taskCategory,
+    p.title, p.authors, p.method, p.architectureFamily, p.dataset, p.datasetTags.join(" "), p.taskCategory,
     p.evaluationCategory, p.paradigm ?? "", p.paradigmTags.join(" "), String(p.year ?? ""),
   ].join(" ").toLowerCase();
 

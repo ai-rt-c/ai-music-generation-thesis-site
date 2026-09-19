@@ -10,14 +10,22 @@ export interface AssistantSourceLink {
   href: string;
 }
 
+export type AssistantSourceKind = "thesis" | "master" | "listening";
+
 export interface AssistantSource {
   id: string;
+  citation: string;
+  kind: AssistantSourceKind;
   label: string;
   href: string;
   excerpt: string;
-  thesisPage: string;
-  pdfPage: number;
+  thesisPage?: string;
+  pdfPage?: number;
   siteLinks: AssistantSourceLink[];
+}
+
+export interface AssistantEvidenceSource extends AssistantSource {
+  context: string;
 }
 
 export interface AssistantAnswer {

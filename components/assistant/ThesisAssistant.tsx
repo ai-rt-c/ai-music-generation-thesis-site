@@ -14,10 +14,10 @@ interface DisplayMessage extends AssistantMessage {
 }
 
 const SUGGESTIONS = [
+  "Which studies in the 107-paper corpus used Transformer- or LLM-based architectures?",
+  "Which systems scored at least 4/5 overall, and what distinguished them?",
   "What are the main contributions of the thesis?",
-  "Which systems scored at least 4/5, and what distinguished them?",
   "What are the main limitations of the review?",
-  "How were objective and subjective evaluation evidence distinguished?",
 ];
 
 const ASSISTANT_API_URL =
@@ -27,8 +27,67 @@ const WELCOME: DisplayMessage = {
   id: "welcome",
   role: "assistant",
   content:
-    "Ask about the review, methodology, findings, 27-system listening analysis, limitations, or appendices. I search the full public thesis PDF, answer only from its text, and cite the exact thesis pages used.",
+    "Ask about the review, individual studies, datasets, methods, findings, or the 27-system listening analysis. I use the public thesis plus verified structured records from the final 107-study and 27-system tables, cite the evidence used, and keep the answer brief.",
 };
+
+function MessageSources({ sources }: { sources: AssistantSource[] }) {
+  const readingLinks = sources
+    .flatMap((source) => [
+      ...source.siteLinks,
+      ...(source.kind === "thesis"
+        ? [{ label: `Thesis ${source.thesisPage === "Cover" ? "cover" : `p. ${source.thesisPage}`}`, href: source.href }]
+        : []),
+    ])
+    .filter((link, index, links) => links.findIndex((candidate) => candidate.href === link.href) === index)
+    .slice(0, 4);
+
+  return (
+    <div className="mt-3 rounded-lg border border-line bg-white px-3 py-2.5 text-xs">
+      {readingLinks.length > 0 && (
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span className="font-medium text-muted">Read more:</span>
+          {readingLinks.map((link) =>
+            link.href.startsWith("/thesis/") ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-forest hover:underline"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.href} href={link.href} className="font-medium text-forest hover:underline">
+                {link.label}
+              </Link>
+            ),
+          )}
+        </div>
+      )}
+      <details className={readingLinks.length > 0 ? "mt-2 border-t border-line pt-2" : ""}>
+        <summary className="cursor-pointer select-none font-medium text-forest-ink">
+          Sources used ({sources.length})
+        </summary>
+        <ol className="mt-2 space-y-2.5">
+          {sources.map((source) => (
+            <li key={source.id} className="leading-relaxed text-muted">
+              <a
+                href={source.href}
+                target={source.kind === "thesis" ? "_blank" : undefined}
+                rel={source.kind === "thesis" ? "noreferrer" : undefined}
+                className="font-medium text-forest hover:underline"
+              >
+                [{source.citation}] {source.label}
+              </a>
+              <span className="mt-0.5 block">{source.excerpt}</span>
+            </li>
+          ))}
+        </ol>
+      </details>
+    </div>
+  );
+}
 
 export default function ThesisAssistant() {
   const [messages, setMessages] = useState<DisplayMessage[]>([WELCOME]);
@@ -119,7 +178,7 @@ export default function ThesisAssistant() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-sm font-semibold text-forest-ink">Evidence-grounded assistant</p>
-              <p className="mt-0.5 text-xs text-muted">Full thesis PDF · page-cited answers · site links for exploration</p>
+              <p className="mt-0.5 text-xs text-muted">Public thesis · verified study data · concise cited answers</p>
             </div>
             <button
               type="button"
@@ -147,39 +206,10 @@ export default function ThesisAssistant() {
                     : "border border-line bg-canvas text-ink"
                 }`}
               >
-                {message.content}
+                {message.role === "assistant" ? message.content.replaceAll("**", "") : message.content}
               </div>
               {message.sources && message.sources.length > 0 && (
-                <div className="mt-3 rounded-lg border border-line bg-white px-3 py-2.5">
-                  <p className="text-[11px] font-medium uppercase tracking-wide text-muted">Thesis pages used</p>
-                  <ol className="mt-2 space-y-2">
-                    {message.sources.map((source, index) => (
-                      <li key={source.id} className="text-xs leading-relaxed text-muted">
-                        <a
-                          href={source.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="font-medium text-forest"
-                        >
-                          [T{index + 1}] {source.label}
-                        </a>
-                        <span className="mt-0.5 block">{source.excerpt}</span>
-                        {source.siteLinks.length > 0 && (
-                          <span className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
-                            <span className="text-[10px] font-medium uppercase tracking-wide text-muted/80">
-                              Explore on site
-                            </span>
-                            {source.siteLinks.map((link) => (
-                              <Link key={link.href} href={link.href} className="font-medium text-forest hover:underline">
-                                {link.label}
-                              </Link>
-                            ))}
-                          </span>
-                        )}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
+                <MessageSources sources={message.sources} />
               )}
             </article>
           ))}
@@ -261,7 +291,7 @@ export default function ThesisAssistant() {
         <div className="mt-4 rounded-xl bg-forest-light/60 p-4 text-xs leading-relaxed text-muted">
           <p className="font-medium text-forest-ink">Scope and caution</p>
           <p className="mt-2">
-            The public thesis PDF is the only source used for answers. Links to website pages are provided for easier exploration, not as evidence.
+            Answers use the public thesis and verified structured records derived from the final 107-study and 27-system tables. The original spreadsheets are not published or downloadable.
           </p>
           <a
             href="/thesis/AI_Music_Thesis_Public_Edition.pdf"

@@ -1,7 +1,10 @@
 import "server-only";
 
 import thesisCorpusJson from "@/data/thesis-corpus.json";
-import type { AssistantSource, AssistantSourceLink } from "@/lib/assistant/types";
+import type {
+  AssistantEvidenceSource,
+  AssistantSourceLink,
+} from "@/lib/assistant/types";
 
 interface ThesisChunk {
   id: string;
@@ -27,10 +30,6 @@ interface IndexedChunk extends ThesisChunk {
   normalizedSection: string;
   termCounts: Map<string, number>;
   length: number;
-}
-
-export interface RetrievedSource extends AssistantSource {
-  context: string;
 }
 
 const PUBLIC_PDF_PATH = "/thesis/AI_Music_Thesis_Public_Edition.pdf";
@@ -164,10 +163,12 @@ function shortExcerpt(text: string, length = 260) {
   return `${clipped.slice(0, boundary > 160 ? boundary : length).trimEnd()}…`;
 }
 
-function toRetrievedSource(chunk: IndexedChunk): RetrievedSource {
+function toRetrievedSource(chunk: IndexedChunk, index: number): AssistantEvidenceSource {
   const pageName = chunk.thesisPage === "Cover" ? "cover" : `p. ${chunk.thesisPage}`;
   return {
-    id: chunk.id,
+    id: `thesis-${chunk.id}`,
+    citation: `T${index + 1}`,
+    kind: "thesis",
     label: `${chunk.section} · Thesis ${pageName}`,
     href: `${PUBLIC_PDF_PATH}#page=${chunk.pdfPage}`,
     excerpt: shortExcerpt(chunk.text),
@@ -178,7 +179,7 @@ function toRetrievedSource(chunk: IndexedChunk): RetrievedSource {
   };
 }
 
-export function retrieveThesisContext(query: string, limit = 7): RetrievedSource[] {
+export function retrieveThesisContext(query: string, limit = 3): AssistantEvidenceSource[] {
   const queryTerms = expandedQueryTerms(query);
   const ranked = INDEX
     .map((chunk) => ({ chunk, score: scoreChunk(chunk, query, queryTerms) }))

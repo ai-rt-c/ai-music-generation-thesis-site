@@ -3,6 +3,10 @@ import { generateText } from "ai";
 import { NextResponse } from "next/server";
 import { buildAssistantInstructions } from "@/lib/assistant/prompt";
 import { retrieveThesisContext } from "@/lib/assistant/retrieve";
+import {
+  retrieveStructuredContext,
+  wantsExpandedAnswer,
+} from "@/lib/assistant/structured";
 import type { AssistantMessage } from "@/lib/assistant/types";
 
 export const runtime = "nodejs";
@@ -111,12 +115,18 @@ export async function POST(request: Request) {
       .slice(-4)
       .map(({ role, content }) => `${role}: ${content}`)
       .join("\n");
-    const retrieved = retrieveThesisContext(`${latestQuestion}\n${recentConversation}`);
+    const structured = retrieveStructuredContext(latestQuestion);
+    const thesis = retrieveThesisContext(
+      `${latestQuestion}\n${recentConversation}`,
+      structured.length ? 2 : 3,
+    );
+    const retrieved = [...structured, ...thesis];
+    const expandedAnswer = wantsExpandedAnswer(latestQuestion);
     const result = await generateText({
       model: google(MODEL),
-      instructions: buildAssistantInstructions(retrieved),
+      instructions: buildAssistantInstructions(retrieved, expandedAnswer),
       messages,
-      maxOutputTokens: 1_200,
+      maxOutputTokens: expandedAnswer ? 1_200 : 420,
       reasoning: "minimal",
       temperature: 0.2,
       maxRetries: 1,

@@ -9,6 +9,9 @@ out/
 scripts/__pycache__/
 
 # Private thesis and research sources must never enter the public export.
+/sources/
+*.xlsx
+*.xls
 /public/downloads/Thesis.pdf
 /public/downloads/*.xlsx
 /public/downloads/*.xls
