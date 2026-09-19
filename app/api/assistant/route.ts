@@ -9,7 +9,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
 
-const MODEL = process.env.THESIS_ASSISTANT_MODEL || "gemini-2.5-flash";
+const MODEL = process.env.THESIS_ASSISTANT_MODEL || "gemini-3.6-flash";
 const MAX_MESSAGES = 8;
 const MAX_MESSAGE_LENGTH = 4_000;
 const MAX_TOTAL_LENGTH = 14_000;
