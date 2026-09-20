@@ -458,6 +458,15 @@ function namedRecordAnswer(query: string): DeterministicAnswer | null {
 
   const paper = mentionedPaper(query);
   if (!paper) {
+    const explicitlyNamed = query.match(
+      /\b(?:system|model|paper|study)\s+(?:called|named)\s+["“”']?([A-Za-z][A-Za-z0-9-]{2,})/,
+    )?.[1];
+    if (explicitlyNamed) {
+      return {
+        answer: `${explicitlyNamed} does not match a named study or system in the verified thesis datasets.`,
+        sources: [],
+      };
+    }
     const modelLike = query.match(/\b[A-Za-z][A-Za-z0-9-]*(?:GPT|LM|Gen|Net|former)\b/g)
       ?.filter((name) => !/^(transformer|llm)$/i.test(name));
     if (modelLike?.length) {

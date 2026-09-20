@@ -6,7 +6,6 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
 import Footer from "@/components/layout/Footer";
-import AssistantWidget from "@/components/assistant/AssistantWidget";
 import { meta } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -36,7 +35,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
         </div>
         <Footer meta={meta} />
-        <AssistantWidget preview={process.env.VERCEL_ENV === "preview"} />
       </body>
     </html>
   );

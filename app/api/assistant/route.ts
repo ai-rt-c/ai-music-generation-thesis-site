@@ -23,6 +23,7 @@ const MODEL = process.env.THESIS_ASSISTANT_MODEL || "gemini-3.6-flash";
 const MAX_MESSAGES = 8;
 const MAX_MESSAGE_LENGTH = 4_000;
 const MAX_TOTAL_LENGTH = 14_000;
+const NOT_VERIFIED = "I could not verify that from the thesis evidence available to me.";
 const ALLOWED_ORIGINS = new Set([
   "https://ai-music-generation-thesis-review.vercel.app",
   "https://ai-rt-c.github.io",
@@ -103,14 +104,36 @@ function publicSource(source: AssistantEvidenceSource | StructuredEvidenceSource
   return publicFields;
 }
 
-function resolvedQuestion(messages: AssistantMessage[]) {
-  const latest = messages.at(-1)!.content;
+function isContextDependentQuestion(latest: string) {
   const words = latest.trim().split(/\s+/);
-  const looksLikeFollowUp = words.length <= 12
-    && /^(why|how|what about|and|but|which one|it|that|those|they|them|چرا|چطور|پس|اون|آن)/i.test(latest.trim());
-  if (!looksLikeFollowUp) return latest;
+  return words.length <= 14 && (
+    /^(?:what|how) about\b|^(?:and|but)\b|^which one\b/i.test(latest)
+    || /\b(?:it|its|that|this|those|these|they|them|both|former|latter)\b/i.test(latest)
+    || /^(?:why|how)\s*\??$/i.test(latest)
+    || /^(?:پس|اون|آن|این|آنها|آن‌ها|اینا|اونا)\b/i.test(latest)
+  );
+}
+
+function resolvedQuestion(messages: AssistantMessage[]) {
+  const latest = messages.at(-1)!.content.trim();
+  if (!isContextDependentQuestion(latest)) return latest;
   const previous = [...messages.slice(0, -1)].reverse().find((message) => message.role === "user");
   return previous ? `${previous.content}\nFollow-up: ${latest}` : latest;
+}
+
+function numericClaims(value: string) {
+  return [...value.matchAll(/(?<![\p{L}\p{N}])\d{1,4}(?:[.,]\d+)?%?(?![\p{L}\p{N}])/gu)]
+    .map((match) => match[0].replace(",", "."));
+}
+
+function containsUnsupportedNumber(answer: string, evidence: string, question: string) {
+  const allowed = new Set([
+    ...numericClaims(evidence),
+    ...numericClaims(question),
+    "27",
+    "107",
+  ]);
+  return numericClaims(answer).some((claim) => !allowed.has(claim));
 }
 
 function cleanGeneratedAnswer(answer: string) {
@@ -141,8 +164,19 @@ export async function POST(request: Request) {
     }
 
     const latestQuestion = messages.at(-1)!.content;
+    // Resolve complete questions on their own before consulting conversation
+    // history. This prevents an earlier unrelated question from contaminating
+    // a later standalone query such as "How many studies use Transformers?".
+    const contextDependent = isContextDependentQuestion(latestQuestion);
+    const latestDeterministic = contextDependent ? null : answerDeterministically(latestQuestion);
+    if (latestDeterministic?.sources.length) {
+      return NextResponse.json(latestDeterministic, { headers: responseHeaders(request) });
+    }
+
     const questionForEvidence = resolvedQuestion(messages);
-    const deterministic = answerDeterministically(questionForEvidence);
+    const deterministic = questionForEvidence === latestQuestion
+      ? latestDeterministic
+      : answerDeterministically(questionForEvidence);
     if (deterministic) {
       return NextResponse.json(deterministic, { headers: responseHeaders(request) });
     }
@@ -160,24 +194,29 @@ export async function POST(request: Request) {
       messages,
       maxOutputTokens: expandedAnswer ? 1_200 : 420,
       reasoning: "minimal",
-      temperature: 0.2,
+      temperature: 0,
       maxRetries: 1,
     });
 
+    const cleanedAnswer = cleanGeneratedAnswer(result.text);
+    const evidenceText = retrieved.map((source) => source.context).join("\n");
+    const mustRefuse = !cleanedAnswer
+      || containsUnknownId(cleanedAnswer)
+      || containsUnsupportedNumber(cleanedAnswer, evidenceText, questionForEvidence)
+      || /(?:could not verify|insufficient evidence|not enough evidence|not available in the (?:supplied|thesis) evidence)/i.test(cleanedAnswer);
+
     return NextResponse.json(
       {
-        answer: containsUnknownId(result.text)
-          ? "I could not verify that from the thesis evidence available to me."
-          : cleanGeneratedAnswer(result.text),
-        sources: retrieved.map(publicSource),
+        answer: mustRefuse ? NOT_VERIFIED : cleanedAnswer,
+        sources: mustRefuse ? [] : retrieved.map(publicSource),
       },
       { headers: responseHeaders(request) },
     );
   } catch (error) {
     console.error("Thesis assistant request failed", error);
     return NextResponse.json(
-      { error: "The assistant is temporarily unavailable. The thesis pages remain accessible." },
-      { status: 503, headers: responseHeaders(request) },
+      { answer: NOT_VERIFIED, sources: [] },
+      { status: 200, headers: responseHeaders(request) },
     );
   }
 }
