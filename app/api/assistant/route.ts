@@ -4,6 +4,11 @@ import { NextResponse } from "next/server";
 import { buildAssistantInstructions } from "@/lib/assistant/prompt";
 import { retrieveThesisContext } from "@/lib/assistant/retrieve";
 import {
+  answerDeterministically,
+  answerScopeOnly,
+  containsUnknownId,
+} from "@/lib/assistant/answer";
+import {
   retrieveStructuredContext,
   wantsExpandedAnswer,
 } from "@/lib/assistant/structured";
@@ -67,7 +72,7 @@ function allowRequest(ip: string) {
     rateLimit.set(ip, { count: 1, resetAt: now + 10 * 60_000 });
     return true;
   }
-  if (existing.count >= 12) return false;
+  if (existing.count >= 30) return false;
   existing.count += 1;
   return true;
 }
@@ -98,6 +103,24 @@ function publicSource(source: AssistantEvidenceSource | StructuredEvidenceSource
   return publicFields;
 }
 
+function resolvedQuestion(messages: AssistantMessage[]) {
+  const latest = messages.at(-1)!.content;
+  const words = latest.trim().split(/\s+/);
+  const looksLikeFollowUp = words.length <= 12
+    && /^(why|how|what about|and|but|which one|it|that|those|they|them|چرا|چطور|پس|اون|آن)/i.test(latest.trim());
+  if (!looksLikeFollowUp) return latest;
+  const previous = [...messages.slice(0, -1)].reverse().find((message) => message.role === "user");
+  return previous ? `${previous.content}\nFollow-up: ${latest}` : latest;
+}
+
+function cleanGeneratedAnswer(answer: string) {
+  return answer
+    .replace(/\[(?:T|M|L)\d+\]/gi, "")
+    .replace(/\s+([.,;:])/g, "$1")
+    .replace(/[ \t]{2,}/g, " ")
+    .trim();
+}
+
 export async function POST(request: Request) {
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
   if (!allowRequest(ip)) {
@@ -118,31 +141,19 @@ export async function POST(request: Request) {
     }
 
     const latestQuestion = messages.at(-1)!.content;
-    const recentConversation = messages
-      .slice(-4)
-      .map(({ role, content }) => `${role}: ${content}`)
-      .join("\n");
-    const structured = retrieveStructuredContext(latestQuestion);
-    const expandedAnswer = wantsExpandedAnswer(latestQuestion);
-    const directAnswer = expandedAnswer
-      ? undefined
-      : structured.find((source) => source.directAnswer)?.directAnswer;
-
-    if (directAnswer) {
-      return NextResponse.json(
-        {
-          answer: directAnswer,
-          sources: structured.map(publicSource),
-        },
-        { headers: responseHeaders(request) },
-      );
+    const questionForEvidence = resolvedQuestion(messages);
+    const deterministic = answerDeterministically(questionForEvidence);
+    if (deterministic) {
+      return NextResponse.json(deterministic, { headers: responseHeaders(request) });
     }
 
-    const thesis = retrieveThesisContext(
-      `${latestQuestion}\n${recentConversation}`,
-      structured.length ? 2 : 3,
-    );
+    const structured = retrieveStructuredContext(questionForEvidence);
+    const expandedAnswer = wantsExpandedAnswer(latestQuestion);
+    const thesis = retrieveThesisContext(questionForEvidence, structured.length ? 2 : 3);
     const retrieved = [...structured, ...thesis];
+    if (!retrieved.length) {
+      return NextResponse.json(answerScopeOnly(), { headers: responseHeaders(request) });
+    }
     const result = await generateText({
       model: google(MODEL),
       instructions: buildAssistantInstructions(retrieved, expandedAnswer),
@@ -155,7 +166,9 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       {
-        answer: result.text,
+        answer: containsUnknownId(result.text)
+          ? "I could not verify that from the thesis evidence available to me."
+          : cleanGeneratedAnswer(result.text),
         sources: retrieved.map(publicSource),
       },
       { headers: responseHeaders(request) },

@@ -17,7 +17,7 @@ export interface AssistantSource {
   citation: string;
   kind: AssistantSourceKind;
   label: string;
-  href: string;
+  href?: string;
   excerpt: string;
   thesisPage?: string;
   pdfPage?: number;

@@ -163,18 +163,20 @@ function shortExcerpt(text: string, length = 260) {
   return `${clipped.slice(0, boundary > 160 ? boundary : length).trimEnd()}…`;
 }
 
-function toRetrievedSource(chunk: IndexedChunk, index: number): AssistantEvidenceSource {
+function toRetrievedSource(chunk: IndexedChunk): AssistantEvidenceSource {
   const pageName = chunk.thesisPage === "Cover" ? "cover" : `p. ${chunk.thesisPage}`;
   return {
     id: `thesis-${chunk.id}`,
-    citation: `T${index + 1}`,
+    citation: `Thesis ${pageName}`,
     kind: "thesis",
     label: `${chunk.section} · Thesis ${pageName}`,
     href: `${PUBLIC_PDF_PATH}#page=${chunk.pdfPage}`,
     excerpt: shortExcerpt(chunk.text),
     thesisPage: chunk.thesisPage,
     pdfPage: chunk.pdfPage,
-    siteLinks: chunk.siteLinks,
+    // Related page mappings in the corpus are intentionally not exposed here:
+    // the exact PDF page is evidence, while broad site links can be misleading.
+    siteLinks: [],
     context: chunk.text,
   };
 }
@@ -183,26 +185,20 @@ export function retrieveThesisContext(query: string, limit = 3): AssistantEviden
   const queryTerms = expandedQueryTerms(query);
   const ranked = INDEX
     .map((chunk) => ({ chunk, score: scoreChunk(chunk, query, queryTerms) }))
-    .filter(({ score }) => score > 0)
+    .filter(({ score }) => score >= 2.5)
     .sort((a, b) => b.score - a.score || a.chunk.pdfPage - b.chunk.pdfPage);
+
+  const bestScore = ranked[0]?.score ?? 0;
+  if (bestScore < 3.5) return [];
 
   const selected: IndexedChunk[] = [];
   const usedPages = new Set<number>();
   for (const item of ranked) {
+    if (item.score < Math.max(2.5, bestScore * 0.24)) continue;
     if (usedPages.has(item.chunk.pdfPage)) continue;
     selected.push(item.chunk);
     usedPages.add(item.chunk.pdfPage);
     if (selected.length === limit) break;
-  }
-
-  if (selected.length === 0) {
-    const fallbackPages = new Set([2, 11, 12]);
-    INDEX.forEach((chunk) => {
-      if (fallbackPages.has(chunk.pdfPage) && !usedPages.has(chunk.pdfPage)) {
-        selected.push(chunk);
-        usedPages.add(chunk.pdfPage);
-      }
-    });
   }
 
   return selected.slice(0, limit).map(toRetrievedSource);
