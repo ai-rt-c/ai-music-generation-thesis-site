@@ -26,24 +26,33 @@ export default function AssistantWidget({ preview = false }: { preview?: boolean
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  if (pathname === "/assistant") return null;
+  if (pathname.replace(/\/+$/, "") === "/assistant") return null;
 
   return (
     <>
       {open && (
-        <aside aria-label="Thesis assistant panel" className={`fixed inset-x-3 top-20 z-[70] sm:inset-auto sm:right-6 sm:top-auto sm:h-[min(43rem,calc(100vh-8rem))] sm:w-[26rem] ${preview ? "bottom-40" : "bottom-24"}`}>
+        <aside
+          id="thesis-assistant-panel"
+          aria-label="Thesis assistant panel"
+          className={`pointer-events-auto fixed inset-x-3 top-20 z-[2147483000] sm:inset-auto sm:top-auto sm:h-[min(43rem,calc(100vh-8rem))] sm:w-[26rem] ${preview ? "bottom-24 sm:left-6" : "bottom-24 sm:right-6"}`}
+        >
           <ThesisAssistant variant="panel" onClose={() => setOpen(false)} />
         </aside>
       )}
-      <button
-        type="button"
-        onClick={() => setOpen((value) => !value)}
+      <a
+        href="/assistant/"
+        role="button"
+        onClick={(event) => {
+          event.preventDefault();
+          setOpen((value) => !value);
+        }}
         aria-label={open ? "Close thesis assistant" : "Open thesis assistant"}
         aria-expanded={open}
-        className={`fixed right-6 z-[71] grid h-14 w-14 place-items-center rounded-full bg-forest text-white shadow-lg ring-4 ring-white transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-forest-light ${preview ? "bottom-20" : "bottom-6"}`}
+        aria-controls="thesis-assistant-panel"
+        className={`pointer-events-auto fixed z-[2147483001] grid h-14 w-14 touch-manipulation place-items-center rounded-full bg-forest text-white no-underline shadow-lg ring-4 ring-white transition-transform hover:scale-105 hover:no-underline focus:outline-none focus:ring-4 focus:ring-forest-light ${preview ? "bottom-6 left-6" : "bottom-6 right-6"}`}
       >
         {open ? <span className="text-3xl font-light leading-none">×</span> : <AssistantMark />}
-      </button>
+      </a>
     </>
   );
 }
