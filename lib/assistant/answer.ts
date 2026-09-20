@@ -243,7 +243,7 @@ function idAnswer(query: string): DeterministicAnswer | null {
 }
 
 function specialNarrativeAnswer(query: string): DeterministicAnswer | null {
-  if (/what is (?:the )?thesis about|overview of (?:the )?thesis|main aim|research aim|موضوع.*تز|هدف.*تز/i.test(query)) {
+  if (/what is (?:the |this )?thesis about|(?:overview|summary) of (?:the |this )?thesis|tell me about (?:the |this )?thesis|main aim|research aim|موضوع.*تز|هدف.*تز/i.test(query)) {
     return {
       answer: "The thesis is a PRISMA-guided systematic review of AI methods for music generation, arrangement, and orchestration from 2020–2025. It organises 107 primary studies into an extended taxonomy, synthesises research trends, and examines a purposive 27-system subset through a pilot exploratory listening analysis.",
       sources: [thesisSource("thesis-overview", "About the thesis", content.aboutThesis.abstract, "/about-thesis")],

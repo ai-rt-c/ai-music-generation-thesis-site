@@ -167,7 +167,11 @@ export async function POST(request: Request) {
     // Resolve complete questions on their own before consulting conversation
     // history. This prevents an earlier unrelated question from contaminating
     // a later standalone query such as "How many studies use Transformers?".
-    const contextDependent = isContextDependentQuestion(latestQuestion);
+    const hasEarlierUserQuestion = messages
+      .slice(0, -1)
+      .some((message) => message.role === "user");
+    const contextDependent = hasEarlierUserQuestion
+      && isContextDependentQuestion(latestQuestion);
     const latestDeterministic = contextDependent ? null : answerDeterministically(latestQuestion);
     if (latestDeterministic?.sources.length) {
       return NextResponse.json(latestDeterministic, { headers: responseHeaders(request) });
@@ -187,6 +191,16 @@ export async function POST(request: Request) {
     const retrieved = [...structured, ...thesis];
     if (!retrieved.length) {
       return NextResponse.json(answerScopeOnly(), { headers: responseHeaders(request) });
+    }
+    // Keep the public endpoint useful and quiet when the optional provider
+    // secret is not configured. Verified deterministic answers above continue
+    // to work; open-ended questions fail closed without producing runtime
+    // errors or invented content.
+    if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+      return NextResponse.json(
+        { answer: NOT_VERIFIED, sources: [] },
+        { headers: responseHeaders(request) },
+      );
     }
     const result = await generateText({
       model: google(MODEL),
