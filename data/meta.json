@@ -1,12 +1,12 @@
 {
   "title": "A Systematic Overview on AI Music Generation, Arrangement, and Orchestration",
   "subtitle": "Companion website · 2020–2025",
-  "author": "ZahraSadat Tahawori",
+  "author": "Zahra Tahawori",
   "supervisor": "Prof. Dr. Gissel Velarde",
   "university": "IU International University of Applied Sciences",
   "program": "M.Sc. Artificial Intelligence",
   "year": 2026,
-  "lastUpdated": "2026-08-23",
+  "lastUpdated": "2026-10-12",
   "repoUrl": "https://github.com/ai-rt-c/ai-music-generation-thesis-site",
   "prisma": {
     "identified": 4521,
@@ -68,8 +68,8 @@
     }
   ],
   "citations": {
-    "apa": "Tahawori, Z. (2026). A systematic overview on AI music generation, arrangement, and orchestration [Master's thesis, IU International University of Applied Sciences].",
-    "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, ZahraSadat},\n  title   = {A Systematic Overview on AI Music Generation, Arrangement, and Orchestration},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis}\n}"
+    "apa": "Tahawori, Z. (2026). A systematic overview on AI music generation, arrangement, and orchestration. Zenodo. https://doi.org/10.5281/zenodo.23249905",
+    "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, Zahra},\n  title   = {A Systematic Overview on AI Music Generation, Arrangement, and Orchestration},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis}\n  doi     = {10.5281/zenodo.23249905}\n  url     = {https://doi.org/10.5281/zenodo.23249905}\n}"
   },
   "downloads": [],
   "figures": [
