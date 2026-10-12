@@ -28,6 +28,12 @@ export default function HomePage() {
 
       <p className="mt-8 leading-relaxed">{c.summary}</p>
 
+      <p className="mt-4 text-sm leading-relaxed">
+        <a href="https://doi.org/10.5281/zenodo.23249905" target="_blank" rel="noopener noreferrer" className="font-semibold text-forest hover:underline">
+          Read the published thesis and download the 107-study comparison table (Zenodo)
+        </a>
+      </p>
+
       <h2 className="mt-10 text-lg">Start here</h2>
       <ol className="mt-3 space-y-1.5">
         {c.readingPath.map((step, i) => (
