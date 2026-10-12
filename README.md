@@ -2,7 +2,11 @@
 
 Interactive companion to the MSc dissertation *A Systematic Overview on AI Music
 Generation, Arrangement, and Orchestration* by
-ZahraSadat Tahawori (IU International University of Applied Sciences).
+Zahra Tahawori (IU International University of Applied Sciences).
+
+**Published thesis and 107-study comparison data:** [Zenodo DOI 10.5281/zenodo.23249905](https://doi.org/10.5281/zenodo.23249905)
+
+**Interactive companion:** https://ai-music-generation-thesis-review.vercel.app/
 
 Calm, journal-like, data-driven Next.js site. Every research page renders from
 generated JSON; no research content is hard-coded in components. The Vercel
