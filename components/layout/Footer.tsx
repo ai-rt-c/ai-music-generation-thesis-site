@@ -20,6 +20,7 @@ export default function Footer({ meta }: { meta: Meta }) {
             <p className="text-ink">Cite this work</p>
             <p className="mt-1">{meta.citations.apa}</p>
             <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+              <a href="https://doi.org/10.5281/zenodo.23249905" target="_blank" rel="noopener noreferrer">Published thesis (DOI)</a>
               <a href={meta.repoUrl}>GitHub repository</a>
               <a href="/references">References</a>
             </p>
