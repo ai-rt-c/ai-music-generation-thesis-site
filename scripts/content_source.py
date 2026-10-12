@@ -3,13 +3,13 @@
 # (content.json, taxonomy.json, trends.json, meta.json). No component holds prose;
 # it all originates here and is emitted to /data by build_data.py.
 
-LAST_UPDATED = "2026-08-23"
+LAST_UPDATED = "2026-10-12"
 REPO_URL = "https://github.com/ai-rt-c/ai-music-generation-thesis-site"
 
 META = {
     "title": "A Systematic Overview on AI Music Generation, Arrangement, and Orchestration",
     "subtitle": "Companion website · 2020–2025",
-    "author": "ZahraSadat Tahawori",
+    "author": "Zahra Tahawori",
     "supervisor": "Prof. Dr. Gissel Velarde",
     "university": "IU International University of Applied Sciences",
     "program": "M.Sc. Artificial Intelligence",
@@ -31,8 +31,8 @@ META = {
         {"batch": "B7 — Orchestration", "quality": 4.2, "overall": 3.8, "leading": "control adherence"},
     ],
     "citations": {
-        "apa": "Tahawori, Z. (2026). A systematic overview on AI music generation, arrangement, and orchestration [Master's thesis, IU International University of Applied Sciences].",
-        "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, ZahraSadat},\n  title   = {A Systematic Overview on AI Music Generation, Arrangement, and Orchestration},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis}\n}",
+        "apa": "Tahawori, Z. (2026). A systematic overview on AI music generation, arrangement, and orchestration. Zenodo. https://doi.org/10.5281/zenodo.23249905",
+        "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, Zahra},\n  title   = {A Systematic Overview on AI Music Generation, Arrangement, and Orchestration},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis}\n  doi     = {10.5281/zenodo.23249905}\n  url     = {https://doi.org/10.5281/zenodo.23249905}\n}",
     },
     "downloads": [],
     "figures": [
