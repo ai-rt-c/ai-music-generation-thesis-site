@@ -15,15 +15,15 @@ export default function AboutThesisPage() {
 
       <div className="mt-6 rounded-lg border border-line bg-white p-4 text-sm">
         <a
-          href="/thesis/AI_Music_Thesis_Public_Edition.pdf"
+          href="https://doi.org/10.5281/zenodo.23249905"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="font-semibold text-forest hover:underline"
         >
-          Read the public thesis PDF
+          Read the published thesis on Zenodo
         </a>
         <p className="mt-1.5 text-xs leading-relaxed text-muted">
-          135 pages · signed declaration and matriculation number omitted from the public edition
+          134-page public PDF and the accompanying 107-study comparison workbook · DOI: 10.5281/zenodo.23249905
         </p>
       </div>
 
