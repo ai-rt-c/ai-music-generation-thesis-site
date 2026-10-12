@@ -32,7 +32,7 @@ META = {
     ],
     "citations": {
         "apa": "Tahawori, Z. (2026). A systematic overview on AI music generation, arrangement, and orchestration. Zenodo. https://doi.org/10.5281/zenodo.23249905",
-        "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, Zahra},\n  title   = {A Systematic Overview on AI Music Generation, Arrangement, and Orchestration},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis}\n  doi     = {10.5281/zenodo.23249905}\n  url     = {https://doi.org/10.5281/zenodo.23249905}\n}",
+        "bibtex": "@mastersthesis{tahawori2026aimusic,\n  author  = {Tahawori, Zahra},\n  title   = {A Systematic Overview on AI Music Generation, Arrangement, and Orchestration},\n  school  = {IU International University of Applied Sciences},\n  year    = {2026},\n  type    = {Master's thesis},\n  doi     = {10.5281/zenodo.23249905},\n  url     = {https://doi.org/10.5281/zenodo.23249905}\n}",
     },
     "downloads": [],
     "figures": [
