@@ -29,6 +29,21 @@ export default function AboutPage() {
         Supervisor: {meta.supervisor}
       </p>
 
+      <h2 className="mt-8 text-xl">Published thesis and research data</h2>
+      <p className="mt-2 leading-relaxed">
+        The public thesis PDF and the accompanying 107-study comparison workbook
+        are available on Zenodo:{" "}
+        <a href="https://doi.org/10.5281/zenodo.23249905" target="_blank" rel="noopener noreferrer">
+          10.5281/zenodo.23249905
+        </a>.
+      </p>
+      <p className="mt-2 text-sm text-muted">
+        Author ORCID:{" "}
+        <a href="https://orcid.org/0009-0006-0273-6136" target="_blank" rel="noopener noreferrer">
+          0009-0006-0273-6136
+        </a>
+      </p>
+
       <h2 className="mt-8 text-xl">How to cite</h2>
       <CopyField label="APA" value={meta.citations.apa} />
       <CopyField label="BibTeX" value={meta.citations.bibtex} />
