@@ -7,6 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
 import Footer from "@/components/layout/Footer";
 import { meta } from "@/lib/data";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
         </div>
         <Footer meta={meta} />
+        <Analytics />
       </body>
     </html>
   );
