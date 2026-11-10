@@ -66,6 +66,22 @@ research trends mixed up information. Testing and review against the thesis and
 research data informed subsequent improvements, including the use of structured
 data from the research spreadsheets alongside the thesis text.
 
+Examples from iterative preview testing include:
+
+- **Out-of-scope question:** Asked “What should I eat today?” to check whether
+  the assistant stayed within the thesis. A later preview identified the
+  question as outside its scope.
+- **Comparison:** Asked to compare GETMusic and MusicGen on control and
+  long-term structure. An earlier preview returned information for GETMusic
+  alone; a later preview reported both systems and both requested dimensions.
+- **Structured-data query:** Asked how many reviewed studies used
+  Transformer/LLM methods. A preview returned a count from the 107-study
+  records; a separate preview incorrectly treated a similar question as
+  out of scope, showing why relevant questions also need regression checks.
+
+These examples describe observed preview responses, not a measured accuracy
+score or a guarantee of current behaviour.
+
 ### My role and AI-assisted development
 
 I defined the research content and the assistant's purpose, tested responses
