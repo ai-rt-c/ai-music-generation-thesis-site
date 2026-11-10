@@ -40,6 +40,45 @@ Generated files: `papers.json` (107), `systems.json` (27), `evaluation.json`
 `taxonomy.json`, `trends.json`, `references.json` (120), `content.json`, `meta.json`.
 Schemas are in `lib/types.ts`.
 
+## Thesis assistant: evidence and testing
+
+The website includes a question-answering assistant that helps readers explore the
+thesis and its associated research data. It uses the Google Gemini API, with
+evidence from the public thesis and structured data derived from the 107-study
+comparison table and the 27-system listening analysis.
+
+The public thesis PDF is processed page by page into overlapping text chunks that
+retain page references. A BM25-style lexical ranking method selects relevant
+passages. Structured research data is generated from the source spreadsheets at
+build time; for supported questions, the assistant can use deterministic
+filtering and calculations to answer directly from these records.
+
+The assistant is instructed to stay within the supplied evidence and the scope
+of the thesis. Additional checks cover unknown study IDs and some unsupported
+numeric claims; when relevant evidence is insufficient, the assistant can
+decline to answer. These safeguards help reduce unsupported responses, but they
+do not guarantee that every answer is correct.
+
+Before publication, the assistant was tested iteratively using questions about
+the thesis and out-of-scope prompts. For example, early versions gave irrelevant
+responses to a question about what was for dinner, and some answers about
+research trends mixed up information. Testing and review against the thesis and
+research data informed subsequent improvements, including the use of structured
+data from the research spreadsheets alongside the thesis text.
+
+### My role and AI-assisted development
+
+I defined the research content and the assistant's purpose, tested responses
+against my thesis and datasets, identified errors and directed improvements.
+I used Codex to support the website and assistant's development.
+
+### Limitations
+
+The assistant is designed for the thesis and associated research data. Lexical
+retrieval can miss relevant material when questions use different wording, and
+responses may still contain errors. Gemini API availability, usage limits and
+any charges depend on the configured account and provider terms.
+
 ## Development
 
 ```
@@ -50,9 +89,8 @@ npm run build    # Vercel-ready build, including /api/assistant
 
 The assistant uses the server-only `GOOGLE_GENERATIVE_AI_API_KEY` environment
 variable; copy `.env.example` to `.env.local` for local development or add the
-secret in the Vercel project settings. Its default model is
-`gemini-2.5-flash`; override it with `THESIS_ASSISTANT_MODEL`. Never expose the
-credential through a `NEXT_PUBLIC_*` variable.
+secret in the Vercel project settings. Set `THESIS_ASSISTANT_MODEL` to override the model configured in the assistant
+route. Never expose the credential through a `NEXT_PUBLIC_*` variable.
 
 Fonts (Inter, Source Serif 4) are self-hosted via `@fontsource-variable/*` — no
 external font CDN, works offline, and builds without network access to fonts.
